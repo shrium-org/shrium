@@ -1,0 +1,47 @@
+.footer {
+  padding: 100px 48px;
+
+  text-align: center;
+
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+
+.footer h3 {
+  margin-top: 20px;
+
+  letter-spacing: .25em;
+
+  font-weight: 400;
+}
+
+.footer p {
+  color: rgba(232,230,224,.55);
+
+  margin-top: 12px;
+}
+
+.footer-links {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 32px;
+
+  margin: 32px 0;
+}
+
+.footer-links a {
+  color: rgba(232,230,224,.6);
+
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #c8841a;
+}
+
+.copyright {
+  color: rgba(232,230,224,.35);
+
+  font-size: .85rem;
+}

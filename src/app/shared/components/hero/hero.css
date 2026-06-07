@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.primary-btn {
+  background: var(--primary);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+}

@@ -1,0 +1,14 @@
+@theme {
+  --font-heading: "Rajdhani";
+  --font-body: "Outfit";
+
+  --text-xs: .75rem;
+  --text-sm: .875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+
+  --tracking-tight: -.02em;
+  --tracking-normal: 0;
+  --tracking-wide: .15em;
+}

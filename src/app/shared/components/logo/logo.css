@@ -1,0 +1,10 @@
+:host {
+  display: block;
+}
+
+svg {
+  overflow: visible;
+  filter:
+    drop-shadow(0 0 8px rgba(200, 132, 26, 0.08))
+    drop-shadow(0 0 16px rgba(200, 132, 26, 0.04));
+}
