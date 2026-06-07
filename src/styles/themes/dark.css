@@ -1,3 +1,20 @@
-:root {
-  color-scheme: dark;
+[data-theme="dark"] {
+  --color-primary: #c8841a;
+  --color-primary-hover: #e09a2a;
+
+  --color-background: #07080c;
+  --color-surface: #0c0d14;
+  --color-surface-2: #131521;
+  --color-surface-3: #1b1d2b;
+
+  --color-foreground: #e8e6e0;
+  --color-foreground-muted: rgba(232,230,224,.65);
+  --color-foreground-subtle: rgba(232,230,224,.42);
+
+  --color-border: rgba(255,255,255,.07);
+  --color-border-strong: rgba(255,255,255,.15);
+
+  --shadow-card: 0 4px 12px rgba(0,0,0,.25);
+  --shadow-hover: 0 12px 32px rgba(0,0,0,.35);
+  --shadow-primary: 0 0 24px rgba(200,132,26,.15);
 }

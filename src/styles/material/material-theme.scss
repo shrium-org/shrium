@@ -10,3 +10,17 @@ $theme: mat.define-theme((
     primary: mat.$orange-palette,
   ),
 ));
+
+
+
+.mdc-button--raised {
+  background-color: var(--color-primary) !important;
+}
+
+.mdc-button--raised:hover {
+  background-color: var(--color-primary-hover) !important;
+}
+
+.mdc-button {
+  border-radius: 12px !important;
+}

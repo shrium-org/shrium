@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 import { Meaning } from "../../components/meaning/meaning";
-import { Hero } from "../../../../shared/components/hero/hero";
 import { PublicLayout } from "../../../../layouts/public-layout/public-layout";
 import { Typography } from "../../components/typography/typography";
 import { Palette } from "../../components/palette/palette";
