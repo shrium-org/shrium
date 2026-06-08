@@ -36,7 +36,7 @@ const TECH_ACCENTS: Record<string, string> = {
           </div>
 
           <!-- Primary stack quick-glance badges at top of each card -->
-          <!-- <div class="flex flex-wrap gap-1.5 mb-3">
+          <div class="flex flex-wrap gap-1.5 mb-3">
             <ng-container *ngFor="let s of proj.stack">
               <span *ngIf="isAccented(s)"
                     class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-mono text-[11px] font-semibold border"
@@ -44,7 +44,7 @@ const TECH_ACCENTS: Record<string, string> = {
                 {{ s }}
               </span>
             </ng-container>
-          </div> -->
+          </div>
 
           <p class="text-sm text-fg-muted leading-relaxed mb-4">{{ proj.description }}</p>
 
