@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ResumeDataService } from '../../core/services/resume-data.service';
 
 // Skills that get special highlight treatment
-const PRIMARY_SKILLS = new Set(['Java', 'Angular', 'Spring Boot']);
-const SECONDARY_SKILLS = new Set(['Flutter', 'TypeScript', 'NestJS', 'PostgreSQL', 'Redis']);
+const PRIMARY_SKILLS = new Set(['Java', 'Angular', 'Spring Boot','Flutter']);
+const SECONDARY_SKILLS = new Set([, 'TypeScript', 'NestJS', 'PostgreSQL', 'Redis']);
 
 @Component({
   selector: 'app-skills',

@@ -6,6 +6,7 @@ const TECH_ACCENTS: Record<string, string> = {
   'Java':        'bg-[#e76f00]/10 border-[#e76f00]/30 text-[#e76f00]',
   'Spring Boot': 'bg-[#6db33f]/10 border-[#6db33f]/30 text-[#6db33f]',
   'Angular':     'bg-[#dd0031]/10 border-[#dd0031]/30 text-[#dd0031]',
+  'Flutter':    'bg-[#e76f00]/10 border-[#e76f00]/30 text-[#e76f00]',
 };
 
 @Component({
