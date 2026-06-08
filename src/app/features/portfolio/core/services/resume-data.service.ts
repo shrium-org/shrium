@@ -18,11 +18,18 @@ export class ResumeDataService {
         href: 'mailto:ajaymalah.2003@gmail.com',
         icon: 'ti ti-mail',
       },
+    
       {
         label: '+91 748 946 3450',
         value: '+917489463450',
         href: 'tel:+917489463450',
         icon: 'ti ti-phone',
+      },
+         {
+        label: 'Git Hub',
+        value: 'https://github.com/ajaymalah',
+        href: 'https://github.com/ajaymalah',
+        icon: 'ti ti-brand-github',
       },
       {
         label: 'LinkedIn',
