@@ -1,13 +1,19 @@
 import { Routes } from '@angular/router';
 import { Branding } from './features/branding/pages/branding/branding';
-import { Home } from './features/home/pages/home/home';
+import { Portfolio } from './features/portfolio/pages/portfolio/portfolio';
+import { Home } from './features/home/home/home';
 
 
 export const routes: Routes = [
-    {
-        path:'',
-        component:Home
-    },
+  {
+    path:'',
+    component: Home
+  }
+  ,
+  {
+    path: 'portfolio',
+    component: Portfolio
+  },
   {
     path: 'branding',
     component: Branding
