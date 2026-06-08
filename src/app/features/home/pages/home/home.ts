@@ -5,13 +5,13 @@ import { ExperienceComponent } from '../../components/experience/experience.comp
 import { ProjectsComponent } from '../../components/projects/projects.component';
 import { SkillsComponent } from '../../components/skills/skills.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { MetricsBannerComponent } from '../../components/metrics-banner/metrics-banner.component';
+import { PublicLayout } from '../../../../layouts/public-layout/public-layout';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent,EducationComponent,ExperienceComponent,MetricsBannerComponent,ProjectsComponent,SkillsComponent,FooterComponent,NavbarComponent],
+  imports: [PublicLayout,HeroComponent,EducationComponent,ExperienceComponent,MetricsBannerComponent,ProjectsComponent,SkillsComponent,FooterComponent],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
