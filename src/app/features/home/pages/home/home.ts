@@ -10,6 +10,7 @@ import { MetricsBannerComponent } from '../../components/metrics-banner/metrics-
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   imports: [HeroComponent,EducationComponent,ExperienceComponent,MetricsBannerComponent,ProjectsComponent,SkillsComponent,FooterComponent,NavbarComponent],
   templateUrl: './home.html',
   styleUrl: './home.css',
