@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
-import { PublicLayout } from '../../../../layouts/public-layout/public-layout';
-import { Hero } from '../../components/hero/hero';
-import { Experience } from '../../components/experience/experience';
-import { About } from '../../components/about/about';
-import { Project } from '../../components/project/project';
-import { Skills } from '../../components/skills/skills';
+import { HeroComponent } from '../../components/hero/hero.component';
+import { EducationComponent } from '../../components/education/education.component';
+import { ExperienceComponent } from '../../components/experience/experience.component';
+import { MetricsBannerComponent } from '../../components/metrics-banner/metrics-banner.component';
+import { SkillsComponent } from '../../components/skills/skills.component';
+import { ProjectsComponent } from '../../components/projects/projects.component';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
+
 
 
 @Component({
   selector: 'app-home',
-  imports: [PublicLayout, Hero, About, Experience, Project,Skills],
+  imports: [HeroComponent,EducationComponent,ExperienceComponent,MetricsBannerComponent,ProjectsComponent,SkillsComponent,FooterComponent,NavbarComponent],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
