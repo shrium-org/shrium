@@ -11,10 +11,10 @@ import { ThemeToggle } from '../../../../shared/components/theme-toggle/theme-to
 })
 export class NavbarComponent {
   navLinks = [
-    { label: 'Skills',     href: '#skills'     },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Projects',   href: '#projects'   },
-    { label: 'Education',  href: '#education'  },
+    { label: 'Skills',     href: 'portfolio/#skills'     },
+    { label: 'Experience', href: 'portfolio/#experience' },
+    { label: 'Projects',   href: 'portfolio/#projects'   },
+    { label: 'Education',  href: 'portfolio/#education'  },
   ];
 
 
