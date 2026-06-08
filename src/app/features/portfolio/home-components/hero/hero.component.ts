@@ -37,7 +37,7 @@ import { ResumeDataService } from '../../core/services/resume-data.service';
                        bg-[#6db33f]/10 border border-[#6db33f]/30 text-[#6db33f]">
             <i class="ti ti-leaf text-sm"></i> Spring Boot
           </span>
-          <span class="text-fg-subtle text-xs font-mono pl-1">· Full-Stack Developer</span>
+          <span class="text-fg-subtle text-xs font-mono pl-1 pt-2">· Full-Stack Developer</span>
         </div>
 
         <p class="text-sm text-fg-muted leading-relaxed max-w-xl mb-8">{{ data.summary }}</p>
@@ -56,9 +56,9 @@ import { ResumeDataService } from '../../core/services/resume-data.service';
       </div>
 
       <!-- Right — stat cards -->
-      <div class="flex md:flex-col flex-row gap-3">
+      <div class="flex justify-center  md:flex-col flex-row gap-3">
         <div *ngFor="let stat of data.heroStats"
-             class="bg-surface-2 border border-white/[0.07] rounded-xl px-6 py-5 text-center min-w-[120px]">
+             class="bg-surface-2 border border-white/[0.07] rounded-xl px-4 md:px-6 py-5 text-center min-w-[120px]">
           <div class="font-serif text-4xl text-primary leading-none">{{ stat.value }}</div>
           <div class="text-[11px] uppercase tracking-widest text-fg-subtle mt-1.5">{{ stat.label }}</div>
         </div>
