@@ -11,7 +11,7 @@ import { PublicLayout } from '../../../../layouts/public-layout/public-layout';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [PublicLayout,HeroComponent,EducationComponent,ExperienceComponent,MetricsBannerComponent,ProjectsComponent,SkillsComponent,FooterComponent],
+  imports: [PublicLayout,HeroComponent,EducationComponent,ExperienceComponent,MetricsBannerComponent,ProjectsComponent,SkillsComponent],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
