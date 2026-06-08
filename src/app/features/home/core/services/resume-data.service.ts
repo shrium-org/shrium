@@ -49,17 +49,17 @@ export class ResumeDataService {
       {
         label: 'Languages',
         icon: 'ti ti-code',
-        skills: ['Java','Dart','Python','TypeScript', 'JavaScript',  'SQL'],
+        skills: ['Java', 'Dart', 'Python', 'TypeScript', 'JavaScript', 'SQL'],
       },
       {
         label: 'Backend',
         icon: 'ti ti-server',
-        skills: ['Spring Boot','NestJS','Express.js', 'GraphQL', 'REST API', 'Microservices'],
+        skills: ['Spring Boot', 'NestJS', 'Express.js', 'GraphQL', 'REST API', 'Microservices'],
       },
       {
         label: 'Frontend',
         icon: 'ti ti-layout',
-        skills: ['Angular','Flutter','React.js', 'Next.js', 'React Query', 'Tailwind CSS'],
+        skills: ['Angular', 'Flutter', 'React.js', 'Next.js', 'React Query', 'Tailwind CSS'],
       },
       {
         label: 'Databases & Cache',
@@ -86,14 +86,14 @@ export class ResumeDataService {
         type: 'Full-time',
         period: 'Jul 2023 – Present',
         bullets: [
-          'Architected a production API gateway with <strong>NestJS</strong> orchestrating 11 microservices processing live telemetry from <strong>1,000 IoT sensors</strong> across Indian Railways — <strong>10,000 req/hr</strong> at under 1s response time.',
-          'Cut DB latency <strong>85%</strong> (800ms → 120ms) via composite index redesign and TypeORM query plan optimization.',
+          'Architected a production API gateway with <strong>Spring Boot</strong> & <strong>NestJS</strong> orchestrating 11 microservices processing live telemetry from <strong>1,000 IoT sensors</strong> across Indian Railways — <strong>10,000 req/hr</strong> at under 1s response time.',
+          'Cut DB latency <strong>85%</strong> (800ms → 120ms) via composite index redesign and query plan optimization.',
           'Raised API throughput <strong>60%</strong> by introducing a <strong>Redis distributed cache</strong> layer for high-concurrency sensor bursts.',
-          'Built event-driven inter-service pipelines with <strong>RabbitMQ</strong> pub-sub and topic exchanges for fault isolation.',
-          'Secured the service mesh with <strong>Keycloak SSO</strong>, OAuth2, JWT, and Passport.js RBAC — removed 60% of duplicated auth logic with zero downtime.',
-          'Delivered a <strong>React.js + TypeScript</strong> operator dashboard with Redux Toolkit and React Query, supporting role-specific views for admins, operators, and field engineers.',
+          'Built event-driven inter-service pipelines with <strong>RabbitMQ</strong> & <strong>Apache Kafka</strong> pub-sub for fault isolation.',
+          'Secured the service mesh with <strong>Keycloak SSO</strong>, OAuth2, JWT, and RBAC — removed 60% of duplicated auth logic with zero downtime.',
+          'Delivered an <strong>Angular</strong> operator dashboard with real-time data feeds, supporting role-specific views for admins, operators, and field engineers.',
         ],
-        tech: ['NestJS', 'React.js', 'TypeScript', 'RabbitMQ', 'Redis', 'Keycloak', 'PostgreSQL', 'MQTT'],
+        tech: ['Java', 'Spring Boot', 'Angular', 'RabbitMQ', 'Redis', 'Keycloak', 'PostgreSQL', 'MQTT'],
       },
     ],
 
@@ -102,25 +102,25 @@ export class ResumeDataService {
         title: 'IoT Device Monitoring System',
         icon: 'ti ti-cpu',
         description:
-          'Enterprise full-stack IoT platform — NestJS backend spanning 11 microservices ingesting sensor telemetry from ESP32 and Arduino devices over MQTT, paired with a React.js observability frontend via Next.js.',
+          'Enterprise full-stack IoT platform — Spring Boot backend spanning 11 microservices ingesting sensor telemetry from ESP32 and Arduino devices over MQTT, paired with an Angular observability frontend.',
         highlights: [
           'Circuit breakers, retry policies & exception filters → 99.9% uptime',
-          'Full data pipeline: firmware MQTT → RabbitMQ → PostgreSQL/Redis → REST API',
+          'Full data pipeline: firmware MQTT → Kafka → PostgreSQL/Redis → REST API',
           'JWT auth + RBAC scoping views for admins, operators & engineers',
         ],
-        stack: ['NestJS', 'Next.js', 'RabbitMQ', 'MQTT', 'PostgreSQL', 'Redis'],
+        stack: ['Java', 'Spring Boot', 'Angular', 'Kafka', 'MQTT', 'PostgreSQL', 'Redis'],
       },
       {
         title: 'Track Measuring System',
         icon: 'ti ti-route',
         description:
-          'Spring Boot platform processing inspection data from 100+ Bluetooth-enabled field devices, with a Flutter desktop app for data capture and real-time React dashboards for maintenance visibility.',
+          'Spring Boot platform processing inspection data from 100+ Bluetooth-enabled field devices, with a Flutter desktop app for data capture and real-time Angular dashboards for maintenance visibility.',
         highlights: [
           'Flutter desktop app cut manual reporting effort by 70%',
           'Bluetooth-to-cloud pipeline reduced sync time by 80%',
-          'React dashboards tracking 10,000+ inspection records',
+          'Angular dashboards tracking 10,000+ inspection records',
         ],
-        stack: ['Spring Boot', 'Flutter', 'React.js', 'PostgreSQL', 'Redis', 'Bluetooth'],
+        stack: ['Java', 'Spring Boot', 'Angular', 'Flutter', 'PostgreSQL', 'Redis'],
       },
       {
         title: 'Developer Portfolio & Blog',
