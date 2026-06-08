@@ -58,7 +58,7 @@ import { ResumeDataService } from '../../core/services/resume-data.service';
       <!-- Right — stat cards -->
       <div class="flex justify-center  md:flex-col flex-row gap-3">
         <div *ngFor="let stat of data.heroStats"
-             class="bg-surface-2 border border-white/[0.07] rounded-xl px-4 md:px-6 py-5 text-center min-w-[120px]">
+             class="bg-surface-2 border border-white/[0.07] rounded-xl md:px-6 py-5 text-center min-w-[120px]">
           <div class="font-serif text-4xl text-primary leading-none">{{ stat.value }}</div>
           <div class="text-[11px] uppercase tracking-widest text-fg-subtle mt-1.5">{{ stat.label }}</div>
         </div>
