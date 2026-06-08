@@ -33,9 +33,9 @@ export class ResumeDataService {
     ],
 
     heroStats: [
-      { value: '3 yrs', label: 'Experience' },
+      { value: '3y', label: 'Experience' },
       { value: '11', label: 'Microservices' },
-      { value: '8.83', label: 'CGPA' },
+      { value: '8.19', label: 'CGPA' },
     ],
 
     metrics: [
@@ -139,7 +139,7 @@ export class ResumeDataService {
       degree: 'B.Tech — Computer Science & Engineering',
       school: 'Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV), Bhopal, MP',
       period: 'Aug 2020 – May 2024',
-      cgpa: '8.83 / 10',
+      cgpa: '8.19 / 10',
     },
 
     certifications: [
