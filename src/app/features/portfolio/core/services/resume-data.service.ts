@@ -123,6 +123,21 @@ export class ResumeDataService {
         stack: ['Java', 'Spring Boot', 'Angular', 'Flutter', 'PostgreSQL', 'Redis'],
       },
       {
+        title: 'Civora - Social Media Platform',
+        icon: 'ti ti-social',
+
+        description:
+          'Modern full-stack social platform with a Flutter mobile app, Angular web frontend, and Java 21 / Spring Boot microservices backend — featuring real-time feeds, direct messaging, short-form media, and creator analytics.',
+        highlights: [
+          'Real-time DMs and live feed updates via WebSocket with STOMP protocol',
+          'Media pipeline for posts, stories & short-form video with async Kafka processing',
+          'Feed fanout-on-write using Redis sorted sets for sub-100ms timeline reads',
+          'JWT + OAuth2 social login (Google, GitHub) across web and mobile clients',
+          'Containerized with Docker; CI/CD via GitHub Actions',
+        ],
+        stack: ['Flutter', 'Dart', 'Angular', 'Java 21', 'Spring Boot', 'Kafka', 'Redis', 'PostgreSQL', 'WebSocket', 'Docker'],
+      },
+      {
         title: 'Developer Portfolio & Blog',
         icon: 'ti ti-writing',
         description:

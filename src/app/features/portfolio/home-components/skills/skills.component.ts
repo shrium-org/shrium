@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ResumeDataService } from '../../core/services/resume-data.service';
 
 // Skills that get special highlight treatment
-const PRIMARY_SKILLS = new Set(['Java', 'Angular', 'Spring Boot','Flutter']);
+const PRIMARY_SKILLS = new Set(['Java', 'Angular', 'Spring Boot', 'Flutter']);
 const SECONDARY_SKILLS = new Set([, 'TypeScript', 'NestJS', 'PostgreSQL', 'Redis']);
 
 @Component({
@@ -35,10 +35,18 @@ const SECONDARY_SKILLS = new Set([, 'TypeScript', 'NestJS', 'PostgreSQL', 'Redis
         <div *ngFor="let group of data.skillGroups"
              class="bg-surface border border-white/[0.07] rounded-xl p-5 hover:border-white/[0.15] transition-colors duration-200">
 
-          <div class="text-[11px] font-semibold tracking-widest uppercase text-primary mb-3.5 flex items-center gap-2">
-            <i [class]="group.icon"></i>
-            {{ group.label }}
-          </div>
+<div
+  class="text-[11px] font-semibold tracking-widest uppercase text-primary mb-3.5 flex items-center gap-2">
+
+ <div class="w-9 h-9 flex-shrink-0 rounded-lg bg-primary/10 border border-primary/20
+                        flex items-center justify-center">
+              <i [class]="group.icon + ' text-primary text-lg'"></i>
+            </div>
+
+  <p class="ml-1">{{ group.label }}</p>
+</div>
+
+      
 
           <div class="flex flex-wrap gap-1.5">
             <ng-container *ngFor="let skill of group.skills">
@@ -77,19 +85,19 @@ const SECONDARY_SKILLS = new Set([, 'TypeScript', 'NestJS', 'PostgreSQL', 'Redis
 export class SkillsComponent {
   data = inject(ResumeDataService).data;
 
-  isPrimary(skill: string)   { return PRIMARY_SKILLS.has(skill); }
+  isPrimary(skill: string) { return PRIMARY_SKILLS.has(skill); }
   isSecondary(skill: string) { return SECONDARY_SKILLS.has(skill); }
 
   getPrimaryClass(skill: string): string {
-    if (skill === 'Java')        return 'bg-[#e76f00]/10 border-[#e76f00]/40 text-[#e76f00]';
-    if (skill === 'Angular')     return 'bg-[#dd0031]/10 border-[#dd0031]/40 text-[#dd0031]';
+    if (skill === 'Java') return 'bg-[#e76f00]/10 border-[#e76f00]/40 text-[#e76f00]';
+    if (skill === 'Angular') return 'bg-[#dd0031]/10 border-[#dd0031]/40 text-[#dd0031]';
     if (skill === 'Spring Boot') return 'bg-[#6db33f]/10 border-[#6db33f]/40 text-[#6db33f]';
     return 'bg-primary/10 border-primary/30 text-primary';
   }
 
   getPrimaryIcon(skill: string): string {
-    if (skill === 'Java')        return 'ti ti-coffee';
-    if (skill === 'Angular')     return 'ti ti-brand-angular';
+    if (skill === 'Java') return 'ti ti-coffee';
+    if (skill === 'Angular') return 'ti ti-brand-angular';
     if (skill === 'Spring Boot') return 'ti ti-leaf';
     return 'ti ti-star';
   }
