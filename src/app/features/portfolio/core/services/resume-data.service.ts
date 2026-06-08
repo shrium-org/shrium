@@ -33,7 +33,7 @@ export class ResumeDataService {
     ],
 
     heroStats: [
-      { value: '3y', label: 'Experience' },
+      { value: '3Y', label: 'Experience' },
       { value: '11', label: 'Microservices' },
       { value: '8.19', label: 'CGPA' },
     ],
