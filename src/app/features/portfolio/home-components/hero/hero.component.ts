@@ -40,7 +40,7 @@ import { ResumeDataService } from '../../core/services/resume-data.service';
           <span class="text-fg-subtle text-xs font-mono pl-1 pt-2">· Full-Stack Developer</span>
         </div>
 
-        <p class="text-sm text-fg-muted leading-relaxed max-w-xl mb-8">{{ data.summary }}</p>
+        <p class="text-sm leading-relaxed max-w-xl text-justify mb-8">{{ data.summary }}</p>
 
         <!-- Contact chips -->
         <div class="flex flex-wrap gap-3">
