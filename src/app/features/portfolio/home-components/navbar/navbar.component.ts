@@ -17,5 +17,4 @@ export class NavbarComponent {
     { label: 'Education',  href: 'portfolio/#education'  },
   ];
 
-
 }

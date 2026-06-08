@@ -2,19 +2,19 @@
   --color-primary: #c8841a;
   --color-primary-hover: #b87414;
 
-  --color-background: #f7f7fb;
-  --color-surface: #ffffff;
-  --color-surface-2: #f1f3f8;
-  --color-surface-3: #e9ecf5;
+  --color-background: #faf9f6;        /* warm parchment, not pure white */
+  --color-surface: #f5f3ee;           /* cards sit slightly warmer than bg */
+  --color-surface-2: #edeae2;         /* inputs, subtle containers */
+  --color-surface-3: #e4e0d6;         /* hover states, chips */
 
   --color-foreground: #1b1d2b;
   --color-foreground-muted: rgba(27,29,43,.65);
   --color-foreground-subtle: rgba(27,29,43,.45);
 
-  --color-border: rgba(0,0,0,.08);
-  --color-border-strong: rgba(0,0,0,.15);
+  --color-border: rgba(0,0,0,.07);    /* slightly lighter — warm bg makes borders feel heavier */
+  --color-border-strong: rgba(0,0,0,.13);
 
-  --shadow-card: 0 4px 12px rgba(0,0,0,.08);
-  --shadow-hover: 0 12px 32px rgba(0,0,0,.12);
-  --shadow-primary: 0 0 20px rgba(200,132,26,.12);
+  --shadow-card: 0 4px 12px rgba(0,0,0,.07);
+  --shadow-hover: 0 12px 32px rgba(0,0,0,.10);
+  --shadow-primary: 0 0 20px rgba(200,132,26,.14);
 }
