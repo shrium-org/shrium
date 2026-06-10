@@ -1,6 +1,5 @@
 // experience.component.ts
 import { Component, inject } from '@angular/core';
-import { NgClass } from '@angular/common';
 import { ResumeDataService } from '../../core/services/resume-data.service';
 
 const TECH_ACCENTS: Record<string, string> = {
@@ -12,7 +11,7 @@ const TECH_ACCENTS: Record<string, string> = {
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [NgClass],
+  imports: [],
   templateUrl: './experience.component.html'
 
 })

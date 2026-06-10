@@ -1,6 +1,5 @@
 // usage.component.ts
 import { Component } from '@angular/core';
-import { NgClass } from '@angular/common';
 
 interface UsageRule {
   type: 'do' | 'dont';
@@ -12,7 +11,7 @@ interface UsageRule {
 @Component({
   selector: 'app-usage',
   standalone: true,
-  imports: [NgClass],
+  imports: [],
   templateUrl: './usage.html',
 })
 export class Usage {

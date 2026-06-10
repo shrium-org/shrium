@@ -5,7 +5,7 @@ import { Logo } from '../logo/logo';
   selector: 'app-navbar',
   standalone: true,
   imports: [
-    Logo
+    
   ],
   templateUrl: './navbar.html'
 })

@@ -3,7 +3,7 @@ import { Logo } from '../logo/logo';
 
 @Component({
   selector: 'app-footer',
-  imports: [Logo],
+  imports: [],
   templateUrl: './footer.html'
 })
 export class Footer {}
