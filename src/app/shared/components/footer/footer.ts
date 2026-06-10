@@ -4,7 +4,6 @@ import { Logo } from '../logo/logo';
 @Component({
   selector: 'app-footer',
   imports: [Logo],
-  templateUrl: './footer.html',
-  styleUrl: './footer.css',
+  templateUrl: './footer.html'
 })
 export class Footer {}

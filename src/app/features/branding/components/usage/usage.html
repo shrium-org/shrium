@@ -1,81 +1,87 @@
-<section class="usage-section">
+<!-- usage.component.html -->
+<section id="usage" class="mb-16">
 
-  <div class="section-label">
-    05 — Usage Guidelines
+  <!-- Section header -->
+  <div class="flex items-center gap-4 mb-8">
+    <span class="text-mono">08</span>
+    <h2 class="font-heading text-3xl font-semibold tracking-wide whitespace-nowrap"
+        style="color:var(--color-foreground)">
+      Logo Usage Standards
+    </h2>
+    <div class="divider"></div>
   </div>
 
-  <h2 class="section-title">
-    Logo Usage Standards
-  </h2>
+  <!-- Do's -->
+  <div class="flex items-center gap-2 mb-4">
+    <i class="ti ti-check text-sm" style="color:var(--color-success)" aria-hidden="true"></i>
+    <span class="label-section" style="color:var(--color-success)">Do</span>
+  </div>
 
-  <div class="usage-grid">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+    @for (rule of dos; track rule.title) {
+      <div class="card p-5"
+           style="border-color:var(--color-success-border)">
 
-    <div class="usage-card success">
-      <div class="icon">✓</div>
+        <div class="w-9 h-9 rounded-lg flex items-center justify-center mb-4"
+             style="background:var(--color-success-dim);border:1px solid var(--color-success-border)">
+          <i [class]="'ti ' + rule.icon + ' text-lg'"
+             style="color:var(--color-success)"
+             aria-hidden="true"></i>
+        </div>
 
-      <h3>Minimum Size</h3>
+        <h3 class="text-sm font-medium tracking-wide mb-2"
+            style="color:var(--color-foreground)">
+          {{ rule.title }}
+        </h3>
 
-      <p>
-        Maintain a minimum logo height of 24px for
-        digital applications and 8mm for print.
-      </p>
-    </div>
+        <p class="text-xs leading-relaxed"
+           style="color:var(--color-foreground-muted)">
+          {{ rule.description }}
+        </p>
 
-    <div class="usage-card success">
-      <div class="icon">✓</div>
+      </div>
+    }
+  </div>
 
-      <h3>Clear Space</h3>
+  <!-- Don'ts -->
+  <div class="flex items-center gap-2 mb-4">
+    <i class="ti ti-x text-sm" style="color:var(--color-danger)" aria-hidden="true"></i>
+    <span class="label-section" style="color:var(--color-danger)">Don't</span>
+  </div>
 
-      <p>
-        Keep clear space equal to the central triangle
-        around all sides of the logo.
-      </p>
-    </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    @for (rule of donts; track rule.title) {
+      <div class="card p-5"
+           style="border-color:var(--color-danger-border)">
 
-    <div class="usage-card success">
-      <div class="icon">✓</div>
+        <div class="w-9 h-9 rounded-lg flex items-center justify-center mb-4"
+             style="background:var(--color-danger-dim);border:1px solid var(--color-danger-border)">
+          <i [class]="'ti ' + rule.icon + ' text-lg'"
+             style="color:var(--color-danger)"
+             aria-hidden="true"></i>
+        </div>
 
-      <h3>Dark Backgrounds</h3>
+        <h3 class="text-sm font-medium tracking-wide mb-2"
+            style="color:var(--color-foreground)">
+          {{ rule.title }}
+        </h3>
 
-      <p>
-        Preferred application. Use the standard logo
-        version on dark surfaces.
-      </p>
-    </div>
+        <p class="text-xs leading-relaxed"
+           style="color:var(--color-foreground-muted)">
+          {{ rule.description }}
+        </p>
 
-    <div class="usage-card success">
-      <div class="icon">✓</div>
+      </div>
+    }
+  </div>
 
-      <h3>Light Backgrounds</h3>
-
-      <p>
-        Use the light-adapted logo variant to maintain
-        visibility and contrast.
-      </p>
-    </div>
-
-    <div class="usage-card danger">
-      <div class="icon">✕</div>
-
-      <h3>Do Not Distort</h3>
-
-      <p>
-        Never stretch, skew or alter the proportions
-        of the logo.
-      </p>
-    </div>
-
-    <div class="usage-card danger">
-      <div class="icon">✕</div>
-
-      <h3>Do Not Recolor</h3>
-
-      <p>
-        Do not replace the approved brand colors with
-        unapproved alternatives.
-      </p>
-    </div>
-
+  <!-- Footer note -->
+  <div class="flex items-center gap-3 mt-8 pt-5"
+       style="border-top:1px solid var(--color-border)">
+    <i class="ti ti-info-circle text-sm" style="color:var(--color-foreground-subtle)" aria-hidden="true"></i>
+    <p class="text-xs" style="color:var(--color-foreground-subtle)">
+      All usage must comply with Shrium Technologies brand guidelines. Contact the design team for exceptions.
+    </p>
   </div>
 
 </section>

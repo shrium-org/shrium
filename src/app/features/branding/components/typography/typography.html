@@ -1,86 +1,92 @@
-<section class="typography-section">
+<!-- typography.component.html -->
+<section id="typography" class="mb-16">
 
-  <div class="section-label">
-    04 — Typography
+  <!-- Section header -->
+  <div class="flex items-center gap-4 mb-8">
+    <span class="text-mono">07</span>
+    <h2 class="font-heading text-3xl font-semibold tracking-wide whitespace-nowrap"
+        style="color:var(--color-foreground)">
+      Type System
+    </h2>
+    <div class="divider"></div>
   </div>
 
-  <h2 class="section-title">
-    Type System
-  </h2>
+  <!-- Font cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+    @for (f of fonts; track f.name) {
+      <div class="card card-accent-top p-6">
 
-  <div class="type-grid">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <div class="text-base font-semibold tracking-tight mb-0.5"
+                 style="color:var(--color-foreground);font-family:var(--font-heading)">
+              {{ f.name }}
+            </div>
+            <div class="label-section">{{ f.role }}</div>
+          </div>
+          <i class="ti ti-typography text-xl" style="color:var(--color-primary)" aria-hidden="true"></i>
+        </div>
 
-    <div class="type-card">
+        <!-- Alphabet preview -->
+        <div class="text-2xl tracking-wide leading-tight mb-3"
+             [style.fontFamily]="f.family"
+             style="color:var(--color-foreground)">
+          Aa Bb Cc
+        </div>
 
-      <div class="font-name">
-        Rajdhani
+        <div class="text-xs leading-relaxed mb-4"
+             [style.fontFamily]="f.family"
+             style="color:var(--color-foreground-muted)">
+          ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+          abcdefghijklmnopqrstuvwxyz<br>
+          0123456789 !@#$%&amp;
+        </div>
+
+        <div class="text-mono text-[10px] px-2 py-1 rounded"
+             style="background:var(--color-surface-3);color:var(--color-foreground-subtle)">
+          {{ f.family }}
+        </div>
+
       </div>
-
-      <div class="font-role">
-        Primary Heading Font
-      </div>
-
-      <h1 class="sample-heading">
-        SHRIUM
-      </h1>
-
-      <h2 class="sample-subheading">
-        Enterprise Software
-      </h2>
-
-    </div>
-
-    <div class="type-card">
-
-      <div class="font-name">
-        Outfit
-      </div>
-
-      <div class="font-role">
-        Body Font
-      </div>
-
-      <p class="sample-body">
-        Building scalable platforms, SaaS applications,
-        cloud-native systems and enterprise software
-        with modern engineering practices.
-      </p>
-
-    </div>
-
+    }
   </div>
 
-  <div class="scale-section">
+  <!-- Type scale -->
+  <div class="card p-6">
 
-    <h3>Type Scale</h3>
+    <div class="label-section mb-6">Type Scale</div>
 
-    <div class="scale-list">
+    <div class="flex flex-col">
+      @for (s of scale; track s.label; let last = $last) {
+        <div class="flex items-baseline justify-between gap-4 py-4"
+             [style.borderBottom]="!last ? '1px solid var(--color-border)' : 'none'">
 
-      <div class="scale-item">
-        <span>Display</span>
-        <strong>72px</strong>
-      </div>
+          <!-- Sample text -->
+          <div class="flex-1 min-w-0">
+            <div class="truncate"
+                 [style.fontSize]="s.size"
+                 [style.fontWeight]="s.weight"
+                 [style.fontFamily]="s.label === 'Mono' ? 'var(--font-mono)' : s.weight >= 500 ? 'var(--font-heading)' : 'var(--font-body)'"
+                 [style.letterSpacing]="s.weight >= 500 ? 'var(--tracking-wide)' : 'normal'"
+                 style="color:var(--color-foreground);line-height:1.2">
+              {{ s.sample }}
+            </div>
+          </div>
 
-      <div class="scale-item">
-        <span>Heading 1</span>
-        <strong>48px</strong>
-      </div>
+          <!-- Meta -->
+          <div class="shrink-0 text-right">
+            <div class="text-mono text-[10px] mb-0.5"
+                 style="color:var(--color-primary)">
+              {{ s.label }}
+            </div>
+            <div class="text-mono text-[10px]"
+                 style="color:var(--color-foreground-subtle)">
+              {{ s.px }}px · {{ s.weight }}
+            </div>
+          </div>
 
-      <div class="scale-item">
-        <span>Heading 2</span>
-        <strong>36px</strong>
-      </div>
-
-      <div class="scale-item">
-        <span>Heading 3</span>
-        <strong>24px</strong>
-      </div>
-
-      <div class="scale-item">
-        <span>Body</span>
-        <strong>16px</strong>
-      </div>
-
+        </div>
+      }
     </div>
 
   </div>

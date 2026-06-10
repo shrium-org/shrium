@@ -1,38 +1,208 @@
-<section class="min-h-screen flex items-center justify-center px-6">
-  <div class="max-w-4xl text-center">
 
-    <span class="text-primary text-sm uppercase tracking-[0.3em]">
-      Launching Soon
-    </span>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cp:#c8841a;--cp-h:#e09a2a;
+  --bg:#07080c;--sf:#0c0d14;--sf2:#131521;--sf3:#1b1d2b;
+  --fg:#e8e6e0;--fg-m:rgba(232,230,224,.65);--fg-s:rgba(232,230,224,.42);--fg-g:rgba(232,230,224,.22);
+  --bd:rgba(255,255,255,.07);--bd-s:rgba(255,255,255,.15);
+  --cp-dim:rgba(200,132,26,.12);--cp-bd:rgba(200,132,26,.22);
+}
+body{background:var(--bg);color:var(--fg);font-family:"Outfit",sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
+.btn-p{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:var(--cp);border:1px solid var(--cp);color:#fff;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border-radius:4px;cursor:pointer;transition:background .2s}
+.btn-p:hover{background:var(--cp-h)}
+.btn-g{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:transparent;border:1px solid var(--bd-s);color:var(--fg-m);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border-radius:4px;cursor:pointer;transition:border-color .2s,color .2s}
+.btn-g:hover{border-color:var(--cp-bd);color:var(--fg)}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:6px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:rgba(200,132,26,.38);transform:translateY(-2px)}
+.lbl{font-family:"Courier New",monospace;font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--cp);opacity:.8}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+</style>
 
-    <h1 class="mt-6 text-5xl font-bold">
-      Building Something Exceptional
-    </h1>
+<app-public-layout>
 
-    <p class="mt-6 text-fg-muted max-w-2xl mx-auto">
-      Choose your destination and explore what we're building.
-    </p>
+  <div style="background:var(--bg)">
 
-    <div class="mt-12 grid md:grid-cols-2 gap-6">
-      <a
-        href="/portfolio"
-        class="p-8 rounded-xl border border-theme bg-surface hover:scale-[1.02] transition">
-        <h3 class="text-2xl font-semibold">👨‍💻 Portfolio</h3>
-        <p class="mt-3 text-fg-muted">
-          Experience, projects and technical expertise.
-        </p>
-      </a>
 
-      <a
-        href="/branding"
-        class="p-8 rounded-xl border border-theme bg-surface hover:scale-[1.02] transition">
-        <h3 class="text-2xl font-semibold">🎨 Branding</h3>
-        <p class="mt-3 text-fg-muted">
-          Design systems, branding and creative work.
-        </p>
-      </a>
+  <!-- HERO -->
+  <section style="padding:80px 32px 64px;max-width:960px;margin:0 auto">
 
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:28px">
+      <span style="width:6px;height:6px;border-radius:50%;background:var(--cp);display:inline-block;animation:pulse 2s infinite"></span>
+      <span class="lbl">Now in public beta — Enterprise platform v2.4</span>
     </div>
 
-  </div>
-</section>
+    <div style="display:grid;grid-template-columns:1fr 260px;gap:56px;align-items:center">
+
+      <!-- Left -->
+      <div>
+        <h1 style="font-family:'Rajdhani',sans-serif;font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:600;letter-spacing:.06em;line-height:1.05;color:var(--fg);margin-bottom:20px">
+          ENGINEER<br>THE <span style="color:var(--cp)">FUTURE</span><br>OF SOFTWARE
+        </h1>
+        <p style="font-size:15px;line-height:1.8;color:var(--fg-m);max-width:460px;margin-bottom:36px">
+          Shrium Technologies builds cloud-native platforms, enterprise SaaS and scalable systems. Precision engineering meets product excellence.
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px">
+          <button class="btn-p">
+            <i class="ti ti-rocket" style="font-size:14px" aria-hidden="true"></i>
+            Start building
+          </button>
+          <button class="btn-g">
+            <i class="ti ti-player-play" style="font-size:14px" aria-hidden="true"></i>
+            Watch demo
+          </button>
+        </div>
+
+        <!-- Stat row -->
+        <div style="display:flex;gap:32px;padding-top:28px;border-top:1px solid var(--bd)">
+          <div>
+            <div style="font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:600;color:var(--cp);line-height:1">50+</div>
+            <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-s);margin-top:4px">Enterprise clients</div>
+          </div>
+          <div style="width:1px;background:var(--bd)"></div>
+          <div>
+            <div style="font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:600;color:var(--cp);line-height:1">99.9%</div>
+            <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-s);margin-top:4px">Uptime SLA</div>
+          </div>
+          <div style="width:1px;background:var(--bd)"></div>
+          <div>
+            <div style="font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:600;color:var(--cp);line-height:1">8yr</div>
+            <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-s);margin-top:4px">Engineering depth</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right — vertical logo -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:16px">
+        <div style="background:var(--sf2);border:1px solid var(--bd);border-radius:8px;padding:36px 40px;display:flex;align-items:center;justify-content:center">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180" width="140" height="158">
+            <g transform="translate(80,72)">
+              <polygon points="0,-40 34.64,20 -34.64,20" stroke="#C8841A" stroke-width="3.5" fill="none" stroke-linejoin="miter"/>
+              <polygon points="0,40 -34.64,-20 34.64,-20" stroke="#E8E6E0" stroke-width="2.45" fill="none" stroke-linejoin="miter" opacity="0.5"/>
+              <polygon points="0,-18 15.588,9 -15.588,9" stroke="#C8841A" stroke-width="1.925" fill="none" stroke-linejoin="miter" opacity="0.82"/>
+              <circle cx="0" cy="-40" r="3.2" fill="#C8841A"/>
+              <circle cx="34.64" cy="20" r="3.2" fill="#C8841A"/>
+              <circle cx="-34.64" cy="20" r="3.2" fill="#C8841A"/>
+              <circle cx="0" cy="40" r="2.176" fill="#E8E6E0" opacity="0.5"/>
+              <circle cx="-34.64" cy="-20" r="2.176" fill="#E8E6E0" opacity="0.5"/>
+              <circle cx="34.64" cy="-20" r="2.176" fill="#E8E6E0" opacity="0.5"/>
+              <circle cx="0" cy="0" r="4" fill="#C8841A"/>
+            </g>
+            <line x1="32" y1="126" x2="128" y2="126" stroke="#C8841A" stroke-width="0.5" opacity="0.25"/>
+            <text x="80" y="150" font-family="Rajdhani,sans-serif" font-weight="600" font-size="28" fill="#C8841A" text-anchor="middle">S<tspan font-weight="300" fill="#E8E6E0">hrium</tspan></text>
+            <text x="80" y="166" font-family="Rajdhani,sans-serif" font-weight="200" font-size="6.8" letter-spacing="5" fill="#C8841A" opacity="0.55" text-anchor="middle">TECHNOLOGIES</text>
+          </svg>
+        </div>
+        <div style="font-family:'Courier New',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-g);text-align:center">Bengaluru · India</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div style="height:1px;background:var(--bd);margin:0 32px"></div>
+
+  <!-- SERVICES -->
+  <section style="padding:64px 32px;max-width:960px;margin:0 auto">
+    <div style="margin-bottom:40px">
+      <p class="lbl" style="margin-bottom:12px">What we build</p>
+      <h2 style="font-family:'Rajdhani',sans-serif;font-size:2rem;font-weight:600;letter-spacing:.06em;color:var(--fg)">Core Services</h2>
+      <div style="width:40px;height:2px;background:var(--cp);margin-top:10px;opacity:.6"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+
+      <div class="card" style="padding:24px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--cp),transparent)"></div>
+        <div style="width:40px;height:40px;background:var(--cp-dim);border:1px solid var(--cp-bd);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <i class="ti ti-cloud" style="font-size:18px;color:var(--cp)" aria-hidden="true"></i>
+        </div>
+        <h3 style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:600;letter-spacing:.06em;color:var(--fg);margin-bottom:8px">Cloud Platforms</h3>
+        <p style="font-size:13px;line-height:1.7;color:var(--fg-m)">Cloud-native architecture, microservices and distributed systems at scale.</p>
+      </div>
+
+      <div class="card" style="padding:24px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--cp),transparent)"></div>
+        <div style="width:40px;height:40px;background:var(--cp-dim);border:1px solid var(--cp-bd);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <i class="ti ti-building-skyscraper" style="font-size:18px;color:var(--cp)" aria-hidden="true"></i>
+        </div>
+        <h3 style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:600;letter-spacing:.06em;color:var(--fg);margin-bottom:8px">Enterprise SaaS</h3>
+        <p style="font-size:13px;line-height:1.7;color:var(--fg-m)">Full-cycle SaaS development from architecture through deployment and support.</p>
+      </div>
+
+      <div class="card" style="padding:24px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--cp),transparent)"></div>
+        <div style="width:40px;height:40px;background:var(--cp-dim);border:1px solid var(--cp-bd);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <i class="ti ti-cpu" style="font-size:18px;color:var(--cp)" aria-hidden="true"></i>
+        </div>
+        <h3 style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:600;letter-spacing:.06em;color:var(--fg);margin-bottom:8px">System Design</h3>
+        <p style="font-size:13px;line-height:1.7;color:var(--fg-m)">High-performance backends, API design and resilient data infrastructure.</p>
+      </div>
+
+      <div class="card" style="padding:24px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--cp),transparent)"></div>
+        <div style="width:40px;height:40px;background:var(--cp-dim);border:1px solid var(--cp-bd);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <i class="ti ti-device-mobile" style="font-size:18px;color:var(--cp)" aria-hidden="true"></i>
+        </div>
+        <h3 style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:600;letter-spacing:.06em;color:var(--fg);margin-bottom:8px">Product Engineering</h3>
+        <p style="font-size:13px;line-height:1.7;color:var(--fg-m)">Angular, Flutter and Spring Boot powering modern cross-platform products.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div style="height:1px;background:var(--bd);margin:0 32px"></div>
+
+  <!-- STACK -->
+  <section style="padding:40px 32px;max-width:960px;margin:0 auto">
+    <p class="lbl" style="margin-bottom:20px;text-align:center">Primary stack</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px">
+      <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:4px;background:rgba(231,111,0,.1);border:1px solid rgba(231,111,0,.3);font-family:'Courier New',monospace;font-size:11px;color:#e76f00"><i class="ti ti-coffee" style="font-size:12px" aria-hidden="true"></i> Java</span>
+      <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:4px;background:rgba(109,179,63,.1);border:1px solid rgba(109,179,63,.3);font-family:'Courier New',monospace;font-size:11px;color:#6db33f"><i class="ti ti-leaf" style="font-size:12px" aria-hidden="true"></i> Spring Boot</span>
+      <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:4px;background:rgba(221,0,49,.1);border:1px solid rgba(221,0,49,.3);font-family:'Courier New',monospace;font-size:11px;color:#dd0031"><i class="ti ti-brand-angular" style="font-size:12px" aria-hidden="true"></i> Angular</span>
+      <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:4px;background:rgba(2,125,253,.1);border:1px solid rgba(2,125,253,.3);font-family:'Courier New',monospace;font-size:11px;color:#027DFD"><i class="ti ti-brand-flutter" style="font-size:12px" aria-hidden="true"></i> Flutter</span>
+      <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:4px;background:rgba(200,132,26,.1);border:1px solid rgba(200,132,26,.3);font-family:'Courier New',monospace;font-size:11px;color:#c8841a"><i class="ti ti-database" style="font-size:12px" aria-hidden="true"></i> PostgreSQL</span>
+      <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:4px;background:rgba(200,132,26,.1);border:1px solid rgba(200,132,26,.3);font-family:'Courier New',monospace;font-size:11px;color:#c8841a"><i class="ti ti-brand-docker" style="font-size:12px" aria-hidden="true"></i> Docker</span>
+    </div>
+  </section>
+
+  <div style="height:1px;background:var(--bd);margin:0 32px"></div>
+
+  <!-- CTA -->
+  <section style="padding:72px 32px;text-align:center;max-width:960px;margin:0 auto">
+    <div style="display:inline-flex;align-items:center;justify-content:center;width:72px;height:72px;background:var(--cp-dim);border:1px solid var(--cp-bd);border-radius:8px;margin-bottom:28px">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="44" height="44">
+        <g transform="translate(128,128) scale(1.6)">
+          <polygon points="0,-40 34.64,20 -34.64,20" stroke="#C8841A" stroke-width="3.5" fill="none" stroke-linejoin="miter"/>
+          <polygon points="0,40 -34.64,-20 34.64,-20" stroke="#E8E6E0" stroke-width="2.45" fill="none" stroke-linejoin="miter" opacity="0.5"/>
+          <polygon points="0,-18 15.588,9 -15.588,9" stroke="#C8841A" stroke-width="1.925" fill="none" stroke-linejoin="miter" opacity="0.82"/>
+          <circle cx="0" cy="-40" r="3.2" fill="#C8841A"/>
+          <circle cx="34.64" cy="20" r="3.2" fill="#C8841A"/>
+          <circle cx="-34.64" cy="20" r="3.2" fill="#C8841A"/>
+          <circle cx="0" cy="40" r="2.176" fill="#E8E6E0" opacity="0.5"/>
+          <circle cx="-34.64" cy="-20" r="2.176" fill="#E8E6E0" opacity="0.5"/>
+          <circle cx="34.64" cy="-20" r="2.176" fill="#E8E6E0" opacity="0.5"/>
+          <circle cx="0" cy="0" r="4" fill="#C8841A"/>
+        </g>
+      </svg>
+    </div>
+    <h2 style="font-family:'Rajdhani',sans-serif;font-size:2.2rem;font-weight:600;letter-spacing:.06em;color:var(--fg);margin-bottom:14px">
+      Ready to build something<br><span style="color:var(--cp)">extraordinary?</span>
+    </h2>
+    <p style="font-size:14px;color:var(--fg-m);margin-bottom:32px;line-height:1.8;max-width:400px;margin-left:auto;margin-right:auto">
+      Join 50+ companies building the future with Shrium Technologies.
+    </p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-p">
+        <i class="ti ti-arrow-right" style="font-size:14px" aria-hidden="true"></i>
+        Start your project
+      </button>
+      <button class="btn-g">
+        <i class="ti ti-mail" style="font-size:14px" aria-hidden="true"></i>
+        Contact us
+      </button>
+    </div>
+  </section>
+
+</div>
+
+
+</app-public-layout>

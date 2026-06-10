@@ -4,8 +4,6 @@ import { PublicLayout } from "../../../../layouts/public-layout/public-layout";
 import { Typography } from "../../components/typography/typography";
 import { Palette } from "../../components/palette/palette";
 import { Usage } from "../../components/usage/usage";
-import { Variants } from "../../components/variants/variants";
-import { LogoGeneratorComponent } from "../logo-generator/logo-generator.component";
 
 @Component({
   selector: 'app-home',

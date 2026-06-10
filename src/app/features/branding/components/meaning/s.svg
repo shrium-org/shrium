@@ -1,0 +1,18 @@
+<!-- replace the svg block with this -->
+<svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+  @switch (s.title) {
+    @case ('Upward Triangle — Shiva') {
+      <polygon points="12,3 22,20 2,20" stroke="#c8841a" stroke-width="1.5" stroke-linejoin="miter"/>
+    }
+    @case ('Downward Triangle — Shakti') {
+      <polygon points="12,21 22,4 2,4" stroke="#c8841a" stroke-width="1.5" stroke-linejoin="miter" opacity=".55"/>
+    }
+    @case ('Inner Triangle — Product Layer') {
+      <polygon points="12,6 19,18 5,18" stroke="#c8841a" stroke-width="1.5" stroke-linejoin="miter" opacity=".82"/>
+    }
+    @case ('Bindu — Origin Point') {
+      <circle cx="12" cy="12" r="4" fill="#c8841a"/>
+      <circle cx="12" cy="12" r="7" fill="none" stroke="#c8841a" stroke-width="1" opacity=".3"/>
+    }
+  }
+</svg>
