@@ -1,0 +1,84 @@
+<!-- hero.component.html -->
+<section class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 items-start pb-16 mb-16 border-b"
+         style="border-color:var(--color-border)">
+
+  <!-- Left -->
+  <div>
+
+    <!-- Availability badge -->
+    <div class="flex items-center gap-2.5 mb-5">
+      <span class="w-2 h-2 rounded-full animate-pulse"
+            style="background:var(--color-primary)"></span>
+      <span class="text-xs font-medium tracking-widest uppercase"
+            style="color:var(--color-primary)">
+        Open to opportunities
+      </span>
+    </div>
+
+    <!-- Name -->
+    <h1 class="font-heading text-5xl md:text-6xl leading-[1.05] tracking-[-2px] mb-3"
+        style="color:var(--color-foreground)">
+      {{ data.name.split(' ')[0] }}<br>
+      <span style="color:var(--color-primary)">{{ data.name.split(' ')[1] }}</span>
+    </h1>
+
+    <!-- Stack badges -->
+    <div class="flex items-center gap-2 flex-wrap mb-5">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold tracking-wide
+                   bg-[#e76f00]/10 border border-[#e76f00]/30 text-[#e76f00]">
+        <i class="ti ti-coffee text-sm" aria-hidden="true"></i> Java
+      </span>
+      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold tracking-wide
+                   bg-[#dd0031]/10 border border-[#dd0031]/30 text-[#dd0031]">
+        <i class="ti ti-brand-angular text-sm" aria-hidden="true"></i> Angular
+      </span>
+      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold tracking-wide
+                   bg-[#6db33f]/10 border border-[#6db33f]/30 text-[#6db33f]">
+        <i class="ti ti-leaf text-sm" aria-hidden="true"></i> Spring Boot
+      </span>
+      <span class="text-xs font-mono pl-1 pt-2"
+            style="color:var(--color-foreground-subtle)">
+        · Full-Stack Developer
+      </span>
+    </div>
+
+    <!-- Summary -->
+    <p class="text-sm leading-relaxed max-w-xl text-justify mb-8"
+       style="color:var(--color-foreground-muted)">
+      {{ data.summary }}
+    </p>
+
+    <!-- Contact chips -->
+    <div class="flex flex-wrap gap-3">
+      @for (c of data.contacts; track c.label) {
+        <a [href]="c.href"
+           target="_blank"
+           rel="noopener"
+           class="contact-chip flex items-center gap-2 px-3.5 py-2 rounded-md text-xs transition-all duration-200"
+           style="background:var(--color-surface-2);border:1px solid var(--color-border);color:var(--color-foreground-muted)">
+          <i [class]="c.icon + ' text-sm'" style="color:var(--color-primary)" aria-hidden="true"></i>
+          {{ c.label }}
+        </a>
+      }
+    </div>
+
+  </div>
+
+  <!-- Right — stat cards -->
+  <div class="flex justify-center md:flex-col flex-row gap-3">
+    @for (stat of data.heroStats; track stat.label) {
+      <div class="rounded-xl md:px-6 py-5 text-center min-w-[120px]"
+           style="background:var(--color-surface-2);border:1px solid var(--color-border)">
+        <div class="font-heading text-4xl leading-none"
+             style="color:var(--color-primary)">
+          {{ stat.value }}
+        </div>
+        <div class="text-[11px] uppercase tracking-widest mt-1.5"
+             style="color:var(--color-foreground-subtle)">
+          {{ stat.label }}
+        </div>
+      </div>
+    }
+  </div>
+
+</section>

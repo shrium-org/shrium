@@ -1,0 +1,27 @@
+<!-- footer.component.html -->
+<footer class="border-t pt-8 pb-12 flex flex-wrap items-center justify-between gap-4"
+        style="border-color:var(--color-border)">
+
+  <p class="text-xs" style="color:var(--color-foreground-subtle)">
+    {{ data.name }}
+    <span class="mx-1.5" style="color:var(--color-foreground-ghost)">·</span>
+    {{ data.location }}
+    <span class="mx-1.5" style="color:var(--color-foreground-ghost)">·</span>
+    {{ data.contacts[0].value }}
+  </p>
+
+  <div class="flex gap-5">
+    @for (c of data.contacts; track c.label) {
+      <a [href]="c.href"
+         target="_blank"
+         rel="noopener"
+         class="text-xs transition-colors duration-200"
+         style="color:var(--color-foreground-subtle)"
+         onmouseover="this.style.color='var(--color-primary)'"
+         onmouseout="this.style.color='var(--color-foreground-subtle)'">
+        {{ c.label }}
+      </a>
+    }
+  </div>
+
+</footer>

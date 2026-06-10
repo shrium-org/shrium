@@ -1,61 +1,88 @@
-<section class="meaning-section">
 
-  <div class="section-label">
-    01 — Symbol
+<section style="background:var(--bg);padding:clamp(2rem,5vw,4rem) clamp(1rem,4vw,3rem);font-family:'Segoe UI',sans-serif;min-height:100vh;">
+
+  <div style="max-width:960px;margin:0 auto;">
+
+    <p style="font-size:clamp(.65rem,.9vw,.75rem);letter-spacing:.35em;text-transform:uppercase;color:var(--cp);opacity:.8;margin:0 0 1rem;">01 — Symbol</p>
+
+    <h2 style="font-size:clamp(1.5rem,3.5vw,2.4rem);font-weight:300;color:var(--fg);margin:0 0 .5rem;line-height:1.2;">The Meaning Behind the Mark</h2>
+
+    <div style="width:48px;height:2px;background:var(--cp);margin-bottom:3rem;opacity:.6;"></div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;">
+
+      <div class="mcard" style="background:var(--sf);border:1px solid var(--bd);padding:clamp(1.25rem,2.5vw,1.75rem);position:relative;overflow:hidden;transition:border-color .25s,box-shadow .25s;cursor:default;"
+        onmouseenter="this.style.borderColor='rgba(200,132,26,.45)';this.style.boxShadow='0 12px 32px rgba(0,0,0,.35),0 0 24px rgba(200,132,26,.12)'"
+        onmouseleave="this.style.borderColor='rgba(255,255,255,.07)';this.style.boxShadow='none'">
+        <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--cp),transparent);"></div>
+        <div style="width:44px;height:44px;background:rgba(200,132,26,.1);border:1px solid rgba(200,132,26,.25);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+            <polygon points="12,3 22,20 2,20" stroke="#c8841a" stroke-width="1.5" stroke-linejoin="miter"/>
+          </svg>
+        </div>
+        <h3 style="font-size:clamp(.85rem,1.1vw,.95rem);font-weight:500;color:var(--fg);margin:0 0 .75rem;letter-spacing:.04em;">Upward Triangle — Shiva</h3>
+        <p style="font-size:clamp(.78rem,1vw,.875rem);color:var(--fg-m);line-height:1.75;margin:0;">The outer gold triangle points upward — aspiration, growth and forward momentum. It represents consciousness, precision and structure.</p>
+      </div>
+
+      <div class="mcard" style="background:var(--sf);border:1px solid var(--bd);padding:clamp(1.25rem,2.5vw,1.75rem);position:relative;overflow:hidden;transition:border-color .25s,box-shadow .25s;cursor:default;"
+        onmouseenter="this.style.borderColor='rgba(200,132,26,.45)';this.style.boxShadow='0 12px 32px rgba(0,0,0,.35),0 0 24px rgba(200,132,26,.12)'"
+        onmouseleave="this.style.borderColor='rgba(255,255,255,.07)';this.style.boxShadow='none'">
+        <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--cp),transparent);"></div>
+        <div style="width:44px;height:44px;background:rgba(200,132,26,.1);border:1px solid rgba(200,132,26,.25);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+            <polygon points="12,21 22,4 2,4" stroke="#c8841a" stroke-width="1.5" stroke-linejoin="miter" opacity=".55"/>
+          </svg>
+        </div>
+        <h3 style="font-size:clamp(.85rem,1.1vw,.95rem);font-weight:500;color:var(--fg);margin:0 0 .75rem;letter-spacing:.04em;">Downward Triangle — Shakti</h3>
+        <p style="font-size:clamp(.78rem,1vw,.875rem);color:var(--fg-m);line-height:1.75;margin:0;">The descending triangle represents foundation, execution and grounded delivery. Engineering discipline that transforms ideas into reality.</p>
+      </div>
+
+      <div class="mcard" style="background:var(--sf);border:1px solid var(--bd);padding:clamp(1.25rem,2.5vw,1.75rem);position:relative;overflow:hidden;transition:border-color .25s,box-shadow .25s;cursor:default;"
+        onmouseenter="this.style.borderColor='rgba(200,132,26,.45)';this.style.boxShadow='0 12px 32px rgba(0,0,0,.35),0 0 24px rgba(200,132,26,.12)'"
+        onmouseleave="this.style.borderColor='rgba(255,255,255,.07)';this.style.boxShadow='none'">
+        <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--cp),transparent);"></div>
+        <div style="width:44px;height:44px;background:rgba(200,132,26,.1);border:1px solid rgba(200,132,26,.25);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+            <polygon points="12,6 19,18 5,18" stroke="#c8841a" stroke-width="1.5" stroke-linejoin="miter" opacity=".82"/>
+          </svg>
+        </div>
+        <h3 style="font-size:clamp(.85rem,1.1vw,.95rem);font-weight:500;color:var(--fg);margin:0 0 .75rem;letter-spacing:.04em;">Inner Triangle — Product Layer</h3>
+        <p style="font-size:clamp(.78rem,1vw,.875rem);color:var(--fg-m);line-height:1.75;margin:0;">A smaller focused triangle representing clarity, refinement and product excellence.</p>
+      </div>
+
+      <div class="mcard" style="background:var(--sf);border:1px solid var(--bd);padding:clamp(1.25rem,2.5vw,1.75rem);position:relative;overflow:hidden;transition:border-color .25s,box-shadow .25s;cursor:default;"
+        onmouseenter="this.style.borderColor='rgba(200,132,26,.45)';this.style.boxShadow='0 12px 32px rgba(0,0,0,.35),0 0 24px rgba(200,132,26,.12)'"
+        onmouseleave="this.style.borderColor='rgba(255,255,255,.07)';this.style.boxShadow='none'">
+        <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--cp),transparent);"></div>
+        <div style="width:44px;height:44px;background:rgba(200,132,26,.1);border:1px solid rgba(200,132,26,.25);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+          <svg viewBox="0 0 24 24" width="22" height="22">
+            <circle cx="12" cy="12" r="4" fill="#c8841a"/>
+            <circle cx="12" cy="12" r="7" fill="none" stroke="#c8841a" stroke-width="1" opacity=".3"/>
+          </svg>
+        </div>
+        <h3 style="font-size:clamp(.85rem,1.1vw,.95rem);font-weight:500;color:var(--fg);margin:0 0 .75rem;letter-spacing:.04em;">Bindu — Origin Point</h3>
+        <p style="font-size:clamp(.78rem,1vw,.875rem);color:var(--fg-m);line-height:1.75;margin:0;">The central bindu represents the source, the founding idea and clarity before creation.</p>
+      </div>
+
+    </div>
+
+    <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:.5rem;">
+          <div style="width:20px;height:1.5px;background:var(--cp);"></div>
+          <span style="font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-s);">Shiva</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.5rem;">
+          <div style="width:20px;height:1.5px;background:var(--fg-s);"></div>
+          <span style="font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-s);">Shakti</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.5rem;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--cp);"></div>
+          <span style="font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-s);">Bindu</span>
+        </div>
+      </div>
+      <span style="font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-s);opacity:.5;">Bengaluru · India</span>
+    </div>
+
   </div>
-
-  <h2 class="section-title">
-    The Meaning Behind the Mark
-  </h2>
-
-  <div class="meaning-grid">
-
-    <div class="meaning-card">
-      <div class="icon">△</div>
-
-      <h3>Upward Triangle — Shiva</h3>
-
-      <p>
-        The outer gold triangle points upward —
-        aspiration, growth and forward momentum.
-        It represents consciousness, precision and structure.
-      </p>
-    </div>
-
-    <div class="meaning-card">
-      <div class="icon">▽</div>
-
-      <h3>Downward Triangle — Shakti</h3>
-
-      <p>
-        The descending triangle represents foundation,
-        execution and grounded delivery.
-        Engineering discipline that transforms ideas into reality.
-      </p>
-    </div>
-
-    <div class="meaning-card">
-      <div class="icon">△</div>
-
-      <h3>Inner Triangle — Product Layer</h3>
-
-      <p>
-        A smaller focused triangle representing clarity,
-        refinement and product excellence.
-      </p>
-    </div>
-
-    <div class="meaning-card">
-      <div class="icon">●</div>
-
-      <h3>Bindu — Origin Point</h3>
-
-      <p>
-        The central bindu represents the source,
-        the founding idea and clarity before creation.
-      </p>
-    </div>
-
-  </div>
-
 </section>

@@ -1,0 +1,21 @@
+<!-- metrics-banner.component.html -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-16">
+  @for (m of data.metrics; track m.description) {
+    <div class="card card-accent-top p-5 text-center">
+      <div class="font-heading text-3xl leading-none"
+           style="color:var(--color-primary)">
+        {{ m.value }}
+        @if (m.unit) {
+          <span class="text-base font-light align-super"
+                style="font-family:var(--font-body)">
+            {{ m.unit }}
+          </span>
+        }
+      </div>
+      <div class="text-[11.5px] mt-2 leading-relaxed whitespace-pre-line"
+           style="color:var(--color-foreground-subtle)">
+        {{ m.description }}
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,67 @@
+<!-- education.component.html -->
+<section id="education" class="mb-16">
+
+  <!-- Section header -->
+  <div class="flex items-center gap-4 mb-8">
+    <span class="text-mono">04</span>
+    <h2 class="font-heading text-3xl font-semibold tracking-wide text-foreground whitespace-nowrap">
+      Education &amp; Certifications
+    </h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+    <!-- Education card -->
+    <div class="card card-accent-top p-6">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-10 h-10 shrink-0 rounded-lg flex items-center justify-center"
+             style="background:var(--color-primary-dim);border:1px solid var(--color-primary-border)">
+          <i class="ti ti-school text-lg" style="color:var(--color-primary)" aria-hidden="true"></i>
+        </div>
+        <div>
+          <div class="text-base font-semibold tracking-tight text-foreground">{{ edu.degree }}</div>
+          <div class="text-sm text-foreground-muted mt-0.5">{{ edu.school }}</div>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-mono px-2.5 py-1 rounded bg-surface-3 text-foreground-muted">
+          {{ edu.period }}
+        </span>
+        <span class="text-mono px-2.5 py-1 rounded border"
+              style="background:var(--color-primary-dim);border-color:var(--color-primary-border);color:var(--color-primary)">
+          CGPA {{ edu.cgpa }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Certifications card -->
+    <div class="card p-6">
+      <div class="label-section flex items-center gap-1.5 mb-4">
+        <i class="ti ti-certificate text-sm" aria-hidden="true"></i>
+        Certifications
+      </div>
+
+      @for (cert of certs; track cert.name; let last = $last) {
+        <div class="flex items-center justify-between gap-3 py-3"
+             [class.border-b]="!last"
+             style="border-color:var(--color-border)">
+          <div>
+            <div class="text-sm font-medium text-foreground">{{ cert.name }}</div>
+            <div class="text-xs text-foreground-subtle mt-0.5">{{ cert.by }}</div>
+          </div>
+          @if (cert.url) {
+            <a [href]="cert.url"
+               target="_blank"
+               rel="noopener"
+               class="text-mono text-xs whitespace-nowrap opacity-80 hover:opacity-100 transition-opacity"
+               style="color:var(--color-primary)">
+              View ↗
+            </a>
+          }
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

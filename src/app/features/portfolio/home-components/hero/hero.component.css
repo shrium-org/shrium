@@ -1,0 +1,5 @@
+
+.contact-chip:hover {
+  border-color: var(--color-primary) !important;
+  color: var(--color-foreground) !important;
+}

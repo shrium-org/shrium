@@ -1,0 +1,74 @@
+<!-- experience.component.html -->
+<section id="experience" class="mb-16">
+
+    <!-- Section header -->
+    <div class="flex items-center gap-4 mb-8">
+        <span class="text-mono">02</span>
+        <h2 class="font-heading text-3xl font-semibold tracking-wide text-foreground whitespace-nowrap">
+            Work Experience
+        </h2>
+        <div class="divider"></div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="flex flex-col gap-1">
+        @for (exp of data.experience; track exp.role; let last = $last) {
+
+        <div class="relative pl-7">
+
+            <!-- Vertical line -->
+            @if (!last) {
+            <div class="absolute left-0 top-2 bottom-0 w-px" style="background:var(--color-border)"></div>
+            }
+
+            <!-- Timeline dot -->
+            <div class="absolute -left-1 top-2 w-2.5 h-2.5 rounded-full border-2"
+                style="background:var(--color-primary);border-color:var(--color-background)"></div>
+
+            <!-- Card -->
+            <div class="card p-6 mb-1 hover:border-border-strong transition-colors duration-200">
+
+                <!-- Role + period -->
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-1">
+                    <h3 class="text-[17px] font-semibold tracking-tight text-foreground">
+                        {{ exp.role }}
+                    </h3>
+                    <span class="text-mono px-2.5 py-1 rounded border whitespace-nowrap"
+                        style="background:var(--color-primary-dim);border-color:var(--color-primary-border);color:var(--color-primary)">
+                        {{ exp.period }}
+                    </span>
+                </div>
+
+                <!-- Company meta -->
+                <p class="text-sm mb-5" style="color:var(--color-foreground-muted)">
+                    {{ exp.company }}
+                    <span class="mx-1.5" style="color:var(--color-foreground-subtle)">·</span>
+                    {{ exp.location }}
+                    <span class="mx-1.5" style="color:var(--color-foreground-subtle)">·</span>
+                    {{ exp.type }}
+                </p>
+
+                <!-- Bullets -->
+                <ul class="exp-bullets flex flex-col gap-2.5 mb-5">
+                    @for (bullet of exp.bullets; track bullet) {
+                    <li class="relative pl-5 text-sm leading-relaxed" style="color:var(--color-foreground-muted)"
+                        [innerHTML]="bullet">
+                    </li>
+                    }
+                </ul>
+
+                <!-- Tech pills -->
+                <div class="flex flex-wrap gap-1.5 pt-4" style="border-top:1px solid var(--color-border)">
+                    @for (t of exp.tech; track t) {
+               <span [class]="'px-2.5 py-1 rounded text-mono border ' + getTechClass(t)">
+  {{ t }}
+</span>
+                    }
+                </div>
+
+            </div>
+        </div>
+        }
+    </div>
+
+</section>

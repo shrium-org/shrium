@@ -5,11 +5,12 @@ import { Typography } from "../../components/typography/typography";
 import { Palette } from "../../components/palette/palette";
 import { Usage } from "../../components/usage/usage";
 import { Variants } from "../../components/variants/variants";
+import { LogoGeneratorComponent } from "../logo-generator/logo-generator.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [PublicLayout,Meaning,Palette,Variants,Typography,Usage],
+  imports: [PublicLayout,Meaning,Palette,Typography,Usage],
   templateUrl: './branding.html',
   styleUrl: './branding.css'
 })
