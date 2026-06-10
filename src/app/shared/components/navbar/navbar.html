@@ -1,36 +1,32 @@
-  <!-- NAV -->
-  <nav style="background:var(--sf);border-bottom:1px solid var(--bd);padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between">
+<nav class="bg-(--sf) border-b border-gray-600 h-15">
+  <div class="max-w-5xl mx-auto px-8 h-full flex items-center justify-between">
 
-    <!-- Icon logo in nav -->
-    <div style="display:flex;align-items:center;gap:10px">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="32" height="32">
-        <g transform="translate(128,128) scale(1.6)">
-          <polygon points="0,-40 34.64,20 -34.64,20" stroke="#C8841A" stroke-width="3.5" fill="none" stroke-linejoin="miter"/>
-          <polygon points="0,40 -34.64,-20 34.64,-20" stroke="#E8E6E0" stroke-width="2.45" fill="none" stroke-linejoin="miter" opacity="0.5"/>
-          <polygon points="0,-18 15.588,9 -15.588,9" stroke="#C8841A" stroke-width="1.925" fill="none" stroke-linejoin="miter" opacity="0.82"/>
-          <circle cx="0" cy="-40" r="3.2" fill="#C8841A"/>
-          <circle cx="34.64" cy="20" r="3.2" fill="#C8841A"/>
-          <circle cx="-34.64" cy="20" r="3.2" fill="#C8841A"/>
-          <circle cx="0" cy="40" r="2.176" fill="#E8E6E0" opacity="0.5"/>
-          <circle cx="-34.64" cy="-20" r="2.176" fill="#E8E6E0" opacity="0.5"/>
-          <circle cx="34.64" cy="-20" r="2.176" fill="#E8E6E0" opacity="0.5"/>
-          <circle cx="0" cy="0" r="4" fill="#C8841A"/>
-        </g>
+    <!-- Logo -->
+    <div class="flex items-center gap-2.5">
+      <!-- SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-8 h-8">
+        ...
       </svg>
-      <span style="font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:600;letter-spacing:.1em;color:var(--fg)">
-        <span style="color:var(--cp)">S</span><span style="font-weight:300">hrium</span>
+
+      <span class="font-semibold text-lg tracking-[0.1em] text-(--fg)">
+        <span class="text-(--cp)">S</span>
+        <span class="font-light">hrium</span>
       </span>
     </div>
 
-    <div style="display:flex;align-items:center;gap:28px">
-      <a href="#" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-m);text-decoration:none">Products</a>
-      <a href="#" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-m);text-decoration:none">Solutions</a>
-      <a href="#" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-m);text-decoration:none">Company</a>
-      <a href="#" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-m);text-decoration:none">Docs</a>
+    <!-- Nav Links -->
+    <div class="flex items-center gap-7">
+      <a href="#" class="text-[11px] uppercase tracking-[0.14em] text-(--fg-m) no-underline">Products</a>
+      <a href="#" class="text-[11px] uppercase tracking-[0.14em] text-(--fg-m) no-underline">Solutions</a>
+      <a href="#" class="text-[11px] uppercase tracking-[0.14em] text-(--fg-m) no-underline">Company</a>
+      <a href="#" class="text-[11px] uppercase tracking-[0.14em] text-(--fg-m) no-underline">Docs</a>
     </div>
 
-    <div style="display:flex;align-items:center;gap:10px">
-      <button class="btn-g" style="padding:7px 16px;font-size:11px">Sign in</button>
-      <button class="btn-p" style="padding:7px 16px;font-size:11px">Get started</button>
+    <!-- Actions -->
+    <div class="flex items-center gap-2.5">
+      <button class="btn-g px-4 py-2 text-[11px]">Sign in</button>
+      <button class="btn-p px-4 py-2 text-[11px]">Get started</button>
     </div>
-  </nav>
+
+  </div>
+</nav>

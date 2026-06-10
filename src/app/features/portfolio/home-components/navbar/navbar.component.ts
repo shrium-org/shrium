@@ -14,10 +14,10 @@ export class NavbarComponent {
   data = inject(ResumeDataService).data;
 
   navLinks = [
-    { label: 'Experience', href: '#experience' },
-    { label: 'Projects',   href: '#projects'   },
-    { label: 'Skills',     href: '#skills'      },
-    { label: 'Education',  href: '#education'   },
-    { label: 'Contact',    href: '#contact'     },
+    { label: 'Experience', href: 'portfolio#experience' },
+    { label: 'Projects',   href: 'portfolio#projects'   },
+    { label: 'Skills',     href: 'portfolio#skills'      },
+    { label: 'Education',  href: 'portfolio#education'   },
+    { label: 'Contact',    href: 'portfolio#contact'     },
   ];
 }
