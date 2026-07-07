@@ -1,0 +1,30 @@
+[
+  {
+    "id": "react-001",
+    "category": "Hooks",
+    "difficulty": "medium",
+    "question": "Why does useEffect run twice in development with StrictMode?",
+    "answer": "React 18's StrictMode intentionally mounts, unmounts, and remounts components in development to surface effects that aren't properly cleaned up. It's a diagnostic tool, not a production behavior — it never happens in a production build.",
+    "codeSnippet": {
+      "language": "jsx",
+      "code": "useEffect(() => {\n  const id = setInterval(tick, 1000);\n  return () => clearInterval(id);\n}, []);"
+    },
+    "tags": ["hooks", "strict-mode"]
+  },
+  {
+    "id": "react-002",
+    "category": "Rendering",
+    "difficulty": "medium",
+    "question": "What triggers a re-render in React?",
+    "answer": "A component re-renders when its own state changes, when it receives new props, when its parent re-renders (unless it's memoized), or when a subscribed context value changes.",
+    "tags": ["rendering", "state"]
+  },
+  {
+    "id": "react-003",
+    "category": "State Management",
+    "difficulty": "easy",
+    "question": "When should you lift state up versus use context?",
+    "answer": "Lift state to the nearest common ancestor when a small, localized group of components needs to share it. Reach for context when many components at different depths need the same value and prop drilling would otherwise pass it through several unrelated layers.",
+    "tags": ["state", "context"]
+  }
+]

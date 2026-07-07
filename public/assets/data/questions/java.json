@@ -1,0 +1,42 @@
+[
+  {
+    "id": "java-001",
+    "category": "Collections",
+    "difficulty": "medium",
+    "question": "What is the difference between ArrayList and LinkedList?",
+    "answer": "ArrayList is backed by a dynamic array, so index-based reads are O(1) but inserting or removing from the middle is O(n) because elements shift. LinkedList is a doubly linked list, so inserts and removes at a known node are O(1), but index-based access is O(n) since it has to walk the list.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "List<String> fast = new ArrayList<>();\nList<String> flexible = new LinkedList<>();"
+    },
+    "tags": ["collections", "data-structures"]
+  },
+  {
+    "id": "java-002",
+    "category": "Multithreading",
+    "difficulty": "hard",
+    "question": "What is the difference between synchronized and a ReentrantLock?",
+    "answer": "synchronized is a built-in keyword, block-scoped, and automatically released even if an exception is thrown. ReentrantLock is an explicit API that requires manually calling unlock() in a finally block, but gives you extras: tryLock() with a timeout, fairness ordering, and interruptible waits.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "lock.lock();\ntry {\n  // critical section\n} finally {\n  lock.unlock();\n}"
+    },
+    "tags": ["concurrency", "locks"]
+  },
+  {
+    "id": "java-003",
+    "category": "JVM",
+    "difficulty": "medium",
+    "question": "What happens during garbage collection in the JVM?",
+    "answer": "The JVM tracks object reachability from GC roots. Most collectors use a generational strategy: short-lived objects are allocated in the young generation and collected frequently with a fast minor GC; objects that survive several cycles get promoted to the old generation, which is collected less often with a more expensive major GC.",
+    "tags": ["jvm", "memory"]
+  },
+  {
+    "id": "java-004",
+    "category": "Core Java",
+    "difficulty": "easy",
+    "question": "Why is String immutable in Java?",
+    "answer": "Immutability lets the JVM safely cache and share String instances in the string pool, makes Strings safe to use as HashMap keys, and avoids race conditions when Strings are shared across threads without synchronization.",
+    "tags": ["strings", "core-java"]
+  }
+]

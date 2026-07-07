@@ -1,0 +1,30 @@
+[
+  {
+    "id": "sql-001",
+    "category": "Joins",
+    "difficulty": "easy",
+    "question": "What is the difference between INNER JOIN and LEFT JOIN?",
+    "answer": "INNER JOIN returns only rows with a match in both tables. LEFT JOIN returns every row from the left table, filling in NULLs for columns from the right table when there's no match.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT o.id, c.name\nFROM orders o\nLEFT JOIN customers c ON c.id = o.customer_id;"
+    },
+    "tags": ["joins"]
+  },
+  {
+    "id": "sql-002",
+    "category": "Indexing",
+    "difficulty": "medium",
+    "question": "Why can adding an index slow down writes?",
+    "answer": "Every INSERT, UPDATE, or DELETE has to update each index on the table in addition to the table data itself, so more indexes mean more work per write. It's a deliberate tradeoff: faster reads on indexed columns in exchange for slower writes and extra storage.",
+    "tags": ["indexing", "performance"]
+  },
+  {
+    "id": "sql-003",
+    "category": "Normalization",
+    "difficulty": "medium",
+    "question": "What problem does third normal form (3NF) solve?",
+    "answer": "3NF removes transitive dependencies, where a non-key column depends on another non-key column rather than directly on the primary key. Eliminating that prevents update anomalies, like a value drifting out of sync when it's duplicated across rows.",
+    "tags": ["normalization", "schema-design"]
+  }
+]

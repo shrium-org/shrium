@@ -1,0 +1,34 @@
+[
+  {
+    "id": "java",
+    "name": "Java",
+    "slug": "java",
+    "icon": "ti ti-coffee",
+    "description": "Core Java, Collections, Multithreading, JVM internals",
+    "questionCount": 4
+  },
+  {
+    "id": "react",
+    "name": "React",
+    "slug": "react",
+    "icon": "ti ti-brand-react",
+    "description": "Hooks, lifecycle, state management, rendering behavior",
+    "questionCount": 3
+  },
+  {
+    "id": "angular",
+    "name": "Angular",
+    "slug": "angular",
+    "icon": "ti ti-brand-angular",
+    "description": "Signals, DI, change detection, RxJS in components",
+    "questionCount": 3
+  },
+  {
+    "id": "sql",
+    "name": "SQL",
+    "slug": "sql",
+    "icon": "ti ti-database",
+    "description": "Joins, indexing, normalization, query performance",
+    "questionCount": 3
+  }
+]

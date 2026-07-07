@@ -1,0 +1,126 @@
+@if (loading()) {
+  <div class="state-message">
+    <i class="ti ti-loader-2 spin"></i>
+    <span>Loading questions…</span>
+  </div>
+} @else if (notFound()) {
+  <div class="state-message state-error">
+    <i class="ti ti-alert-triangle"></i>
+    <span>We don't have a stack for that. </span>
+    <a routerLink="/interview-prep" class="btn btn-outline">Back to all stacks</a>
+  </div>
+} @else if (errorMessage()) {
+  <div class="state-message state-error">
+    <i class="ti ti-alert-triangle"></i>
+    <span>{{ errorMessage() }}</span>
+  </div>
+} @else if (technology(); as tech) {
+  <header class="tech-header">
+    <a routerLink="/interview-prep" class="btn btn-ghost back-link">
+      <i class="ti ti-arrow-left"></i>
+      All stacks
+    </a>
+
+    <div class="tech-header-main">
+      <div class="tech-header-icon">
+        <i [class]="tech.icon"></i>
+      </div>
+      <div>
+        <h1>{{ tech.name }} interview questions</h1>
+        <p>{{ tech.description }}</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="filters">
+    <div class="filter-group">
+      <span class="filter-label text-mono">difficulty</span>
+      <button
+        class="btn"
+        [class.btn-primary]="activeDifficulty() === 'all'"
+        [class.btn-ghost]="activeDifficulty() !== 'all'"
+        (click)="setDifficulty('all')"
+      >
+        All
+      </button>
+      <button
+        class="btn"
+        [class.btn-primary]="activeDifficulty() === 'easy'"
+        [class.btn-ghost]="activeDifficulty() !== 'easy'"
+        (click)="setDifficulty('easy')"
+      >
+        Easy
+      </button>
+      <button
+        class="btn"
+        [class.btn-primary]="activeDifficulty() === 'medium'"
+        [class.btn-ghost]="activeDifficulty() !== 'medium'"
+        (click)="setDifficulty('medium')"
+      >
+        Medium
+      </button>
+      <button
+        class="btn"
+        [class.btn-primary]="activeDifficulty() === 'hard'"
+        [class.btn-ghost]="activeDifficulty() !== 'hard'"
+        (click)="setDifficulty('hard')"
+      >
+        Hard
+      </button>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-label text-mono">category</span>
+      <select
+        class="input category-select"
+        [value]="activeCategory()"
+        (change)="setCategory($any($event.target).value)"
+      >
+        @for (cat of categories(); track cat) {
+          <option [value]="cat">{{ cat === 'all' ? 'All categories' : cat }}</option>
+        }
+      </select>
+    </div>
+  </div>
+
+  @if (filteredQuestions().length === 0) {
+    <div class="state-message">
+      <i class="ti ti-mood-empty"></i>
+      <span>No questions match these filters.</span>
+    </div>
+  } @else {
+    <ol class="question-list">
+      @for (q of filteredQuestions(); track q.id; let i = $index) {
+        <li class="question-card card-flat" [class.expanded]="expandedId() === q.id">
+          <button class="question-row" (click)="toggleQuestion(q.id)">
+            <span class="question-index text-mono">Q{{ (i + 1).toString().padStart(2, '0') }}</span>
+            <span class="question-text">{{ q.question }}</span>
+            <span class="question-meta">
+              <span class="badge">{{ q.category }}</span>
+              <span class="badge" [ngClass]="difficultyBadgeClass(q.difficulty)">{{ q.difficulty }}</span>
+              <i class="ti ti-chevron-down question-chevron"></i>
+            </span>
+          </button>
+
+          @if (expandedId() === q.id) {
+            <div class="question-answer">
+              <p>{{ q.answer }}</p>
+
+              @if (q.codeSnippet) {
+                <pre class="code-block"><code>{{ q.codeSnippet.code }}</code></pre>
+              }
+
+              @if (q.tags?.length) {
+                <div class="question-tags">
+                  @for (tag of q.tags; track tag) {
+                    <span class="tag">#{{ tag }}</span>
+                  }
+                </div>
+              }
+            </div>
+          }
+        </li>
+      }
+    </ol>
+  }
+}

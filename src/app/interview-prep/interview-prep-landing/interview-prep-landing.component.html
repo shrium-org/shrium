@@ -1,0 +1,78 @@
+<section class="hero">
+  <div class="hero-grid bg-grid" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <span class="label-section">Interview Preparation Console</span>
+    <div class="rule-accent" style="margin: 12px 0 20px;"></div>
+
+    <h1 class="hero-title">
+      Questions, sorted<br />by stack, not by luck.
+    </h1>
+
+    <p class="hero-subtitle">
+      Pick a technology. Work through real interview questions with
+      worked answers and runnable snippets — no account, no paywall.
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-value text-mono">{{ technologies().length }}</span>
+        <span class="stat-label">stacks covered</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value text-mono">{{ totalQuestions() }}</span>
+        <span class="stat-label">questions</span>
+      </div>
+    </div>
+
+    <div class="hero-search">
+      <i class="ti ti-search"></i>
+      <input
+        class="input"
+        type="text"
+        placeholder="Search Java, React, SQL…"
+        [ngModel]="searchTerm()"
+        (ngModelChange)="searchTerm.set($event)"
+      />
+    </div>
+  </div>
+</section>
+
+<section class="tech-section">
+  <span class="label-section">Choose a stack</span>
+  <div class="rule-accent" style="margin: 12px 0 32px;"></div>
+
+  @if (loading()) {
+    <div class="state-message">
+      <i class="ti ti-loader-2 spin"></i>
+      <span>Loading technologies…</span>
+    </div>
+  } @else if (errorMessage()) {
+    <div class="state-message state-error">
+      <i class="ti ti-alert-triangle"></i>
+      <span>{{ errorMessage() }}</span>
+    </div>
+  } @else if (filteredTechnologies().length === 0) {
+    <div class="state-message">
+      <i class="ti ti-mood-empty"></i>
+      <span>No stack matches "{{ searchTerm() }}". Try a different search.</span>
+    </div>
+  } @else {
+    <div class="tech-grid">
+      @for (tech of filteredTechnologies(); track tech.id) {
+        <a class="card card-accent-top tech-card" [routerLink]="['/interview-prep', tech.slug]">
+          <div class="tech-card-icon">
+            <i [class]="tech.icon"></i>
+          </div>
+          <h3 class="tech-card-name">{{ tech.name }}</h3>
+          <p class="tech-card-desc">{{ tech.description }}</p>
+          <div class="tech-card-footer">
+            <span class="badge">{{ tech.questionCount }} questions</span>
+            <i class="ti ti-arrow-right tech-card-arrow"></i>
+          </div>
+        </a>
+      }
+    </div>
+  }
+</section>

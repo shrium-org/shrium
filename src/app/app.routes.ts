@@ -22,5 +22,12 @@ export const routes: Routes = [
   {
     path: 'branding',
     component: Branding
+  },
+    {
+    path: 'interview-prep',
+    loadChildren: () =>
+      import('./interview-prep/interview-prep.routes').then(
+        (m) => m.INTERVIEW_PREP_ROUTES
+      ),
   }
 ];

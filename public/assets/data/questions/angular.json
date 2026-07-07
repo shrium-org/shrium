@@ -1,0 +1,30 @@
+[
+  {
+    "id": "angular-001",
+    "category": "Signals",
+    "difficulty": "medium",
+    "question": "How do signals differ from RxJS observables for component state?",
+    "answer": "Signals are synchronous, glitch-free values read by calling them, and Angular's change detection can subscribe to exactly the signals a template reads. Observables model streams over time and need a subscription (or the async pipe) to unwrap. Signals suit local synchronous state; observables still fit async sources like HTTP calls or WebSocket events.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "count = signal(0);\ndoubled = computed(() => this.count() * 2);"
+    },
+    "tags": ["signals", "state"]
+  },
+  {
+    "id": "angular-002",
+    "category": "Dependency Injection",
+    "difficulty": "easy",
+    "question": "What does providedIn: 'root' do?",
+    "answer": "It registers the service with the root injector and enables tree-shaking, so the service is included in the bundle only if something actually injects it, and a single shared instance is used app-wide.",
+    "tags": ["di", "services"]
+  },
+  {
+    "id": "angular-003",
+    "category": "Change Detection",
+    "difficulty": "hard",
+    "question": "What is the difference between Default and OnPush change detection?",
+    "answer": "Default checks a component on every change detection cycle, triggered by any event, timer, or HTTP response anywhere in the app. OnPush only checks a component when one of its @Input references changes, an event originates from within the component, or a signal it reads changes, which is why immutable data patterns matter under OnPush.",
+    "tags": ["change-detection", "performance"]
+  }
+]
