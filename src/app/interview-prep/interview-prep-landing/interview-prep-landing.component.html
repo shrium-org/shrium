@@ -1,78 +1,146 @@
-<section class="hero">
-  <div class="hero-grid bg-grid" aria-hidden="true"></div>
+<section class="relative overflow-hidden border-b border-border px-8 py-32 pb-24 max-sm:px-4 max-sm:py-20 max-sm:pb-16">
 
-  <div class="hero-content">
+  <div aria-hidden="true"
+    class="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_60%_60%_at_50%_20%,black,transparent)]">
+  </div>
+
+  <div class="relative mx-auto max-w-3xl text-center">
+
     <span class="label-section">Interview Preparation Console</span>
-    <div class="rule-accent" style="margin: 12px 0 20px;"></div>
 
-    <h1 class="hero-title">
-      Questions, sorted<br />by stack, not by luck.
+    <div class="rule-accent my-5"></div>
+
+    <h1 class="mb-5 font-heading text-5xl font-semibold leading-tight tracking-tight text-foreground max-sm:text-3xl">
+      Questions, sorted <br />
+      by stack, not by luck.
     </h1>
 
-    <p class="hero-subtitle">
-      Pick a technology. Work through real interview questions with
-      worked answers and runnable snippets — no account, no paywall.
+    <p class="mx-auto mb-10 max-w-xl text-lg text-muted-foreground">
+      Pick a technology. Work through real interview questions with worked
+      answers and runnable snippets — no account, no paywall.
     </p>
 
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-value text-mono">{{ technologies().length }}</span>
-        <span class="stat-label">stacks covered</span>
+    <div class="mb-10 flex items-center justify-center gap-6">
+
+      <div class="flex flex-col items-center gap-1">
+        <span class="text-mono text-2xl font-medium">
+          {{ technologies().length }}
+        </span>
+        <span class="text-[10px] uppercase tracking-widest text-muted-foreground">
+          stacks covered
+        </span>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-value text-mono">{{ totalQuestions() }}</span>
-        <span class="stat-label">questions</span>
+
+      <div class="h-8 w-px bg-border"></div>
+
+      <div class="flex flex-col items-center gap-1">
+        <span class="text-mono text-2xl font-medium">
+          {{ totalQuestions() }}
+        </span>
+        <span class="text-[10px] uppercase tracking-widest text-muted-foreground">
+          questions
+        </span>
       </div>
+
     </div>
 
-    <div class="hero-search">
-      <i class="ti ti-search"></i>
-      <input
-        class="input"
-        type="text"
-        placeholder="Search Java, React, SQL…"
-        [ngModel]="searchTerm()"
-        (ngModelChange)="searchTerm.set($event)"
-      />
+    <div class="mx-auto flex max-w-2xl items-center rounded-2xl border border-border bg-card px-5 py-4 shadow-xl transition-all
+  focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10">
+
+      <i class="ti ti-search mr-3 text-xl text-primary"></i>
+
+      <input type="text" [(ngModel)]="searchTerm"
+        class="flex-1 bg-transparent text-lg outline-none placeholder:text-muted-foreground"
+        placeholder="Search Java, React, SQL, AWS..." />
+
+
+      @if(searchTerm()) {
+
+      <button type="button" class="mr-3 text-muted-foreground hover:text-primary" (click)="searchTerm.set('')">
+
+        <i class="ti ti-x"></i>
+
+      </button>
+
+      }
+
+      <kbd class="rounded-md border bg-muted px-2 py-1 text-xs text-muted-foreground">
+        Ctrl K
+      </kbd>
+
     </div>
+
   </div>
+
 </section>
 
-<section class="tech-section">
+<section class="mx-auto max-w-7xl px-8 py-16 pb-24">
+
   <span class="label-section">Choose a stack</span>
-  <div class="rule-accent" style="margin: 12px 0 32px;"></div>
+
+  <div class="rule-accent mt-3 mb-8"></div>
 
   @if (loading()) {
-    <div class="state-message">
-      <i class="ti ti-loader-2 spin"></i>
-      <span>Loading technologies…</span>
-    </div>
+
+  <div class="flex items-center justify-center gap-2 p-8 text-sm text-muted-foreground">
+    <i class="ti ti-loader-2 animate-spin"></i>
+    <span>Loading technologies…</span>
+  </div>
+
   } @else if (errorMessage()) {
-    <div class="state-message state-error">
-      <i class="ti ti-alert-triangle"></i>
-      <span>{{ errorMessage() }}</span>
-    </div>
+
+  <div class="flex items-center justify-center gap-2 p-8 text-sm text-red-500">
+    <i class="ti ti-alert-triangle"></i>
+    <span>{{ errorMessage() }}</span>
+  </div>
+
   } @else if (filteredTechnologies().length === 0) {
-    <div class="state-message">
-      <i class="ti ti-mood-empty"></i>
-      <span>No stack matches "{{ searchTerm() }}". Try a different search.</span>
-    </div>
+
+  <div class="flex items-center justify-center gap-2 p-8 text-sm text-muted-foreground">
+    <i class="ti ti-mood-empty"></i>
+    <span>No stack matches "{{ searchTerm() }}". Try a different search.</span>
+  </div>
+
   } @else {
-    <div class="tech-grid">
-      @for (tech of filteredTechnologies(); track tech.id) {
-        <a class="card card-accent-top tech-card" [routerLink]="['/interview-prep', tech.slug]">
-          <div class="tech-card-icon">
-            <i [class]="tech.icon"></i>
-          </div>
-          <h3 class="tech-card-name">{{ tech.name }}</h3>
-          <p class="tech-card-desc">{{ tech.description }}</p>
-          <div class="tech-card-footer">
-            <span class="badge">{{ tech.questionCount }} questions</span>
-            <i class="ti ti-arrow-right tech-card-arrow"></i>
-          </div>
-        </a>
-      }
-    </div>
+
+  <div class="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-5">
+
+    @for (tech of filteredTechnologies(); track tech.id) {
+
+    <a class="card card-accent-top flex flex-col p-6 no-underline transition-all hover:-translate-y-1"
+      [routerLink]="['/interview-prep', tech.slug]">
+
+      <div
+        class="mb-4 flex h-11 w-11 items-center justify-center rounded-md border border-primary/20 bg-primary/10 text-xl text-primary">
+        <i [class]="tech.icon"></i>
+      </div>
+
+      <h3 class="mb-2 text-xl font-semibold">
+        {{ tech.name }}
+      </h3>
+
+      <p class="mb-5 flex-1 text-sm text-muted-foreground">
+        {{ tech.description }}
+      </p>
+
+      <div class="flex items-center justify-between">
+
+        <span class="badge">
+          {{ tech.questionCount }} questions
+        </span>
+
+        <i
+          class="ti ti-arrow-right text-muted-foreground transition-all duration-200 hover:translate-x-1 hover:text-primary">
+        </i>
+
+      </div>
+
+    </a>
+
+    }
+
+  </div>
+
   }
+
 </section>

@@ -10,7 +10,6 @@ import { Technology } from '../models/interview-prep.models';
   standalone: true,
   imports: [CommonModule, RouterLink, FormsModule],
   templateUrl: './interview-prep-landing.component.html',
-  styleUrl: './interview-prep-landing.component.scss',
 })
 export class InterviewPrepLandingComponent implements OnInit {
   private prepService = inject(InterviewPrepService);
