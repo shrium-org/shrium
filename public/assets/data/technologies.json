@@ -102,7 +102,7 @@
     "id": "kubernetes",
     "name": "Kubernetes",
     "slug": "kubernetes",
-    "icon": "ti ti-brand-kubernetes",
+    "icon": "ti ti-brand-docker",
     "description": "Pods, deployments, services, scaling, networking, cluster management",
     "questionCount": 50,
     "category": "DevOps"
