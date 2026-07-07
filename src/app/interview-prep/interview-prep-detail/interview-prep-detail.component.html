@@ -39,23 +39,31 @@
   </div>
 
   <!-- Filters: one compact row, search takes remaining space -->
-  <div class="mb-5 flex flex-col gap-2">
+  <div class="mb-5  flex-col gap-2">
 
     <div class="flex items-center gap-2">
 
-      <select class="input w-auto text-sm" [value]="activeDifficulty()"
-        (change)="setDifficulty($any($event.target).value)">
-        @for (level of difficultyOptions; track level) {
-        <option [value]="level">{{ level === 'all' ? 'Any level' : (level | titlecase) }}</option>
-        }
-      </select>
+      <div class="relative w-auto">
+        <select class="input w-auto appearance-none pr-8 text-sm" [value]="activeDifficulty()"
+          (change)="setDifficulty($any($event.target).value)">
+          @for (level of difficultyOptions; track level) {
+          <option [value]="level">{{ level === 'all' ? 'all' : (level | titlecase) }}</option>
+          }
+        </select>
+        <i
+          class="ti ti-chevron-down pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-muted-foreground"></i>
+      </div>
 
-      <select class="input w-auto text-sm" [value]="activeCategory()"
-        (change)="setCategory($any($event.target).value)">
-        @for (cat of categories(); track cat) {
-        <option [value]="cat">{{ cat === 'all' ? 'All categories' : cat }}</option>
-        }
-      </select>
+      <div class="relative w-auto">
+        <select class="input w-auto appearance-none pr-8 text-sm" [value]="activeCategory()"
+          (change)="setCategory($any($event.target).value)">
+          @for (cat of categories(); track cat) {
+          <option [value]="cat">{{ cat === 'all' ? 'All categories' : cat }}</option>
+          }
+        </select>
+        <i
+          class="ti ti-chevron-down pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-muted-foreground"></i>
+      </div>
     </div>
 
     <!-- Only show the count/clear line when a filter is actually active -->
