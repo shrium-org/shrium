@@ -1,126 +1,123 @@
 @if (loading()) {
-  <div class="state-message">
-    <i class="ti ti-loader-2 spin"></i>
-    <span>Loading questions…</span>
-  </div>
+<div class="flex items-center justify-center gap-2 py-16 text-sm text-muted-foreground">
+  <i class="ti ti-loader-2 animate-spin"></i>
+  <span>Loading questions…</span>
+</div>
 } @else if (notFound()) {
-  <div class="state-message state-error">
-    <i class="ti ti-alert-triangle"></i>
-    <span>We don't have a stack for that. </span>
-    <a routerLink="/interview-prep" class="btn btn-outline">Back to all stacks</a>
-  </div>
+<div class="mx-auto flex max-w-5xl flex-col items-center gap-3 px-4 py-16 text-center">
+  <i class="ti ti-alert-triangle text-2xl text-red-500"></i>
+  <span class="text-sm text-muted-foreground">We don't have a stack for that.</span>
+  <a routerLink="/interview-prep" class="btn btn-outline">
+    <i class="ti ti-arrow-left mr-1"></i> Back to all stacks
+  </a>
+</div>
 } @else if (errorMessage()) {
-  <div class="state-message state-error">
-    <i class="ti ti-alert-triangle"></i>
-    <span>{{ errorMessage() }}</span>
-  </div>
+<div class="flex items-center justify-center gap-2 py-16 text-sm text-red-500">
+  <i class="ti ti-alert-triangle"></i>
+  <span>{{ errorMessage() }}</span>
+</div>
 } @else if (technology(); as tech) {
-  <header class="tech-header">
-    <a routerLink="/interview-prep" class="btn btn-ghost back-link">
-      <i class="ti ti-arrow-left"></i>
-      All stacks
-    </a>
 
-    <div class="tech-header-main">
-      <div class="tech-header-icon">
-        <i [class]="tech.icon"></i>
-      </div>
-      <div>
-        <h1>{{ tech.name }} interview questions</h1>
-        <p>{{ tech.description }}</p>
-      </div>
+<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-10">
+
+  <a routerLink="/interview-prep"
+    class="mb-4 inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-primary">
+    <i class="ti ti-arrow-left"></i>
+    All stacks
+  </a>
+
+  <div class="mb-6 flex items-center gap-3">
+    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-lg text-primary">
+      <i [class]="tech.icon"></i>
     </div>
-  </header>
-
-  <div class="filters">
-    <div class="filter-group">
-      <span class="filter-label text-mono">difficulty</span>
-      <button
-        class="btn"
-        [class.btn-primary]="activeDifficulty() === 'all'"
-        [class.btn-ghost]="activeDifficulty() !== 'all'"
-        (click)="setDifficulty('all')"
-      >
-        All
-      </button>
-      <button
-        class="btn"
-        [class.btn-primary]="activeDifficulty() === 'easy'"
-        [class.btn-ghost]="activeDifficulty() !== 'easy'"
-        (click)="setDifficulty('easy')"
-      >
-        Easy
-      </button>
-      <button
-        class="btn"
-        [class.btn-primary]="activeDifficulty() === 'medium'"
-        [class.btn-ghost]="activeDifficulty() !== 'medium'"
-        (click)="setDifficulty('medium')"
-      >
-        Medium
-      </button>
-      <button
-        class="btn"
-        [class.btn-primary]="activeDifficulty() === 'hard'"
-        [class.btn-ghost]="activeDifficulty() !== 'hard'"
-        (click)="setDifficulty('hard')"
-      >
-        Hard
-      </button>
+    <div>
+      <h1 class="font-heading text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+        {{ tech.name }}
+      </h1>
+      <p class="text-sm text-muted-foreground">{{ tech.description }}</p>
     </div>
+  </div>
 
-    <div class="filter-group">
-      <span class="filter-label text-mono">category</span>
-      <select
-        class="input category-select"
-        [value]="activeCategory()"
-        (change)="setCategory($any($event.target).value)"
-      >
+  <!-- Filters: one compact row, search takes remaining space -->
+  <div class="mb-5 flex flex-col gap-2">
+
+    <div class="flex items-center gap-2">
+
+      <select class="input w-auto text-sm" [value]="activeDifficulty()"
+        (change)="setDifficulty($any($event.target).value)">
+        @for (level of difficultyOptions; track level) {
+        <option [value]="level">{{ level === 'all' ? 'Any level' : (level | titlecase) }}</option>
+        }
+      </select>
+
+      <select class="input w-auto text-sm" [value]="activeCategory()"
+        (change)="setCategory($any($event.target).value)">
         @for (cat of categories(); track cat) {
-          <option [value]="cat">{{ cat === 'all' ? 'All categories' : cat }}</option>
+        <option [value]="cat">{{ cat === 'all' ? 'All categories' : cat }}</option>
         }
       </select>
     </div>
+
+    <!-- Only show the count/clear line when a filter is actually active -->
+    @if (hasActiveFilters()) {
+    <div class="flex items-center justify-between text-xs text-muted-foreground">
+      <span>{{ filteredQuestions().length }} of {{ totalQuestions() }} shown</span>
+      <button type="button" class="text-primary hover:underline" (click)="clearFilters()">
+        Clear filters
+      </button>
+    </div>
+    }
+
   </div>
 
   @if (filteredQuestions().length === 0) {
-    <div class="state-message">
-      <i class="ti ti-mood-empty"></i>
-      <span>No questions match these filters.</span>
-    </div>
+  <div class="flex items-center justify-center gap-2 py-16 text-sm text-muted-foreground">
+    <i class="ti ti-mood-empty"></i>
+    <span>No questions match these filters.</span>
+  </div>
   } @else {
-    <ol class="question-list">
-      @for (q of filteredQuestions(); track q.id; let i = $index) {
-        <li class="question-card card-flat" [class.expanded]="expandedId() === q.id">
-          <button class="question-row" (click)="toggleQuestion(q.id)">
-            <span class="question-index text-mono">Q{{ (i + 1).toString().padStart(2, '0') }}</span>
-            <span class="question-text">{{ q.question }}</span>
-            <span class="question-meta">
-              <span class="badge">{{ q.category }}</span>
-              <span class="badge" [ngClass]="difficultyBadgeClass(q.difficulty)">{{ q.difficulty }}</span>
-              <i class="ti ti-chevron-down question-chevron"></i>
-            </span>
-          </button>
+  <ol class="flex flex-col divide-y divide-border border-y border-border">
+    @for (q of filteredQuestions(); track q.id; let i = $index) {
+    <li>
+      <button type="button" class="flex w-full flex-col gap-1 py-4 text-left" (click)="toggleQuestion(q.id)">
+        <div class="flex items-start gap-3 sm:items-center sm:gap-4">
+          <span class="text-mono mt-0.5 shrink-0 text-xs text-muted-foreground sm:mt-0 sm:text-sm">
+            {{ (i + 1).toString().padStart(2, '0') }}
+          </span>
+          <span class="flex-1 text-sm font-medium text-foreground">{{ q.question }}</span>
+          <i class="ti ti-chevron-down mt-0.5 shrink-0 text-muted-foreground transition-transform duration-200 sm:mt-0"
+            [class.rotate-180]="expandedId() === q.id"></i>
+        </div>
 
-          @if (expandedId() === q.id) {
-            <div class="question-answer">
-              <p>{{ q.answer }}</p>
+        <!-- badges now sit cleanly below the row, indented to align with the question text -->
+        <div class="flex items-center gap-2 pl-6 text-xs text-muted-foreground">
+          <span>{{ q.category.toLowerCase() }}</span>
+          <span aria-hidden="true">·</span>
+          <span [ngClass]="difficultyTextClass(q.difficulty)">{{ q.difficulty }}</span>
+        </div>
+      </button>
 
-              @if (q.codeSnippet) {
-                <pre class="code-block"><code>{{ q.codeSnippet.code }}</code></pre>
-              }
+      @if (expandedId() === q.id) {
+      <div class="pb-5 pl-0 sm:pl-8">
+        <p class="mb-3 text-sm leading-relaxed text-muted-foreground">{{ q.answer }}</p>
 
-              @if (q.tags?.length) {
-                <div class="question-tags">
-                  @for (tag of q.tags; track tag) {
-                    <span class="tag">#{{ tag }}</span>
-                  }
-                </div>
-              }
-            </div>
+        @if (q.codeSnippet) {
+        <pre class="mb-3 overflow-x-auto rounded-md bg-muted p-3 text-xs"><code>{{ q.codeSnippet.code }}</code></pre>
+        }
+
+        @if (q.tags?.length) {
+        <div class="flex flex-wrap gap-2">
+          @for (tag of q.tags; track tag) {
+          <span class="text-mono text-xs text-primary">#{{ tag }}</span>
           }
-        </li>
+        </div>
+        }
+      </div>
       }
-    </ol>
+    </li>
+    }
+  </ol>
   }
+
+</div>
 }

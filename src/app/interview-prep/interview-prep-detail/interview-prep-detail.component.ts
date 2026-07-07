@@ -1,5 +1,5 @@
 import { Component, OnInit, inject, signal, computed } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, TitleCasePipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { switchMap, of } from 'rxjs';
 import { InterviewPrepService } from '../services/interview-prep.service';
@@ -12,9 +12,8 @@ import {
 @Component({
   selector: 'app-interview-prep-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, TitleCasePipe],
   templateUrl: './interview-prep-detail.component.html',
-  styleUrl: './interview-prep-detail.component.scss',
 })
 export class InterviewPrepDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
@@ -29,6 +28,8 @@ export class InterviewPrepDetailComponent implements OnInit {
   expandedId = signal<string | null>(null);
   activeDifficulty = signal<Difficulty | 'all'>('all');
   activeCategory = signal<string>('all');
+
+  readonly difficultyOptions: (Difficulty | 'all')[] = ['all', 'easy', 'medium', 'hard'];
 
   categories = computed(() => {
     const set = new Set(this.questions().map((q) => q.category));
@@ -102,9 +103,44 @@ export class InterviewPrepDetailComponent implements OnInit {
 
   difficultyBadgeClass(difficulty: Difficulty): string {
     return {
-      easy: 'badge-success',
-      medium: 'badge-warning',
-      hard: 'badge-danger',
+      easy: 'text-emerald-600 border-emerald-600/30 bg-emerald-600/10',
+      medium: 'text-amber-600 border-amber-600/30 bg-amber-600/10',
+      hard: 'text-red-600 border-red-600/30 bg-red-600/10',
     }[difficulty];
   }
+
+  difficultyTextClass(difficulty: Difficulty): string {
+  return {
+    easy: 'text-emerald-600',
+    medium: 'text-amber-600',
+    hard: 'text-red-600',
+  }[difficulty];
+}
+
+searchQuery = signal('');
+setSearchQuery(value: string) { this.searchQuery.set(value); }
+
+totalQuestions = computed(() => this.questions()?.length ?? 0);
+
+hasActiveFilters = computed(() =>
+  this.activeDifficulty() !== 'all' ||
+  this.activeCategory() !== 'all' ||
+  this.searchQuery().trim().length > 0
+);
+
+clearFilters() {
+  this.setDifficulty('all');
+  this.setCategory('all');
+  this.setSearchQuery('');
+}
+
+difficultyCount(level: string) {
+  const qs = this.questions() ?? [];
+  return level === 'all' ? qs.length : qs.filter(q => q.difficulty === level).length;
+}
+
+categoryCount(cat: string) {
+  const qs = this.questions() ?? [];
+  return cat === 'all' ? qs.length : qs.filter(q => q.category === cat).length;
+}
 }
