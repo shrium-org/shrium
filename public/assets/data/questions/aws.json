@@ -1,0 +1,757 @@
+[
+  {
+    "id": "aws-001",
+    "category": "Cloud Computing Fundamentals",
+    "difficulty": "easy",
+    "question": "What is AWS?",
+    "answer": "AWS (Amazon Web Services) is a cloud computing platform that provides on-demand infrastructure services including compute, storage, databases, networking, security, and analytics.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "AWS Services:\nCompute\nStorage\nDatabase\nNetworking\nSecurity"
+    },
+    "tags": [
+      "aws",
+      "cloud"
+    ]
+  },
+  {
+    "id": "aws-002",
+    "category": "Cloud Computing",
+    "difficulty": "easy",
+    "question": "What are the benefits of cloud computing?",
+    "answer": "Cloud computing provides scalability, cost efficiency, high availability, global deployment, security features, and reduced infrastructure management.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Benefits:\n✓ Scalability\n✓ Pay-as-you-go\n✓ Availability\n✓ Global Access"
+    },
+    "tags": [
+      "cloud",
+      "benefits"
+    ]
+  },
+  {
+    "id": "aws-003",
+    "category": "Cloud Models",
+    "difficulty": "medium",
+    "question": "What are the different cloud service models?",
+    "answer": "The main cloud service models are IaaS (Infrastructure as a Service), PaaS (Platform as a Service), and SaaS (Software as a Service).",
+    "codeSnippet": {
+      "language": "text",
+      "code": "IaaS -> EC2\nPaaS -> Elastic Beanstalk\nSaaS -> Applications"
+    },
+    "tags": [
+      "iaas",
+      "paas",
+      "saas"
+    ]
+  },
+  {
+    "id": "aws-004",
+    "category": "AWS Global Infrastructure",
+    "difficulty": "medium",
+    "question": "Explain AWS global infrastructure.",
+    "answer": "AWS global infrastructure consists of Regions, Availability Zones, and Edge Locations that provide reliable and low-latency cloud services worldwide.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Region\n |\nAvailability Zone\n |\nData Center"
+    },
+    "tags": [
+      "region",
+      "availability-zone"
+    ]
+  },
+  {
+    "id": "aws-005",
+    "category": "Regions",
+    "difficulty": "easy",
+    "question": "What is an AWS Region?",
+    "answer": "An AWS Region is a geographic area containing multiple isolated Availability Zones where AWS services are hosted.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Example:\nus-east-1\nap-south-1"
+    },
+    "tags": [
+      "region",
+      "infrastructure"
+    ]
+  },
+  {
+    "id": "aws-006",
+    "category": "Availability Zones",
+    "difficulty": "easy",
+    "question": "What is an Availability Zone in AWS?",
+    "answer": "An Availability Zone is one or more physically separate data centers within an AWS Region designed for fault isolation and high availability.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Region\n ├── AZ-1\n ├── AZ-2\n └── AZ-3"
+    },
+    "tags": [
+      "availability",
+      "high-availability"
+    ]
+  },
+  {
+    "id": "aws-007",
+    "category": "IAM",
+    "difficulty": "medium",
+    "question": "What is AWS IAM?",
+    "answer": "IAM (Identity and Access Management) is an AWS service used to securely control access to AWS resources using users, groups, roles, and policies.",
+    "codeSnippet": {
+      "language": "json",
+      "code": "{\n \"Effect\":\"Allow\",\n \"Action\":\"s3:*\"\n}"
+    },
+    "tags": [
+      "iam",
+      "security"
+    ]
+  },
+  {
+    "id": "aws-008",
+    "category": "IAM Policies",
+    "difficulty": "medium",
+    "question": "What are IAM policies?",
+    "answer": "IAM policies are JSON documents that define permissions by specifying allowed or denied actions on AWS resources.",
+    "codeSnippet": {
+      "language": "json",
+      "code": "{\n\"Action\":\"ec2:StartInstances\",\n\"Effect\":\"Allow\"\n}"
+    },
+    "tags": [
+      "iam",
+      "permissions"
+    ]
+  },
+  {
+    "id": "aws-009",
+    "category": "EC2",
+    "difficulty": "easy",
+    "question": "What is Amazon EC2?",
+    "answer": "Amazon EC2 (Elastic Compute Cloud) provides resizable virtual servers in the cloud. It allows users to run applications without managing physical hardware.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Application\n    |\nEC2 Instance\n    |\nAWS Hardware"
+    },
+    "tags": [
+      "ec2",
+      "compute"
+    ]
+  },
+  {
+    "id": "aws-010",
+    "category": "EC2 Instances",
+    "difficulty": "medium",
+    "question": "What are EC2 instance types?",
+    "answer": "EC2 instance types are optimized for different workloads such as general purpose, compute optimized, memory optimized, storage optimized, and GPU workloads.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Types:\nT -> General Purpose\nC -> Compute\nR -> Memory\nI -> Storage"
+    },
+    "tags": [
+      "ec2",
+      "instances"
+    ]
+  }
+,
+  {
+    "id": "aws-011",
+    "category": "EC2 AMI",
+    "difficulty": "medium",
+    "question": "What is an AMI in AWS?",
+    "answer": "An AMI (Amazon Machine Image) is a template containing an operating system, applications, configurations, and permissions required to launch EC2 instances.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "AMI\n |\nOS\n |\nApplications\n |\nConfiguration"
+    },
+    "tags": [
+      "ami",
+      "ec2"
+    ]
+  },
+  {
+    "id": "aws-012",
+    "category": "EC2 Storage",
+    "difficulty": "medium",
+    "question": "What is EBS in AWS?",
+    "answer": "Amazon EBS (Elastic Block Store) provides persistent block storage volumes that can be attached to EC2 instances.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "EC2 Instance\n      |\n     EBS Volume"
+    },
+    "tags": [
+      "ebs",
+      "storage"
+    ]
+  },
+  {
+    "id": "aws-013",
+    "category": "EC2 Storage",
+    "difficulty": "medium",
+    "question": "What is the difference between EBS and Instance Store?",
+    "answer": "EBS provides persistent storage that survives instance stops. Instance Store provides temporary storage tied to the physical host and data is lost when the instance stops.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "EBS -> Persistent\nInstance Store -> Temporary"
+    },
+    "tags": [
+      "ebs",
+      "instance-store"
+    ]
+  },
+  {
+    "id": "aws-014",
+    "category": "Auto Scaling",
+    "difficulty": "hard",
+    "question": "What is Auto Scaling in AWS?",
+    "answer": "Auto Scaling automatically adjusts the number of EC2 instances based on demand to maintain performance and control costs.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "High Traffic\n    |\nAdd Instances\n    |\nLow Traffic\n    |\nRemove Instances"
+    },
+    "tags": [
+      "autoscaling",
+      "ec2"
+    ]
+  },
+  {
+    "id": "aws-015",
+    "category": "Auto Scaling",
+    "difficulty": "hard",
+    "question": "What are Auto Scaling Groups?",
+    "answer": "An Auto Scaling Group manages a collection of EC2 instances and ensures the desired number of healthy instances are running.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "ASG\n |\nEC2\nEC2\nEC2"
+    },
+    "tags": [
+      "asg",
+      "scaling"
+    ]
+  },
+  {
+    "id": "aws-016",
+    "category": "Load Balancing",
+    "difficulty": "medium",
+    "question": "What is Elastic Load Balancer (ELB)?",
+    "answer": "ELB distributes incoming traffic across multiple targets such as EC2 instances to improve availability and fault tolerance.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Users\n |\nLoad Balancer\n |\nEC2 EC2 EC2"
+    },
+    "tags": [
+      "elb",
+      "load-balancer"
+    ]
+  },
+  {
+    "id": "aws-017",
+    "category": "Load Balancer Types",
+    "difficulty": "hard",
+    "question": "What are the different types of AWS load balancers?",
+    "answer": "AWS provides Application Load Balancer (ALB), Network Load Balancer (NLB), Gateway Load Balancer, and Classic Load Balancer.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "ALB -> HTTP/HTTPS\nNLB -> TCP/UDP\nGWLB -> Network Appliances"
+    },
+    "tags": [
+      "alb",
+      "nlb"
+    ]
+  },
+  {
+    "id": "aws-018",
+    "category": "S3",
+    "difficulty": "easy",
+    "question": "What is Amazon S3?",
+    "answer": "Amazon S3 (Simple Storage Service) is an object storage service used to store and retrieve unlimited amounts of data with high durability and availability.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Application\n     |\n     S3 Bucket\n     |\n   Objects"
+    },
+    "tags": [
+      "s3",
+      "storage"
+    ]
+  },
+  {
+    "id": "aws-019",
+    "category": "S3 Concepts",
+    "difficulty": "easy",
+    "question": "What are buckets and objects in S3?",
+    "answer": "A bucket is a container used to store objects. Objects are files and their metadata stored inside buckets.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Bucket\n |\n ├── image.png\n ├── file.pdf\n └── data.json"
+    },
+    "tags": [
+      "s3",
+      "objects"
+    ]
+  },
+  {
+    "id": "aws-020",
+    "category": "S3 Storage Classes",
+    "difficulty": "medium",
+    "question": "What are S3 storage classes?",
+    "answer": "S3 storage classes optimize cost based on access patterns. Examples include Standard, Intelligent-Tiering, Standard-IA, One Zone-IA, Glacier, and Glacier Deep Archive.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Frequent Access\n      ↓\nArchive Storage"
+    },
+    "tags": [
+      "s3",
+      "storage-class"
+    ]
+  }
+,
+  {
+    "id": "aws-021",
+    "category": "S3 Security",
+    "difficulty": "hard",
+    "question": "How do you secure an S3 bucket?",
+    "answer": "S3 buckets can be secured using IAM policies, bucket policies, access control lists, encryption, versioning, MFA delete, and blocking public access.",
+    "codeSnippet": {
+      "language": "json",
+      "code": "{\n \"Effect\":\"Deny\",\n \"Action\":\"s3:*\",\n \"Principal\":\"*\"\n}"
+    },
+    "tags": [
+      "s3",
+      "security"
+    ]
+  },
+  {
+    "id": "aws-022",
+    "category": "S3 Encryption",
+    "difficulty": "medium",
+    "question": "What encryption options are available in S3?",
+    "answer": "S3 supports server-side encryption using S3-managed keys (SSE-S3), AWS KMS keys (SSE-KMS), and customer-provided keys (SSE-C).",
+    "codeSnippet": {
+      "language": "text",
+      "code": "SSE-S3\nSSE-KMS\nSSE-C"
+    },
+    "tags": [
+      "encryption",
+      "s3"
+    ]
+  },
+  {
+    "id": "aws-023",
+    "category": "S3 Versioning",
+    "difficulty": "medium",
+    "question": "What is S3 versioning?",
+    "answer": "S3 versioning keeps multiple versions of an object. It helps recover accidentally deleted or overwritten files.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "file.txt\n ├── v1\n ├── v2\n └── v3"
+    },
+    "tags": [
+      "s3",
+      "backup"
+    ]
+  },
+  {
+    "id": "aws-024",
+    "category": "CloudFront",
+    "difficulty": "medium",
+    "question": "What is Amazon CloudFront?",
+    "answer": "Amazon CloudFront is a content delivery network (CDN) that delivers content from edge locations with low latency and high performance.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "User\n |\nEdge Location\n |\nOrigin Server"
+    },
+    "tags": [
+      "cloudfront",
+      "cdn"
+    ]
+  },
+  {
+    "id": "aws-025",
+    "category": "Route 53",
+    "difficulty": "medium",
+    "question": "What is Amazon Route 53?",
+    "answer": "Route 53 is AWS's scalable DNS service used for domain registration, DNS routing, and health checks.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Domain\n |\nRoute 53\n |\nAWS Resource"
+    },
+    "tags": [
+      "route53",
+      "dns"
+    ]
+  },
+  {
+    "id": "aws-026",
+    "category": "VPC",
+    "difficulty": "easy",
+    "question": "What is Amazon VPC?",
+    "answer": "Amazon VPC (Virtual Private Cloud) allows you to create an isolated virtual network where AWS resources can run securely.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "VPC\n |\nSubnet\n |\nEC2"
+    },
+    "tags": [
+      "vpc",
+      "networking"
+    ]
+  },
+  {
+    "id": "aws-027",
+    "category": "Subnets",
+    "difficulty": "medium",
+    "question": "What are subnets in AWS VPC?",
+    "answer": "Subnets are subdivisions of a VPC. They can be public subnets accessible from the internet or private subnets isolated from direct access.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "VPC\n ├── Public Subnet\n └── Private Subnet"
+    },
+    "tags": [
+      "subnet",
+      "vpc"
+    ]
+  },
+  {
+    "id": "aws-028",
+    "category": "Security Groups",
+    "difficulty": "medium",
+    "question": "What are security groups in AWS?",
+    "answer": "Security groups act as virtual firewalls controlling inbound and outbound traffic for EC2 instances.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Internet\n |\nSecurity Group\n |\nEC2"
+    },
+    "tags": [
+      "security-group",
+      "firewall"
+    ]
+  },
+  {
+    "id": "aws-029",
+    "category": "Network ACL",
+    "difficulty": "hard",
+    "question": "What is a Network ACL in AWS?",
+    "answer": "Network ACLs are stateless firewalls applied at the subnet level. They control inbound and outbound traffic rules.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "VPC\n |\nSubnet\n |\nNetwork ACL"
+    },
+    "tags": [
+      "nacl",
+      "networking"
+    ]
+  },
+  {
+    "id": "aws-030",
+    "category": "Internet Gateway",
+    "difficulty": "medium",
+    "question": "What is an Internet Gateway in AWS?",
+    "answer": "An Internet Gateway connects a VPC to the public internet and enables communication between AWS resources and external networks.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "VPC\n |\nInternet Gateway\n |\nInternet"
+    },
+    "tags": [
+      "internet-gateway",
+      "networking"
+    ]
+  }
+,
+  {
+    "id": "aws-031",
+    "category": "AWS Lambda",
+    "difficulty": "easy",
+    "question": "What is AWS Lambda?",
+    "answer": "AWS Lambda is a serverless compute service that runs code without requiring server management. It automatically scales based on incoming requests.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "exports.handler = async (event) => {\n return {\n  statusCode: 200,\n  body: 'Hello AWS Lambda'\n };\n};"
+    },
+    "tags": [
+      "lambda",
+      "serverless"
+    ]
+  },
+  {
+    "id": "aws-032",
+    "category": "AWS Lambda",
+    "difficulty": "medium",
+    "question": "What are Lambda triggers?",
+    "answer": "Lambda triggers are AWS services or events that invoke a Lambda function. Examples include API Gateway, S3 events, DynamoDB streams, and EventBridge.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Event\n |\nLambda Function\n |\nResponse"
+    },
+    "tags": [
+      "lambda",
+      "events"
+    ]
+  },
+  {
+    "id": "aws-033",
+    "category": "API Gateway",
+    "difficulty": "medium",
+    "question": "What is Amazon API Gateway?",
+    "answer": "API Gateway is a managed service used to create, publish, secure, monitor, and manage APIs at any scale.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Client\n |\nAPI Gateway\n |\nLambda / Backend"
+    },
+    "tags": [
+      "api-gateway",
+      "serverless"
+    ]
+  },
+  {
+    "id": "aws-034",
+    "category": "RDS",
+    "difficulty": "easy",
+    "question": "What is Amazon RDS?",
+    "answer": "Amazon RDS is a managed relational database service supporting engines like PostgreSQL, MySQL, MariaDB, Oracle, SQL Server, and Aurora.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Application\n |\nRDS Database\n |\nStorage"
+    },
+    "tags": [
+      "rds",
+      "database"
+    ]
+  },
+  {
+    "id": "aws-035",
+    "category": "RDS",
+    "difficulty": "hard",
+    "question": "What is Multi-AZ deployment in RDS?",
+    "answer": "Multi-AZ creates a standby database replica in another Availability Zone for automatic failover and high availability.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Primary DB\n    |\nAutomatic Failover\n    |\nStandby DB"
+    },
+    "tags": [
+      "rds",
+      "high-availability"
+    ]
+  },
+  {
+    "id": "aws-036",
+    "category": "DynamoDB",
+    "difficulty": "medium",
+    "question": "What is Amazon DynamoDB?",
+    "answer": "DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with automatic scaling.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Application\n |\nDynamoDB\n |\nKey-Value Data"
+    },
+    "tags": [
+      "dynamodb",
+      "nosql"
+    ]
+  },
+  {
+    "id": "aws-037",
+    "category": "DynamoDB",
+    "difficulty": "hard",
+    "question": "What is the difference between DynamoDB and RDS?",
+    "answer": "RDS is a relational SQL database with tables and joins. DynamoDB is a NoSQL database designed for high scalability and low latency access patterns.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "RDS:\nTables + SQL\n\nDynamoDB:\nKey Value + NoSQL"
+    },
+    "tags": [
+      "database",
+      "comparison"
+    ]
+  },
+  {
+    "id": "aws-038",
+    "category": "ECS",
+    "difficulty": "medium",
+    "question": "What is Amazon ECS?",
+    "answer": "Amazon ECS (Elastic Container Service) is a managed container orchestration service used to run Docker containers on AWS.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Docker Image\n      |\n     ECS\n      |\n Container"
+    },
+    "tags": [
+      "ecs",
+      "containers"
+    ]
+  },
+  {
+    "id": "aws-039",
+    "category": "EKS",
+    "difficulty": "hard",
+    "question": "What is Amazon EKS?",
+    "answer": "Amazon EKS (Elastic Kubernetes Service) is a managed Kubernetes service that makes it easier to run Kubernetes clusters on AWS.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Kubernetes\n      |\n     EKS\n      |\n AWS Infrastructure"
+    },
+    "tags": [
+      "eks",
+      "kubernetes"
+    ]
+  },
+  {
+    "id": "aws-040",
+    "category": "CloudWatch",
+    "difficulty": "medium",
+    "question": "What is Amazon CloudWatch?",
+    "answer": "Amazon CloudWatch is a monitoring and observability service used to collect logs, metrics, alarms, and performance data from AWS resources.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "AWS Resources\n      |\n CloudWatch\n      |\n Metrics + Logs"
+    },
+    "tags": [
+      "cloudwatch",
+      "monitoring"
+    ]
+  }
+,
+  {
+    "id": "aws-041",
+    "category": "CloudFormation",
+    "difficulty": "hard",
+    "question": "What is AWS CloudFormation?",
+    "answer": "AWS CloudFormation is an Infrastructure as Code service that allows you to define and provision AWS resources using templates.",
+    "codeSnippet": {
+      "language": "yaml",
+      "code": "Resources:\n  MyBucket:\n    Type: AWS::S3::Bucket"
+    },
+    "tags": [
+      "cloudformation",
+      "iac"
+    ]
+  },
+  {
+    "id": "aws-042",
+    "category": "Infrastructure as Code",
+    "difficulty": "hard",
+    "question": "What are the benefits of Infrastructure as Code (IaC)?",
+    "answer": "IaC provides automated infrastructure provisioning, version control, repeatability, consistency, and faster deployments.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Code\n |\nInfrastructure\n |\nDeployment"
+    },
+    "tags": [
+      "iac",
+      "automation"
+    ]
+  },
+  {
+    "id": "aws-043",
+    "category": "AWS CodePipeline",
+    "difficulty": "medium",
+    "question": "What is AWS CodePipeline?",
+    "answer": "AWS CodePipeline is a continuous delivery service that automates build, test, and deployment workflows.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Source\n ↓\nBuild\n ↓\nTest\n ↓\nDeploy"
+    },
+    "tags": [
+      "codepipeline",
+      "cicd"
+    ]
+  },
+  {
+    "id": "aws-044",
+    "category": "AWS CodeBuild",
+    "difficulty": "medium",
+    "question": "What is AWS CodeBuild?",
+    "answer": "AWS CodeBuild is a fully managed build service that compiles source code, runs tests, and creates deployable artifacts.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Source Code\n |\nCodeBuild\n |\nArtifact"
+    },
+    "tags": [
+      "codebuild",
+      "build"
+    ]
+  },
+  {
+    "id": "aws-045",
+    "category": "AWS Security",
+    "difficulty": "hard",
+    "question": "What is the AWS Shared Responsibility Model?",
+    "answer": "AWS is responsible for security of the cloud infrastructure, while customers are responsible for security in the cloud including data, applications, and access control.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "AWS:\nInfrastructure\n\nCustomer:\nData + Applications"
+    },
+    "tags": [
+      "security",
+      "shared-responsibility"
+    ]
+  },
+  {
+    "id": "aws-046",
+    "category": "AWS KMS",
+    "difficulty": "medium",
+    "question": "What is AWS Key Management Service (KMS)?",
+    "answer": "AWS KMS is a managed service used to create, manage, and control encryption keys for protecting data.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Data\n |\nEncryption Key\n |\nKMS"
+    },
+    "tags": [
+      "kms",
+      "encryption"
+    ]
+  },
+  {
+    "id": "aws-047",
+    "category": "High Availability",
+    "difficulty": "hard",
+    "question": "How do you design a highly available application on AWS?",
+    "answer": "Use multiple Availability Zones, load balancing, auto scaling, database replication, backups, monitoring, and fault-tolerant architecture.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Route53\n |\nLoad Balancer\n |\nEC2 AZ1 + AZ2\n |\nDatabase Replica"
+    },
+    "tags": [
+      "architecture",
+      "high-availability"
+    ]
+  },
+  {
+    "id": "aws-048",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Why do you want to work with AWS?",
+    "answer": "A good answer should mention AWS market adoption, scalable infrastructure, cloud innovation, automation capabilities, and opportunities to build reliable systems.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Sample Answer:\n'I enjoy building scalable applications using cloud technologies and AWS provides powerful services for modern architectures.'"
+    },
+    "tags": [
+      "hr",
+      "career"
+    ]
+  },
+  {
+    "id": "aws-049",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Explain an AWS project you worked on.",
+    "answer": "Explain the application architecture, AWS services used, deployment approach, challenges faced, and how you improved reliability or performance.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Architecture\n ↓\nServices\n ↓\nDeployment\n ↓\nResults"
+    },
+    "tags": [
+      "hr",
+      "project"
+    ]
+  },
+  {
+    "id": "aws-050",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "How do you keep yourself updated with AWS?",
+    "answer": "A strong answer includes reading AWS documentation, following AWS blogs, building projects, practicing architectures, and learning new services.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Learn:\nDocs\nProjects\nCertifications\nPractice"
+    },
+    "tags": [
+      "hr",
+      "learning"
+    ]
+  }
+]

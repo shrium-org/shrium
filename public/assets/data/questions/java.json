@@ -1,42 +1,791 @@
 [
   {
     "id": "java-001",
-    "category": "Collections",
-    "difficulty": "medium",
-    "question": "What is the difference between ArrayList and LinkedList?",
-    "answer": "ArrayList is backed by a dynamic array, so index-based reads are O(1) but inserting or removing from the middle is O(n) because elements shift. LinkedList is a doubly linked list, so inserts and removes at a known node are O(1), but index-based access is O(n) since it has to walk the list.",
+    "category": "Core Java",
+    "difficulty": "easy",
+    "question": "What are the main features of Java?",
+    "answer": "Java is a high-level, object-oriented programming language designed to be platform independent. Its main features include object-oriented programming, platform independence through JVM, automatic garbage collection, strong memory management, multithreading support, exception handling, and security features.",
     "codeSnippet": {
       "language": "java",
-      "code": "List<String> fast = new ArrayList<>();\nList<String> flexible = new LinkedList<>();"
+      "code": "public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello Java\");\n    }\n}"
     },
-    "tags": ["collections", "data-structures"]
+    "tags": [
+      "java",
+      "basics",
+      "features"
+    ]
   },
   {
     "id": "java-002",
-    "category": "Multithreading",
-    "difficulty": "hard",
-    "question": "What is the difference between synchronized and a ReentrantLock?",
-    "answer": "synchronized is a built-in keyword, block-scoped, and automatically released even if an exception is thrown. ReentrantLock is an explicit API that requires manually calling unlock() in a finally block, but gives you extras: tryLock() with a timeout, fairness ordering, and interruptible waits.",
+    "category": "JVM",
+    "difficulty": "easy",
+    "question": "What is the difference between JDK, JRE, and JVM?",
+    "answer": "JVM is the engine that executes Java bytecode. JRE contains JVM and libraries required to run Java applications. JDK contains JRE plus development tools such as javac compiler, debugger, and documentation tools.",
     "codeSnippet": {
-      "language": "java",
-      "code": "lock.lock();\ntry {\n  // critical section\n} finally {\n  lock.unlock();\n}"
+      "language": "text",
+      "code": "JDK = JRE + Development Tools\nJRE = JVM + Java Libraries\nJVM = Executes Bytecode"
     },
-    "tags": ["concurrency", "locks"]
+    "tags": [
+      "jvm",
+      "jdk",
+      "jre"
+    ]
   },
   {
     "id": "java-003",
-    "category": "JVM",
-    "difficulty": "medium",
-    "question": "What happens during garbage collection in the JVM?",
-    "answer": "The JVM tracks object reachability from GC roots. Most collectors use a generational strategy: short-lived objects are allocated in the young generation and collected frequently with a fast minor GC; objects that survive several cycles get promoted to the old generation, which is collected less often with a more expensive major GC.",
-    "tags": ["jvm", "memory"]
+    "category": "OOP",
+    "difficulty": "easy",
+    "question": "What are the four pillars of Object-Oriented Programming in Java?",
+    "answer": "The four pillars are Encapsulation, Inheritance, Polymorphism, and Abstraction. Encapsulation hides internal data using access modifiers. Inheritance allows code reuse. Polymorphism allows one interface to have multiple implementations. Abstraction hides implementation details and exposes only required functionality.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "class Animal {\n    void sound() {\n        System.out.println(\"Animal sound\");\n    }\n}\n\nclass Dog extends Animal {\n    void sound() {\n        System.out.println(\"Bark\");\n    }\n}"
+    },
+    "tags": [
+      "oops",
+      "inheritance",
+      "polymorphism"
+    ]
   },
   {
     "id": "java-004",
-    "category": "Core Java",
-    "difficulty": "easy",
+    "category": "OOP",
+    "difficulty": "medium",
+    "question": "What is the difference between method overloading and method overriding?",
+    "answer": "Method overloading means defining multiple methods with the same name but different parameters in the same class. Method overriding happens when a child class provides its own implementation of a parent class method.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "class Calculator {\n    int add(int a, int b) {\n        return a + b;\n    }\n\n    int add(int a, int b, int c) {\n        return a + b + c;\n    }\n}"
+    },
+    "tags": [
+      "oops",
+      "overloading",
+      "overriding"
+    ]
+  },
+  {
+    "id": "java-005",
+    "category": "OOP",
+    "difficulty": "medium",
+    "question": "Why is Java not considered a purely object-oriented language?",
+    "answer": "Java is not purely object-oriented because it supports primitive data types like int, char, boolean, and double that are not objects. It also provides static methods and variables that can exist without object instances.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "int number = 10;\nSystem.out.println(number);"
+    },
+    "tags": [
+      "oops",
+      "primitive-types"
+    ]
+  },
+  {
+    "id": "java-006",
+    "category": "String",
+    "difficulty": "medium",
     "question": "Why is String immutable in Java?",
-    "answer": "Immutability lets the JVM safely cache and share String instances in the string pool, makes Strings safe to use as HashMap keys, and avoids race conditions when Strings are shared across threads without synchronization.",
-    "tags": ["strings", "core-java"]
+    "answer": "String is immutable because it improves security, allows string pooling, provides thread safety, and makes hashcode caching possible. Once a String object is created, its value cannot be changed.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "String name = \"Java\";\nname.concat(\" Programming\");\nSystem.out.println(name);"
+    },
+    "tags": [
+      "string",
+      "immutability"
+    ]
+  },
+  {
+    "id": "java-007",
+    "category": "String",
+    "difficulty": "easy",
+    "question": "What is the difference between String, StringBuilder, and StringBuffer?",
+    "answer": "String is immutable and suitable for fixed text. StringBuilder is mutable and faster but not thread-safe. StringBuffer is mutable and synchronized, making it thread-safe but slower than StringBuilder.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "StringBuilder sb = new StringBuilder();\nsb.append(\"Java\");"
+    },
+    "tags": [
+      "string",
+      "stringbuilder",
+      "stringbuffer"
+    ]
+  },
+  {
+    "id": "java-008",
+    "category": "Memory Management",
+    "difficulty": "medium",
+    "question": "What is garbage collection in Java?",
+    "answer": "Garbage collection is the automatic memory management process where JVM removes objects that are no longer reachable. It helps prevent memory leaks and reduces manual memory management.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "Object obj = new Object();\nobj = null;\nSystem.gc();"
+    },
+    "tags": [
+      "gc",
+      "memory",
+      "jvm"
+    ]
+  },
+  {
+    "id": "java-009",
+    "category": "Classes",
+    "difficulty": "easy",
+    "question": "What is the difference between a class and an object?",
+    "answer": "A class is a blueprint that defines properties and behaviors. An object is an instance of a class that contains actual values and occupies memory.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "class Car {\n    String color;\n}\n\nCar car = new Car();"
+    },
+    "tags": [
+      "class",
+      "object",
+      "oops"
+    ]
+  },
+  {
+    "id": "java-010",
+    "category": "Access Modifiers",
+    "difficulty": "easy",
+    "question": "Explain Java access modifiers.",
+    "answer": "Java provides four access modifiers: private, default, protected, and public. Private members are accessible only inside the class. Default members are accessible within the same package. Protected members are accessible within the package and subclasses. Public members are accessible everywhere.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "public class Example {\n    private int value;\n    public void setValue(int value) {\n        this.value = value;\n    }\n}"
+    },
+    "tags": [
+      "access-modifier",
+      "encapsulation"
+    ]
+  }
+  ,
+  {
+    "id": "java-011",
+    "category": "Collections",
+    "difficulty": "easy",
+    "question": "What is the Java Collection Framework?",
+    "answer": "The Java Collection Framework is a set of interfaces and classes that provide ready-made data structures and algorithms to store and manipulate groups of objects. It includes List, Set, Queue, Map interfaces and their implementations like ArrayList, HashSet, LinkedList, and HashMap.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "List<String> names = new ArrayList<>();\nnames.add(\"Java\");\nnames.add(\"Spring\");"
+    },
+    "tags": [
+      "collections",
+      "framework",
+      "list"
+    ]
+  },
+  {
+    "id": "java-012",
+    "category": "Collections",
+    "difficulty": "medium",
+    "question": "What is the difference between ArrayList and LinkedList?",
+    "answer": "ArrayList internally uses a dynamic array, providing fast random access with O(1) lookup but slower insertion and deletion in the middle because elements need shifting. LinkedList uses a doubly linked list, making insertion and deletion faster when the node location is known, but random access is slower because traversal is required.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "List<String> array = new ArrayList<>();\nList<String> linked = new LinkedList<>();"
+    },
+    "tags": [
+      "arraylist",
+      "linkedlist",
+      "collections"
+    ]
+  },
+  {
+    "id": "java-013",
+    "category": "Collections",
+    "difficulty": "medium",
+    "question": "What is the difference between HashMap and Hashtable?",
+    "answer": "HashMap is not synchronized, allows one null key and multiple null values, and provides better performance. Hashtable is synchronized, does not allow null keys or values, and is considered a legacy collection class.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "Map<Integer,String> map = new HashMap<>();\nmap.put(1, \"Java\");"
+    },
+    "tags": [
+      "hashmap",
+      "hashtable",
+      "collections"
+    ]
+  },
+  {
+    "id": "java-014",
+    "category": "Collections",
+    "difficulty": "hard",
+    "question": "How does HashMap work internally in Java?",
+    "answer": "HashMap stores data as key-value pairs inside buckets. It calculates the key's hashCode and converts it into an index. If multiple keys have the same index, collisions are handled using linked lists. In Java 8, when collisions exceed a threshold, the linked list is converted into a balanced red-black tree to improve lookup performance.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "Map<String,Integer> map = new HashMap<>();\nmap.put(\"Java\", 1);\nInteger value = map.get(\"Java\");"
+    },
+    "tags": [
+      "hashmap",
+      "hashing",
+      "collections"
+    ]
+  },
+  {
+    "id": "java-015",
+    "category": "Collections",
+    "difficulty": "medium",
+    "question": "What is the difference between HashSet, LinkedHashSet, and TreeSet?",
+    "answer": "HashSet stores unique elements without maintaining order. LinkedHashSet maintains insertion order using a linked list internally. TreeSet stores elements in sorted order using a Red-Black tree and requires elements to implement Comparable or provide a Comparator.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "Set<Integer> numbers = new HashSet<>();\nnumbers.add(10);\nnumbers.add(20);"
+    },
+    "tags": [
+      "hashset",
+      "treeset",
+      "set"
+    ]
+  },
+  {
+    "id": "java-016",
+    "category": "Collections",
+    "difficulty": "medium",
+    "question": "What is the difference between Comparable and Comparator?",
+    "answer": "Comparable is used to define the natural ordering of objects inside the class by implementing compareTo(). Comparator is used to define custom sorting logic outside the class using compare().",
+    "codeSnippet": {
+      "language": "java",
+      "code": "class Employee implements Comparable<Employee> {\n    public int compareTo(Employee e) {\n        return this.id - e.id;\n    }\n}"
+    },
+    "tags": [
+      "comparable",
+      "comparator",
+      "sorting"
+    ]
+  },
+  {
+    "id": "java-017",
+    "category": "Generics",
+    "difficulty": "medium",
+    "question": "What are generics in Java and why are they used?",
+    "answer": "Generics allow classes and methods to operate on different data types while providing compile-time type safety. They reduce type casting and help prevent ClassCastException errors.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "List<String> names = new ArrayList<>();\nnames.add(\"Java\");"
+    },
+    "tags": [
+      "generics",
+      "type-safety"
+    ]
+  },
+  {
+    "id": "java-018",
+    "category": "Collections",
+    "difficulty": "hard",
+    "question": "Why does HashMap allow one null key but HashTable does not?",
+    "answer": "HashMap allows one null key because it handles null keys specially by assigning them to bucket zero. Hashtable uses synchronized methods and internally calls hashCode(), which causes a NullPointerException for null keys, so it disallows them.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "Map<String,String> map = new HashMap<>();\nmap.put(null, \"value\");"
+    },
+    "tags": [
+      "hashmap",
+      "hashtable",
+      "null"
+    ]
+  },
+  {
+    "id": "java-019",
+    "category": "Collections",
+    "difficulty": "hard",
+    "question": "How does ConcurrentHashMap work?",
+    "answer": "ConcurrentHashMap provides thread-safe operations without locking the entire map. Modern Java versions use CAS operations and synchronized blocks on individual bins, allowing multiple threads to read and update different parts of the map concurrently.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "ConcurrentHashMap<String,Integer> map = new ConcurrentHashMap<>();\nmap.put(\"count\", 1);"
+    },
+    "tags": [
+      "concurrenthashmap",
+      "multithreading",
+      "collections"
+    ]
+  },
+  {
+    "id": "java-020",
+    "category": "Collections",
+    "difficulty": "medium",
+    "question": "What is the difference between Iterator and ListIterator?",
+    "answer": "Iterator can traverse all collection types in forward direction only. ListIterator works only with List implementations and supports forward and backward traversal, along with adding and replacing elements during iteration.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "List<String> list = new ArrayList<>();\nListIterator<String> iterator = list.listIterator();"
+    },
+    "tags": [
+      "iterator",
+      "listiterator",
+      "collections"
+    ]
+  },
+
+  {
+    "id": "java-021",
+    "category": "Exception Handling",
+    "difficulty": "easy",
+    "question": "What is exception handling in Java?",
+    "answer": "Exception handling is a mechanism to handle runtime errors gracefully without terminating the program. Java provides try, catch, finally, throw, and throws keywords to manage exceptions.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "try {\n    int result = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(e.getMessage());\n}"
+    },
+    "tags": [
+      "exception",
+      "try-catch",
+      "error-handling"
+    ]
+  },
+  {
+    "id": "java-022",
+    "category": "Exception Handling",
+    "difficulty": "medium",
+    "question": "What is the difference between checked and unchecked exceptions?",
+    "answer": "Checked exceptions are checked at compile time and must be handled or declared using throws. Examples include IOException and SQLException. Unchecked exceptions occur during runtime and extend RuntimeException, such as NullPointerException and ArithmeticException.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "try {\n    FileReader file = new FileReader(\"test.txt\");\n} catch (IOException e) {\n    e.printStackTrace();\n}"
+    },
+    "tags": [
+      "checked-exception",
+      "unchecked-exception"
+    ]
+  },
+  {
+    "id": "java-023",
+    "category": "Exception Handling",
+    "difficulty": "medium",
+    "question": "What is the difference between throw and throws?",
+    "answer": "The throw keyword is used to explicitly throw an exception from a method or block. The throws keyword is used in a method signature to declare exceptions that a method may pass to the caller.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "void checkAge(int age) throws Exception {\n    if(age < 18) {\n        throw new Exception(\"Not eligible\");\n    }\n}"
+    },
+    "tags": [
+      "throw",
+      "throws",
+      "exception"
+    ]
+  },
+  {
+    "id": "java-024",
+    "category": "Exception Handling",
+    "difficulty": "hard",
+    "question": "Can we have try without catch in Java?",
+    "answer": "Yes, try can exist without catch when it is followed by a finally block. The finally block executes whether an exception occurs or not and is commonly used for resource cleanup.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "try {\n    System.out.println(\"Processing\");\n} finally {\n    System.out.println(\"Cleanup\");\n}"
+    },
+    "tags": [
+      "finally",
+      "exception"
+    ]
+  },
+  {
+    "id": "java-025",
+    "category": "Multithreading",
+    "difficulty": "easy",
+    "question": "What is a thread in Java?",
+    "answer": "A thread is a lightweight unit of execution inside a process. Java supports multithreading, allowing multiple tasks to execute concurrently to improve application performance and responsiveness.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "class MyThread extends Thread {\n    public void run() {\n        System.out.println(\"Thread running\");\n    }\n}"
+    },
+    "tags": [
+      "thread",
+      "multithreading"
+    ]
+  },
+  {
+    "id": "java-026",
+    "category": "Multithreading",
+    "difficulty": "medium",
+    "question": "What are the different ways to create a thread in Java?",
+    "answer": "Threads can be created by extending the Thread class or implementing the Runnable interface. Runnable is preferred because Java supports single inheritance and allows better separation between task and execution.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "class Task implements Runnable {\n    public void run() {\n        System.out.println(\"Task executed\");\n    }\n}\n\nThread t = new Thread(new Task());\nt.start();"
+    },
+    "tags": [
+      "thread",
+      "runnable"
+    ]
+  },
+  {
+    "id": "java-027",
+    "category": "Multithreading",
+    "difficulty": "medium",
+    "question": "What is the difference between start() and run() methods?",
+    "answer": "start() creates a new thread and internally calls run() on that thread. Calling run() directly executes the method in the current thread and does not create a new thread.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "Thread t = new Thread(() -> {\n    System.out.println(\"Running\");\n});\n\nt.start();"
+    },
+    "tags": [
+      "thread",
+      "start",
+      "run"
+    ]
+  },
+  {
+    "id": "java-028",
+    "category": "Multithreading",
+    "difficulty": "hard",
+    "question": "What is synchronization in Java?",
+    "answer": "Synchronization is a mechanism that controls access to shared resources when multiple threads execute concurrently. It prevents race conditions by allowing only one thread to execute a critical section at a time.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "synchronized void increment() {\n    count++;\n}"
+    },
+    "tags": [
+      "synchronization",
+      "thread-safety"
+    ]
+  },
+  {
+    "id": "java-029",
+    "category": "Multithreading",
+    "difficulty": "hard",
+    "question": "What is the difference between synchronized and ReentrantLock?",
+    "answer": "synchronized is a built-in Java keyword that automatically releases locks. ReentrantLock provides advanced locking features such as tryLock(), fairness policy, interruptible locking, and multiple condition variables, but requires manual unlock handling.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "lock.lock();\ntry {\n    // critical section\n} finally {\n    lock.unlock();\n}"
+    },
+    "tags": [
+      "lock",
+      "reentrantlock",
+      "concurrency"
+    ]
+  },
+  {
+    "id": "java-030",
+    "category": "Multithreading",
+    "difficulty": "medium",
+    "question": "What is the difference between sleep(), wait(), and notify()?",
+    "answer": "sleep() pauses the current thread for a specific time without releasing locks. wait() releases the lock and pauses until another thread calls notify() or notifyAll(). notify() wakes one waiting thread, while notifyAll() wakes all waiting threads.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "synchronized(object) {\n    object.wait();\n    object.notify();\n}"
+    },
+    "tags": [
+      "wait",
+      "notify",
+      "thread"
+    ]
+  }
+,
+  {
+    "id": "java-031",
+    "category": "JVM",
+    "difficulty": "medium",
+    "question": "What is JVM and how does it work?",
+    "answer": "JVM (Java Virtual Machine) is the runtime environment that executes Java bytecode. Java source code is compiled into bytecode by the Java compiler. JVM loads the bytecode, verifies it, and converts it into machine code using the interpreter and JIT compiler. JVM provides platform independence because the same bytecode can run on different operating systems with different JVM implementations.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Java Source Code\n        |\n        v\n     Compiler\n        |\n        v\n    Bytecode\n        |\n        v\n       JVM\n        |\n        v\n Machine Code"
+    },
+    "tags": [
+      "jvm",
+      "bytecode",
+      "execution"
+    ]
+  },
+  {
+    "id": "java-032",
+    "category": "JVM",
+    "difficulty": "hard",
+    "question": "What are the different memory areas in JVM?",
+    "answer": "JVM memory is divided into several areas. Heap stores objects and instance variables. Stack stores method calls and local variables. Method Area stores class-level information such as metadata and static variables. PC Register stores the address of the current instruction. Native Method Stack stores native method execution information.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "JVM Memory:\n\nHeap -> Objects\nStack -> Local Variables\nMethod Area -> Class Metadata\nPC Register -> Current Instruction\nNative Stack -> Native Methods"
+    },
+    "tags": [
+      "jvm",
+      "memory",
+      "heap",
+      "stack"
+    ]
+  },
+  {
+    "id": "java-033",
+    "category": "Garbage Collection",
+    "difficulty": "hard",
+    "question": "How does Garbage Collector work in Java?",
+    "answer": "The Garbage Collector automatically removes objects that are no longer reachable from active references. JVM identifies unused objects, marks them, removes them, and compacts memory when required. Modern JVMs use generational garbage collection where objects are divided into young and old generations.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "Object obj = new Object();\nobj = null;\nSystem.gc();"
+    },
+    "tags": [
+      "garbage-collection",
+      "memory",
+      "jvm"
+    ]
+  },
+  {
+    "id": "java-034",
+    "category": "JVM",
+    "difficulty": "medium",
+    "question": "What is the difference between Heap and Stack memory?",
+    "answer": "Heap memory stores objects and is shared among threads. Stack memory stores method calls, local variables, and references and each thread has its own stack. Heap is managed by Garbage Collector while stack memory is automatically released when methods complete.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "public void method() {\n    int count = 10; // Stack\n    User user = new User(); // Object in Heap\n}"
+    },
+    "tags": [
+      "heap",
+      "stack",
+      "memory"
+    ]
+  },
+  {
+    "id": "java-035",
+    "category": "Java 8",
+    "difficulty": "easy",
+    "question": "What are the major features introduced in Java 8?",
+    "answer": "Java 8 introduced Lambda expressions, Stream API, Functional Interfaces, Optional class, default methods in interfaces, new Date and Time API, and improvements in concurrency. These features enabled functional programming support in Java.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "List<String> names = List.of(\"Java\", \"Spring\");\nnames.forEach(name -> System.out.println(name));"
+    },
+    "tags": [
+      "java8",
+      "lambda",
+      "streams"
+    ]
+  },
+  {
+    "id": "java-036",
+    "category": "Java 8",
+    "difficulty": "medium",
+    "question": "What is a Lambda expression in Java?",
+    "answer": "A Lambda expression is an anonymous function introduced in Java 8. It provides a shorter way to implement functional interfaces and reduces boilerplate code.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "Runnable task = () -> {\n    System.out.println(\"Running task\");\n};\n\nnew Thread(task).start();"
+    },
+    "tags": [
+      "lambda",
+      "functional-interface"
+    ]
+  },
+  {
+    "id": "java-037",
+    "category": "Java 8",
+    "difficulty": "medium",
+    "question": "What is Stream API in Java?",
+    "answer": "Stream API provides a functional approach to process collections of data. It supports operations like filtering, mapping, sorting, and reducing without modifying the original collection. Streams can be sequential or parallel.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "List<Integer> numbers = List.of(1,2,3,4,5);\n\nnumbers.stream()\n       .filter(n -> n % 2 == 0)\n       .forEach(System.out::println);"
+    },
+    "tags": [
+      "stream",
+      "java8",
+      "functional-programming"
+    ]
+  },
+  {
+    "id": "java-038",
+    "category": "Java 8",
+    "difficulty": "medium",
+    "question": "What is Optional in Java?",
+    "answer": "Optional is a container object introduced in Java 8 to represent the presence or absence of a value. It helps reduce NullPointerException by encouraging explicit handling of missing values.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "Optional<String> name = Optional.of(\"Java\");\nname.ifPresent(System.out::println);"
+    },
+    "tags": [
+      "optional",
+      "java8",
+      "null"
+    ]
+  },
+  {
+    "id": "java-039",
+    "category": "Interfaces",
+    "difficulty": "medium",
+    "question": "What are default and static methods in Java interfaces?",
+    "answer": "Java 8 allows interfaces to contain default and static methods. Default methods provide method implementations that classes can inherit. Static methods belong to the interface itself and cannot be overridden by implementing classes.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "interface Vehicle {\n    default void start() {\n        System.out.println(\"Starting\");\n    }\n\n    static void info() {\n        System.out.println(\"Vehicle\");\n    }\n}"
+    },
+    "tags": [
+      "interface",
+      "java8",
+      "default-method"
+    ]
+  },
+  {
+    "id": "java-040",
+    "category": "Class Loading",
+    "difficulty": "hard",
+    "question": "What is the Java ClassLoader?",
+    "answer": "ClassLoader is a JVM component responsible for loading class files into memory. It loads classes dynamically when they are required. Java provides three main class loaders: Bootstrap ClassLoader, Platform ClassLoader, and Application ClassLoader.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "ClassLoader loader = String.class.getClassLoader();\nSystem.out.println(loader);"
+    },
+    "tags": [
+      "classloader",
+      "jvm",
+      "runtime"
+    ]
+  }
+,
+  {
+    "id": "java-041",
+    "category": "Java Streams",
+    "difficulty": "medium",
+    "question": "What is the difference between map() and flatMap() in Stream API?",
+    "answer": "map() is used to transform each element into another element and returns a stream of the transformed values. flatMap() is used when each element produces multiple values or another stream, and it flattens all nested streams into a single stream.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "List<String> names = List.of(\"java\", \"spring\");\n\nnames.stream()\n     .map(String::toUpperCase)\n     .forEach(System.out::println);"
+    },
+    "tags": [
+      "streams",
+      "map",
+      "flatmap"
+    ]
+  },
+  {
+    "id": "java-042",
+    "category": "Java Streams",
+    "difficulty": "medium",
+    "question": "What is the difference between intermediate and terminal operations in Streams?",
+    "answer": "Intermediate operations return another Stream and are lazy. They are executed only when a terminal operation is called. Examples include filter(), map(), and sorted(). Terminal operations produce a result or side effect and trigger stream execution. Examples include collect(), reduce(), and forEach().",
+    "codeSnippet": {
+      "language": "java",
+      "code": "numbers.stream()\n       .filter(n -> n > 10)\n       .collect(Collectors.toList());"
+    },
+    "tags": [
+      "streams",
+      "lazy-evaluation"
+    ]
+  },
+  {
+    "id": "java-043",
+    "category": "Java Streams",
+    "difficulty": "hard",
+    "question": "What is the difference between sequential and parallel streams?",
+    "answer": "Sequential streams execute operations in a single thread. Parallel streams divide tasks into multiple threads using the ForkJoinPool to improve performance for large datasets. Parallel streams should be used carefully because thread management overhead can reduce performance for small collections.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "list.parallelStream()\n    .forEach(System.out::println);"
+    },
+    "tags": [
+      "parallel-stream",
+      "concurrency"
+    ]
+  },
+  {
+    "id": "java-044",
+    "category": "Design Patterns",
+    "difficulty": "medium",
+    "question": "What is the Singleton design pattern?",
+    "answer": "Singleton is a design pattern that ensures only one instance of a class exists throughout the application lifecycle. It is commonly used for configuration classes, logging, and connection managers. A private constructor prevents object creation from outside the class.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "class Singleton {\n    private static Singleton instance;\n\n    private Singleton() {}\n\n    public static Singleton getInstance() {\n        if(instance == null) {\n            instance = new Singleton();\n        }\n        return instance;\n    }\n}"
+    },
+    "tags": [
+      "singleton",
+      "design-pattern"
+    ]
+  },
+  {
+    "id": "java-045",
+    "category": "Design Patterns",
+    "difficulty": "medium",
+    "question": "What are the types of design patterns in Java?",
+    "answer": "Design patterns are generally divided into three categories: Creational patterns (Singleton, Factory, Builder), Structural patterns (Adapter, Decorator, Proxy), and Behavioral patterns (Observer, Strategy, Command). They provide proven solutions for common software design problems.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Creational:\n- Singleton\n- Factory\n- Builder\n\nStructural:\n- Adapter\n- Decorator\n\nBehavioral:\n- Observer\n- Strategy"
+    },
+    "tags": [
+      "design-patterns",
+      "architecture"
+    ]
+  },
+  {
+    "id": "java-046",
+    "category": "Serialization",
+    "difficulty": "medium",
+    "question": "What is serialization in Java?",
+    "answer": "Serialization is the process of converting an object into a byte stream so it can be stored or transmitted. Deserialization converts the byte stream back into an object. Java provides the Serializable interface for this purpose.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "class User implements Serializable {\n    private String name;\n}"
+    },
+    "tags": [
+      "serialization",
+      "object"
+    ]
+  },
+  {
+    "id": "java-047",
+    "category": "Serialization",
+    "difficulty": "hard",
+    "question": "What is the purpose of transient keyword in Java?",
+    "answer": "The transient keyword prevents a variable from being serialized. During deserialization, transient fields receive default values. It is commonly used for sensitive data like passwords or temporary fields.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "class User implements Serializable {\n    private String username;\n    private transient String password;\n}"
+    },
+    "tags": [
+      "transient",
+      "serialization",
+      "security"
+    ]
+  },
+  {
+    "id": "java-048",
+    "category": "Reflection",
+    "difficulty": "hard",
+    "question": "What is Reflection API in Java?",
+    "answer": "Reflection allows Java programs to inspect and modify classes, methods, constructors, and fields at runtime. Frameworks like Spring and Hibernate use reflection extensively for dependency injection and object creation.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "Class<?> clazz = String.class;\nSystem.out.println(clazz.getName());"
+    },
+    "tags": [
+      "reflection",
+      "runtime",
+      "spring"
+    ]
+  },
+  {
+    "id": "java-049",
+    "category": "Java Memory",
+    "difficulty": "hard",
+    "question": "What causes memory leaks in Java even with Garbage Collection?",
+    "answer": "Garbage Collection removes only unreachable objects. Memory leaks occur when objects are still referenced but no longer needed. Common causes include static collections holding objects, unclosed resources, listeners not removed, and improper caching.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "static List<Object> cache = new ArrayList<>();\n\n// Objects remain referenced and cannot be garbage collected"
+    },
+    "tags": [
+      "memory-leak",
+      "garbage-collection"
+    ]
+  },
+  {
+    "id": "java-050",
+    "category": "Advanced Java",
+    "difficulty": "hard",
+    "question": "What is the difference between fail-fast and fail-safe iterators?",
+    "answer": "Fail-fast iterators immediately throw ConcurrentModificationException when a collection is modified during iteration. Examples include ArrayList and HashMap iterators. Fail-safe iterators work on a copy or concurrent collection and do not throw exceptions. Examples include CopyOnWriteArrayList and ConcurrentHashMap.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<>();\n\nfor(String item : list) {\n    list.add(\"new\");\n}"
+    },
+    "tags": [
+      "iterator",
+      "concurrency",
+      "collections"
+    ]
   }
 ]

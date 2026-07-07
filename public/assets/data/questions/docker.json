@@ -1,0 +1,756 @@
+[
+  {
+    "id": "docker-001",
+    "category": "Docker Fundamentals",
+    "difficulty": "easy",
+    "question": "What is Docker?",
+    "answer": "Docker is a containerization platform that packages applications with their dependencies into lightweight portable containers that run consistently across environments.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Application\n   +\nDependencies\n   +\nDocker Container"
+    },
+    "tags": [
+      "docker",
+      "containers"
+    ]
+  },
+  {
+    "id": "docker-002",
+    "category": "Containers",
+    "difficulty": "easy",
+    "question": "What is a container?",
+    "answer": "A container is an isolated runtime environment that contains an application, libraries, dependencies, and configuration required to run the application.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Container\n ├── App\n ├── Runtime\n └── Libraries"
+    },
+    "tags": [
+      "container",
+      "isolation"
+    ]
+  },
+  {
+    "id": "docker-003",
+    "category": "Docker vs Virtual Machines",
+    "difficulty": "medium",
+    "question": "What is the difference between Docker containers and virtual machines?",
+    "answer": "Virtual machines include a complete guest operating system, while containers share the host OS kernel and are lightweight with faster startup times.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "VM:\nHardware\n OS\n App\n\nDocker:\nOS\n Container\n App"
+    },
+    "tags": [
+      "docker",
+      "vm"
+    ]
+  },
+  {
+    "id": "docker-004",
+    "category": "Docker Architecture",
+    "difficulty": "medium",
+    "question": "Explain Docker architecture.",
+    "answer": "Docker follows a client-server architecture where Docker CLI communicates with Docker daemon, which manages images, containers, and networks.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Docker CLI\n    |\nDocker Daemon\n    |\nContainers"
+    },
+    "tags": [
+      "architecture",
+      "docker-daemon"
+    ]
+  },
+  {
+    "id": "docker-005",
+    "category": "Docker Images",
+    "difficulty": "easy",
+    "question": "What is a Docker image?",
+    "answer": "A Docker image is a read-only template containing application code, runtime, libraries, and configuration required to create containers.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Image\n |\nContainer\n |\nRunning App"
+    },
+    "tags": [
+      "image",
+      "docker"
+    ]
+  },
+  {
+    "id": "docker-006",
+    "category": "Docker Containers",
+    "difficulty": "easy",
+    "question": "What is the difference between Docker image and container?",
+    "answer": "An image is a blueprint used to create containers. A container is a running instance of an image.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Image = Template\nContainer = Running Instance"
+    },
+    "tags": [
+      "image",
+      "container"
+    ]
+  },
+  {
+    "id": "docker-007",
+    "category": "Docker Hub",
+    "difficulty": "easy",
+    "question": "What is Docker Hub?",
+    "answer": "Docker Hub is a public registry where Docker images are stored, shared, and downloaded.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Developer\n   |\nDocker Hub\n   |\nImages"
+    },
+    "tags": [
+      "registry",
+      "dockerhub"
+    ]
+  },
+  {
+    "id": "docker-008",
+    "category": "Docker Commands",
+    "difficulty": "easy",
+    "question": "How do you run a Docker container?",
+    "answer": "The docker run command creates and starts a container from an image.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker run nginx"
+    },
+    "tags": [
+      "commands",
+      "docker-run"
+    ]
+  },
+  {
+    "id": "docker-009",
+    "category": "Docker Commands",
+    "difficulty": "easy",
+    "question": "How do you list running Docker containers?",
+    "answer": "The docker ps command displays currently running containers.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker ps"
+    },
+    "tags": [
+      "commands",
+      "containers"
+    ]
+  },
+  {
+    "id": "docker-010",
+    "category": "Dockerfile",
+    "difficulty": "medium",
+    "question": "What is a Dockerfile?",
+    "answer": "A Dockerfile is a text file containing instructions used to build a Docker image automatically.",
+    "codeSnippet": {
+      "language": "dockerfile",
+      "code": "FROM openjdk:17\nCOPY app.jar app.jar\nCMD [\"java\",\"-jar\",\"app.jar\"]"
+    },
+    "tags": [
+      "dockerfile",
+      "image-build"
+    ]
+  }
+,
+  {
+    "id": "docker-011",
+    "category": "Dockerfile",
+    "difficulty": "medium",
+    "question": "Explain common Dockerfile instructions.",
+    "answer": "Dockerfile instructions define how an image is created. Common instructions include FROM, RUN, COPY, ADD, WORKDIR, ENV, EXPOSE, CMD, and ENTRYPOINT.",
+    "codeSnippet": {
+      "language": "dockerfile",
+      "code": "FROM node:20\nWORKDIR /app\nCOPY . .\nRUN npm install\nCMD [\"npm\",\"start\"]"
+    },
+    "tags": [
+      "dockerfile",
+      "instructions"
+    ]
+  },
+  {
+    "id": "docker-012",
+    "category": "Dockerfile",
+    "difficulty": "medium",
+    "question": "What is the difference between CMD and ENTRYPOINT in Docker?",
+    "answer": "CMD provides default commands that can be overridden when running a container. ENTRYPOINT defines the main executable that always runs.",
+    "codeSnippet": {
+      "language": "dockerfile",
+      "code": "ENTRYPOINT [\"java\"]\nCMD [\"-jar\",\"app.jar\"]"
+    },
+    "tags": [
+      "cmd",
+      "entrypoint"
+    ]
+  },
+  {
+    "id": "docker-013",
+    "category": "Dockerfile",
+    "difficulty": "medium",
+    "question": "What is a Docker image layer?",
+    "answer": "Docker images are built using multiple read-only layers. Each Dockerfile instruction creates a new layer that can be cached and reused.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Image\n |\nLayer 3 CMD\n |\nLayer 2 COPY\n |\nLayer 1 FROM"
+    },
+    "tags": [
+      "layers",
+      "image"
+    ]
+  },
+  {
+    "id": "docker-014",
+    "category": "Docker Build",
+    "difficulty": "medium",
+    "question": "How do you build a Docker image?",
+    "answer": "The docker build command creates an image from a Dockerfile.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker build -t my-app ."
+    },
+    "tags": [
+      "build",
+      "image"
+    ]
+  },
+  {
+    "id": "docker-015",
+    "category": "Docker Volumes",
+    "difficulty": "medium",
+    "question": "What are Docker volumes?",
+    "answer": "Docker volumes provide persistent storage for containers. Data stored in volumes survives even after containers are removed.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker volume create app-data"
+    },
+    "tags": [
+      "volume",
+      "storage"
+    ]
+  },
+  {
+    "id": "docker-016",
+    "category": "Docker Storage",
+    "difficulty": "medium",
+    "question": "Why are Docker volumes required?",
+    "answer": "Containers are temporary by default. Volumes allow databases, logs, and application data to persist independently from container lifecycle.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Container\n    |\n Volume\n    |\n Persistent Data"
+    },
+    "tags": [
+      "storage",
+      "persistence"
+    ]
+  },
+  {
+    "id": "docker-017",
+    "category": "Docker Networking",
+    "difficulty": "medium",
+    "question": "What is Docker networking?",
+    "answer": "Docker networking enables communication between containers and external systems using different network drivers.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Container A\n     |\n Docker Network\n     |\nContainer B"
+    },
+    "tags": [
+      "network",
+      "communication"
+    ]
+  },
+  {
+    "id": "docker-018",
+    "category": "Docker Networks",
+    "difficulty": "hard",
+    "question": "What are Docker network drivers?",
+    "answer": "Docker provides network drivers such as bridge, host, none, overlay, and macvlan for different communication requirements.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "bridge\nhost\nnone\noverlay\nmacvlan"
+    },
+    "tags": [
+      "network-driver",
+      "docker"
+    ]
+  },
+  {
+    "id": "docker-019",
+    "category": "Docker Compose",
+    "difficulty": "medium",
+    "question": "What is Docker Compose?",
+    "answer": "Docker Compose is a tool used to define and run multi-container applications using a YAML configuration file.",
+    "codeSnippet": {
+      "language": "yaml",
+      "code": "services:\n  app:\n    image: node\n  db:\n    image: postgres"
+    },
+    "tags": [
+      "compose",
+      "multi-container"
+    ]
+  },
+  {
+    "id": "docker-020",
+    "category": "Multi Stage Builds",
+    "difficulty": "hard",
+    "question": "What are multi-stage Docker builds?",
+    "answer": "Multi-stage builds use multiple FROM instructions to separate build dependencies from the final runtime image, reducing image size.",
+    "codeSnippet": {
+      "language": "dockerfile",
+      "code": "FROM maven AS build\nRUN mvn package\n\nFROM openjdk:17\nCOPY --from=build app.jar ."
+    },
+    "tags": [
+      "multi-stage",
+      "optimization"
+    ]
+  }
+,
+  {
+    "id": "docker-021",
+    "category": "Docker Registry",
+    "difficulty": "medium",
+    "question": "What is a Docker registry?",
+    "answer": "A Docker registry is a storage system for Docker images. It allows developers and organizations to store, manage, and distribute images.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Developer\n |\n Registry\n |\n Docker Images"
+    },
+    "tags": [
+      "registry",
+      "images"
+    ]
+  },
+  {
+    "id": "docker-022",
+    "category": "Private Registry",
+    "difficulty": "medium",
+    "question": "What is a private Docker registry?",
+    "answer": "A private registry stores Docker images privately within an organization for security and controlled access.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Company\n |\nPrivate Registry\n |\nInternal Images"
+    },
+    "tags": [
+      "private-registry",
+      "security"
+    ]
+  },
+  {
+    "id": "docker-023",
+    "category": "Docker Security",
+    "difficulty": "hard",
+    "question": "How do you secure Docker containers?",
+    "answer": "Docker containers can be secured by using trusted images, scanning vulnerabilities, running containers as non-root users, limiting privileges, and keeping images updated.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Security:\n✓ Scan Images\n✓ Non Root User\n✓ Update Images\n✓ Limit Access"
+    },
+    "tags": [
+      "security",
+      "containers"
+    ]
+  },
+  {
+    "id": "docker-024",
+    "category": "Docker Security",
+    "difficulty": "hard",
+    "question": "Why should containers not run as root?",
+    "answer": "Running containers as root increases security risks because container compromise may provide higher privileges to attackers.",
+    "codeSnippet": {
+      "language": "dockerfile",
+      "code": "RUN adduser appuser\nUSER appuser"
+    },
+    "tags": [
+      "root",
+      "security"
+    ]
+  },
+  {
+    "id": "docker-025",
+    "category": "Docker Image Optimization",
+    "difficulty": "hard",
+    "question": "How do you reduce Docker image size?",
+    "answer": "Image size can be reduced by using smaller base images, multi-stage builds, removing unnecessary dependencies, and optimizing Dockerfile layers.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Large Image\n     ↓\nOptimization\n     ↓\nSmall Image"
+    },
+    "tags": [
+      "optimization",
+      "images"
+    ]
+  },
+  {
+    "id": "docker-026",
+    "category": "Docker Commands",
+    "difficulty": "easy",
+    "question": "How do you view Docker images?",
+    "answer": "The docker images command lists all locally available Docker images.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker images"
+    },
+    "tags": [
+      "commands",
+      "images"
+    ]
+  },
+  {
+    "id": "docker-027",
+    "category": "Docker Commands",
+    "difficulty": "easy",
+    "question": "How do you stop a Docker container?",
+    "answer": "The docker stop command gracefully stops a running container.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker stop container_id"
+    },
+    "tags": [
+      "commands",
+      "container"
+    ]
+  },
+  {
+    "id": "docker-028",
+    "category": "Docker Commands",
+    "difficulty": "easy",
+    "question": "How do you remove a Docker container?",
+    "answer": "The docker rm command removes a stopped container.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker rm container_id"
+    },
+    "tags": [
+      "commands",
+      "cleanup"
+    ]
+  },
+  {
+    "id": "docker-029",
+    "category": "Docker Logs",
+    "difficulty": "medium",
+    "question": "How do you check Docker container logs?",
+    "answer": "The docker logs command displays logs generated by a container.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker logs container_id"
+    },
+    "tags": [
+      "logs",
+      "debugging"
+    ]
+  },
+  {
+    "id": "docker-030",
+    "category": "Docker Monitoring",
+    "difficulty": "medium",
+    "question": "How do you monitor Docker containers?",
+    "answer": "Containers can be monitored using docker stats, logging tools, metrics platforms, and monitoring solutions like Prometheus and Grafana.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker stats"
+    },
+    "tags": [
+      "monitoring",
+      "performance"
+    ]
+  }
+,
+  {
+    "id": "docker-031",
+    "category": "Docker Swarm",
+    "difficulty": "medium",
+    "question": "What is Docker Swarm?",
+    "answer": "Docker Swarm is Docker's native container orchestration tool used to manage clusters of Docker engines and deploy containerized applications.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker swarm init"
+    },
+    "tags": [
+      "swarm",
+      "orchestration"
+    ]
+  },
+  {
+    "id": "docker-032",
+    "category": "Docker Swarm",
+    "difficulty": "medium",
+    "question": "What are nodes in Docker Swarm?",
+    "answer": "Nodes are Docker hosts participating in a Swarm cluster. They can be manager nodes or worker nodes.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Swarm Cluster\n |\n ├── Manager Node\n └── Worker Nodes"
+    },
+    "tags": [
+      "nodes",
+      "swarm"
+    ]
+  },
+  {
+    "id": "docker-033",
+    "category": "Docker Orchestration",
+    "difficulty": "hard",
+    "question": "Why is Kubernetes preferred over Docker Swarm?",
+    "answer": "Kubernetes provides advanced orchestration features including automatic scaling, self-healing, service discovery, rolling deployments, and a large ecosystem.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Kubernetes:\nScaling\nSelf Healing\nDeployment\nNetworking"
+    },
+    "tags": [
+      "kubernetes",
+      "orchestration"
+    ]
+  },
+  {
+    "id": "docker-034",
+    "category": "Docker Deployment",
+    "difficulty": "hard",
+    "question": "How do you deploy Docker containers in production?",
+    "answer": "Production deployments usually use container orchestration platforms, CI/CD pipelines, monitoring, secure images, and automated scaling.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Code\n ↓\nBuild Image\n ↓\nRegistry\n ↓\nDeployment"
+    },
+    "tags": [
+      "production",
+      "deployment"
+    ]
+  },
+  {
+    "id": "docker-035",
+    "category": "Docker Health Checks",
+    "difficulty": "medium",
+    "question": "What are Docker health checks?",
+    "answer": "Health checks allow Docker to verify whether a container is running correctly and report unhealthy containers.",
+    "codeSnippet": {
+      "language": "dockerfile",
+      "code": "HEALTHCHECK CMD curl -f http://localhost:8080"
+    },
+    "tags": [
+      "healthcheck",
+      "monitoring"
+    ]
+  },
+  {
+    "id": "docker-036",
+    "category": "Docker Debugging",
+    "difficulty": "medium",
+    "question": "How do you debug a Docker container?",
+    "answer": "Docker containers can be debugged using logs, exec commands, inspecting containers, checking resource usage, and reviewing configuration.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker exec -it container_id bash"
+    },
+    "tags": [
+      "debugging",
+      "commands"
+    ]
+  },
+  {
+    "id": "docker-037",
+    "category": "Docker Inspect",
+    "difficulty": "medium",
+    "question": "What is docker inspect?",
+    "answer": "docker inspect displays detailed information about Docker objects such as containers, images, networks, and volumes.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker inspect container_id"
+    },
+    "tags": [
+      "inspect",
+      "debugging"
+    ]
+  },
+  {
+    "id": "docker-038",
+    "category": "Docker CI/CD",
+    "difficulty": "hard",
+    "question": "How is Docker used in CI/CD pipelines?",
+    "answer": "Docker provides consistent build environments, creates application images, runs automated tests, and enables reliable deployments across environments.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Git Push\n ↓\nBuild Image\n ↓\nTest Container\n ↓\nDeploy"
+    },
+    "tags": [
+      "cicd",
+      "docker"
+    ]
+  },
+  {
+    "id": "docker-039",
+    "category": "Docker Environment",
+    "difficulty": "medium",
+    "question": "How do you pass environment variables to Docker containers?",
+    "answer": "Environment variables can be passed using the -e option, env files, or Docker Compose configuration.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker run -e DB_HOST=mysql app"
+    },
+    "tags": [
+      "environment",
+      "configuration"
+    ]
+  },
+  {
+    "id": "docker-040",
+    "category": "Docker Compose",
+    "difficulty": "hard",
+    "question": "How do you manage multiple environments using Docker Compose?",
+    "answer": "Multiple Compose files can be used for development, testing, and production environments with different configurations.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker compose -f docker-compose.prod.yml up"
+    },
+    "tags": [
+      "compose",
+      "environment"
+    ]
+  }
+,
+  {
+    "id": "docker-041",
+    "category": "Docker Architecture",
+    "difficulty": "hard",
+    "question": "Explain Docker container lifecycle.",
+    "answer": "A Docker container lifecycle includes creation, starting, running, stopping, restarting, pausing, and removal stages.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Create\n ↓\nStart\n ↓\nRunning\n ↓\nStop\n ↓\nRemove"
+    },
+    "tags": [
+      "lifecycle",
+      "container"
+    ]
+  },
+  {
+    "id": "docker-042",
+    "category": "Docker Restart Policy",
+    "difficulty": "medium",
+    "question": "What are Docker restart policies?",
+    "answer": "Restart policies define how Docker handles containers when they stop. Options include no, always, unless-stopped, and on-failure.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker run --restart=always nginx"
+    },
+    "tags": [
+      "restart",
+      "availability"
+    ]
+  },
+  {
+    "id": "docker-043",
+    "category": "Docker Security",
+    "difficulty": "hard",
+    "question": "What is Docker image scanning?",
+    "answer": "Image scanning checks Docker images for security vulnerabilities, outdated packages, and known security issues before deployment.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Image\n ↓\nSecurity Scanner\n ↓\nReport"
+    },
+    "tags": [
+      "security",
+      "vulnerability"
+    ]
+  },
+  {
+    "id": "docker-044",
+    "category": "Docker Best Practices",
+    "difficulty": "hard",
+    "question": "What are Docker image best practices?",
+    "answer": "Use small base images, avoid unnecessary packages, use multi-stage builds, pin versions, scan images, and run as non-root users.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Best Practices:\nSmall Images\nSecure Users\nVersion Pinning"
+    },
+    "tags": [
+      "best-practices",
+      "optimization"
+    ]
+  },
+  {
+    "id": "docker-045",
+    "category": "Docker Resource Management",
+    "difficulty": "medium",
+    "question": "How do you limit CPU and memory for containers?",
+    "answer": "Docker allows resource limits using CPU and memory flags to prevent one container from consuming all host resources.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "docker run --memory=512m --cpus=1 app"
+    },
+    "tags": [
+      "resources",
+      "performance"
+    ]
+  },
+  {
+    "id": "docker-046",
+    "category": "Docker Production",
+    "difficulty": "hard",
+    "question": "How do you handle Docker logs in production?",
+    "answer": "Production systems usually use centralized logging solutions such as Elasticsearch, Fluent Bit, Loki, or cloud logging services.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Container Logs\n      ↓\nLog Collector\n      ↓\nMonitoring System"
+    },
+    "tags": [
+      "logging",
+      "production"
+    ]
+  },
+  {
+    "id": "docker-047",
+    "category": "Docker Networking",
+    "difficulty": "hard",
+    "question": "How do containers communicate in a microservices architecture?",
+    "answer": "Containers communicate using Docker networks, service discovery, DNS resolution, and exposed application ports.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Service A\n |\nNetwork\n |\nService B"
+    },
+    "tags": [
+      "microservices",
+      "networking"
+    ]
+  },
+  {
+    "id": "docker-048",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Explain your experience using Docker in a project.",
+    "answer": "A good answer should explain how Docker was used for application packaging, local development, testing, CI/CD pipelines, and deployment.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Application\n ↓\nDocker Image\n ↓\nDeployment"
+    },
+    "tags": [
+      "hr",
+      "project"
+    ]
+  },
+  {
+    "id": "docker-049",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "What challenges have you faced while using Docker?",
+    "answer": "Common challenges include image size optimization, networking issues, container debugging, security vulnerabilities, and environment configuration.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Challenges:\nImages\nNetworks\nSecurity\nDebugging"
+    },
+    "tags": [
+      "hr",
+      "experience"
+    ]
+  },
+  {
+    "id": "docker-050",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Why is Docker important for modern backend development?",
+    "answer": "Docker provides consistent environments, simplifies deployments, improves developer productivity, and enables scalable cloud-native applications.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Developer\n ↓\nDocker\n ↓\nCloud Deployment"
+    },
+    "tags": [
+      "hr",
+      "docker"
+    ]
+  }
+]

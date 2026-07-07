@@ -1,0 +1,756 @@
+[
+  {
+    "id": "postgres-001",
+    "category": "PostgreSQL Fundamentals",
+    "difficulty": "easy",
+    "question": "What is PostgreSQL?",
+    "answer": "PostgreSQL is an open-source object-relational database management system that supports SQL, advanced data types, transactions, indexing, extensions, and complex queries.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE DATABASE company;"
+    },
+    "tags": [
+      "postgresql",
+      "database",
+      "sql"
+    ]
+  },
+  {
+    "id": "postgres-002",
+    "category": "Database Concepts",
+    "difficulty": "easy",
+    "question": "What are the main features of PostgreSQL?",
+    "answer": "PostgreSQL features include ACID compliance, MVCC, JSON support, advanced indexing, stored procedures, full-text search, replication, and extensibility.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Features:\n- ACID Transactions\n- JSON Support\n- Indexing\n- Replication"
+    },
+    "tags": [
+      "features",
+      "postgresql"
+    ]
+  },
+  {
+    "id": "postgres-003",
+    "category": "Database Architecture",
+    "difficulty": "medium",
+    "question": "Explain PostgreSQL architecture.",
+    "answer": "PostgreSQL follows a client-server architecture. Clients send queries to the PostgreSQL server process, which manages connections, parsing, optimization, execution, storage, and transactions.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Client\n  |\nPostgreSQL Server\n  |\nStorage Engine"
+    },
+    "tags": [
+      "architecture",
+      "postgresql"
+    ]
+  },
+  {
+    "id": "postgres-004",
+    "category": "Tables",
+    "difficulty": "easy",
+    "question": "How do you create a table in PostgreSQL?",
+    "answer": "A table is created using the CREATE TABLE statement with column names, data types, and constraints.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE TABLE users(\n id SERIAL PRIMARY KEY,\n name VARCHAR(100),\n email VARCHAR(150)\n);"
+    },
+    "tags": [
+      "tables",
+      "ddl"
+    ]
+  },
+  {
+    "id": "postgres-005",
+    "category": "Data Types",
+    "difficulty": "medium",
+    "question": "What are common PostgreSQL data types?",
+    "answer": "PostgreSQL supports numeric types, strings, dates, JSON, arrays, UUIDs, boolean values, and custom data types.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE TABLE products(\n id UUID,\n price NUMERIC,\n metadata JSONB\n);"
+    },
+    "tags": [
+      "data-types",
+      "postgresql"
+    ]
+  },
+  {
+    "id": "postgres-006",
+    "category": "Primary Key",
+    "difficulty": "easy",
+    "question": "What is a primary key in PostgreSQL?",
+    "answer": "A primary key uniquely identifies each row in a table. It cannot contain NULL values and automatically creates a unique index.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE TABLE users(\n id SERIAL PRIMARY KEY,\n name TEXT\n);"
+    },
+    "tags": [
+      "primary-key",
+      "constraints"
+    ]
+  },
+  {
+    "id": "postgres-007",
+    "category": "Foreign Key",
+    "difficulty": "medium",
+    "question": "What is a foreign key in PostgreSQL?",
+    "answer": "A foreign key creates a relationship between tables by referencing the primary key of another table and maintains referential integrity.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE TABLE orders(\n id SERIAL,\n user_id INT REFERENCES users(id)\n);"
+    },
+    "tags": [
+      "foreign-key",
+      "relationships"
+    ]
+  },
+  {
+    "id": "postgres-008",
+    "category": "Constraints",
+    "difficulty": "medium",
+    "question": "What are constraints in PostgreSQL?",
+    "answer": "Constraints enforce rules on table data. PostgreSQL supports PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, CHECK, and EXCLUDE constraints.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "email TEXT UNIQUE NOT NULL"
+    },
+    "tags": [
+      "constraints",
+      "validation"
+    ]
+  },
+  {
+    "id": "postgres-009",
+    "category": "SQL Queries",
+    "difficulty": "easy",
+    "question": "How do you retrieve data from PostgreSQL?",
+    "answer": "The SELECT statement is used to retrieve data from tables. It can include filtering, sorting, grouping, and joins.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT * FROM users;"
+    },
+    "tags": [
+      "select",
+      "queries"
+    ]
+  },
+  {
+    "id": "postgres-010",
+    "category": "Filtering Data",
+    "difficulty": "easy",
+    "question": "How do you filter records in PostgreSQL?",
+    "answer": "The WHERE clause filters rows based on specified conditions.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT * FROM users\nWHERE age > 25;"
+    },
+    "tags": [
+      "where",
+      "queries"
+    ]
+  }
+,
+  {
+    "id": "postgres-011",
+    "category": "Joins",
+    "difficulty": "medium",
+    "question": "What are joins in PostgreSQL?",
+    "answer": "Joins combine data from multiple tables based on related columns. PostgreSQL supports INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN, CROSS JOIN, and LATERAL JOIN.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT u.name, o.id\nFROM users u\nINNER JOIN orders o\nON u.id = o.user_id;"
+    },
+    "tags": [
+      "joins",
+      "sql"
+    ]
+  },
+  {
+    "id": "postgres-012",
+    "category": "Inner Join",
+    "difficulty": "easy",
+    "question": "What is INNER JOIN in PostgreSQL?",
+    "answer": "INNER JOIN returns only records where matching values exist in both tables.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT *\nFROM customers c\nINNER JOIN orders o\nON c.id=o.customer_id;"
+    },
+    "tags": [
+      "inner-join"
+    ]
+  },
+  {
+    "id": "postgres-013",
+    "category": "Left Join",
+    "difficulty": "easy",
+    "question": "What is LEFT JOIN in PostgreSQL?",
+    "answer": "LEFT JOIN returns all rows from the left table and matching rows from the right table. Missing matches are returned as NULL.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT *\nFROM users u\nLEFT JOIN orders o\nON u.id=o.user_id;"
+    },
+    "tags": [
+      "left-join"
+    ]
+  },
+  {
+    "id": "postgres-014",
+    "category": "Indexes",
+    "difficulty": "medium",
+    "question": "What is an index in PostgreSQL?",
+    "answer": "An index is a database structure that improves query performance by allowing faster data lookup without scanning the entire table.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE INDEX idx_email\nON users(email);"
+    },
+    "tags": [
+      "indexes",
+      "performance"
+    ]
+  },
+  {
+    "id": "postgres-015",
+    "category": "Index Types",
+    "difficulty": "hard",
+    "question": "What types of indexes are available in PostgreSQL?",
+    "answer": "PostgreSQL supports B-tree, Hash, GiST, SP-GiST, GIN, and BRIN indexes. B-tree is the default and most commonly used.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE INDEX idx_name\nON users USING BTREE(name);"
+    },
+    "tags": [
+      "indexing",
+      "performance"
+    ]
+  },
+  {
+    "id": "postgres-016",
+    "category": "Transactions",
+    "difficulty": "medium",
+    "question": "What is a transaction in PostgreSQL?",
+    "answer": "A transaction is a sequence of database operations treated as a single unit. It either completes entirely or rolls back completely.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "BEGIN;\nUPDATE accounts SET balance=balance-100;\nCOMMIT;"
+    },
+    "tags": [
+      "transactions",
+      "database"
+    ]
+  },
+  {
+    "id": "postgres-017",
+    "category": "ACID Properties",
+    "difficulty": "hard",
+    "question": "Explain ACID properties in PostgreSQL.",
+    "answer": "ACID stands for Atomicity, Consistency, Isolation, and Durability. These properties ensure reliable and safe transaction processing.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Atomicity\nConsistency\nIsolation\nDurability"
+    },
+    "tags": [
+      "acid",
+      "transactions"
+    ]
+  },
+  {
+    "id": "postgres-018",
+    "category": "Isolation Levels",
+    "difficulty": "hard",
+    "question": "What are transaction isolation levels in PostgreSQL?",
+    "answer": "Isolation levels control how transactions interact with each other. PostgreSQL supports Read Committed, Repeatable Read, and Serializable isolation levels.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SET TRANSACTION\nISOLATION LEVEL SERIALIZABLE;"
+    },
+    "tags": [
+      "isolation",
+      "transactions"
+    ]
+  },
+  {
+    "id": "postgres-019",
+    "category": "Views",
+    "difficulty": "medium",
+    "question": "What is a view in PostgreSQL?",
+    "answer": "A view is a virtual table based on a SQL query. It does not store data physically and provides abstraction and security.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE VIEW active_users AS\nSELECT * FROM users\nWHERE active=true;"
+    },
+    "tags": [
+      "views",
+      "sql"
+    ]
+  },
+  {
+    "id": "postgres-020",
+    "category": "Functions",
+    "difficulty": "hard",
+    "question": "What are functions in PostgreSQL?",
+    "answer": "Functions are reusable blocks of SQL or procedural code stored inside PostgreSQL. They can accept parameters and return values.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE FUNCTION get_users()\nRETURNS TABLE(id INT)\nAS $$\nSELECT id FROM users;\n$$ LANGUAGE SQL;"
+    },
+    "tags": [
+      "functions",
+      "procedures"
+    ]
+  }
+,
+  {
+    "id": "postgres-021",
+    "category": "Stored Procedures",
+    "difficulty": "hard",
+    "question": "What are stored procedures in PostgreSQL?",
+    "answer": "Stored procedures are database-side programs that can perform operations, execute SQL statements, handle transactions, and contain procedural logic.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE PROCEDURE update_salary()\nLANGUAGE SQL\nAS $$\nUPDATE employees\nSET salary=salary*1.1;\n$$;"
+    },
+    "tags": [
+      "stored-procedure",
+      "database"
+    ]
+  },
+  {
+    "id": "postgres-022",
+    "category": "Functions vs Procedures",
+    "difficulty": "hard",
+    "question": "What is the difference between functions and procedures in PostgreSQL?",
+    "answer": "Functions return values and can be used inside SQL queries. Procedures are called using CALL and can manage transactions internally.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT calculate_tax();\n\nCALL update_salary();"
+    },
+    "tags": [
+      "functions",
+      "procedures"
+    ]
+  },
+  {
+    "id": "postgres-023",
+    "category": "Triggers",
+    "difficulty": "hard",
+    "question": "What is a trigger in PostgreSQL?",
+    "answer": "A trigger is automatically executed when an INSERT, UPDATE, or DELETE event occurs on a table. It is used for auditing, validation, and automation.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE TRIGGER audit_user\nAFTER INSERT ON users\nFOR EACH ROW\nEXECUTE FUNCTION log_changes();"
+    },
+    "tags": [
+      "triggers",
+      "automation"
+    ]
+  },
+  {
+    "id": "postgres-024",
+    "category": "Trigger Types",
+    "difficulty": "medium",
+    "question": "What are different types of triggers in PostgreSQL?",
+    "answer": "PostgreSQL supports BEFORE triggers, AFTER triggers, and INSTEAD OF triggers. They can execute for each row or each statement.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "BEFORE INSERT\nAFTER UPDATE\nINSTEAD OF DELETE"
+    },
+    "tags": [
+      "triggers",
+      "events"
+    ]
+  },
+  {
+    "id": "postgres-025",
+    "category": "JSONB",
+    "difficulty": "medium",
+    "question": "What is JSONB in PostgreSQL?",
+    "answer": "JSONB is a binary JSON storage format that allows efficient storage, indexing, and querying of JSON data.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE TABLE products(\n data JSONB\n);\n\nSELECT data->>'name'\nFROM products;"
+    },
+    "tags": [
+      "jsonb",
+      "json"
+    ]
+  },
+  {
+    "id": "postgres-026",
+    "category": "JSON Operators",
+    "difficulty": "hard",
+    "question": "What are JSON operators in PostgreSQL?",
+    "answer": "PostgreSQL provides operators like -> to extract JSON objects, ->> to extract text values, and @> for containment checks.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT data->>'email'\nFROM users;"
+    },
+    "tags": [
+      "json",
+      "operators"
+    ]
+  },
+  {
+    "id": "postgres-027",
+    "category": "CTE",
+    "difficulty": "hard",
+    "question": "What is a Common Table Expression (CTE) in PostgreSQL?",
+    "answer": "A CTE is a temporary named result set created using WITH clause. It improves query readability and supports recursive queries.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "WITH active_users AS (\n SELECT * FROM users\n WHERE active=true\n)\nSELECT * FROM active_users;"
+    },
+    "tags": [
+      "cte",
+      "with-query"
+    ]
+  },
+  {
+    "id": "postgres-028",
+    "category": "Recursive Queries",
+    "difficulty": "hard",
+    "question": "What are recursive queries in PostgreSQL?",
+    "answer": "Recursive queries allow a query to refer to its own output. They are useful for hierarchical data like employee trees and category structures.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "WITH RECURSIVE employee_tree AS (\n SELECT id,parent_id FROM employees\n UNION ALL\n SELECT e.id,e.parent_id\n FROM employees e\n JOIN employee_tree t\n ON e.parent_id=t.id\n)\nSELECT * FROM employee_tree;"
+    },
+    "tags": [
+      "recursive",
+      "hierarchy"
+    ]
+  },
+  {
+    "id": "postgres-029",
+    "category": "Window Functions",
+    "difficulty": "hard",
+    "question": "What are window functions in PostgreSQL?",
+    "answer": "Window functions perform calculations across related rows without grouping the result. They are used for ranking, running totals, and analytics.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT name,\nRANK() OVER(ORDER BY salary DESC)\nFROM employees;"
+    },
+    "tags": [
+      "window-functions",
+      "analytics"
+    ]
+  },
+  {
+    "id": "postgres-030",
+    "category": "Query Optimization",
+    "difficulty": "hard",
+    "question": "How do you optimize PostgreSQL queries?",
+    "answer": "Query optimization includes using indexes, analyzing execution plans, avoiding unnecessary columns, optimizing joins, partitioning large tables, and updating statistics.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "EXPLAIN ANALYZE\nSELECT * FROM users\nWHERE email='test@test.com';"
+    },
+    "tags": [
+      "optimization",
+      "performance"
+    ]
+  }
+,
+  {
+    "id": "postgres-031",
+    "category": "Partitioning",
+    "difficulty": "hard",
+    "question": "What is table partitioning in PostgreSQL?",
+    "answer": "Partitioning divides a large table into smaller physical pieces called partitions. It improves query performance and makes managing large datasets easier.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE TABLE orders(\n id BIGINT,\n created_at DATE\n)\nPARTITION BY RANGE(created_at);"
+    },
+    "tags": [
+      "partitioning",
+      "performance"
+    ]
+  },
+  {
+    "id": "postgres-032",
+    "category": "Partition Types",
+    "difficulty": "hard",
+    "question": "What are the types of partitioning in PostgreSQL?",
+    "answer": "PostgreSQL supports range partitioning, list partitioning, and hash partitioning based on how data should be distributed.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Range  -> Dates\nList   -> Categories\nHash   -> Distribution"
+    },
+    "tags": [
+      "partitioning",
+      "database-design"
+    ]
+  },
+  {
+    "id": "postgres-033",
+    "category": "Replication",
+    "difficulty": "hard",
+    "question": "What is replication in PostgreSQL?",
+    "answer": "Replication copies data from a primary database server to one or more standby servers to improve availability, disaster recovery, and read scaling.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Primary\n   |\nStandby Replica"
+    },
+    "tags": [
+      "replication",
+      "high-availability"
+    ]
+  },
+  {
+    "id": "postgres-034",
+    "category": "Streaming Replication",
+    "difficulty": "hard",
+    "question": "What is streaming replication in PostgreSQL?",
+    "answer": "Streaming replication continuously transfers WAL records from the primary server to standby servers in near real time.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Primary WAL\n     |\n     v\nStandby Server"
+    },
+    "tags": [
+      "wal",
+      "replication"
+    ]
+  },
+  {
+    "id": "postgres-035",
+    "category": "WAL",
+    "difficulty": "hard",
+    "question": "What is WAL in PostgreSQL?",
+    "answer": "Write-Ahead Logging records database changes before they are written to data files. It ensures durability and supports recovery.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Transaction\n     |\n WAL Log\n     |\nData Files"
+    },
+    "tags": [
+      "wal",
+      "recovery"
+    ]
+  },
+  {
+    "id": "postgres-036",
+    "category": "Backup",
+    "difficulty": "medium",
+    "question": "How do you backup PostgreSQL databases?",
+    "answer": "PostgreSQL backups can be created using pg_dump for logical backups and pg_basebackup for physical backups.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "pg_dump database_name > backup.sql"
+    },
+    "tags": [
+      "backup",
+      "recovery"
+    ]
+  },
+  {
+    "id": "postgres-037",
+    "category": "Restore",
+    "difficulty": "medium",
+    "question": "How do you restore a PostgreSQL database?",
+    "answer": "A PostgreSQL database can be restored using psql for SQL dumps or pg_restore for custom format backups.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "psql database_name < backup.sql"
+    },
+    "tags": [
+      "restore",
+      "backup"
+    ]
+  },
+  {
+    "id": "postgres-038",
+    "category": "Security",
+    "difficulty": "hard",
+    "question": "How do you secure PostgreSQL databases?",
+    "answer": "PostgreSQL security includes strong authentication, role-based permissions, encrypted connections, limited access, auditing, and regular updates.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Security:\n- Roles\n- Permissions\n- SSL\n- Firewall"
+    },
+    "tags": [
+      "security",
+      "postgresql"
+    ]
+  },
+  {
+    "id": "postgres-039",
+    "category": "Roles And Permissions",
+    "difficulty": "medium",
+    "question": "What are roles in PostgreSQL?",
+    "answer": "Roles are users or groups with specific privileges. PostgreSQL uses roles to control database access.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE ROLE developer\nWITH LOGIN PASSWORD 'password';"
+    },
+    "tags": [
+      "roles",
+      "permissions"
+    ]
+  },
+  {
+    "id": "postgres-040",
+    "category": "Production Optimization",
+    "difficulty": "hard",
+    "question": "What are PostgreSQL production best practices?",
+    "answer": "Production PostgreSQL systems should use proper indexing, monitoring, backups, replication, connection pooling, security controls, query optimization, and regular maintenance.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Production:\n✓ Indexes\n✓ Backup\n✓ Monitoring\n✓ Replication"
+    },
+    "tags": [
+      "production",
+      "database"
+    ]
+  }
+,
+  {
+    "id": "postgres-041",
+    "category": "Advanced SQL",
+    "difficulty": "hard",
+    "question": "What is the difference between DELETE, TRUNCATE, and DROP in PostgreSQL?",
+    "answer": "DELETE removes selected rows and can be rolled back. TRUNCATE removes all rows quickly and resets storage. DROP removes the entire table structure and data.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "DELETE FROM users WHERE id=10;\n\nTRUNCATE TABLE users;\n\nDROP TABLE users;"
+    },
+    "tags": [
+      "delete",
+      "truncate",
+      "drop"
+    ]
+  },
+  {
+    "id": "postgres-042",
+    "category": "Advanced SQL",
+    "difficulty": "medium",
+    "question": "What is the difference between UNION and UNION ALL in PostgreSQL?",
+    "answer": "UNION combines query results and removes duplicate rows. UNION ALL combines results without removing duplicates and is faster.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT name FROM users\nUNION\nSELECT name FROM admins;"
+    },
+    "tags": [
+      "union",
+      "sql"
+    ]
+  },
+  {
+    "id": "postgres-043",
+    "category": "Advanced SQL",
+    "difficulty": "hard",
+    "question": "What are materialized views in PostgreSQL?",
+    "answer": "A materialized view stores the result of a query physically. It improves performance for expensive queries but requires refreshing when data changes.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE MATERIALIZED VIEW sales_summary AS\nSELECT product_id,SUM(amount)\nFROM sales\nGROUP BY product_id;"
+    },
+    "tags": [
+      "materialized-view",
+      "performance"
+    ]
+  },
+  {
+    "id": "postgres-044",
+    "category": "Advanced SQL",
+    "difficulty": "hard",
+    "question": "What are database cursors in PostgreSQL?",
+    "answer": "A cursor allows processing query results row by row instead of loading the entire result set into memory.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "DECLARE user_cursor CURSOR FOR\nSELECT * FROM users;"
+    },
+    "tags": [
+      "cursor",
+      "sql"
+    ]
+  },
+  {
+    "id": "postgres-045",
+    "category": "Connection Pooling",
+    "difficulty": "hard",
+    "question": "What is connection pooling in PostgreSQL?",
+    "answer": "Connection pooling manages and reuses database connections instead of creating a new connection for every request. It improves performance and reduces overhead.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Application\n     |\nConnection Pool\n     |\nPostgreSQL"
+    },
+    "tags": [
+      "connection-pool",
+      "performance"
+    ]
+  },
+  {
+    "id": "postgres-046",
+    "category": "Scaling",
+    "difficulty": "hard",
+    "question": "How do you scale PostgreSQL applications?",
+    "answer": "PostgreSQL can be scaled using vertical scaling, read replicas, partitioning, caching, connection pooling, query optimization, and distributed solutions.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Scaling:\nRead Replicas\nPartitioning\nCaching\nOptimization"
+    },
+    "tags": [
+      "scaling",
+      "architecture"
+    ]
+  },
+  {
+    "id": "postgres-047",
+    "category": "System Design",
+    "difficulty": "hard",
+    "question": "Design a high availability PostgreSQL architecture.",
+    "answer": "A high availability setup uses primary and standby servers, streaming replication, automatic failover, load balancing, backups, and monitoring.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Users\n |\nLoad Balancer\n |\nPrimary DB\n |\nReplica DB"
+    },
+    "tags": [
+      "system-design",
+      "high-availability"
+    ]
+  },
+  {
+    "id": "postgres-048",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Why did you choose PostgreSQL for your project?",
+    "answer": "A good answer should mention PostgreSQL reliability, ACID compliance, powerful SQL features, JSON support, scalability, and strong open-source ecosystem.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Sample Answer:\n'PostgreSQL provided the reliability and flexibility required for our application.'"
+    },
+    "tags": [
+      "hr",
+      "postgresql"
+    ]
+  },
+  {
+    "id": "postgres-049",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Explain a PostgreSQL performance issue you solved.",
+    "answer": "Explain the issue, investigation process, tools used like EXPLAIN ANALYZE, optimization applied such as indexes or query changes, and the final improvement.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Issue\n ↓\nAnalyze Query\n ↓\nOptimize\n ↓\nMeasure Result"
+    },
+    "tags": [
+      "hr",
+      "performance"
+    ]
+  },
+  {
+    "id": "postgres-050",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "How do you keep your PostgreSQL knowledge updated?",
+    "answer": "A strong answer includes reading PostgreSQL documentation, practicing SQL problems, building projects, learning new database features, and following database engineering trends.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Learning:\nDocumentation\nProjects\nPractice\nCommunity"
+    },
+    "tags": [
+      "hr",
+      "career"
+    ]
+  }
+]

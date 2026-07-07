@@ -1,0 +1,760 @@
+[
+  {
+    "id": "express-001",
+    "category": "Express Fundamentals",
+    "difficulty": "easy",
+    "question": "What is Express.js?",
+    "answer": "Express.js is a minimal and flexible Node.js web framework used to build web servers, REST APIs, and backend applications. It provides routing, middleware support, and request-response handling.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const express = require('express');\nconst app = express();\n\napp.listen(3000, () => {\n  console.log('Server started');\n});"
+    },
+    "tags": [
+      "express",
+      "nodejs",
+      "backend"
+    ]
+  },
+  {
+    "id": "express-002",
+    "category": "Express Setup",
+    "difficulty": "easy",
+    "question": "How do you create an Express application?",
+    "answer": "An Express application is created by installing express, importing it, creating an app instance, defining routes, and starting the server using listen().",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const express = require('express');\n\nconst app = express();\n\napp.get('/', (req,res)=>{\n  res.send('Hello Express');\n});"
+    },
+    "tags": [
+      "setup",
+      "express"
+    ]
+  },
+  {
+    "id": "express-003",
+    "category": "Routing",
+    "difficulty": "easy",
+    "question": "What is routing in Express?",
+    "answer": "Routing determines how an application responds to client requests based on HTTP methods and URL paths.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.get('/users',(req,res)=>{\n  res.json([]);\n});"
+    },
+    "tags": [
+      "routing",
+      "express"
+    ]
+  },
+  {
+    "id": "express-004",
+    "category": "HTTP Methods",
+    "difficulty": "easy",
+    "question": "Which HTTP methods are commonly used in Express APIs?",
+    "answer": "Common methods include GET for retrieving data, POST for creating resources, PUT for replacing resources, PATCH for partial updates, and DELETE for removing resources.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.get('/users', handler);\napp.post('/users', handler);\napp.delete('/users/:id', handler);"
+    },
+    "tags": [
+      "http",
+      "rest-api"
+    ]
+  },
+  {
+    "id": "express-005",
+    "category": "Request Object",
+    "difficulty": "medium",
+    "question": "What is the request object in Express?",
+    "answer": "The request object contains information sent by the client including URL parameters, query parameters, headers, cookies, and request body data.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.get('/user/:id',(req,res)=>{\n console.log(req.params.id);\n});"
+    },
+    "tags": [
+      "request",
+      "express"
+    ]
+  },
+  {
+    "id": "express-006",
+    "category": "Response Object",
+    "difficulty": "medium",
+    "question": "What is the response object in Express?",
+    "answer": "The response object is used by the server to send data back to the client. It provides methods such as send(), json(), status(), redirect(), and render().",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.get('/',(req,res)=>{\n res.status(200).json({message:'Success'});\n});"
+    },
+    "tags": [
+      "response",
+      "express"
+    ]
+  },
+  {
+    "id": "express-007",
+    "category": "Middleware",
+    "difficulty": "medium",
+    "question": "What is middleware in Express?",
+    "answer": "Middleware is a function that runs between receiving a request and sending a response. It can modify requests, execute logic, validate data, authenticate users, or handle errors.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.use((req,res,next)=>{\n console.log(req.method);\n next();\n});"
+    },
+    "tags": [
+      "middleware",
+      "express"
+    ]
+  },
+  {
+    "id": "express-008",
+    "category": "Built-in Middleware",
+    "difficulty": "easy",
+    "question": "What built-in middleware does Express provide?",
+    "answer": "Express provides built-in middleware like express.json() for parsing JSON requests, express.urlencoded() for form data, and express.static() for serving static files.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.use(express.json());\napp.use(express.static('public'));"
+    },
+    "tags": [
+      "middleware",
+      "express"
+    ]
+  },
+  {
+    "id": "express-009",
+    "category": "JSON Parsing",
+    "difficulty": "easy",
+    "question": "Why is express.json() used?",
+    "answer": "express.json() parses incoming JSON request bodies and makes the data available through req.body.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.use(express.json());\n\napp.post('/users',(req,res)=>{\n console.log(req.body);\n});"
+    },
+    "tags": [
+      "json",
+      "request-body"
+    ]
+  },
+  {
+    "id": "express-010",
+    "category": "Router",
+    "difficulty": "medium",
+    "question": "What is Express Router?",
+    "answer": "Express Router is a modular routing system that allows developers to organize routes into separate files instead of keeping everything in one server file.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const router = express.Router();\n\nrouter.get('/users',(req,res)=>{\n res.send('Users');\n});\n\nmodule.exports = router;"
+    },
+    "tags": [
+      "router",
+      "express",
+      "architecture"
+    ]
+  }
+,
+  {
+    "id": "express-011",
+    "category": "Middleware Flow",
+    "difficulty": "hard",
+    "question": "How does middleware execution work in Express?",
+    "answer": "Express executes middleware functions sequentially in the order they are registered. Each middleware can either send a response or call next() to pass control to the next middleware.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.use((req,res,next)=>{\n console.log('First');\n next();\n});\n\napp.use((req,res)=>{\n console.log('Second');\n res.send('Done');\n});"
+    },
+    "tags": [
+      "middleware",
+      "execution-flow"
+    ]
+  },
+  {
+    "id": "express-012",
+    "category": "Custom Middleware",
+    "difficulty": "medium",
+    "question": "How do you create custom middleware in Express?",
+    "answer": "Custom middleware is created as a function with req, res, and next parameters. It can perform custom logic before passing control to the next handler.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function logger(req,res,next){\n console.log(req.url);\n next();\n}\n\napp.use(logger);"
+    },
+    "tags": [
+      "custom-middleware",
+      "express"
+    ]
+  },
+  {
+    "id": "express-013",
+    "category": "Authentication Middleware",
+    "difficulty": "hard",
+    "question": "How do you create authentication middleware in Express?",
+    "answer": "Authentication middleware checks whether a user is authenticated before allowing access to protected routes. It commonly verifies JWT tokens or session information.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function auth(req,res,next){\n const token = req.headers.authorization;\n\n if(!token){\n  return res.status(401).send('Unauthorized');\n }\n\n next();\n}"
+    },
+    "tags": [
+      "authentication",
+      "middleware",
+      "jwt"
+    ]
+  },
+  {
+    "id": "express-014",
+    "category": "JWT Middleware",
+    "difficulty": "hard",
+    "question": "How do you verify JWT tokens in Express middleware?",
+    "answer": "JWT middleware extracts the token from request headers, verifies the signature using a secret key, and attaches decoded user information to the request object.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const jwt = require('jsonwebtoken');\n\nconst decoded = jwt.verify(\n token,\n process.env.JWT_SECRET\n);\n\nreq.user = decoded;"
+    },
+    "tags": [
+      "jwt",
+      "security"
+    ]
+  },
+  {
+    "id": "express-015",
+    "category": "Error Handling",
+    "difficulty": "medium",
+    "question": "How does Express handle errors?",
+    "answer": "Express uses special error-handling middleware with four parameters: err, req, res, and next. It catches errors from routes and middleware.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.use((err,req,res,next)=>{\n res.status(500).json({\n  error: err.message\n });\n});"
+    },
+    "tags": [
+      "error-handling",
+      "express"
+    ]
+  },
+  {
+    "id": "express-016",
+    "category": "Async Error Handling",
+    "difficulty": "hard",
+    "question": "How do you handle errors in async Express routes?",
+    "answer": "Async route errors should be passed to Express error middleware using try/catch blocks or async wrapper functions.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.get('/users', async(req,res,next)=>{\n try {\n  const users = await User.find();\n  res.json(users);\n } catch(err){\n  next(err);\n }\n});"
+    },
+    "tags": [
+      "async",
+      "error-handling"
+    ]
+  },
+  {
+    "id": "express-017",
+    "category": "Validation",
+    "difficulty": "medium",
+    "question": "How do you validate request data in Express?",
+    "answer": "Request validation ensures incoming data matches expected rules. Libraries like Joi, Zod, and express-validator are commonly used.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const { body } = require('express-validator');\n\napp.post('/user',\n body('email').isEmail(),\n handler\n);"
+    },
+    "tags": [
+      "validation",
+      "security"
+    ]
+  },
+  {
+    "id": "express-018",
+    "category": "File Upload",
+    "difficulty": "medium",
+    "question": "How do you upload files in Express?",
+    "answer": "File uploads are commonly handled using middleware libraries like Multer. It processes multipart/form-data requests and provides uploaded files through req.file or req.files.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const multer = require('multer');\n\nconst upload = multer({\n storage: multer.memoryStorage()\n});\n\napp.post('/upload', upload.single('file'), handler);"
+    },
+    "tags": [
+      "file-upload",
+      "multer"
+    ]
+  },
+  {
+    "id": "express-019",
+    "category": "CORS",
+    "difficulty": "medium",
+    "question": "What is CORS in Express?",
+    "answer": "CORS (Cross-Origin Resource Sharing) controls whether browsers allow requests from different origins. It is required when frontend and backend run on different domains or ports.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const cors = require('cors');\n\napp.use(cors());"
+    },
+    "tags": [
+      "cors",
+      "security"
+    ]
+  },
+  {
+    "id": "express-020",
+    "category": "Security Headers",
+    "difficulty": "hard",
+    "question": "How do you secure Express applications using security headers?",
+    "answer": "Security headers protect applications from common attacks. Helmet.js is commonly used to configure secure HTTP headers automatically.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const helmet = require('helmet');\n\napp.use(helmet());"
+    },
+    "tags": [
+      "helmet",
+      "security",
+      "express"
+    ]
+  }
+,
+  {
+    "id": "express-021",
+    "category": "REST API Design",
+    "difficulty": "medium",
+    "question": "What are REST API design principles in Express?",
+    "answer": "REST API design principles include using proper HTTP methods, meaningful resource-based URLs, stateless communication, proper status codes, consistent response formats, and separation of concerns.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "GET    /api/users\nPOST   /api/users\nGET    /api/users/10\nDELETE /api/users/10"
+    },
+    "tags": [
+      "rest",
+      "api-design"
+    ]
+  },
+  {
+    "id": "express-022",
+    "category": "HTTP Status Codes",
+    "difficulty": "easy",
+    "question": "What HTTP status codes are commonly used in Express APIs?",
+    "answer": "Common status codes include 200 for success, 201 for resource creation, 400 for bad requests, 401 for authentication failures, 403 for forbidden access, 404 for not found, and 500 for server errors.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "res.status(201).json({\n message: 'Created'\n});"
+    },
+    "tags": [
+      "http",
+      "status-codes"
+    ]
+  },
+  {
+    "id": "express-023",
+    "category": "Response Formatting",
+    "difficulty": "medium",
+    "question": "How should API responses be structured?",
+    "answer": "API responses should maintain a consistent structure containing status information, messages, data, and error details when required.",
+    "codeSnippet": {
+      "language": "json",
+      "code": "{\n \"success\": true,\n \"message\": \"User found\",\n \"data\": {}\n}"
+    },
+    "tags": [
+      "api",
+      "response"
+    ]
+  },
+  {
+    "id": "express-024",
+    "category": "MVC Architecture",
+    "difficulty": "medium",
+    "question": "What is MVC architecture in Express applications?",
+    "answer": "MVC separates application logic into Model, View, and Controller layers. Models handle data, Controllers handle business logic, and Views handle presentation. APIs usually use Model and Controller layers.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Routes\n  |\nControllers\n  |\nModels\n  |\nDatabase"
+    },
+    "tags": [
+      "mvc",
+      "architecture"
+    ]
+  },
+  {
+    "id": "express-025",
+    "category": "Project Structure",
+    "difficulty": "medium",
+    "question": "What is a good Express project folder structure?",
+    "answer": "A scalable Express application separates routes, controllers, services, models, middleware, configuration, and utilities into different folders.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "src/\n ├── routes/\n ├── controllers/\n ├── services/\n ├── models/\n ├── middleware/\n └── config/"
+    },
+    "tags": [
+      "structure",
+      "architecture"
+    ]
+  },
+  {
+    "id": "express-026",
+    "category": "Database Integration",
+    "difficulty": "medium",
+    "question": "How do you connect Express with a database?",
+    "answer": "Express connects to databases using database drivers or ORM/ODM libraries. Examples include Mongoose for MongoDB, Sequelize for SQL databases, and Prisma for multiple databases.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "mongoose.connect(\n process.env.MONGO_URL\n);"
+    },
+    "tags": [
+      "database",
+      "express"
+    ]
+  },
+  {
+    "id": "express-027",
+    "category": "Controller Layer",
+    "difficulty": "medium",
+    "question": "What is a controller in Express?",
+    "answer": "A controller contains business logic for handling requests and responses. It receives data from routes, communicates with services or models, and returns results.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "exports.getUsers = async(req,res)=>{\n const users = await User.find();\n res.json(users);\n};"
+    },
+    "tags": [
+      "controller",
+      "mvc"
+    ]
+  },
+  {
+    "id": "express-028",
+    "category": "Service Layer",
+    "difficulty": "hard",
+    "question": "Why use a service layer in Express applications?",
+    "answer": "A service layer separates business logic from controllers. It improves code reuse, testing, maintainability, and keeps controllers focused on HTTP handling.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "class UserService {\n async getUsers(){\n  return User.find();\n }\n}"
+    },
+    "tags": [
+      "service-layer",
+      "architecture"
+    ]
+  },
+  {
+    "id": "express-029",
+    "category": "Pagination",
+    "difficulty": "medium",
+    "question": "How do you implement pagination in Express APIs?",
+    "answer": "Pagination limits the amount of data returned in each request. It is implemented using query parameters such as page and limit.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "GET /users?page=2&limit=20"
+    },
+    "tags": [
+      "pagination",
+      "api"
+    ]
+  },
+  {
+    "id": "express-030",
+    "category": "Performance Optimization",
+    "difficulty": "hard",
+    "question": "How can you improve Express application performance?",
+    "answer": "Performance can be improved using caching, compression, database indexing, connection pooling, async operations, load balancing, clustering, and minimizing unnecessary middleware.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.use(compression());"
+    },
+    "tags": [
+      "performance",
+      "optimization"
+    ]
+  },
+  {
+    "id": "express-031",
+    "category": "API Versioning",
+    "difficulty": "hard",
+    "question": "Why is API versioning important in Express applications?",
+    "answer": "API versioning allows developers to introduce changes without breaking existing clients. Different versions can support different response formats and features.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.use('/api/v1/users', userRoutes);\napp.use('/api/v2/users', userRoutesV2);"
+    },
+    "tags": [
+      "api-versioning",
+      "rest"
+    ]
+  },
+  {
+    "id": "express-032",
+    "category": "Environment Configuration",
+    "difficulty": "easy",
+    "question": "How do you manage environment configurations in Express?",
+    "answer": "Environment variables are used to store configuration values like database URLs, API keys, ports, and secrets. The dotenv package loads these values during development.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "require('dotenv').config();\n\nconst port = process.env.PORT;"
+    },
+    "tags": [
+      "dotenv",
+      "configuration"
+    ]
+  },
+  {
+    "id": "express-033",
+    "category": "Compression",
+    "difficulty": "medium",
+    "question": "What is response compression in Express?",
+    "answer": "Compression reduces the size of HTTP responses before sending them to clients. It improves network performance and reduces loading time.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const compression = require('compression');\n\napp.use(compression());"
+    },
+    "tags": [
+      "compression",
+      "performance"
+    ]
+  },
+  {
+    "id": "express-034",
+    "category": "Caching",
+    "difficulty": "hard",
+    "question": "How can caching be implemented in Express?",
+    "answer": "Caching can be implemented using in-memory caches, Redis, HTTP cache headers, or CDN caching. It reduces repeated database queries and improves response time.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const cache = new Map();\n\ncache.set('users', data);"
+    },
+    "tags": [
+      "cache",
+      "redis",
+      "performance"
+    ]
+  },
+  {
+    "id": "express-035",
+    "category": "Load Balancing",
+    "difficulty": "hard",
+    "question": "How do you scale an Express application?",
+    "answer": "Express applications can be scaled horizontally by running multiple server instances behind a load balancer. Additional techniques include clustering, caching, and database optimization.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Client\n |\nLoad Balancer\n |\nExpress Servers\n |\nDatabase"
+    },
+    "tags": [
+      "scaling",
+      "load-balancing"
+    ]
+  },
+  {
+    "id": "express-036",
+    "category": "Microservices",
+    "difficulty": "hard",
+    "question": "How is Express used in microservices architecture?",
+    "answer": "Express is commonly used to build independent backend services. Each service handles a specific business capability and communicates through APIs or messaging systems.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "User Service\nOrder Service\nPayment Service\nNotification Service"
+    },
+    "tags": [
+      "microservices",
+      "architecture"
+    ]
+  },
+  {
+    "id": "express-037",
+    "category": "Testing APIs",
+    "difficulty": "medium",
+    "question": "How do you test Express APIs?",
+    "answer": "Express APIs are tested using unit tests and integration tests. Common tools include Jest, Mocha, Chai, and Supertest.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "request(app)\n .get('/users')\n .expect(200);"
+    },
+    "tags": [
+      "testing",
+      "supertest"
+    ]
+  },
+  {
+    "id": "express-038",
+    "category": "Logging",
+    "difficulty": "medium",
+    "question": "How do you add logging to Express applications?",
+    "answer": "Logging tracks application events, errors, and user activity. Production applications commonly use logging libraries such as Winston, Pino, and Morgan.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const morgan = require('morgan');\n\napp.use(morgan('combined'));"
+    },
+    "tags": [
+      "logging",
+      "monitoring"
+    ]
+  },
+  {
+    "id": "express-039",
+    "category": "Deployment",
+    "difficulty": "medium",
+    "question": "How do you deploy an Express application?",
+    "answer": "Express applications can be deployed using cloud platforms, containers, or virtual servers. Common practices include setting environment variables, using process managers, and enabling HTTPS.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Development\n     |\nBuild\n     |\nProduction Server"
+    },
+    "tags": [
+      "deployment",
+      "production"
+    ]
+  },
+  {
+    "id": "express-040",
+    "category": "Process Management",
+    "difficulty": "medium",
+    "question": "Why use PM2 with Express applications?",
+    "answer": "PM2 is a process manager for Node.js applications. It keeps applications running, restarts them after crashes, manages logs, and supports clustering.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "pm2 start server.js\npm2 monit"
+    },
+    "tags": [
+      "pm2",
+      "deployment"
+    ]
+  }
+,
+  {
+    "id": "express-041",
+    "category": "System Design",
+    "difficulty": "hard",
+    "question": "How would you design a scalable Express.js backend system?",
+    "answer": "A scalable Express backend should use layered architecture, load balancing, caching, database optimization, background jobs, monitoring, security middleware, and horizontal scaling.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Client\n |\nAPI Gateway\n |\nLoad Balancer\n |\nExpress Services\n |\nDatabase + Cache + Queue"
+    },
+    "tags": [
+      "system-design",
+      "scaling"
+    ]
+  },
+  {
+    "id": "express-042",
+    "category": "API Gateway",
+    "difficulty": "hard",
+    "question": "What is the role of an API Gateway with Express microservices?",
+    "answer": "An API Gateway acts as a single entry point for clients. It handles routing, authentication, rate limiting, request transformation, and communication with backend services.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Client\n  |\nAPI Gateway\n  |\n----------------\n|      |       |\nUser Order Payment"
+    },
+    "tags": [
+      "api-gateway",
+      "microservices"
+    ]
+  },
+  {
+    "id": "express-043",
+    "category": "Security",
+    "difficulty": "hard",
+    "question": "What are common security risks in Express applications?",
+    "answer": "Common security risks include SQL/NoSQL injection, cross-site scripting, CSRF attacks, insecure authentication, exposed secrets, improper input validation, and outdated dependencies.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.use(helmet());\napp.use(cors());"
+    },
+    "tags": [
+      "security",
+      "express"
+    ]
+  },
+  {
+    "id": "express-044",
+    "category": "SQL Injection Prevention",
+    "difficulty": "hard",
+    "question": "How do you prevent SQL injection in Express applications?",
+    "answer": "SQL injection is prevented by using parameterized queries, ORM libraries, input validation, and avoiding direct string concatenation with user input.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.query(\n 'SELECT * FROM users WHERE id=?',\n [userId]\n);"
+    },
+    "tags": [
+      "security",
+      "sql-injection"
+    ]
+  },
+  {
+    "id": "express-045",
+    "category": "NoSQL Injection",
+    "difficulty": "hard",
+    "question": "How do you prevent NoSQL injection in Express?",
+    "answer": "NoSQL injection is prevented by validating user input, sanitizing MongoDB queries, avoiding direct object usage from requests, and using security middleware.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const clean = sanitize(req.body);"
+    },
+    "tags": [
+      "mongodb",
+      "security"
+    ]
+  },
+  {
+    "id": "express-046",
+    "category": "Rate Limiting",
+    "difficulty": "medium",
+    "question": "Why should Express APIs use rate limiting?",
+    "answer": "Rate limiting protects APIs from abuse, denial-of-service attempts, brute-force attacks, and excessive resource usage by limiting requests from clients.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const limiter = rateLimit({\n max:100,\n windowMs:60000\n});\n\napp.use(limiter);"
+    },
+    "tags": [
+      "rate-limit",
+      "security"
+    ]
+  },
+  {
+    "id": "express-047",
+    "category": "Production Best Practices",
+    "difficulty": "hard",
+    "question": "What are Express production best practices?",
+    "answer": "Production best practices include using environment variables, centralized error handling, logging, security headers, HTTPS, validation, monitoring, testing, and proper project structure.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Production Checklist:\n✓ Security\n✓ Logging\n✓ Monitoring\n✓ Testing\n✓ Scaling"
+    },
+    "tags": [
+      "production",
+      "best-practices"
+    ]
+  },
+  {
+    "id": "express-048",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Why do you choose Express.js for backend development?",
+    "answer": "A good answer should mention Express simplicity, flexibility, middleware ecosystem, fast development, Node.js compatibility, and suitability for building REST APIs and microservices.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Sample Answer:\n'Express provides a lightweight and flexible way to build scalable APIs with Node.js.'"
+    },
+    "tags": [
+      "hr",
+      "express"
+    ]
+  },
+  {
+    "id": "express-049",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Describe a challenging Express.js project you worked on.",
+    "answer": "Explain the project objective, API architecture, challenges faced, technical decisions, performance improvements, and final results using the STAR method.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "STAR:\nSituation\nTask\nAction\nResult"
+    },
+    "tags": [
+      "hr",
+      "behavioral"
+    ]
+  },
+  {
+    "id": "express-050",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "How do you keep your Express.js knowledge updated?",
+    "answer": "A strong answer includes reading official documentation, following ecosystem updates, building projects, reviewing open-source code, and learning modern backend patterns.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Learning:\nDocs\nProjects\nOpen Source\nCommunity"
+    },
+    "tags": [
+      "hr",
+      "career"
+    ]
+  }
+]

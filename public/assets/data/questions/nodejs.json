@@ -1,0 +1,765 @@
+[
+  {
+    "id": "nodejs-001",
+    "category": "Node.js Fundamentals",
+    "difficulty": "easy",
+    "question": "What is Node.js?",
+    "answer": "Node.js is a JavaScript runtime environment built on Chrome's V8 engine that allows JavaScript to run outside the browser. It is commonly used for building scalable backend applications, APIs, real-time systems, and command-line tools.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "console.log('Running Node.js');"
+    },
+    "tags": [
+      "nodejs",
+      "runtime",
+      "backend"
+    ]
+  },
+  {
+    "id": "nodejs-002",
+    "category": "Node.js Architecture",
+    "difficulty": "medium",
+    "question": "How does Node.js work internally?",
+    "answer": "Node.js uses the V8 JavaScript engine to execute JavaScript and uses libuv to handle asynchronous operations. It follows an event-driven, non-blocking architecture where a single thread can manage many concurrent operations.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Request\n   |\nEvent Loop\n   |\nAsync Operations\n   |\nCallback"
+    },
+    "tags": [
+      "event-loop",
+      "libuv",
+      "architecture"
+    ]
+  },
+  {
+    "id": "nodejs-003",
+    "category": "Node.js Features",
+    "difficulty": "easy",
+    "question": "What are the main features of Node.js?",
+    "answer": "Major features include asynchronous programming, non-blocking I/O, event-driven architecture, fast execution using V8 engine, large package ecosystem through npm, and support for scalable network applications.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Features:\n- Non-blocking I/O\n- Event-driven\n- V8 Engine\n- npm ecosystem"
+    },
+    "tags": [
+      "features",
+      "nodejs"
+    ]
+  },
+  {
+    "id": "nodejs-004",
+    "category": "Node.js vs Browser",
+    "difficulty": "easy",
+    "question": "What is the difference between Node.js and JavaScript in browsers?",
+    "answer": "Browser JavaScript runs inside browsers and provides APIs like DOM and window. Node.js runs on servers and provides APIs for filesystem access, networking, and operating system interaction.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "// Browser\nwindow.alert('Hello');\n\n// Node.js\nconsole.log(process.version);"
+    },
+    "tags": [
+      "nodejs",
+      "browser",
+      "javascript"
+    ]
+  },
+  {
+    "id": "nodejs-005",
+    "category": "Modules",
+    "difficulty": "medium",
+    "question": "What are modules in Node.js?",
+    "answer": "Modules are reusable blocks of code that can be imported and exported between files. Node.js supports CommonJS modules and modern ES Modules.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "// math.js\nexports.add = (a,b) => a+b;\n\n// app.js\nconst math = require('./math');"
+    },
+    "tags": [
+      "modules",
+      "commonjs"
+    ]
+  },
+  {
+    "id": "nodejs-006",
+    "category": "CommonJS",
+    "difficulty": "medium",
+    "question": "What is CommonJS in Node.js?",
+    "answer": "CommonJS is the traditional module system used by Node.js. It uses require() to import modules and module.exports or exports to expose functionality.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const fs = require('fs');\n\nmodule.exports = {\n  name: 'App'\n};"
+    },
+    "tags": [
+      "commonjs",
+      "modules"
+    ]
+  },
+  {
+    "id": "nodejs-007",
+    "category": "ES Modules",
+    "difficulty": "medium",
+    "question": "What are ES Modules in Node.js?",
+    "answer": "ES Modules are the official JavaScript module standard using import and export syntax. Node.js supports ES Modules when configured using package.json type module or .mjs files.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "export function add(a,b) {\n  return a+b;\n}\n\nimport { add } from './math.js';"
+    },
+    "tags": [
+      "esm",
+      "modules"
+    ]
+  },
+  {
+    "id": "nodejs-008",
+    "category": "NPM",
+    "difficulty": "easy",
+    "question": "What is npm?",
+    "answer": "npm (Node Package Manager) is the default package manager for Node.js. It allows developers to install, manage, and publish JavaScript packages and dependencies.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "npm install express\nnpm run start"
+    },
+    "tags": [
+      "npm",
+      "packages"
+    ]
+  },
+  {
+    "id": "nodejs-009",
+    "category": "Package Management",
+    "difficulty": "medium",
+    "question": "What is package.json in Node.js?",
+    "answer": "package.json contains metadata about a Node.js project including project name, version, scripts, dependencies, and configuration settings.",
+    "codeSnippet": {
+      "language": "json",
+      "code": "{\n  \"name\": \"my-app\",\n  \"scripts\": {\n    \"start\": \"node app.js\"\n  }\n}"
+    },
+    "tags": [
+      "package-json",
+      "npm"
+    ]
+  },
+  {
+    "id": "nodejs-010",
+    "category": "Dependencies",
+    "difficulty": "medium",
+    "question": "What is the difference between dependencies and devDependencies?",
+    "answer": "Dependencies are packages required when the application runs in production. DevDependencies are only required during development, testing, or building.",
+    "codeSnippet": {
+      "language": "json",
+      "code": "{\n  \"dependencies\": {\n    \"express\": \"latest\"\n  },\n  \"devDependencies\": {\n    \"jest\": \"latest\"\n  }\n}"
+    },
+    "tags": [
+      "npm",
+      "dependencies"
+    ]
+  }
+,
+  {
+    "id": "nodejs-011",
+    "category": "Event Loop",
+    "difficulty": "hard",
+    "question": "What is the event loop in Node.js?",
+    "answer": "The event loop is the core mechanism that allows Node.js to perform non-blocking asynchronous operations. It continuously checks the call stack and callback queues and executes pending tasks when the stack is empty.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "console.log('Start');\n\nsetTimeout(() => {\n  console.log('Timer');\n}, 0);\n\nconsole.log('End');\n\n// Start\n// End\n// Timer"
+    },
+    "tags": [
+      "event-loop",
+      "async",
+      "nodejs"
+    ]
+  },
+  {
+    "id": "nodejs-012",
+    "category": "Event Loop Phases",
+    "difficulty": "hard",
+    "question": "What are the phases of the Node.js event loop?",
+    "answer": "The Node.js event loop has multiple phases: timers, pending callbacks, idle/prepare, poll, check, and close callbacks. Each phase handles a specific type of asynchronous operation.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Timers\n ↓\nPending Callbacks\n ↓\nPoll\n ↓\nCheck\n ↓\nClose Callbacks"
+    },
+    "tags": [
+      "event-loop",
+      "libuv"
+    ]
+  },
+  {
+    "id": "nodejs-013",
+    "category": "Callbacks",
+    "difficulty": "medium",
+    "question": "What are callbacks in Node.js?",
+    "answer": "Callbacks are functions passed as arguments to other functions and executed after an asynchronous operation completes. They were the traditional way of handling async operations in Node.js.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const fs = require('fs');\n\nfs.readFile('file.txt', 'utf8', (err, data) => {\n  if(err) throw err;\n  console.log(data);\n});"
+    },
+    "tags": [
+      "callbacks",
+      "async"
+    ]
+  },
+  {
+    "id": "nodejs-014",
+    "category": "Callback Hell",
+    "difficulty": "medium",
+    "question": "What is callback hell in Node.js?",
+    "answer": "Callback hell occurs when multiple nested callbacks make code difficult to read, maintain, and debug. Promises and async/await are modern solutions to avoid deeply nested callback structures.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "login(user, () => {\n  getProfile(() => {\n    getOrders(() => {\n      // nested callbacks\n    });\n  });\n});"
+    },
+    "tags": [
+      "callback-hell",
+      "async"
+    ]
+  },
+  {
+    "id": "nodejs-015",
+    "category": "Promises",
+    "difficulty": "medium",
+    "question": "How are Promises used in Node.js?",
+    "answer": "Promises represent the result of an asynchronous operation. They provide cleaner async handling using then(), catch(), and finally() instead of nested callbacks.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const fs = require('fs').promises;\n\nfs.readFile('file.txt', 'utf8')\n.then(data => console.log(data))\n.catch(err => console.log(err));"
+    },
+    "tags": [
+      "promises",
+      "async"
+    ]
+  },
+  {
+    "id": "nodejs-016",
+    "category": "Async Await",
+    "difficulty": "medium",
+    "question": "How does async/await improve Node.js code?",
+    "answer": "Async/await provides cleaner syntax for working with Promises. It makes asynchronous code easier to read and maintain by allowing developers to write code that looks synchronous.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "async function readFile() {\n  try {\n    const data = await fs.readFile('file.txt','utf8');\n    console.log(data);\n  } catch(error) {\n    console.log(error);\n  }\n}"
+    },
+    "tags": [
+      "async",
+      "await"
+    ]
+  },
+  {
+    "id": "nodejs-017",
+    "category": "Process",
+    "difficulty": "medium",
+    "question": "What is the process object in Node.js?",
+    "answer": "The process object provides information and control over the current Node.js process. It can access environment variables, command-line arguments, process ID, and exit handling.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "console.log(process.pid);\nconsole.log(process.env.NODE_ENV);"
+    },
+    "tags": [
+      "process",
+      "environment"
+    ]
+  },
+  {
+    "id": "nodejs-018",
+    "category": "Buffers",
+    "difficulty": "medium",
+    "question": "What are Buffers in Node.js?",
+    "answer": "Buffers are objects used to handle binary data directly in memory. They are commonly used when working with files, streams, TCP connections, and other I/O operations.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const buffer = Buffer.from('Hello');\n\nconsole.log(buffer);"
+    },
+    "tags": [
+      "buffer",
+      "binary-data"
+    ]
+  },
+  {
+    "id": "nodejs-019",
+    "category": "Streams",
+    "difficulty": "hard",
+    "question": "What are streams in Node.js?",
+    "answer": "Streams allow processing data piece by piece instead of loading the entire data into memory. They are useful for handling large files, videos, and network communication efficiently.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const fs = require('fs');\n\nconst stream = fs.createReadStream('large-file.txt');\n\nstream.on('data', chunk => {\n  console.log(chunk);\n});"
+    },
+    "tags": [
+      "streams",
+      "performance"
+    ]
+  },
+  {
+    "id": "nodejs-020",
+    "category": "Stream Types",
+    "difficulty": "hard",
+    "question": "What are the different types of streams in Node.js?",
+    "answer": "Node.js provides four main stream types: Readable streams for reading data, Writable streams for writing data, Duplex streams for both reading and writing, and Transform streams that modify data while passing through.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Readable\nWritable\nDuplex\nTransform"
+    },
+    "tags": [
+      "streams",
+      "nodejs"
+    ]
+  },
+  {
+    "id": "nodejs-021",
+    "category": "Express.js",
+    "difficulty": "easy",
+    "question": "What is Express.js?",
+    "answer": "Express.js is a lightweight web framework built on top of Node.js. It simplifies creating servers, REST APIs, middleware handling, routing, and request-response management.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const express = require('express');\n\nconst app = express();\n\napp.listen(3000, () => {\n  console.log('Server running');\n});"
+    },
+    "tags": [
+      "express",
+      "nodejs",
+      "api"
+    ]
+  },
+  {
+    "id": "nodejs-022",
+    "category": "Express Routing",
+    "difficulty": "easy",
+    "question": "What is routing in Express.js?",
+    "answer": "Routing defines how an application responds to client requests for specific HTTP methods and URL paths.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.get('/users', (req, res) => {\n  res.json({message: 'Users list'});\n});"
+    },
+    "tags": [
+      "express",
+      "routing"
+    ]
+  },
+  {
+    "id": "nodejs-023",
+    "category": "Middleware",
+    "difficulty": "medium",
+    "question": "What is middleware in Express.js?",
+    "answer": "Middleware functions are functions that execute between receiving a request and sending a response. They can modify requests, validate users, log data, handle errors, or terminate requests.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.use((req, res, next) => {\n  console.log(req.url);\n  next();\n});"
+    },
+    "tags": [
+      "middleware",
+      "express"
+    ]
+  },
+  {
+    "id": "nodejs-024",
+    "category": "Middleware Types",
+    "difficulty": "medium",
+    "question": "What are the different types of middleware in Express?",
+    "answer": "Express middleware types include application-level middleware, router-level middleware, built-in middleware, third-party middleware, and error-handling middleware.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.use(express.json());"
+    },
+    "tags": [
+      "middleware",
+      "express"
+    ]
+  },
+  {
+    "id": "nodejs-025",
+    "category": "REST API",
+    "difficulty": "medium",
+    "question": "How do you create a REST API using Node.js?",
+    "answer": "REST APIs are created using HTTP methods such as GET, POST, PUT, PATCH, and DELETE. Express.js is commonly used to define routes and handle requests.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.post('/users', (req,res)=>{\n  res.status(201).json(req.body);\n});"
+    },
+    "tags": [
+      "rest-api",
+      "express"
+    ]
+  },
+  {
+    "id": "nodejs-026",
+    "category": "HTTP Methods",
+    "difficulty": "easy",
+    "question": "Explain HTTP methods used in REST APIs.",
+    "answer": "GET retrieves data, POST creates data, PUT replaces existing data, PATCH updates partial data, and DELETE removes data.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "GET    /users\nPOST   /users\nPUT    /users/1\nPATCH  /users/1\nDELETE /users/1"
+    },
+    "tags": [
+      "http",
+      "rest"
+    ]
+  },
+  {
+    "id": "nodejs-027",
+    "category": "Request Object",
+    "difficulty": "medium",
+    "question": "What is the request object in Express?",
+    "answer": "The request object contains information about incoming client requests including parameters, headers, body data, query strings, and authentication information.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.get('/user/:id',(req,res)=>{\n  console.log(req.params.id);\n});"
+    },
+    "tags": [
+      "request",
+      "express"
+    ]
+  },
+  {
+    "id": "nodejs-028",
+    "category": "Response Object",
+    "difficulty": "medium",
+    "question": "What is the response object in Express?",
+    "answer": "The response object is used to send data back to the client. It provides methods like json(), send(), status(), redirect(), and render().",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.get('/',(req,res)=>{\n  res.status(200).json({success:true});\n});"
+    },
+    "tags": [
+      "response",
+      "express"
+    ]
+  },
+  {
+    "id": "nodejs-029",
+    "category": "Authentication",
+    "difficulty": "hard",
+    "question": "How is authentication implemented in Node.js applications?",
+    "answer": "Authentication is commonly implemented using JWT tokens, sessions, OAuth providers, or third-party identity services. User credentials are verified and a token or session is created for future requests.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const token = jwt.sign(\n  {userId: user.id},\n  process.env.SECRET\n);"
+    },
+    "tags": [
+      "authentication",
+      "jwt"
+    ]
+  },
+  {
+    "id": "nodejs-030",
+    "category": "JWT",
+    "difficulty": "hard",
+    "question": "How does JWT authentication work?",
+    "answer": "JWT authentication creates a signed token containing user information. The client sends this token with future requests, and the server verifies the signature before allowing access.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "Authorization: Bearer <token>"
+    },
+    "tags": [
+      "jwt",
+      "security"
+    ]
+  },
+  {
+    "id": "nodejs-031",
+    "category": "MongoDB",
+    "difficulty": "easy",
+    "question": "What is MongoDB?",
+    "answer": "MongoDB is a NoSQL document-based database that stores data in flexible JSON-like documents called BSON. It is commonly used with Node.js applications because of its JavaScript-friendly data model.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const user = {\n  name: 'John',\n  age: 25\n};"
+    },
+    "tags": [
+      "mongodb",
+      "nosql",
+      "database"
+    ]
+  },
+  {
+    "id": "nodejs-032",
+    "category": "Mongoose",
+    "difficulty": "medium",
+    "question": "What is Mongoose in Node.js?",
+    "answer": "Mongoose is an Object Data Modeling library for MongoDB. It provides schemas, models, validation, middleware hooks, and query helpers to interact with MongoDB more easily.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const mongoose = require('mongoose');\n\nconst UserSchema = mongoose.Schema({\n  name: String,\n  email: String\n});"
+    },
+    "tags": [
+      "mongoose",
+      "mongodb"
+    ]
+  },
+  {
+    "id": "nodejs-033",
+    "category": "Database Connection",
+    "difficulty": "medium",
+    "question": "How do you connect Node.js with MongoDB?",
+    "answer": "MongoDB can be connected using the MongoDB native driver or Mongoose. The connection string contains database server details and authentication information.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "mongoose.connect(\n  'mongodb://localhost:27017/app'\n);"
+    },
+    "tags": [
+      "mongodb",
+      "connection"
+    ]
+  },
+  {
+    "id": "nodejs-034",
+    "category": "Schemas",
+    "difficulty": "medium",
+    "question": "What is a schema in Mongoose?",
+    "answer": "A schema defines the structure of documents in MongoDB. It specifies fields, data types, validation rules, default values, and relationships.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const ProductSchema = new mongoose.Schema({\n  name: String,\n  price: Number\n});"
+    },
+    "tags": [
+      "mongoose",
+      "schema"
+    ]
+  },
+  {
+    "id": "nodejs-035",
+    "category": "Models",
+    "difficulty": "medium",
+    "question": "What is a model in Mongoose?",
+    "answer": "A model is a compiled version of a schema. It provides methods to create, read, update, and delete documents from MongoDB collections.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const User = mongoose.model(\n  'User',\n  UserSchema\n);"
+    },
+    "tags": [
+      "mongoose",
+      "models"
+    ]
+  },
+  {
+    "id": "nodejs-036",
+    "category": "Database Operations",
+    "difficulty": "medium",
+    "question": "What are CRUD operations in Node.js applications?",
+    "answer": "CRUD represents Create, Read, Update, and Delete operations. These are the fundamental operations performed on application data.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "Create  -> POST\nRead    -> GET\nUpdate  -> PUT/PATCH\nDelete  -> DELETE"
+    },
+    "tags": [
+      "crud",
+      "database"
+    ]
+  },
+  {
+    "id": "nodejs-037",
+    "category": "Error Handling",
+    "difficulty": "medium",
+    "question": "How do you handle errors in Node.js?",
+    "answer": "Errors can be handled using try/catch for synchronous code, catch() for promises, async/await error handling, and Express error middleware for APIs.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.use((err, req, res, next) => {\n  res.status(500).json({\n    message: err.message\n  });\n});"
+    },
+    "tags": [
+      "error-handling",
+      "express"
+    ]
+  },
+  {
+    "id": "nodejs-038",
+    "category": "Security",
+    "difficulty": "hard",
+    "question": "How do you secure a Node.js application?",
+    "answer": "Node.js applications can be secured by validating inputs, using HTTPS, protecting secrets with environment variables, implementing authentication, preventing SQL/NoSQL injection, enabling security headers, and keeping dependencies updated.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.use(helmet());"
+    },
+    "tags": [
+      "security",
+      "nodejs"
+    ]
+  },
+  {
+    "id": "nodejs-039",
+    "category": "Environment Variables",
+    "difficulty": "easy",
+    "question": "Why are environment variables used in Node.js?",
+    "answer": "Environment variables store configuration values outside source code. They are used for database URLs, API keys, secrets, and environment-specific settings.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "require('dotenv').config();\n\nconsole.log(process.env.DB_URL);"
+    },
+    "tags": [
+      "dotenv",
+      "configuration"
+    ]
+  },
+  {
+    "id": "nodejs-040",
+    "category": "Logging",
+    "difficulty": "medium",
+    "question": "How do you implement logging in Node.js applications?",
+    "answer": "Logging can be implemented using console methods for simple applications or libraries like Winston and Pino for production systems with log levels, formatting, and file storage.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "logger.info('Server started');\nlogger.error('Database failed');"
+    },
+    "tags": [
+      "logging",
+      "production"
+    ]
+  }
+,
+  {
+    "id": "nodejs-041",
+    "category": "Clustering",
+    "difficulty": "hard",
+    "question": "What is clustering in Node.js?",
+    "answer": "Clustering allows a Node.js application to create multiple worker processes that share the same server port. It helps utilize multiple CPU cores and improves application performance and availability.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const cluster = require('cluster');\nconst os = require('os');\n\nif(cluster.isPrimary){\n  for(let i=0;i<os.cpus().length;i++){\n    cluster.fork();\n  }\n}"
+    },
+    "tags": [
+      "cluster",
+      "performance",
+      "scaling"
+    ]
+  },
+  {
+    "id": "nodejs-042",
+    "category": "Worker Threads",
+    "difficulty": "hard",
+    "question": "What are worker threads in Node.js?",
+    "answer": "Worker threads allow JavaScript execution in parallel threads inside the same Node.js process. They are useful for CPU-intensive tasks like image processing, encryption, and data calculations.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const { Worker } = require('worker_threads');\n\nnew Worker('./task.js');"
+    },
+    "tags": [
+      "worker-threads",
+      "performance"
+    ]
+  },
+  {
+    "id": "nodejs-043",
+    "category": "Caching",
+    "difficulty": "hard",
+    "question": "How do you implement caching in Node.js applications?",
+    "answer": "Caching improves performance by storing frequently accessed data temporarily. Common solutions include in-memory caching, Redis, CDN caching, and application-level caching.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "cache.set('user:1', userData);\n\nconst user = cache.get('user:1');"
+    },
+    "tags": [
+      "cache",
+      "redis",
+      "performance"
+    ]
+  },
+  {
+    "id": "nodejs-044",
+    "category": "Rate Limiting",
+    "difficulty": "hard",
+    "question": "What is rate limiting and why is it important?",
+    "answer": "Rate limiting restricts the number of requests a client can make within a time period. It protects APIs from abuse, brute force attacks, and excessive resource consumption.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "app.use(rateLimit({\n  windowMs: 60000,\n  max: 100\n}));"
+    },
+    "tags": [
+      "security",
+      "api",
+      "rate-limit"
+    ]
+  },
+  {
+    "id": "nodejs-045",
+    "category": "Message Queues",
+    "difficulty": "hard",
+    "question": "Why are message queues used with Node.js?",
+    "answer": "Message queues handle background tasks asynchronously. They improve reliability and scalability by separating request processing from long-running operations.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "API Request\n     |\n Queue\n     |\n Worker Process"
+    },
+    "tags": [
+      "queue",
+      "architecture",
+      "scaling"
+    ]
+  },
+  {
+    "id": "nodejs-046",
+    "category": "System Design",
+    "difficulty": "hard",
+    "question": "How would you design a scalable Node.js API?",
+    "answer": "A scalable Node.js API should use load balancing, horizontal scaling, caching, database optimization, async processing, monitoring, proper error handling, and security practices.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Client\n |\nLoad Balancer\n |\nNode Servers\n |\nDatabase + Cache"
+    },
+    "tags": [
+      "system-design",
+      "scaling"
+    ]
+  },
+  {
+    "id": "nodejs-047",
+    "category": "Testing",
+    "difficulty": "medium",
+    "question": "How do you test Node.js applications?",
+    "answer": "Node.js applications are tested using unit testing, integration testing, and API testing tools. Popular frameworks include Jest, Mocha, Chai, and Supertest.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "test('adds numbers',()=>{\n expect(add(2,3)).toBe(5);\n});"
+    },
+    "tags": [
+      "testing",
+      "jest"
+    ]
+  },
+  {
+    "id": "nodejs-048",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Why do you prefer Node.js for backend development?",
+    "answer": "A good answer should mention JavaScript across frontend and backend, fast development, non-blocking architecture, large npm ecosystem, scalability, and strong community support.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Sample Answer:\n'Node.js allows me to build scalable APIs using JavaScript with an efficient asynchronous model.'"
+    },
+    "tags": [
+      "hr",
+      "nodejs"
+    ]
+  },
+  {
+    "id": "nodejs-049",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Explain a challenging Node.js project you worked on.",
+    "answer": "A strong answer should explain the project goal, architecture decisions, technical challenges, solutions implemented, performance improvements, and business impact.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "STAR Method:\nSituation\nTask\nAction\nResult"
+    },
+    "tags": [
+      "hr",
+      "behavioral"
+    ]
+  },
+  {
+    "id": "nodejs-050",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "What are the future trends in Node.js development?",
+    "answer": "Node.js development is moving toward better performance, serverless architectures, microservices, edge computing, improved security, and stronger TypeScript adoption.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Future:\n- Serverless\n- Microservices\n- TypeScript\n- Cloud Native"
+    },
+    "tags": [
+      "hr",
+      "future",
+      "nodejs"
+    ]
+  }
+]

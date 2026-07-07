@@ -1,30 +1,758 @@
 [
   {
     "id": "angular-001",
-    "category": "Signals",
-    "difficulty": "medium",
-    "question": "How do signals differ from RxJS observables for component state?",
-    "answer": "Signals are synchronous, glitch-free values read by calling them, and Angular's change detection can subscribe to exactly the signals a template reads. Observables model streams over time and need a subscription (or the async pipe) to unwrap. Signals suit local synchronous state; observables still fit async sources like HTTP calls or WebSocket events.",
+    "category": "Angular Fundamentals",
+    "difficulty": "easy",
+    "question": "What is Angular?",
+    "answer": "Angular is a TypeScript-based frontend framework developed by Google for building scalable single-page applications. It provides components, dependency injection, routing, forms, HTTP services, and reactive programming support.",
     "codeSnippet": {
       "language": "typescript",
-      "code": "count = signal(0);\ndoubled = computed(() => this.count() * 2);"
+      "code": "@Component({\n selector:'app-root',\n template:'<h1>Hello Angular</h1>'\n})\nexport class AppComponent {}"
     },
-    "tags": ["signals", "state"]
+    "tags": [
+      "angular",
+      "typescript",
+      "framework"
+    ]
   },
   {
     "id": "angular-002",
-    "category": "Dependency Injection",
-    "difficulty": "easy",
-    "question": "What does providedIn: 'root' do?",
-    "answer": "It registers the service with the root injector and enables tree-shaking, so the service is included in the bundle only if something actually injects it, and a single shared instance is used app-wide.",
-    "tags": ["di", "services"]
+    "category": "Angular Architecture",
+    "difficulty": "medium",
+    "question": "Explain Angular application architecture.",
+    "answer": "Angular applications are built using components, templates, services, dependency injection, directives, pipes, modules, and routing. Components control UI while services contain reusable business logic.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Component\n    |\nTemplate\n    |\nService\n    |\nAPI"
+    },
+    "tags": [
+      "architecture",
+      "angular"
+    ]
   },
   {
     "id": "angular-003",
+    "category": "Components",
+    "difficulty": "easy",
+    "question": "What is a component in Angular?",
+    "answer": "A component is the basic building block of Angular applications. It controls a part of the user interface and consists of a TypeScript class, HTML template, and CSS styles.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "@Component({\n selector:'app-user',\n templateUrl:'user.html'\n})\nexport class UserComponent {}"
+    },
+    "tags": [
+      "components",
+      "angular"
+    ]
+  },
+  {
+    "id": "angular-004",
+    "category": "Component Lifecycle",
+    "difficulty": "medium",
+    "question": "What are Angular component lifecycle hooks?",
+    "answer": "Lifecycle hooks allow developers to execute code during different stages of a component's life such as creation, changes, rendering, and destruction.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "ngOnInit(){\n console.log('Component initialized');\n}\n\nngOnDestroy(){\n console.log('Cleanup');\n}"
+    },
+    "tags": [
+      "lifecycle",
+      "hooks"
+    ]
+  },
+  {
+    "id": "angular-005",
+    "category": "Templates",
+    "difficulty": "easy",
+    "question": "What is an Angular template?",
+    "answer": "An Angular template defines the UI structure using HTML with Angular syntax such as interpolation, property binding, event binding, and directives.",
+    "codeSnippet": {
+      "language": "html",
+      "code": "<h1>{{title}}</h1>\n<button (click)=\"save()\">Save</button>"
+    },
+    "tags": [
+      "template",
+      "html"
+    ]
+  },
+  {
+    "id": "angular-006",
+    "category": "Data Binding",
+    "difficulty": "medium",
+    "question": "What are the types of data binding in Angular?",
+    "answer": "Angular supports four types of data binding: interpolation, property binding, event binding, and two-way binding using ngModel.",
+    "codeSnippet": {
+      "language": "html",
+      "code": "{{name}}\n\n<img [src]=\"imageUrl\">\n\n<button (click)=\"submit()\"></button>\n\n<input [(ngModel)]=\"username\">"
+    },
+    "tags": [
+      "binding",
+      "angular"
+    ]
+  },
+  {
+    "id": "angular-007",
+    "category": "Interpolation",
+    "difficulty": "easy",
+    "question": "What is interpolation in Angular?",
+    "answer": "Interpolation allows displaying component data inside HTML templates using double curly braces. Angular evaluates the expression and updates the view automatically.",
+    "codeSnippet": {
+      "language": "html",
+      "code": "<h2>{{userName}}</h2>"
+    },
+    "tags": [
+      "interpolation",
+      "template"
+    ]
+  },
+  {
+    "id": "angular-008",
+    "category": "Property Binding",
+    "difficulty": "easy",
+    "question": "What is property binding in Angular?",
+    "answer": "Property binding allows setting DOM element properties dynamically from component values using square brackets.",
+    "codeSnippet": {
+      "language": "html",
+      "code": "<button [disabled]=\"isLoading\">\n Submit\n</button>"
+    },
+    "tags": [
+      "property-binding",
+      "angular"
+    ]
+  },
+  {
+    "id": "angular-009",
+    "category": "Event Binding",
+    "difficulty": "easy",
+    "question": "What is event binding in Angular?",
+    "answer": "Event binding listens to user actions like clicks, input changes, and keyboard events using parentheses syntax.",
+    "codeSnippet": {
+      "language": "html",
+      "code": "<button (click)=\"handleClick()\">\n Click\n</button>"
+    },
+    "tags": [
+      "event-binding",
+      "angular"
+    ]
+  },
+  {
+    "id": "angular-010",
+    "category": "Two Way Binding",
+    "difficulty": "medium",
+    "question": "What is two-way data binding in Angular?",
+    "answer": "Two-way binding synchronizes data between component and template. Changes in the UI update the component value, and component changes update the UI.",
+    "codeSnippet": {
+      "language": "html",
+      "code": "<input [(ngModel)]=\"name\">"
+    },
+    "tags": [
+      "ngmodel",
+      "binding"
+    ]
+  }
+,
+  {
+    "id": "angular-011",
+    "category": "Directives",
+    "difficulty": "easy",
+    "question": "What are directives in Angular?",
+    "answer": "Directives are classes that add behavior or modify the structure of DOM elements. Angular provides built-in directives and allows developers to create custom directives.",
+    "codeSnippet": {
+      "language": "html",
+      "code": "<p *ngIf=\"isVisible\">\n Hello Angular\n</p>"
+    },
+    "tags": [
+      "directives",
+      "angular"
+    ]
+  },
+  {
+    "id": "angular-012",
+    "category": "Structural Directives",
+    "difficulty": "medium",
+    "question": "What are structural directives in Angular?",
+    "answer": "Structural directives change the structure of the DOM by adding or removing elements. Common examples are *ngIf, *ngFor, and *ngSwitch.",
+    "codeSnippet": {
+      "language": "html",
+      "code": "<div *ngFor=\"let user of users\">\n {{user.name}}\n</div>"
+    },
+    "tags": [
+      "ngif",
+      "ngfor",
+      "directives"
+    ]
+  },
+  {
+    "id": "angular-013",
+    "category": "Attribute Directives",
+    "difficulty": "medium",
+    "question": "What are attribute directives in Angular?",
+    "answer": "Attribute directives change the appearance or behavior of existing DOM elements without changing the DOM structure.",
+    "codeSnippet": {
+      "language": "html",
+      "code": "<p [ngClass]=\"{'active':isActive}\">\n Text\n</p>"
+    },
+    "tags": [
+      "ngclass",
+      "attribute-directives"
+    ]
+  },
+  {
+    "id": "angular-014",
+    "category": "Custom Directives",
+    "difficulty": "hard",
+    "question": "How do you create a custom directive in Angular?",
+    "answer": "Custom directives are created using the @Directive decorator. They can access and manipulate DOM elements using ElementRef and Renderer2.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "@Directive({\n selector:'[appHighlight]'\n})\nexport class HighlightDirective {}"
+    },
+    "tags": [
+      "custom-directive",
+      "renderer"
+    ]
+  },
+  {
+    "id": "angular-015",
+    "category": "Pipes",
+    "difficulty": "easy",
+    "question": "What are pipes in Angular?",
+    "answer": "Pipes transform data before displaying it in templates. Angular provides built-in pipes and supports custom pipes.",
+    "codeSnippet": {
+      "language": "html",
+      "code": "{{name | uppercase}}"
+    },
+    "tags": [
+      "pipes",
+      "template"
+    ]
+  },
+  {
+    "id": "angular-016",
+    "category": "Pure And Impure Pipes",
+    "difficulty": "hard",
+    "question": "What is the difference between pure and impure pipes?",
+    "answer": "Pure pipes execute only when the input reference changes, making them faster. Impure pipes execute during every change detection cycle and may impact performance.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "@Pipe({\n name:'filter',\n pure:false\n})"
+    },
+    "tags": [
+      "pipes",
+      "performance"
+    ]
+  },
+  {
+    "id": "angular-017",
+    "category": "Services",
+    "difficulty": "easy",
+    "question": "What is a service in Angular?",
+    "answer": "A service is a reusable class that contains business logic, API calls, shared data, or utility functions. Services help keep components clean.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "@Injectable({\n providedIn:'root'\n})\nexport class UserService {}"
+    },
+    "tags": [
+      "services",
+      "angular"
+    ]
+  },
+  {
+    "id": "angular-018",
+    "category": "Dependency Injection",
+    "difficulty": "medium",
+    "question": "What is dependency injection in Angular?",
+    "answer": "Dependency Injection is a design pattern where Angular creates and provides required dependencies instead of components creating them manually.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "constructor(\n private userService: UserService\n) {}"
+    },
+    "tags": [
+      "dependency-injection",
+      "di"
+    ]
+  },
+  {
+    "id": "angular-019",
+    "category": "Providers",
+    "difficulty": "hard",
+    "question": "What are providers in Angular?",
+    "answer": "Providers tell Angular how to create and provide dependencies. They can provide services, values, factories, or existing instances.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "providers:[\n UserService\n]"
+    },
+    "tags": [
+      "providers",
+      "di"
+    ]
+  },
+  {
+    "id": "angular-020",
+    "category": "Modules",
+    "difficulty": "medium",
+    "question": "What are Angular modules?",
+    "answer": "Angular modules group related components, directives, pipes, and services together. NgModules organize application structure and dependencies.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "@NgModule({\n declarations:[AppComponent],\n imports:[BrowserModule]\n})"
+    },
+    "tags": [
+      "modules",
+      "ngmodule"
+    ]
+  }
+,
+  {
+    "id": "angular-021",
+    "category": "Signals",
+    "difficulty": "medium",
+    "question": "What are Signals in Angular?",
+    "answer": "Signals are a reactive state management feature introduced in Angular. They store values and notify Angular when the value changes, allowing more efficient change detection.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "count = signal(0);\n\ndoubled = computed(() => this.count() * 2);"
+    },
+    "tags": [
+      "signals",
+      "state-management"
+    ]
+  },
+  {
+    "id": "angular-022",
+    "category": "Signals",
+    "difficulty": "hard",
+    "question": "How are Signals different from RxJS Observables?",
+    "answer": "Signals represent synchronous reactive values and are read by calling them. Observables represent asynchronous streams of data and require subscriptions. Signals are ideal for component state, while Observables are better for events, HTTP calls, and streams.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "name = signal('Angular');\n\nusers$ = this.http.get('/users');"
+    },
+    "tags": [
+      "signals",
+      "rxjs"
+    ]
+  },
+  {
+    "id": "angular-023",
+    "category": "Computed Signals",
+    "difficulty": "medium",
+    "question": "What are computed signals in Angular?",
+    "answer": "Computed signals create derived state from existing signals. They automatically recalculate when their dependent signals change.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "total = computed(() =>\n this.price() * this.quantity()\n);"
+    },
+    "tags": [
+      "computed",
+      "signals"
+    ]
+  },
+  {
+    "id": "angular-024",
+    "category": "Effects",
+    "difficulty": "medium",
+    "question": "What is effect() in Angular Signals?",
+    "answer": "effect() runs side effects whenever the signals it reads change. It is useful for logging, local storage updates, and external operations.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "effect(() => {\n console.log(this.count());\n});"
+    },
+    "tags": [
+      "effect",
+      "signals"
+    ]
+  },
+  {
+    "id": "angular-025",
+    "category": "RxJS",
+    "difficulty": "easy",
+    "question": "What is RxJS in Angular?",
+    "answer": "RxJS is a reactive programming library used by Angular for handling asynchronous operations using Observables, operators, and streams.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "this.http.get('/users')\n.subscribe(data => {\n console.log(data);\n});"
+    },
+    "tags": [
+      "rxjs",
+      "observable"
+    ]
+  },
+  {
+    "id": "angular-026",
+    "category": "Observables",
+    "difficulty": "medium",
+    "question": "What is an Observable in Angular?",
+    "answer": "An Observable represents a stream of asynchronous data that can emit multiple values over time. Components subscribe to Observables to receive data.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "const users$ = new Observable(observer => {\n observer.next(users);\n});"
+    },
+    "tags": [
+      "observable",
+      "rxjs"
+    ]
+  },
+  {
+    "id": "angular-027",
+    "category": "RxJS Operators",
+    "difficulty": "hard",
+    "question": "What are commonly used RxJS operators?",
+    "answer": "Common RxJS operators include map for transformation, filter for filtering values, switchMap for switching streams, debounceTime for delays, and catchError for handling errors.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "search$.pipe(\n debounceTime(300),\n switchMap(query => api.search(query))\n);"
+    },
+    "tags": [
+      "rxjs",
+      "operators"
+    ]
+  },
+  {
+    "id": "angular-028",
     "category": "Change Detection",
     "difficulty": "hard",
-    "question": "What is the difference between Default and OnPush change detection?",
-    "answer": "Default checks a component on every change detection cycle, triggered by any event, timer, or HTTP response anywhere in the app. OnPush only checks a component when one of its @Input references changes, an event originates from within the component, or a signal it reads changes, which is why immutable data patterns matter under OnPush.",
-    "tags": ["change-detection", "performance"]
+    "question": "How does Angular change detection work?",
+    "answer": "Angular change detection checks component data changes and updates the DOM. It runs after events, HTTP responses, timers, and signal updates.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "State Change\n      ↓\nChange Detection\n      ↓\nDOM Update"
+    },
+    "tags": [
+      "change-detection",
+      "performance"
+    ]
+  },
+  {
+    "id": "angular-029",
+    "category": "OnPush Strategy",
+    "difficulty": "hard",
+    "question": "What is OnPush change detection strategy?",
+    "answer": "OnPush reduces unnecessary checks by running change detection only when component inputs change, events occur inside the component, or signals used by the template update.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "@Component({\n changeDetection:ChangeDetectionStrategy.OnPush\n})"
+    },
+    "tags": [
+      "onpush",
+      "performance"
+    ]
+  },
+  {
+    "id": "angular-030",
+    "category": "Forms",
+    "difficulty": "medium",
+    "question": "What are the types of forms in Angular?",
+    "answer": "Angular provides template-driven forms and reactive forms. Template-driven forms are simpler, while reactive forms provide better scalability and programmatic control.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "form = new FormGroup({\n email:new FormControl('')\n});"
+    },
+    "tags": [
+      "forms",
+      "reactive-forms"
+    ]
+  }
+,
+  {
+    "id": "angular-031",
+    "category": "Angular Router",
+    "difficulty": "easy",
+    "question": "What is routing in Angular?",
+    "answer": "Angular Router enables navigation between different views or components in a single-page application without reloading the page.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "const routes: Routes = [\n {\n  path:'users',\n  component:UsersComponent\n }\n];"
+    },
+    "tags": [
+      "routing",
+      "spa"
+    ]
+  },
+  {
+    "id": "angular-032",
+    "category": "Router Outlet",
+    "difficulty": "easy",
+    "question": "What is router-outlet in Angular?",
+    "answer": "router-outlet is a placeholder where Angular dynamically loads the component associated with the current route.",
+    "codeSnippet": {
+      "language": "html",
+      "code": "<router-outlet></router-outlet>"
+    },
+    "tags": [
+      "router",
+      "navigation"
+    ]
+  },
+  {
+    "id": "angular-033",
+    "category": "Route Parameters",
+    "difficulty": "medium",
+    "question": "How do you pass parameters through Angular routes?",
+    "answer": "Route parameters allow dynamic URLs by using placeholders. Components can access these values using ActivatedRoute.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "path:'users/:id'\n\nthis.route.params.subscribe(params => {\n console.log(params['id']);\n});"
+    },
+    "tags": [
+      "routing",
+      "params"
+    ]
+  },
+  {
+    "id": "angular-034",
+    "category": "Route Guards",
+    "difficulty": "hard",
+    "question": "What are route guards in Angular?",
+    "answer": "Route guards control navigation based on conditions such as authentication, permissions, or unsaved changes.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "canActivate(): boolean {\n return this.auth.isLoggedIn();\n}"
+    },
+    "tags": [
+      "guards",
+      "authentication"
+    ]
+  },
+  {
+    "id": "angular-035",
+    "category": "Lazy Loading",
+    "difficulty": "hard",
+    "question": "What is lazy loading in Angular?",
+    "answer": "Lazy loading loads feature modules or components only when they are needed. It reduces initial bundle size and improves application startup time.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "loadChildren:() =>\n import('./admin/admin.routes')\n .then(m => m.routes)"
+    },
+    "tags": [
+      "lazy-loading",
+      "performance"
+    ]
+  },
+  {
+    "id": "angular-036",
+    "category": "HTTP Client",
+    "difficulty": "medium",
+    "question": "How do you make HTTP requests in Angular?",
+    "answer": "Angular uses HttpClient service to communicate with backend APIs. It returns Observables that can be subscribed to or handled using async pipes.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "this.http.get<User[]>('/api/users')\n.subscribe(users => {\n console.log(users);\n});"
+    },
+    "tags": [
+      "http",
+      "api"
+    ]
+  },
+  {
+    "id": "angular-037",
+    "category": "HTTP Interceptors",
+    "difficulty": "hard",
+    "question": "What are HTTP interceptors in Angular?",
+    "answer": "HTTP interceptors intercept outgoing requests and incoming responses. They are commonly used for adding authentication tokens, logging, and global error handling.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "intercept(req,next){\n const modified=req.clone({\n  setHeaders:{Authorization:'Bearer token'}\n });\n return next.handle(modified);\n}"
+    },
+    "tags": [
+      "interceptors",
+      "http"
+    ]
+  },
+  {
+    "id": "angular-038",
+    "category": "Error Handling",
+    "difficulty": "medium",
+    "question": "How do you handle HTTP errors in Angular?",
+    "answer": "HTTP errors can be handled using RxJS catchError operator, interceptors, and centralized error handling services.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "this.http.get('/api/data')\n.pipe(\n catchError(error => throwError(() => error))\n);"
+    },
+    "tags": [
+      "error-handling",
+      "rxjs"
+    ]
+  },
+  {
+    "id": "angular-039",
+    "category": "Testing",
+    "difficulty": "medium",
+    "question": "How do you test Angular applications?",
+    "answer": "Angular applications are commonly tested using Jasmine and Karma. Modern projects may also use Jest. Tests cover components, services, pipes, and directives.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "it('should create component',()=>{\n expect(component).toBeTruthy();\n});"
+    },
+    "tags": [
+      "testing",
+      "jasmine"
+    ]
+  },
+  {
+    "id": "angular-040",
+    "category": "Performance Optimization",
+    "difficulty": "hard",
+    "question": "How can you improve Angular application performance?",
+    "answer": "Performance can be improved using OnPush change detection, lazy loading, trackBy with ngFor, optimized images, pure pipes, signals, and reducing unnecessary subscriptions.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "<div *ngFor=\"let item of items; trackBy:trackFn\">\n</div>"
+    },
+    "tags": [
+      "performance",
+      "optimization"
+    ]
+  }
+,
+  {
+    "id": "angular-041",
+    "category": "Standalone Components",
+    "difficulty": "hard",
+    "question": "What are standalone components in Angular?",
+    "answer": "Standalone components allow components to work without NgModules. They directly import required dependencies and simplify Angular application architecture.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "@Component({\n standalone:true,\n imports:[CommonModule]\n})\nexport class UserComponent {}"
+    },
+    "tags": [
+      "standalone",
+      "architecture"
+    ]
+  },
+  {
+    "id": "angular-042",
+    "category": "Dependency Injection Hierarchy",
+    "difficulty": "hard",
+    "question": "Explain Angular dependency injection hierarchy.",
+    "answer": "Angular has hierarchical injectors. Services can be provided globally, at route level, or component level. Child injectors can override parent dependencies.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "@Component({\n providers:[UserService]\n})"
+    },
+    "tags": [
+      "dependency-injection",
+      "providers"
+    ]
+  },
+  {
+    "id": "angular-043",
+    "category": "State Management",
+    "difficulty": "hard",
+    "question": "How do you manage state in Angular applications?",
+    "answer": "Angular state can be managed using signals, services with RxJS subjects, NgRx, Akita, or other state management libraries depending on application complexity.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "state = signal({\n user:null,\n loading:false\n});"
+    },
+    "tags": [
+      "state-management",
+      "ngrx"
+    ]
+  },
+  {
+    "id": "angular-044",
+    "category": "NgRx",
+    "difficulty": "hard",
+    "question": "What is NgRx in Angular?",
+    "answer": "NgRx is a Redux-inspired state management library for Angular applications. It uses actions, reducers, selectors, and effects to manage predictable application state.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "dispatch(loadUsers());\n\ncreateSelector(\n users,\n state => state.list\n);"
+    },
+    "tags": [
+      "ngrx",
+      "redux"
+    ]
+  },
+  {
+    "id": "angular-045",
+    "category": "Angular Universal SSR",
+    "difficulty": "hard",
+    "question": "What is Angular Server-Side Rendering (SSR)?",
+    "answer": "Angular SSR renders application pages on the server before sending HTML to the browser. It improves initial loading speed, SEO, and performance.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Browser Request\n      ↓\nAngular Server\n      ↓\nRendered HTML"
+    },
+    "tags": [
+      "ssr",
+      "angular-universal"
+    ]
+  },
+  {
+    "id": "angular-046",
+    "category": "Angular Security",
+    "difficulty": "hard",
+    "question": "What are Angular security features?",
+    "answer": "Angular provides built-in protection against XSS through sanitization, safe DOM APIs, template security, and encourages secure authentication practices.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "import {DomSanitizer} from '@angular/platform-browser';"
+    },
+    "tags": [
+      "security",
+      "xss"
+    ]
+  },
+  {
+    "id": "angular-047",
+    "category": "Build Optimization",
+    "difficulty": "medium",
+    "question": "How does Angular optimize production builds?",
+    "answer": "Angular production builds use Ahead-of-Time compilation, tree shaking, minification, bundling optimization, and dead code elimination.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "ng build --configuration production"
+    },
+    "tags": [
+      "build",
+      "optimization"
+    ]
+  },
+  {
+    "id": "angular-048",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Why do you choose Angular for frontend development?",
+    "answer": "A good answer should mention Angular's complete framework approach, TypeScript support, dependency injection, powerful CLI, scalability, and enterprise adoption.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Sample Answer:\n'Angular provides a structured approach for building scalable enterprise applications.'"
+    },
+    "tags": [
+      "hr",
+      "angular"
+    ]
+  },
+  {
+    "id": "angular-049",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Explain a challenging Angular project you worked on.",
+    "answer": "Describe the project goal, architecture decisions, performance issues, state management approach, problems solved, and measurable results using the STAR method.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Situation\nTask\nAction\nResult"
+    },
+    "tags": [
+      "hr",
+      "experience"
+    ]
+  },
+  {
+    "id": "angular-050",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "How do you keep your Angular knowledge updated?",
+    "answer": "A strong answer includes reading Angular documentation, following release updates, building applications, exploring new features like signals, and reviewing community practices.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Learning:\nDocs\nProjects\nCommunity\nPractice"
+    },
+    "tags": [
+      "hr",
+      "career"
+    ]
   }
 ]

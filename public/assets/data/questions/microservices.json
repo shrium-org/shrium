@@ -1,0 +1,755 @@
+[
+  {
+    "id": "microservices-001",
+    "category": "Microservices Fundamentals",
+    "difficulty": "easy",
+    "question": "What are microservices?",
+    "answer": "Microservices are an architectural style where an application is built as a collection of small, independent services that communicate through APIs.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Application\n |\n ├── User Service\n ├── Order Service\n ├── Payment Service\n └── Notification Service"
+    },
+    "tags": [
+      "microservices",
+      "architecture"
+    ]
+  },
+  {
+    "id": "microservices-002",
+    "category": "Monolithic Architecture",
+    "difficulty": "easy",
+    "question": "What is a monolithic application?",
+    "answer": "A monolithic application is a single deployable unit where all features, business logic, and components are packaged together.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Single Application\n |\nAll Modules"
+    },
+    "tags": [
+      "monolith",
+      "architecture"
+    ]
+  },
+  {
+    "id": "microservices-003",
+    "category": "Architecture Comparison",
+    "difficulty": "medium",
+    "question": "What is the difference between monolith and microservices architecture?",
+    "answer": "Monoliths have a single codebase and deployment unit, while microservices split functionality into independently deployable services.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Monolith:\nOne Deployment\n\nMicroservices:\nMultiple Deployments"
+    },
+    "tags": [
+      "comparison",
+      "architecture"
+    ]
+  },
+  {
+    "id": "microservices-004",
+    "category": "Microservices Benefits",
+    "difficulty": "medium",
+    "question": "What are the advantages of microservices?",
+    "answer": "Microservices provide independent deployment, scalability, technology flexibility, fault isolation, and easier team ownership.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Benefits:\n✓ Scaling\n✓ Deployment\n✓ Isolation\n✓ Flexibility"
+    },
+    "tags": [
+      "benefits",
+      "microservices"
+    ]
+  },
+  {
+    "id": "microservices-005",
+    "category": "Microservices Challenges",
+    "difficulty": "medium",
+    "question": "What are the challenges of microservices?",
+    "answer": "Challenges include distributed system complexity, network failures, data consistency, monitoring, deployment, and service communication.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Challenges:\nNetwork\nData\nMonitoring\nDeployment"
+    },
+    "tags": [
+      "challenges",
+      "distributed-systems"
+    ]
+  },
+  {
+    "id": "microservices-006",
+    "category": "Service Design",
+    "difficulty": "hard",
+    "question": "How do you decide service boundaries in microservices?",
+    "answer": "Services should be designed around business capabilities and bounded contexts. Each service should own a specific responsibility.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Business Domain\n      ↓\nService Boundary\n      ↓\nIndependent Service"
+    },
+    "tags": [
+      "bounded-context",
+      "design"
+    ]
+  },
+  {
+    "id": "microservices-007",
+    "category": "Communication",
+    "difficulty": "medium",
+    "question": "How do microservices communicate with each other?",
+    "answer": "Microservices communicate using synchronous protocols like REST and gRPC or asynchronous messaging systems like Kafka and RabbitMQ.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Service A\n |\nREST / Kafka\n |\nService B"
+    },
+    "tags": [
+      "communication",
+      "api"
+    ]
+  },
+  {
+    "id": "microservices-008",
+    "category": "REST Communication",
+    "difficulty": "easy",
+    "question": "What is synchronous communication in microservices?",
+    "answer": "Synchronous communication means the calling service waits for a response from another service before continuing execution.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Service A\n  |\n Request\n  |\nService B\n  |\nResponse"
+    },
+    "tags": [
+      "rest",
+      "synchronous"
+    ]
+  },
+  {
+    "id": "microservices-009",
+    "category": "Async Communication",
+    "difficulty": "medium",
+    "question": "What is asynchronous communication in microservices?",
+    "answer": "Asynchronous communication allows services to exchange messages without waiting for immediate responses using message brokers.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Service A\n |\nMessage Queue\n |\nService B"
+    },
+    "tags": [
+      "async",
+      "messaging"
+    ]
+  },
+  {
+    "id": "microservices-010",
+    "category": "API Gateway",
+    "difficulty": "medium",
+    "question": "What is an API Gateway in microservices?",
+    "answer": "API Gateway acts as a single entry point for clients and handles routing, authentication, rate limiting, and request aggregation.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Client\n |\nAPI Gateway\n |\nServices"
+    },
+    "tags": [
+      "api-gateway",
+      "routing"
+    ]
+  }
+,
+  {
+    "id": "microservices-011",
+    "category": "Service Discovery",
+    "difficulty": "medium",
+    "question": "What is service discovery in microservices?",
+    "answer": "Service discovery enables services to find and communicate with each other dynamically without hardcoded network locations.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Service A\n   |\nDiscovery Server\n   |\nService B Location"
+    },
+    "tags": [
+      "service-discovery",
+      "microservices"
+    ]
+  },
+  {
+    "id": "microservices-012",
+    "category": "Service Registry",
+    "difficulty": "hard",
+    "question": "What is a service registry?",
+    "answer": "A service registry stores information about available services, including service names, instances, and network locations.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Services\n   |\nRegistry\n   |\nInstances"
+    },
+    "tags": [
+      "registry",
+      "discovery"
+    ]
+  },
+  {
+    "id": "microservices-013",
+    "category": "Load Balancing",
+    "difficulty": "medium",
+    "question": "Why is load balancing required in microservices?",
+    "answer": "Load balancing distributes incoming requests across multiple service instances to improve availability and scalability.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Client\n |\nLoad Balancer\n |\nService 1\nService 2\nService 3"
+    },
+    "tags": [
+      "load-balancing",
+      "scaling"
+    ]
+  },
+  {
+    "id": "microservices-014",
+    "category": "Client Side Load Balancing",
+    "difficulty": "hard",
+    "question": "What is client-side load balancing?",
+    "answer": "In client-side load balancing, the client application selects the service instance using a discovery mechanism.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Client\n |\nLoad Balancer Logic\n |\nService Instances"
+    },
+    "tags": [
+      "client-side",
+      "load-balancing"
+    ]
+  },
+  {
+    "id": "microservices-015",
+    "category": "Server Side Load Balancing",
+    "difficulty": "hard",
+    "question": "What is server-side load balancing?",
+    "answer": "In server-side load balancing, a dedicated load balancer distributes requests to available service instances.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Client\n |\nLoad Balancer\n |\nServices"
+    },
+    "tags": [
+      "server-side",
+      "load-balancing"
+    ]
+  },
+  {
+    "id": "microservices-016",
+    "category": "Configuration Management",
+    "difficulty": "medium",
+    "question": "Why is centralized configuration management required in microservices?",
+    "answer": "Centralized configuration allows multiple services to manage environment-specific properties from a single location.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Config Server\n     |\nServices"
+    },
+    "tags": [
+      "configuration",
+      "centralization"
+    ]
+  },
+  {
+    "id": "microservices-017",
+    "category": "Fault Tolerance",
+    "difficulty": "hard",
+    "question": "What is fault tolerance in microservices?",
+    "answer": "Fault tolerance allows a system to continue operating even when individual services fail.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Service Failure\n       ↓\nFallback\n       ↓\nContinue Operation"
+    },
+    "tags": [
+      "fault-tolerance",
+      "resilience"
+    ]
+  },
+  {
+    "id": "microservices-018",
+    "category": "Circuit Breaker",
+    "difficulty": "hard",
+    "question": "What is a Circuit Breaker pattern?",
+    "answer": "Circuit Breaker prevents repeated calls to a failing service and allows recovery by temporarily stopping requests.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Closed\n  ↓\nOpen\n  ↓\nHalf Open"
+    },
+    "tags": [
+      "circuit-breaker",
+      "resilience"
+    ]
+  },
+  {
+    "id": "microservices-019",
+    "category": "Retry Pattern",
+    "difficulty": "medium",
+    "question": "What is Retry pattern in microservices?",
+    "answer": "Retry pattern automatically attempts failed operations again for temporary failures such as network issues.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Request\n ↓\nFailure\n ↓\nRetry\n ↓\nSuccess"
+    },
+    "tags": [
+      "retry",
+      "resilience"
+    ]
+  },
+  {
+    "id": "microservices-020",
+    "category": "Fallback Pattern",
+    "difficulty": "medium",
+    "question": "What is Fallback pattern?",
+    "answer": "Fallback provides an alternative response when a dependent service is unavailable.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Service Failure\n      ↓\nFallback Response"
+    },
+    "tags": [
+      "fallback",
+      "availability"
+    ]
+  },
+  {
+    "id": "microservices-021",
+    "category": "Database Design",
+    "difficulty": "hard",
+    "question": "How are databases managed in microservices architecture?",
+    "answer": "Each microservice should own its database to maintain independence and avoid tight coupling between services.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "User Service\n |\nUser DB\n\nOrder Service\n |\nOrder DB"
+    },
+    "tags": [
+      "database-per-service",
+      "design"
+    ]
+  },
+  {
+    "id": "microservices-022",
+    "category": "Database Per Service",
+    "difficulty": "hard",
+    "question": "What is Database Per Service pattern?",
+    "answer": "Database Per Service means every microservice has its own private database that only the service can access.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Service A -> DB A\nService B -> DB B\nService C -> DB C"
+    },
+    "tags": [
+      "database",
+      "microservices"
+    ]
+  },
+  {
+    "id": "microservices-023",
+    "category": "Distributed Transactions",
+    "difficulty": "hard",
+    "question": "Why are distributed transactions difficult in microservices?",
+    "answer": "Because each service has its own database and transaction boundaries, maintaining consistency across services becomes complex.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Service A\n DB A\n  |\nService B\n DB B"
+    },
+    "tags": [
+      "transactions",
+      "distributed"
+    ]
+  },
+  {
+    "id": "microservices-024",
+    "category": "Saga Pattern",
+    "difficulty": "hard",
+    "question": "What is Saga pattern?",
+    "answer": "Saga pattern manages distributed transactions by breaking them into a sequence of local transactions with compensating actions.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Order\n ↓\nPayment\n ↓\nShipping\n ↓\nCompensation on Failure"
+    },
+    "tags": [
+      "saga",
+      "transaction"
+    ]
+  },
+  {
+    "id": "microservices-025",
+    "category": "Event Driven Architecture",
+    "difficulty": "medium",
+    "question": "What is event-driven architecture?",
+    "answer": "Event-driven architecture uses events to communicate changes between services asynchronously.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Service\n ↓\nEvent\n ↓\nConsumer"
+    },
+    "tags": [
+      "events",
+      "architecture"
+    ]
+  },
+  {
+    "id": "microservices-026",
+    "category": "Message Broker",
+    "difficulty": "medium",
+    "question": "What is a message broker?",
+    "answer": "A message broker enables asynchronous communication between services by receiving, storing, and delivering messages.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Producer\n |\nBroker\n |\nConsumer"
+    },
+    "tags": [
+      "message-broker",
+      "async"
+    ]
+  },
+  {
+    "id": "microservices-027",
+    "category": "Apache Kafka",
+    "difficulty": "hard",
+    "question": "How is Kafka used in microservices?",
+    "answer": "Kafka provides high-throughput event streaming and enables asynchronous communication between microservices.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Producer\n |\nKafka Topic\n |\nConsumer"
+    },
+    "tags": [
+      "kafka",
+      "events"
+    ]
+  },
+  {
+    "id": "microservices-028",
+    "category": "API Design",
+    "difficulty": "medium",
+    "question": "What are REST API best practices in microservices?",
+    "answer": "Use proper HTTP methods, meaningful URLs, versioning, validation, authentication, pagination, and consistent error handling.",
+    "codeSnippet": {
+      "language": "http",
+      "code": "GET /api/v1/users\nPOST /api/v1/orders"
+    },
+    "tags": [
+      "rest",
+      "api"
+    ]
+  },
+  {
+    "id": "microservices-029",
+    "category": "API Versioning",
+    "difficulty": "medium",
+    "question": "Why is API versioning required?",
+    "answer": "API versioning allows services to evolve without breaking existing clients.",
+    "codeSnippet": {
+      "language": "http",
+      "code": "/api/v1/users\n/api/v2/users"
+    },
+    "tags": [
+      "versioning",
+      "api"
+    ]
+  },
+  {
+    "id": "microservices-030",
+    "category": "Authentication",
+    "difficulty": "hard",
+    "question": "How is authentication handled in microservices?",
+    "answer": "Authentication is commonly handled using API Gateway, OAuth2, JWT tokens, and centralized identity providers.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Client\n ↓\nJWT Token\n ↓\nAPI Gateway\n ↓\nServices"
+    },
+    "tags": [
+      "security",
+      "jwt"
+    ]
+  },
+  {
+    "id": "microservices-031",
+    "category": "Spring Boot Microservices",
+    "difficulty": "medium",
+    "question": "Why is Spring Boot commonly used for microservices?",
+    "answer": "Spring Boot provides rapid development features, embedded servers, dependency management, REST support, security, and cloud-native integrations.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "@SpringBootApplication\npublic class UserServiceApplication {\n}"
+    },
+    "tags": [
+      "spring-boot",
+      "microservices"
+    ]
+  },
+  {
+    "id": "microservices-032",
+    "category": "Spring Cloud",
+    "difficulty": "hard",
+    "question": "What is Spring Cloud?",
+    "answer": "Spring Cloud provides tools for building distributed systems including service discovery, configuration management, API gateway, and resilience patterns.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Spring Cloud\n |\nDiscovery\nConfig\nGateway\nSecurity"
+    },
+    "tags": [
+      "spring-cloud",
+      "distributed-system"
+    ]
+  },
+  {
+    "id": "microservices-033",
+    "category": "Service Discovery",
+    "difficulty": "hard",
+    "question": "What is Eureka Server?",
+    "answer": "Eureka Server is a service registry from Netflix OSS used by microservices to register and discover service instances.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Service A\n   |\n Eureka\n   |\nService B"
+    },
+    "tags": [
+      "eureka",
+      "discovery"
+    ]
+  },
+  {
+    "id": "microservices-034",
+    "category": "Eureka Client",
+    "difficulty": "medium",
+    "question": "What is Eureka Client?",
+    "answer": "Eureka Client is a microservice application that registers itself with Eureka Server and discovers other services.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "@EnableDiscoveryClient\n@SpringBootApplication"
+    },
+    "tags": [
+      "eureka-client",
+      "spring-cloud"
+    ]
+  },
+  {
+    "id": "microservices-035",
+    "category": "Feign Client",
+    "difficulty": "hard",
+    "question": "What is OpenFeign in Spring Cloud?",
+    "answer": "OpenFeign is a declarative HTTP client that simplifies communication between microservices.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "@FeignClient(name=\"order-service\")\ninterface OrderClient {}"
+    },
+    "tags": [
+      "feign",
+      "http-client"
+    ]
+  },
+  {
+    "id": "microservices-036",
+    "category": "API Gateway",
+    "difficulty": "hard",
+    "question": "How does Spring Cloud Gateway work?",
+    "answer": "Spring Cloud Gateway routes client requests to backend services and provides filters for authentication, logging, and rate limiting.",
+    "codeSnippet": {
+      "language": "yaml",
+      "code": "routes:\n- id: user-service\n  uri: lb://USER-SERVICE"
+    },
+    "tags": [
+      "gateway",
+      "routing"
+    ]
+  },
+  {
+    "id": "microservices-037",
+    "category": "Resilience4j",
+    "difficulty": "hard",
+    "question": "What is Resilience4j?",
+    "answer": "Resilience4j is a fault tolerance library used with Spring Boot to implement circuit breakers, retries, rate limiters, and bulkheads.",
+    "codeSnippet": {
+      "language": "java",
+      "code": "@CircuitBreaker(name=\"payment\")\npublic Response pay() {}"
+    },
+    "tags": [
+      "resilience4j",
+      "fault-tolerance"
+    ]
+  },
+  {
+    "id": "microservices-038",
+    "category": "Distributed Tracing",
+    "difficulty": "hard",
+    "question": "What is distributed tracing?",
+    "answer": "Distributed tracing tracks requests as they flow across multiple microservices to identify performance issues and failures.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Request\n ↓\nService A\n ↓\nService B\n ↓\nService C"
+    },
+    "tags": [
+      "tracing",
+      "observability"
+    ]
+  },
+  {
+    "id": "microservices-039",
+    "category": "Microservices Monitoring",
+    "difficulty": "medium",
+    "question": "How do you monitor microservices?",
+    "answer": "Microservices are monitored using metrics, logs, traces, health checks, and tools like Prometheus, Grafana, and ELK stack.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Metrics\nLogs\nTraces\nAlerts"
+    },
+    "tags": [
+      "monitoring",
+      "observability"
+    ]
+  },
+  {
+    "id": "microservices-040",
+    "category": "Docker Kubernetes Integration",
+    "difficulty": "hard",
+    "question": "How are microservices deployed using Docker and Kubernetes?",
+    "answer": "Each microservice is packaged as a Docker image and deployed as Kubernetes Pods with Services, ConfigMaps, Secrets, and scaling policies.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Spring Boot Service\n ↓\nDocker Image\n ↓\nKubernetes Pod"
+    },
+    "tags": [
+      "docker",
+      "kubernetes",
+      "deployment"
+    ]
+  }
+,
+  {
+    "id": "microservices-041",
+    "category": "CQRS Pattern",
+    "difficulty": "hard",
+    "question": "What is CQRS pattern in microservices?",
+    "answer": "CQRS (Command Query Responsibility Segregation) separates read operations and write operations into different models to improve scalability and performance.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Commands\n  ↓\nWrite Model\n\nQueries\n  ↓\nRead Model"
+    },
+    "tags": [
+      "cqrs",
+      "design-pattern"
+    ]
+  },
+  {
+    "id": "microservices-042",
+    "category": "Event Sourcing",
+    "difficulty": "hard",
+    "question": "What is Event Sourcing?",
+    "answer": "Event Sourcing stores application state as a sequence of events instead of storing only the current state.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Event 1\n ↓\nEvent 2\n ↓\nEvent 3\n ↓\nCurrent State"
+    },
+    "tags": [
+      "event-sourcing",
+      "architecture"
+    ]
+  },
+  {
+    "id": "microservices-043",
+    "category": "Bulkhead Pattern",
+    "difficulty": "hard",
+    "question": "What is Bulkhead pattern?",
+    "answer": "Bulkhead pattern isolates failures by limiting resources allocated to different services or operations.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Service A | Limit\nService B | Limit\nService C | Limit"
+    },
+    "tags": [
+      "bulkhead",
+      "resilience"
+    ]
+  },
+  {
+    "id": "microservices-044",
+    "category": "Rate Limiting",
+    "difficulty": "medium",
+    "question": "What is rate limiting in microservices?",
+    "answer": "Rate limiting controls the number of requests a client can send within a specific time period to protect services.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Client\n ↓\nRate Limiter\n ↓\nService"
+    },
+    "tags": [
+      "rate-limit",
+      "security"
+    ]
+  },
+  {
+    "id": "microservices-045",
+    "category": "Idempotency",
+    "difficulty": "hard",
+    "question": "What is idempotency in microservices?",
+    "answer": "Idempotency ensures that performing the same operation multiple times produces the same result as performing it once.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Request\nRequest\nRequest\n   ↓\nSame Result"
+    },
+    "tags": [
+      "idempotency",
+      "api-design"
+    ]
+  },
+  {
+    "id": "microservices-046",
+    "category": "Security",
+    "difficulty": "hard",
+    "question": "What are security best practices for microservices?",
+    "answer": "Use authentication, authorization, encryption, API Gateway security, JWT/OAuth2, secrets management, and network restrictions.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Client\n ↓\nAuthentication\n ↓\nAuthorization\n ↓\nService"
+    },
+    "tags": [
+      "security",
+      "oauth"
+    ]
+  },
+  {
+    "id": "microservices-047",
+    "category": "Scalability",
+    "difficulty": "hard",
+    "question": "How do you scale microservices?",
+    "answer": "Microservices can be scaled independently using horizontal scaling, load balancing, caching, asynchronous processing, and container orchestration.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "High Traffic\n ↓\nMore Instances\n ↓\nLoad Balancer"
+    },
+    "tags": [
+      "scaling",
+      "performance"
+    ]
+  },
+  {
+    "id": "microservices-048",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Explain your microservices project architecture in an interview.",
+    "answer": "Explain services, API Gateway, service discovery, databases, communication approach, security, deployment, monitoring, and scaling strategy.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Client\n ↓\nGateway\n ↓\nServices\n ↓\nDatabases"
+    },
+    "tags": [
+      "hr",
+      "architecture"
+    ]
+  },
+  {
+    "id": "microservices-049",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "What problems did you solve using microservices?",
+    "answer": "Mention independent deployments, scaling specific modules, improving reliability, reducing coupling, and enabling team ownership.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Problem\n ↓\nMicroservices Solution\n ↓\nResult"
+    },
+    "tags": [
+      "hr",
+      "experience"
+    ]
+  },
+  {
+    "id": "microservices-050",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Why are microservices important for Java backend developers?",
+    "answer": "Microservices are important because modern Java applications use Spring Boot, cloud platforms, containers, messaging, and distributed architectures.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Java\n ↓\nSpring Boot\n ↓\nMicroservices\n ↓\nCloud"
+    },
+    "tags": [
+      "hr",
+      "java-backend"
+    ]
+  }
+]

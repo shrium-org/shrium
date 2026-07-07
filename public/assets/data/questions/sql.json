@@ -27,4 +27,609 @@
     "answer": "3NF removes transitive dependencies, where a non-key column depends on another non-key column rather than directly on the primary key. Eliminating that prevents update anomalies, like a value drifting out of sync when it's duplicated across rows.",
     "tags": ["normalization", "schema-design"]
   }
+,
+  {
+    "id": "sql-011",
+    "category": "SELECT Statement",
+    "difficulty": "easy",
+    "question": "How do you retrieve data from a SQL table?",
+    "answer": "The SELECT statement is used to fetch data from one or more tables. It can retrieve specific columns or all columns.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT name, email\nFROM users;"
+    },
+    "tags": [
+      "select",
+      "queries"
+    ]
+  },
+  {
+    "id": "sql-012",
+    "category": "WHERE Clause",
+    "difficulty": "easy",
+    "question": "What is the WHERE clause in SQL?",
+    "answer": "WHERE filters records based on a specified condition before returning results.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT *\nFROM employees\nWHERE salary > 50000;"
+    },
+    "tags": [
+      "where",
+      "filtering"
+    ]
+  },
+  {
+    "id": "sql-013",
+    "category": "ORDER BY",
+    "difficulty": "easy",
+    "question": "What is ORDER BY in SQL?",
+    "answer": "ORDER BY sorts query results in ascending or descending order based on one or more columns.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT *\nFROM employees\nORDER BY salary DESC;"
+    },
+    "tags": [
+      "sorting",
+      "order-by"
+    ]
+  },
+  {
+    "id": "sql-014",
+    "category": "GROUP BY",
+    "difficulty": "medium",
+    "question": "What is GROUP BY in SQL?",
+    "answer": "GROUP BY groups rows with the same values and is commonly used with aggregate functions like COUNT, SUM, AVG, MIN, and MAX.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT department,\nCOUNT(*)\nFROM employees\nGROUP BY department;"
+    },
+    "tags": [
+      "group-by",
+      "aggregation"
+    ]
+  },
+  {
+    "id": "sql-015",
+    "category": "HAVING Clause",
+    "difficulty": "medium",
+    "question": "What is the difference between WHERE and HAVING?",
+    "answer": "WHERE filters rows before grouping. HAVING filters groups after aggregate functions are applied.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT department,\nCOUNT(*)\nFROM employees\nGROUP BY department\nHAVING COUNT(*) > 10;"
+    },
+    "tags": [
+      "having",
+      "group-by"
+    ]
+  },
+  {
+    "id": "sql-016",
+    "category": "Aggregate Functions",
+    "difficulty": "easy",
+    "question": "What are aggregate functions in SQL?",
+    "answer": "Aggregate functions perform calculations on multiple rows and return a single result.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT\nCOUNT(*),\nAVG(salary),\nMAX(salary)\nFROM employees;"
+    },
+    "tags": [
+      "aggregate",
+      "functions"
+    ]
+  },
+  {
+    "id": "sql-017",
+    "category": "INNER JOIN",
+    "difficulty": "medium",
+    "question": "What is INNER JOIN?",
+    "answer": "INNER JOIN returns only rows where matching records exist in both tables.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT u.name,o.id\nFROM users u\nINNER JOIN orders o\nON u.id=o.user_id;"
+    },
+    "tags": [
+      "join",
+      "inner-join"
+    ]
+  },
+  {
+    "id": "sql-018",
+    "category": "LEFT JOIN",
+    "difficulty": "medium",
+    "question": "What is LEFT JOIN?",
+    "answer": "LEFT JOIN returns all records from the left table and matching records from the right table. Non-matching values are NULL.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT *\nFROM customers c\nLEFT JOIN orders o\nON c.id=o.customer_id;"
+    },
+    "tags": [
+      "join",
+      "left-join"
+    ]
+  },
+  {
+    "id": "sql-019",
+    "category": "RIGHT JOIN",
+    "difficulty": "medium",
+    "question": "What is RIGHT JOIN?",
+    "answer": "RIGHT JOIN returns all records from the right table and matching records from the left table.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT *\nFROM orders o\nRIGHT JOIN customers c\nON o.customer_id=c.id;"
+    },
+    "tags": [
+      "join",
+      "right-join"
+    ]
+  },
+  {
+    "id": "sql-020",
+    "category": "FULL JOIN",
+    "difficulty": "medium",
+    "question": "What is FULL OUTER JOIN?",
+    "answer": "FULL OUTER JOIN returns all records from both tables. Missing matches are filled with NULL values.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT *\nFROM employees e\nFULL OUTER JOIN departments d\nON e.dept_id=d.id;"
+    },
+    "tags": [
+      "join",
+      "full-join"
+    ]
+  }
+,
+  {
+    "id": "sql-021",
+    "category": "Subqueries",
+    "difficulty": "medium",
+    "question": "What is a subquery in SQL?",
+    "answer": "A subquery is a query nested inside another SQL query. It is used when the result of one query is required by another query.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT name\nFROM employees\nWHERE salary > (\n SELECT AVG(salary)\n FROM employees\n);"
+    },
+    "tags": [
+      "subquery",
+      "nested-query"
+    ]
+  },
+  {
+    "id": "sql-022",
+    "category": "Correlated Subquery",
+    "difficulty": "hard",
+    "question": "What is a correlated subquery?",
+    "answer": "A correlated subquery depends on values from the outer query and executes once for every row processed by the outer query.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT e1.name\nFROM employees e1\nWHERE salary > (\n SELECT AVG(e2.salary)\n FROM employees e2\n WHERE e2.department=e1.department\n);"
+    },
+    "tags": [
+      "correlated-query",
+      "subquery"
+    ]
+  },
+  {
+    "id": "sql-023",
+    "category": "CTE",
+    "difficulty": "medium",
+    "question": "What is a Common Table Expression (CTE)?",
+    "answer": "A CTE is a temporary named result set created using WITH clause. It improves readability and can simplify complex queries.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "WITH high_salary AS (\n SELECT * FROM employees\n WHERE salary > 100000\n)\nSELECT * FROM high_salary;"
+    },
+    "tags": [
+      "cte",
+      "with"
+    ]
+  },
+  {
+    "id": "sql-024",
+    "category": "Recursive CTE",
+    "difficulty": "hard",
+    "question": "What is a recursive CTE?",
+    "answer": "A recursive CTE allows a query to reference itself. It is commonly used for hierarchical data like employee reporting structures.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "WITH RECURSIVE hierarchy AS (\n SELECT id,parent_id\n FROM employees\n WHERE parent_id IS NULL\n UNION ALL\n SELECT e.id,e.parent_id\n FROM employees e\n JOIN hierarchy h\n ON e.parent_id=h.id\n)\nSELECT * FROM hierarchy;"
+    },
+    "tags": [
+      "recursive",
+      "hierarchy"
+    ]
+  },
+  {
+    "id": "sql-025",
+    "category": "Views",
+    "difficulty": "medium",
+    "question": "What is a view in SQL?",
+    "answer": "A view is a virtual table created from a SQL query. It does not store data physically and provides abstraction and security.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE VIEW active_users AS\nSELECT * FROM users\nWHERE status='ACTIVE';"
+    },
+    "tags": [
+      "views",
+      "database"
+    ]
+  },
+  {
+    "id": "sql-026",
+    "category": "Indexes",
+    "difficulty": "medium",
+    "question": "What is an index in SQL?",
+    "answer": "An index is a data structure that improves query performance by allowing faster searching without scanning the complete table.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE INDEX idx_email\nON users(email);"
+    },
+    "tags": [
+      "index",
+      "performance"
+    ]
+  },
+  {
+    "id": "sql-027",
+    "category": "Index Tradeoffs",
+    "difficulty": "hard",
+    "question": "Why can indexes slow down database writes?",
+    "answer": "Indexes improve read performance but every INSERT, UPDATE, and DELETE must also update the index structures, increasing write cost.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "More Indexes\n      ↓\nFaster Reads\n      ↓\nSlower Writes"
+    },
+    "tags": [
+      "indexing",
+      "optimization"
+    ]
+  },
+  {
+    "id": "sql-028",
+    "category": "Normalization",
+    "difficulty": "hard",
+    "question": "What is normalization in SQL?",
+    "answer": "Normalization organizes data into multiple related tables to reduce duplication and improve data integrity.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "1NF\n2NF\n3NF\nBCNF"
+    },
+    "tags": [
+      "normalization",
+      "database-design"
+    ]
+  },
+  {
+    "id": "sql-029",
+    "category": "Denormalization",
+    "difficulty": "hard",
+    "question": "What is denormalization?",
+    "answer": "Denormalization intentionally adds duplicated data to improve read performance and reduce complex joins.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Normalization\n     ↓\nLess Duplication\n\nDenormalization\n     ↓\nFaster Reads"
+    },
+    "tags": [
+      "denormalization",
+      "performance"
+    ]
+  },
+  {
+    "id": "sql-030",
+    "category": "Transactions",
+    "difficulty": "medium",
+    "question": "What is a transaction in SQL?",
+    "answer": "A transaction is a sequence of SQL operations executed as a single unit. It ensures data consistency using COMMIT and ROLLBACK.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "BEGIN;\nUPDATE accounts\nSET balance=balance-100;\nCOMMIT;"
+    },
+    "tags": [
+      "transactions",
+      "commit"
+    ]
+  }
+,
+  {
+    "id": "sql-031",
+    "category": "ACID Properties",
+    "difficulty": "hard",
+    "question": "Explain ACID properties in SQL databases.",
+    "answer": "ACID ensures reliable transactions. Atomicity means all operations succeed or fail together, Consistency maintains valid data, Isolation separates concurrent transactions, and Durability permanently stores committed changes.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "A - Atomicity\nC - Consistency\nI - Isolation\nD - Durability"
+    },
+    "tags": [
+      "acid",
+      "transactions"
+    ]
+  },
+  {
+    "id": "sql-032",
+    "category": "Isolation Levels",
+    "difficulty": "hard",
+    "question": "What are transaction isolation levels in SQL?",
+    "answer": "Isolation levels define how transactions interact with each other. Common levels are Read Uncommitted, Read Committed, Repeatable Read, and Serializable.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SET TRANSACTION\nISOLATION LEVEL SERIALIZABLE;"
+    },
+    "tags": [
+      "isolation",
+      "transactions"
+    ]
+  },
+  {
+    "id": "sql-033",
+    "category": "Window Functions",
+    "difficulty": "hard",
+    "question": "What are window functions in SQL?",
+    "answer": "Window functions perform calculations across related rows without grouping the result set. They are commonly used for ranking and analytics.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT name,\nRANK() OVER(ORDER BY salary DESC)\nFROM employees;"
+    },
+    "tags": [
+      "window-functions",
+      "analytics"
+    ]
+  },
+  {
+    "id": "sql-034",
+    "category": "Ranking Functions",
+    "difficulty": "medium",
+    "question": "Explain ROW_NUMBER, RANK, and DENSE_RANK.",
+    "answer": "ROW_NUMBER gives unique sequential numbers. RANK gives the same rank for ties with gaps. DENSE_RANK gives the same rank for ties without gaps.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "ROW_NUMBER()\nRANK()\nDENSE_RANK()\nOVER(ORDER BY salary DESC)"
+    },
+    "tags": [
+      "ranking",
+      "window-functions"
+    ]
+  },
+  {
+    "id": "sql-035",
+    "category": "Stored Procedures",
+    "difficulty": "hard",
+    "question": "What are stored procedures in SQL?",
+    "answer": "Stored procedures are reusable SQL programs stored inside the database. They can contain business logic, validations, and multiple SQL statements.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE PROCEDURE GetEmployees()\nAS\nSELECT * FROM employees;"
+    },
+    "tags": [
+      "stored-procedure",
+      "database"
+    ]
+  },
+  {
+    "id": "sql-036",
+    "category": "Functions",
+    "difficulty": "medium",
+    "question": "What are SQL functions?",
+    "answer": "Functions are reusable blocks of SQL logic that accept parameters and return values. They help avoid repeated code.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE FUNCTION CalculateTax(price DECIMAL)\nRETURNS DECIMAL;"
+    },
+    "tags": [
+      "functions",
+      "sql"
+    ]
+  },
+  {
+    "id": "sql-037",
+    "category": "Triggers",
+    "difficulty": "hard",
+    "question": "What is a trigger in SQL?",
+    "answer": "A trigger is automatically executed when INSERT, UPDATE, or DELETE operations occur on a table. It is used for auditing and enforcing rules.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "CREATE TRIGGER audit_log\nAFTER UPDATE ON users\nFOR EACH ROW\nEXECUTE PROCEDURE save_history();"
+    },
+    "tags": [
+      "trigger",
+      "automation"
+    ]
+  },
+  {
+    "id": "sql-038",
+    "category": "Query Execution",
+    "difficulty": "hard",
+    "question": "How does SQL query execution work?",
+    "answer": "The database parses the query, creates an execution plan, optimizes the plan, accesses required data, and returns results.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "SQL Query\n ↓\nParser\n ↓\nOptimizer\n ↓\nExecution Engine\n ↓\nResult"
+    },
+    "tags": [
+      "query-planner",
+      "execution"
+    ]
+  },
+  {
+    "id": "sql-039",
+    "category": "Query Optimization",
+    "difficulty": "hard",
+    "question": "How do you optimize SQL queries?",
+    "answer": "SQL queries can be optimized by creating proper indexes, avoiding unnecessary columns, optimizing joins, analyzing execution plans, and reducing expensive operations.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "EXPLAIN ANALYZE\nSELECT * FROM employees\nWHERE department='IT';"
+    },
+    "tags": [
+      "optimization",
+      "performance"
+    ]
+  },
+  {
+    "id": "sql-040",
+    "category": "Execution Plan",
+    "difficulty": "hard",
+    "question": "What is an execution plan?",
+    "answer": "An execution plan shows how the database engine will execute a query. It displays operations like scans, joins, sorting, and index usage.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "EXPLAIN\nSELECT * FROM users;"
+    },
+    "tags": [
+      "execution-plan",
+      "performance"
+    ]
+  }
+,
+  {
+    "id": "sql-041",
+    "category": "Advanced SQL",
+    "difficulty": "hard",
+    "question": "What is the difference between DELETE, TRUNCATE, and DROP?",
+    "answer": "DELETE removes selected rows and supports WHERE conditions. TRUNCATE removes all rows quickly while keeping the table structure. DROP removes the entire table including its structure.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "DELETE FROM users WHERE id=1;\n\nTRUNCATE TABLE users;\n\nDROP TABLE users;"
+    },
+    "tags": [
+      "delete",
+      "truncate",
+      "drop"
+    ]
+  },
+  {
+    "id": "sql-042",
+    "category": "Advanced SQL",
+    "difficulty": "medium",
+    "question": "What is the difference between UNION and UNION ALL?",
+    "answer": "UNION combines results from multiple queries and removes duplicate records. UNION ALL combines results without removing duplicates and performs faster.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT name FROM employees\nUNION\nSELECT name FROM managers;"
+    },
+    "tags": [
+      "union",
+      "sql"
+    ]
+  },
+  {
+    "id": "sql-043",
+    "category": "Database Design",
+    "difficulty": "hard",
+    "question": "What is database normalization?",
+    "answer": "Normalization organizes database tables to reduce redundancy and improve data integrity by splitting data into related tables.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "1NF\n ↓\n2NF\n ↓\n3NF\n ↓\nBCNF"
+    },
+    "tags": [
+      "normalization",
+      "design"
+    ]
+  },
+  {
+    "id": "sql-044",
+    "category": "Database Design",
+    "difficulty": "hard",
+    "question": "What is an ER diagram?",
+    "answer": "An Entity Relationship diagram visually represents entities, attributes, and relationships in a database design.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "User\n |\nPlaces\n |\nOrder"
+    },
+    "tags": [
+      "er-diagram",
+      "database-design"
+    ]
+  },
+  {
+    "id": "sql-045",
+    "category": "Database Scaling",
+    "difficulty": "hard",
+    "question": "How can SQL databases be scaled?",
+    "answer": "SQL databases can be scaled using vertical scaling, read replicas, partitioning, indexing, caching, sharding, and query optimization.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Scaling:\n- Replication\n- Partitioning\n- Sharding\n- Caching"
+    },
+    "tags": [
+      "scaling",
+      "architecture"
+    ]
+  },
+  {
+    "id": "sql-046",
+    "category": "Database Security",
+    "difficulty": "hard",
+    "question": "How do you secure a SQL database?",
+    "answer": "Database security includes authentication, authorization, encryption, parameterized queries, backups, auditing, and limiting user privileges.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Security:\n✓ Authentication\n✓ Roles\n✓ Encryption\n✓ Auditing"
+    },
+    "tags": [
+      "security",
+      "database"
+    ]
+  },
+  {
+    "id": "sql-047",
+    "category": "SQL Injection",
+    "difficulty": "hard",
+    "question": "What is SQL injection and how do you prevent it?",
+    "answer": "SQL injection is a security vulnerability where attackers inject malicious SQL commands. It is prevented using prepared statements, parameterized queries, and input validation.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "SELECT * FROM users\nWHERE email = ?;"
+    },
+    "tags": [
+      "security",
+      "sql-injection"
+    ]
+  },
+  {
+    "id": "sql-048",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Why do you like working with SQL databases?",
+    "answer": "A good answer should mention structured data management, reliability, ACID transactions, powerful querying capabilities, and industry adoption.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Sample Answer:\n'SQL databases provide reliable data storage with powerful querying capabilities.'"
+    },
+    "tags": [
+      "hr",
+      "career"
+    ]
+  },
+  {
+    "id": "sql-049",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Describe a difficult SQL query you optimized.",
+    "answer": "Explain the original performance issue, how you analyzed it using execution plans, the optimization approach, and the improvement achieved.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Problem\n ↓\nAnalyze\n ↓\nOptimize\n ↓\nMeasure"
+    },
+    "tags": [
+      "hr",
+      "experience"
+    ]
+  },
+  {
+    "id": "sql-050",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "How do you improve your SQL skills?",
+    "answer": "A strong answer includes solving SQL problems, designing databases, reading documentation, analyzing real-world queries, and practicing optimization techniques.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Learning:\nPractice\nProjects\nOptimization\nDocumentation"
+    },
+    "tags": [
+      "hr",
+      "learning"
+    ]
+  }
 ]

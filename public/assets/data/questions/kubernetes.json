@@ -1,0 +1,757 @@
+[
+  {
+    "id": "k8s-001",
+    "category": "Kubernetes Fundamentals",
+    "difficulty": "easy",
+    "question": "What is Kubernetes?",
+    "answer": "Kubernetes is an open-source container orchestration platform used to automate deployment, scaling, networking, and management of containerized applications.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Containers\n    |\n Kubernetes\n    |\n Production Platform"
+    },
+    "tags": [
+      "kubernetes",
+      "orchestration"
+    ]
+  },
+  {
+    "id": "k8s-002",
+    "category": "Kubernetes Architecture",
+    "difficulty": "medium",
+    "question": "Explain Kubernetes architecture.",
+    "answer": "Kubernetes architecture consists of a control plane and worker nodes. The control plane manages the cluster while worker nodes run application workloads.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Control Plane\n      |\n Worker Nodes\n      |\n   Pods"
+    },
+    "tags": [
+      "architecture",
+      "cluster"
+    ]
+  },
+  {
+    "id": "k8s-003",
+    "category": "Kubernetes Components",
+    "difficulty": "hard",
+    "question": "What are the main components of Kubernetes control plane?",
+    "answer": "The control plane contains API Server, Scheduler, Controller Manager, and etcd database.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Control Plane:\n- API Server\n- Scheduler\n- Controller Manager\n- etcd"
+    },
+    "tags": [
+      "control-plane",
+      "components"
+    ]
+  },
+  {
+    "id": "k8s-004",
+    "category": "API Server",
+    "difficulty": "medium",
+    "question": "What is Kubernetes API Server?",
+    "answer": "API Server is the entry point for Kubernetes operations. All communication between users, tools, and cluster components goes through the API Server.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "kubectl\n  |\nAPI Server\n  |\nCluster"
+    },
+    "tags": [
+      "api-server",
+      "control-plane"
+    ]
+  },
+  {
+    "id": "k8s-005",
+    "category": "etcd",
+    "difficulty": "hard",
+    "question": "What is etcd in Kubernetes?",
+    "answer": "etcd is a distributed key-value store that stores Kubernetes cluster configuration and state information.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Cluster State\n      |\n     etcd"
+    },
+    "tags": [
+      "etcd",
+      "storage"
+    ]
+  },
+  {
+    "id": "k8s-006",
+    "category": "Worker Nodes",
+    "difficulty": "medium",
+    "question": "What is a Kubernetes node?",
+    "answer": "A node is a worker machine in a Kubernetes cluster that runs application containers through Pods.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Node\n |\n ├── kubelet\n ├── kube-proxy\n └── Pods"
+    },
+    "tags": [
+      "node",
+      "worker"
+    ]
+  },
+  {
+    "id": "k8s-007",
+    "category": "Kubernetes Pods",
+    "difficulty": "easy",
+    "question": "What is a Pod in Kubernetes?",
+    "answer": "A Pod is the smallest deployable unit in Kubernetes. It contains one or more containers that share networking and storage.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Pod\n |\n ├── Container\n └── Container"
+    },
+    "tags": [
+      "pod",
+      "container"
+    ]
+  },
+  {
+    "id": "k8s-008",
+    "category": "Pods",
+    "difficulty": "medium",
+    "question": "Why does Kubernetes use Pods instead of directly managing containers?",
+    "answer": "Pods provide an abstraction layer that allows containers to share resources, networking, storage, and lifecycle management.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Pod\n |\nContainers\n |\nShared Network"
+    },
+    "tags": [
+      "pod",
+      "architecture"
+    ]
+  },
+  {
+    "id": "k8s-009",
+    "category": "kubectl",
+    "difficulty": "easy",
+    "question": "What is kubectl?",
+    "answer": "kubectl is the command-line tool used to communicate with Kubernetes clusters and manage resources.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "kubectl get pods"
+    },
+    "tags": [
+      "kubectl",
+      "cli"
+    ]
+  },
+  {
+    "id": "k8s-010",
+    "category": "kubectl Commands",
+    "difficulty": "easy",
+    "question": "How do you check Kubernetes cluster information?",
+    "answer": "The kubectl cluster-info command displays information about the Kubernetes control plane and services.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "kubectl cluster-info"
+    },
+    "tags": [
+      "commands",
+      "cluster"
+    ]
+  }
+,
+  {
+    "id": "k8s-011",
+    "category": "Deployments",
+    "difficulty": "easy",
+    "question": "What is a Kubernetes Deployment?",
+    "answer": "A Deployment manages application Pods and provides declarative updates, scaling, rollback, and version management.",
+    "codeSnippet": {
+      "language": "yaml",
+      "code": "apiVersion: apps/v1\nkind: Deployment\nspec:\n  replicas: 3"
+    },
+    "tags": [
+      "deployment",
+      "pods"
+    ]
+  },
+  {
+    "id": "k8s-012",
+    "category": "ReplicaSet",
+    "difficulty": "medium",
+    "question": "What is a ReplicaSet in Kubernetes?",
+    "answer": "A ReplicaSet ensures that a specified number of identical Pods are running at any time.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "ReplicaSet\n |\nPod\nPod\nPod"
+    },
+    "tags": [
+      "replicaset",
+      "availability"
+    ]
+  },
+  {
+    "id": "k8s-013",
+    "category": "Deployments",
+    "difficulty": "hard",
+    "question": "How does Kubernetes perform rolling updates?",
+    "answer": "Kubernetes gradually replaces old Pods with new Pods while maintaining application availability during deployment.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Old Pods\n  ↓\nNew Pods\n  ↓\nUpdated Version"
+    },
+    "tags": [
+      "rolling-update",
+      "deployment"
+    ]
+  },
+  {
+    "id": "k8s-014",
+    "category": "Rollback",
+    "difficulty": "medium",
+    "question": "How do you rollback a Kubernetes deployment?",
+    "answer": "Kubernetes maintains deployment history, allowing rollback to previous versions if a deployment fails.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "kubectl rollout undo deployment app"
+    },
+    "tags": [
+      "rollback",
+      "deployment"
+    ]
+  },
+  {
+    "id": "k8s-015",
+    "category": "Services",
+    "difficulty": "easy",
+    "question": "What is a Kubernetes Service?",
+    "answer": "A Service provides stable network access to a group of Pods and enables service discovery.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Client\n |\nService\n |\nPods"
+    },
+    "tags": [
+      "service",
+      "networking"
+    ]
+  },
+  {
+    "id": "k8s-016",
+    "category": "Service Types",
+    "difficulty": "medium",
+    "question": "What are the different Kubernetes Service types?",
+    "answer": "Kubernetes provides ClusterIP, NodePort, LoadBalancer, and ExternalName service types.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "ClusterIP\nNodePort\nLoadBalancer\nExternalName"
+    },
+    "tags": [
+      "service-types",
+      "networking"
+    ]
+  },
+  {
+    "id": "k8s-017",
+    "category": "ClusterIP",
+    "difficulty": "medium",
+    "question": "What is ClusterIP service?",
+    "answer": "ClusterIP exposes services internally within the Kubernetes cluster and is the default service type.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Pod\n |\nClusterIP\n |\nPod"
+    },
+    "tags": [
+      "clusterip",
+      "service"
+    ]
+  },
+  {
+    "id": "k8s-018",
+    "category": "ConfigMap",
+    "difficulty": "medium",
+    "question": "What is a ConfigMap in Kubernetes?",
+    "answer": "ConfigMap stores non-sensitive configuration data separately from application code and can be injected into Pods.",
+    "codeSnippet": {
+      "language": "yaml",
+      "code": "apiVersion: v1\nkind: ConfigMap\ndata:\n  ENV: production"
+    },
+    "tags": [
+      "configmap",
+      "configuration"
+    ]
+  },
+  {
+    "id": "k8s-019",
+    "category": "Secrets",
+    "difficulty": "medium",
+    "question": "What are Kubernetes Secrets?",
+    "answer": "Secrets store sensitive information such as passwords, API keys, and tokens securely for applications.",
+    "codeSnippet": {
+      "language": "yaml",
+      "code": "apiVersion: v1\nkind: Secret\ndata:\n  password: encrypted-value"
+    },
+    "tags": [
+      "secrets",
+      "security"
+    ]
+  },
+  {
+    "id": "k8s-020",
+    "category": "Namespaces",
+    "difficulty": "easy",
+    "question": "What are Kubernetes namespaces?",
+    "answer": "Namespaces provide logical isolation within a Kubernetes cluster and help organize resources for different teams or environments.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Cluster\n |\n ├── dev\n ├── test\n └── production"
+    },
+    "tags": [
+      "namespace",
+      "isolation"
+    ]
+  }
+,
+  {
+    "id": "k8s-021",
+    "category": "Ingress",
+    "difficulty": "medium",
+    "question": "What is Kubernetes Ingress?",
+    "answer": "Ingress is an API object that manages external HTTP and HTTPS access to services inside a Kubernetes cluster using routing rules.",
+    "codeSnippet": {
+      "language": "yaml",
+      "code": "apiVersion: networking.k8s.io/v1\nkind: Ingress\nrules:\n- host: example.com"
+    },
+    "tags": [
+      "ingress",
+      "networking"
+    ]
+  },
+  {
+    "id": "k8s-022",
+    "category": "Ingress Controller",
+    "difficulty": "hard",
+    "question": "What is an Ingress Controller?",
+    "answer": "An Ingress Controller implements Ingress rules and routes external traffic to Kubernetes services.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "User\n |\nIngress Controller\n |\nService\n |\nPods"
+    },
+    "tags": [
+      "ingress-controller",
+      "routing"
+    ]
+  },
+  {
+    "id": "k8s-023",
+    "category": "Volumes",
+    "difficulty": "medium",
+    "question": "What are Kubernetes Volumes?",
+    "answer": "Volumes provide storage that can be attached to Pods. They allow containers to share and persist data.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Pod\n |\nVolume\n |\nStorage"
+    },
+    "tags": [
+      "volume",
+      "storage"
+    ]
+  },
+  {
+    "id": "k8s-024",
+    "category": "Persistent Volume",
+    "difficulty": "medium",
+    "question": "What is a Persistent Volume (PV)?",
+    "answer": "A Persistent Volume is a storage resource provisioned by an administrator or dynamically created for Kubernetes workloads.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Storage\n |\nPersistent Volume\n |\nPod"
+    },
+    "tags": [
+      "pv",
+      "storage"
+    ]
+  },
+  {
+    "id": "k8s-025",
+    "category": "Persistent Volume Claim",
+    "difficulty": "medium",
+    "question": "What is a Persistent Volume Claim (PVC)?",
+    "answer": "PVC is a request for storage by an application. Kubernetes binds PVCs to available Persistent Volumes.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Pod\n |\nPVC\n |\nPV"
+    },
+    "tags": [
+      "pvc",
+      "storage"
+    ]
+  },
+  {
+    "id": "k8s-026",
+    "category": "StatefulSet",
+    "difficulty": "hard",
+    "question": "What is StatefulSet in Kubernetes?",
+    "answer": "StatefulSet manages stateful applications by providing stable network identities, persistent storage, and ordered deployment.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "StatefulSet\n |\nPod-0\nPod-1\nPod-2"
+    },
+    "tags": [
+      "statefulset",
+      "database"
+    ]
+  },
+  {
+    "id": "k8s-027",
+    "category": "DaemonSet",
+    "difficulty": "medium",
+    "question": "What is a DaemonSet in Kubernetes?",
+    "answer": "DaemonSet ensures that a copy of a Pod runs on every node or selected nodes in the cluster.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Node 1 -> Pod\nNode 2 -> Pod\nNode 3 -> Pod"
+    },
+    "tags": [
+      "daemonset",
+      "nodes"
+    ]
+  },
+  {
+    "id": "k8s-028",
+    "category": "Jobs",
+    "difficulty": "medium",
+    "question": "What is a Kubernetes Job?",
+    "answer": "A Job creates Pods that execute tasks until completion and then stop.",
+    "codeSnippet": {
+      "language": "yaml",
+      "code": "apiVersion: batch/v1\nkind: Job"
+    },
+    "tags": [
+      "job",
+      "batch"
+    ]
+  },
+  {
+    "id": "k8s-029",
+    "category": "CronJob",
+    "difficulty": "medium",
+    "question": "What is a Kubernetes CronJob?",
+    "answer": "CronJob creates Jobs on a scheduled basis using cron expressions.",
+    "codeSnippet": {
+      "language": "yaml",
+      "code": "schedule: \"0 0 * * *\""
+    },
+    "tags": [
+      "cronjob",
+      "scheduler"
+    ]
+  },
+  {
+    "id": "k8s-030",
+    "category": "Scheduling",
+    "difficulty": "hard",
+    "question": "How does Kubernetes schedule Pods?",
+    "answer": "The Kubernetes Scheduler assigns Pods to nodes based on resource availability, constraints, affinity rules, and policies.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Pod\n |\nScheduler\n |\nSuitable Node"
+    },
+    "tags": [
+      "scheduler",
+      "pods"
+    ]
+  }
+,
+  {
+    "id": "k8s-031",
+    "category": "Horizontal Pod Autoscaler",
+    "difficulty": "hard",
+    "question": "What is Horizontal Pod Autoscaler (HPA)?",
+    "answer": "HPA automatically adjusts the number of Pod replicas based on CPU usage, memory usage, or custom metrics.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "kubectl autoscale deployment app --cpu-percent=70 --min=2 --max=10"
+    },
+    "tags": [
+      "hpa",
+      "autoscaling"
+    ]
+  },
+  {
+    "id": "k8s-032",
+    "category": "Vertical Pod Autoscaler",
+    "difficulty": "hard",
+    "question": "What is Vertical Pod Autoscaler (VPA)?",
+    "answer": "VPA automatically adjusts CPU and memory resource requests for Pods based on workload requirements.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Pod Resources\n      ↓\nVPA Recommendation\n      ↓\nUpdated Resources"
+    },
+    "tags": [
+      "vpa",
+      "resources"
+    ]
+  },
+  {
+    "id": "k8s-033",
+    "category": "Cluster Autoscaler",
+    "difficulty": "hard",
+    "question": "What is Kubernetes Cluster Autoscaler?",
+    "answer": "Cluster Autoscaler automatically adjusts the number of worker nodes based on pending Pods and resource requirements.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Pending Pods\n      ↓\nCluster Autoscaler\n      ↓\nAdd/Remove Nodes"
+    },
+    "tags": [
+      "cluster-autoscaler",
+      "scaling"
+    ]
+  },
+  {
+    "id": "k8s-034",
+    "category": "RBAC",
+    "difficulty": "hard",
+    "question": "What is RBAC in Kubernetes?",
+    "answer": "RBAC (Role-Based Access Control) manages permissions by assigning roles to users, groups, or service accounts.",
+    "codeSnippet": {
+      "language": "yaml",
+      "code": "kind: Role\nkind: RoleBinding"
+    },
+    "tags": [
+      "rbac",
+      "security"
+    ]
+  },
+  {
+    "id": "k8s-035",
+    "category": "Service Account",
+    "difficulty": "medium",
+    "question": "What is a Kubernetes Service Account?",
+    "answer": "A Service Account provides an identity for applications running inside Pods to access Kubernetes resources securely.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Pod\n |\nService Account\n |\nAPI Server"
+    },
+    "tags": [
+      "service-account",
+      "security"
+    ]
+  },
+  {
+    "id": "k8s-036",
+    "category": "Helm",
+    "difficulty": "medium",
+    "question": "What is Helm in Kubernetes?",
+    "answer": "Helm is a package manager for Kubernetes that simplifies application deployment using reusable charts.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Helm Chart\n    ↓\nKubernetes Resources\n    ↓\nApplication"
+    },
+    "tags": [
+      "helm",
+      "package-manager"
+    ]
+  },
+  {
+    "id": "k8s-037",
+    "category": "Helm Charts",
+    "difficulty": "hard",
+    "question": "What is a Helm Chart?",
+    "answer": "A Helm Chart is a collection of YAML templates and configuration files used to deploy Kubernetes applications.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Chart\n ├── Templates\n ├── Values.yaml\n └── Metadata"
+    },
+    "tags": [
+      "helm",
+      "charts"
+    ]
+  },
+  {
+    "id": "k8s-038",
+    "category": "Monitoring",
+    "difficulty": "medium",
+    "question": "How do you monitor Kubernetes clusters?",
+    "answer": "Kubernetes clusters are monitored using tools such as Prometheus, Grafana, metrics-server, and centralized logging systems.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Cluster\n ↓\nMetrics\n ↓\nDashboard"
+    },
+    "tags": [
+      "monitoring",
+      "observability"
+    ]
+  },
+  {
+    "id": "k8s-039",
+    "category": "Troubleshooting",
+    "difficulty": "medium",
+    "question": "How do you troubleshoot a failing Pod?",
+    "answer": "Check Pod status, events, logs, resource limits, image availability, networking, and configuration.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "kubectl describe pod pod-name\nkubectl logs pod-name"
+    },
+    "tags": [
+      "debugging",
+      "pods"
+    ]
+  },
+  {
+    "id": "k8s-040",
+    "category": "Troubleshooting",
+    "difficulty": "hard",
+    "question": "What does CrashLoopBackOff mean in Kubernetes?",
+    "answer": "CrashLoopBackOff means a container repeatedly fails to start and Kubernetes is waiting before restarting it again.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "kubectl logs pod-name"
+    },
+    "tags": [
+      "crashloopbackoff",
+      "debugging"
+    ]
+  }
+,
+  {
+    "id": "k8s-041",
+    "category": "Production Kubernetes",
+    "difficulty": "hard",
+    "question": "How do you deploy applications in Kubernetes production environments?",
+    "answer": "Production deployments use container images, Kubernetes manifests or Helm charts, CI/CD pipelines, monitoring, security policies, and automated scaling.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Code\n ↓\nDocker Image\n ↓\nRegistry\n ↓\nKubernetes Deployment"
+    },
+    "tags": [
+      "production",
+      "deployment"
+    ]
+  },
+  {
+    "id": "k8s-042",
+    "category": "Rolling Deployment",
+    "difficulty": "hard",
+    "question": "What deployment strategies are available in Kubernetes?",
+    "answer": "Common strategies include Rolling Update, Recreate, Blue-Green deployment, and Canary deployment.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Old Version\n     ↓\nNew Version\n     ↓\nTraffic Switch"
+    },
+    "tags": [
+      "deployment",
+      "strategy"
+    ]
+  },
+  {
+    "id": "k8s-043",
+    "category": "Blue Green Deployment",
+    "difficulty": "hard",
+    "question": "What is Blue-Green deployment in Kubernetes?",
+    "answer": "Blue-Green deployment maintains two environments. Traffic is switched from the old version to the new version after validation.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Blue\nOld Version\n\nGreen\nNew Version"
+    },
+    "tags": [
+      "blue-green",
+      "deployment"
+    ]
+  },
+  {
+    "id": "k8s-044",
+    "category": "Canary Deployment",
+    "difficulty": "hard",
+    "question": "What is Canary deployment?",
+    "answer": "Canary deployment releases a new application version to a small percentage of users before a full rollout.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "95% Users -> Old\n5% Users -> New"
+    },
+    "tags": [
+      "canary",
+      "deployment"
+    ]
+  },
+  {
+    "id": "k8s-045",
+    "category": "CI/CD",
+    "difficulty": "hard",
+    "question": "How is Kubernetes used with CI/CD pipelines?",
+    "answer": "CI/CD pipelines build container images, push them to registries, and automatically deploy applications to Kubernetes clusters.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Git\n ↓\nBuild\n ↓\nDocker Image\n ↓\nKubernetes"
+    },
+    "tags": [
+      "cicd",
+      "automation"
+    ]
+  },
+  {
+    "id": "k8s-046",
+    "category": "Cloud Kubernetes",
+    "difficulty": "medium",
+    "question": "What are managed Kubernetes services?",
+    "answer": "Managed Kubernetes services provide Kubernetes control planes managed by cloud providers. Examples include Amazon EKS, Google GKE, and Azure AKS.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Cloud Provider\n      |\n Managed Kubernetes\n      |\n Worker Nodes"
+    },
+    "tags": [
+      "eks",
+      "gke",
+      "aks"
+    ]
+  },
+  {
+    "id": "k8s-047",
+    "category": "High Availability",
+    "difficulty": "hard",
+    "question": "How do you achieve high availability in Kubernetes?",
+    "answer": "High availability is achieved using multiple control plane nodes, multiple worker nodes, replicas, load balancing, health checks, and multi-zone deployment.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Load Balancer\n      |\nMultiple Pods\n      |\nMultiple Nodes"
+    },
+    "tags": [
+      "high-availability",
+      "architecture"
+    ]
+  },
+  {
+    "id": "k8s-048",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Explain your Kubernetes experience in a project.",
+    "answer": "Explain how Kubernetes was used for container orchestration, deployments, scaling, service discovery, monitoring, and production management.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Application\n ↓\nContainers\n ↓\nKubernetes\n ↓\nProduction"
+    },
+    "tags": [
+      "hr",
+      "project"
+    ]
+  },
+  {
+    "id": "k8s-049",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "What challenges have you faced with Kubernetes?",
+    "answer": "Common challenges include networking issues, resource management, debugging Pods, cluster upgrades, security configuration, and monitoring.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Challenges:\nNetworking\nScaling\nSecurity\nDebugging"
+    },
+    "tags": [
+      "hr",
+      "experience"
+    ]
+  },
+  {
+    "id": "k8s-050",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Why is Kubernetes important for backend engineers?",
+    "answer": "Kubernetes helps backend engineers deploy scalable, reliable, cloud-native applications with automation, resilience, and efficient resource management.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Backend Service\n      ↓\nContainer\n      ↓\nKubernetes"
+    },
+    "tags": [
+      "hr",
+      "career"
+    ]
+  }
+]

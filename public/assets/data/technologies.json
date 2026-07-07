@@ -4,31 +4,125 @@
     "name": "Java",
     "slug": "java",
     "icon": "ti ti-coffee",
-    "description": "Core Java, Collections, Multithreading, JVM internals",
-    "questionCount": 4
+    "description": "Core Java, Collections, Multithreading, JVM internals, Spring Boot, Hibernate, REST APIs",
+    "questionCount": 50,
+    "category": "Backend"
+  },
+  {
+    "id": "javascript",
+    "name": "JavaScript",
+    "slug": "javascript",
+    "icon": "ti ti-brand-javascript",
+    "description": "ES6+, closures, promises, async programming, event loop, DOM, advanced concepts",
+    "questionCount": 50,
+    "category": "Frontend"
+  },
+  {
+    "id": "typescript",
+    "name": "TypeScript",
+    "slug": "typescript",
+    "icon": "ti ti-brand-typescript",
+    "description": "Types, interfaces, generics, decorators, advanced TypeScript patterns",
+    "questionCount": 50,
+    "category": "Frontend"
   },
   {
     "id": "react",
     "name": "React",
     "slug": "react",
     "icon": "ti ti-brand-react",
-    "description": "Hooks, lifecycle, state management, rendering behavior",
-    "questionCount": 3
+    "description": "Hooks, components, lifecycle, state management, rendering behavior, optimization",
+    "questionCount": 50,
+    "category": "Frontend"
   },
   {
     "id": "angular",
     "name": "Angular",
     "slug": "angular",
     "icon": "ti ti-brand-angular",
-    "description": "Signals, DI, change detection, RxJS in components",
-    "questionCount": 3
+    "description": "Components, dependency injection, RxJS, signals, change detection, routing",
+    "questionCount": 50,
+    "category": "Frontend"
+  },
+  {
+    "id": "nodejs",
+    "name": "Node.js",
+    "slug": "nodejs",
+    "icon": "ti ti-brand-nodejs",
+    "description": "Node runtime, event loop, streams, modules, APIs, backend development",
+    "questionCount": 50,
+    "category": "Backend"
+  },
+  {
+    "id": "express",
+    "name": "Express.js",
+    "slug": "express",
+    "icon": "ti ti-server",
+    "description": "Express framework, middleware, routing, REST APIs, authentication",
+    "questionCount": 50,
+    "category": "Backend"
+  },
+  {
+    "id": "mongodb",
+    "name": "MongoDB",
+    "slug": "mongodb",
+    "icon": "ti ti-database",
+    "description": "Documents, collections, indexing, aggregation, transactions, MongoDB design",
+    "questionCount": 50,
+    "category": "Database"
+  },
+  {
+    "id": "postgres",
+    "name": "PostgreSQL",
+    "slug": "postgres",
+    "icon": "ti ti-database",
+    "description": "PostgreSQL queries, indexing, transactions, optimization, advanced database concepts",
+    "questionCount": 50,
+    "category": "Database"
   },
   {
     "id": "sql",
     "name": "SQL",
     "slug": "sql",
     "icon": "ti ti-database",
-    "description": "Joins, indexing, normalization, query performance",
-    "questionCount": 3
+    "description": "Joins, indexing, normalization, query optimization, stored procedures",
+    "questionCount": 50,
+    "category": "Database"
+  },
+  {
+    "id": "docker",
+    "name": "Docker",
+    "slug": "docker",
+    "icon": "ti ti-brand-docker",
+    "description": "Containers, images, Dockerfile, volumes, networking, deployment practices",
+    "questionCount": 50,
+    "category": "DevOps"
+  },
+  {
+    "id": "kubernetes",
+    "name": "Kubernetes",
+    "slug": "kubernetes",
+    "icon": "ti ti-brand-kubernetes",
+    "description": "Pods, deployments, services, scaling, networking, cluster management",
+    "questionCount": 50,
+    "category": "DevOps"
+  },
+  {
+    "id": "microservices",
+    "name": "Microservices",
+    "slug": "microservices",
+    "icon": "ti ti-network",
+    "description": "Service architecture, API gateway, discovery, resilience, distributed systems",
+    "questionCount": 50,
+    "category": "Architecture"
+  },
+  {
+    "id": "aws",
+    "name": "AWS",
+    "slug": "aws",
+    "icon": "ti ti-brand-aws",
+    "description": "EC2, S3, Lambda, IAM, VPC, Cloud architecture, deployment services",
+    "questionCount": 50,
+    "category": "Cloud"
   }
 ]

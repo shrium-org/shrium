@@ -1,30 +1,794 @@
 [
   {
     "id": "react-001",
-    "category": "Hooks",
-    "difficulty": "medium",
-    "question": "Why does useEffect run twice in development with StrictMode?",
-    "answer": "React 18's StrictMode intentionally mounts, unmounts, and remounts components in development to surface effects that aren't properly cleaned up. It's a diagnostic tool, not a production behavior — it never happens in a production build.",
+    "category": "React Fundamentals",
+    "difficulty": "easy",
+    "question": "What is React?",
+    "answer": "React is a JavaScript library developed by Meta for building user interfaces, especially single-page applications. It uses a component-based architecture where the UI is divided into reusable components. React uses a virtual DOM to efficiently update the browser DOM when application state changes.",
     "codeSnippet": {
-      "language": "jsx",
-      "code": "useEffect(() => {\n  const id = setInterval(tick, 1000);\n  return () => clearInterval(id);\n}, []);"
+      "language": "javascript",
+      "code": "function App() {\n  return <h1>Hello React</h1>;\n}"
     },
-    "tags": ["hooks", "strict-mode"]
+    "tags": [
+      "react",
+      "library",
+      "components"
+    ]
   },
   {
     "id": "react-002",
-    "category": "Rendering",
-    "difficulty": "medium",
-    "question": "What triggers a re-render in React?",
-    "answer": "A component re-renders when its own state changes, when it receives new props, when its parent re-renders (unless it's memoized), or when a subscribed context value changes.",
-    "tags": ["rendering", "state"]
+    "category": "JSX",
+    "difficulty": "easy",
+    "question": "What is JSX in React?",
+    "answer": "JSX stands for JavaScript XML. It allows developers to write HTML-like syntax inside JavaScript files. JSX is compiled by tools like Babel into regular JavaScript function calls that create React elements.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const element = <h1>Hello World</h1>;"
+    },
+    "tags": [
+      "jsx",
+      "babel",
+      "react-elements"
+    ]
   },
   {
     "id": "react-003",
-    "category": "State Management",
+    "category": "Components",
     "difficulty": "easy",
-    "question": "When should you lift state up versus use context?",
-    "answer": "Lift state to the nearest common ancestor when a small, localized group of components needs to share it. Reach for context when many components at different depths need the same value and prop drilling would otherwise pass it through several unrelated layers.",
-    "tags": ["state", "context"]
+    "question": "What are components in React?",
+    "answer": "Components are reusable independent pieces of UI. A component accepts inputs called props and returns React elements describing what should appear on the screen. Components can be functional components or class components.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function Welcome({name}) {\n  return <h1>Hello {name}</h1>;\n}"
+    },
+    "tags": [
+      "components",
+      "react",
+      "reusability"
+    ]
+  },
+  {
+    "id": "react-004",
+    "category": "Components",
+    "difficulty": "medium",
+    "question": "What is the difference between functional and class components?",
+    "answer": "Functional components are JavaScript functions that return JSX and use hooks for state and lifecycle management. Class components use ES6 classes and lifecycle methods like componentDidMount and componentDidUpdate. Modern React applications mostly use functional components with hooks.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function Counter() {\n  const [count, setCount] = useState(0);\n  return <button>{count}</button>;\n}"
+    },
+    "tags": [
+      "functional-component",
+      "class-component",
+      "hooks"
+    ]
+  },
+  {
+    "id": "react-005",
+    "category": "Props",
+    "difficulty": "easy",
+    "question": "What are props in React?",
+    "answer": "Props are read-only inputs passed from a parent component to a child component. They allow components to communicate and make components reusable with different data.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function User(props) {\n  return <h2>{props.name}</h2>;\n}\n\n<User name=\"John\" />"
+    },
+    "tags": [
+      "props",
+      "component-communication"
+    ]
+  },
+  {
+    "id": "react-006",
+    "category": "State",
+    "difficulty": "easy",
+    "question": "What is state in React?",
+    "answer": "State is data managed inside a component that can change over time. When state changes, React re-renders the component to display updated information. State is commonly managed using hooks like useState.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const [count, setCount] = useState(0);\n\nsetCount(count + 1);"
+    },
+    "tags": [
+      "state",
+      "useState"
+    ]
+  },
+  {
+    "id": "react-007",
+    "category": "State Management",
+    "difficulty": "medium",
+    "question": "What is the difference between props and state?",
+    "answer": "Props are external data passed from parent components and cannot be modified by the receiving component. State is internal component data that can be updated using state setters. Props are used for communication, while state manages dynamic data.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function Profile({name}) {\n  const [age, setAge] = useState(20);\n}"
+    },
+    "tags": [
+      "props",
+      "state",
+      "react-basics"
+    ]
+  },
+  {
+    "id": "react-008",
+    "category": "Virtual DOM",
+    "difficulty": "medium",
+    "question": "What is Virtual DOM in React?",
+    "answer": "Virtual DOM is a lightweight JavaScript representation of the real DOM. When state changes, React creates a new virtual DOM tree, compares it with the previous tree using reconciliation, and updates only the required parts of the actual DOM.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "State Change\n     |\n     v\nNew Virtual DOM\n     |\nDiff Algorithm\n     |\nUpdate Real DOM"
+    },
+    "tags": [
+      "virtual-dom",
+      "rendering",
+      "performance"
+    ]
+  },
+  {
+    "id": "react-009",
+    "category": "Rendering",
+    "difficulty": "medium",
+    "question": "What causes a React component to re-render?",
+    "answer": "A React component re-renders when its state changes, when it receives new props, when a parent component re-renders, or when a subscribed context value changes. React compares previous and new output to decide DOM updates.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const [value, setValue] = useState(0);\n\nsetValue(value + 1);"
+    },
+    "tags": [
+      "render",
+      "state",
+      "performance"
+    ]
+  },
+  {
+    "id": "react-010",
+    "category": "Lists",
+    "difficulty": "easy",
+    "question": "Why does React require keys when rendering lists?",
+    "answer": "Keys help React identify which items changed, were added, or removed from a list. Stable unique keys improve reconciliation performance and prevent unexpected UI behavior.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "users.map(user => (\n  <User key={user.id} data={user} />\n))"
+    },
+    "tags": [
+      "keys",
+      "lists",
+      "reconciliation"
+    ]
+  }
+,
+  {
+    "id": "react-011",
+    "category": "Hooks",
+    "difficulty": "easy",
+    "question": "What are React Hooks?",
+    "answer": "Hooks are functions introduced in React 16.8 that allow functional components to use state, lifecycle features, context, and other React features without writing class components. Common hooks include useState, useEffect, useContext, useMemo, useCallback, and useRef.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "import { useState } from 'react';\n\nfunction App() {\n  const [count, setCount] = useState(0);\n}"
+    },
+    "tags": [
+      "hooks",
+      "react16.8",
+      "functional-components"
+    ]
+  },
+  {
+    "id": "react-012",
+    "category": "Hooks",
+    "difficulty": "easy",
+    "question": "How does useState work in React?",
+    "answer": "useState is a hook that allows functional components to store and update state. It returns an array containing the current state value and a function to update that value. Updating state triggers a re-render of the component.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const [count, setCount] = useState(0);\n\n<button onClick={() => setCount(count + 1)}>\n  {count}\n</button>"
+    },
+    "tags": [
+      "useState",
+      "state"
+    ]
+  },
+  {
+    "id": "react-013",
+    "category": "Hooks",
+    "difficulty": "medium",
+    "question": "What is useEffect in React?",
+    "answer": "useEffect is a hook used to perform side effects in functional components. Side effects include API calls, subscriptions, timers, and manually interacting with the DOM. It runs after the component renders.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "useEffect(() => {\n  fetch('/api/users')\n    .then(res => res.json())\n    .then(data => setUsers(data));\n}, []);"
+    },
+    "tags": [
+      "useEffect",
+      "side-effects",
+      "api"
+    ]
+  },
+  {
+    "id": "react-014",
+    "category": "Hooks",
+    "difficulty": "medium",
+    "question": "What does the dependency array in useEffect do?",
+    "answer": "The dependency array controls when useEffect runs. An empty array runs the effect once after the initial render. Dependencies cause the effect to run whenever those values change. Without a dependency array, the effect runs after every render.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "useEffect(() => {\n  console.log('User changed');\n}, [user]);"
+    },
+    "tags": [
+      "useEffect",
+      "dependencies"
+    ]
+  },
+  {
+    "id": "react-015",
+    "category": "Hooks",
+    "difficulty": "hard",
+    "question": "Why does useEffect run twice in React StrictMode?",
+    "answer": "In React 18 development mode, StrictMode intentionally mounts, unmounts, and mounts components again to detect unsafe side effects and missing cleanup logic. This behavior only happens in development and does not affect production builds.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "useEffect(() => {\n  const timer = setInterval(() => {\n    console.log('running');\n  }, 1000);\n\n  return () => clearInterval(timer);\n}, []);"
+    },
+    "tags": [
+      "strict-mode",
+      "useEffect",
+      "cleanup"
+    ]
+  },
+  {
+    "id": "react-016",
+    "category": "Hooks",
+    "difficulty": "medium",
+    "question": "What is useRef in React?",
+    "answer": "useRef creates a mutable object that persists between renders without causing re-renders when its value changes. It is commonly used to access DOM elements, store previous values, and keep mutable references.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const inputRef = useRef(null);\n\n<input ref={inputRef} />\n\ninputRef.current.focus();"
+    },
+    "tags": [
+      "useRef",
+      "dom",
+      "references"
+    ]
+  },
+  {
+    "id": "react-017",
+    "category": "Hooks",
+    "difficulty": "hard",
+    "question": "What is the difference between useMemo and useCallback?",
+    "answer": "useMemo memoizes a calculated value and prevents expensive recalculations. useCallback memoizes a function reference and prevents unnecessary recreation of functions between renders. Both are performance optimization hooks.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const total = useMemo(() => calculate(items), [items]);\n\nconst handleClick = useCallback(() => {\n  saveData();\n}, []);"
+    },
+    "tags": [
+      "useMemo",
+      "useCallback",
+      "performance"
+    ]
+  },
+  {
+    "id": "react-018",
+    "category": "Hooks",
+    "difficulty": "hard",
+    "question": "What are the rules of Hooks in React?",
+    "answer": "Hooks must only be called at the top level of React function components or custom hooks. They cannot be called inside loops, conditions, nested functions, or regular JavaScript functions. These rules allow React to maintain hook state order correctly.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "// Correct\nfunction Component() {\n  const [value, setValue] = useState(0);\n}"
+    },
+    "tags": [
+      "hooks-rules",
+      "react"
+    ]
+  },
+  {
+    "id": "react-019",
+    "category": "Custom Hooks",
+    "difficulty": "medium",
+    "question": "What are custom hooks in React?",
+    "answer": "Custom hooks are reusable JavaScript functions that use React hooks internally. They allow developers to share stateful logic between multiple components without duplicating code.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function useFetch(url) {\n  const [data, setData] = useState(null);\n\n  useEffect(() => {\n    fetch(url)\n      .then(res => res.json())\n      .then(setData);\n  }, [url]);\n\n  return data;\n}"
+    },
+    "tags": [
+      "custom-hooks",
+      "reuse"
+    ]
+  },
+  {
+    "id": "react-020",
+    "category": "Hooks",
+    "difficulty": "medium",
+    "question": "What happens when you update state using the previous state value?",
+    "answer": "When the new state depends on the previous state, React recommends using the functional update form. This ensures the latest state value is used, especially when multiple state updates are batched together.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "setCount(previous => previous + 1);"
+    },
+    "tags": [
+      "state-update",
+      "batching",
+      "useState"
+    ]
+  }
+,
+  {
+    "id": "react-021",
+    "category": "Context API",
+    "difficulty": "medium",
+    "question": "What is React Context API?",
+    "answer": "Context API is a built-in React feature that allows data to be shared between components without passing props manually through every level of the component tree. It is commonly used for global data such as themes, authentication, language settings, and user information.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const UserContext = createContext();\n\n<UserContext.Provider value={user}>\n  <App />\n</UserContext.Provider>"
+    },
+    "tags": [
+      "context",
+      "global-state",
+      "props-drilling"
+    ]
+  },
+  {
+    "id": "react-022",
+    "category": "Context API",
+    "difficulty": "medium",
+    "question": "What problem does Context API solve?",
+    "answer": "Context API solves prop drilling, where data must be passed through multiple intermediate components that do not actually need the data. Context allows deeply nested components to access shared values directly.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const ThemeContext = createContext('light');\n\nfunction Button() {\n  const theme = useContext(ThemeContext);\n}"
+    },
+    "tags": [
+      "context",
+      "prop-drilling"
+    ]
+  },
+  {
+    "id": "react-023",
+    "category": "Context API",
+    "difficulty": "hard",
+    "question": "What are the limitations of Context API?",
+    "answer": "Context API is not a complete state management solution for every application. Updating context causes all consuming components to re-render. For large applications with complex state logic, libraries like Redux or Zustand may provide better control and performance.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const value = useContext(AppContext);"
+    },
+    "tags": [
+      "context",
+      "performance",
+      "state-management"
+    ]
+  },
+  {
+    "id": "react-024",
+    "category": "Redux",
+    "difficulty": "medium",
+    "question": "What is Redux?",
+    "answer": "Redux is a predictable state management library used for managing application-wide state. It stores application state in a single store and updates state through actions and reducers.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const initialState = {\n  count: 0\n};\n\nfunction reducer(state = initialState, action) {\n  return state;\n}"
+    },
+    "tags": [
+      "redux",
+      "state-management"
+    ]
+  },
+  {
+    "id": "react-025",
+    "category": "Redux",
+    "difficulty": "medium",
+    "question": "Explain Redux data flow.",
+    "answer": "Redux follows a unidirectional data flow. A component dispatches an action, the reducer processes the action and creates a new state, the store updates, and subscribed components receive the updated state.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Component\n   |\n dispatch(action)\n   |\n Reducer\n   |\n Store Update\n   |\n Component Re-render"
+    },
+    "tags": [
+      "redux",
+      "data-flow",
+      "architecture"
+    ]
+  },
+  {
+    "id": "react-026",
+    "category": "Redux",
+    "difficulty": "hard",
+    "question": "What is the difference between Redux and Context API?",
+    "answer": "Context API is mainly used for sharing simple global values. Redux provides advanced state management features such as middleware, debugging tools, predictable state updates, and better handling of complex application states.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "// Redux\nconst store = configureStore({\n  reducer: rootReducer\n});"
+    },
+    "tags": [
+      "redux",
+      "context",
+      "comparison"
+    ]
+  },
+  {
+    "id": "react-027",
+    "category": "State Management",
+    "difficulty": "medium",
+    "question": "What is lifting state up in React?",
+    "answer": "Lifting state up means moving state from a child component to the nearest common parent component so multiple child components can share and synchronize the same data.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function Parent() {\n  const [value, setValue] = useState('');\n\n  return <Child value={value} />;\n}"
+    },
+    "tags": [
+      "state",
+      "component-communication"
+    ]
+  },
+  {
+    "id": "react-028",
+    "category": "Component Communication",
+    "difficulty": "easy",
+    "question": "How do components communicate in React?",
+    "answer": "Parent components communicate with children using props. Child components communicate with parents by receiving callback functions as props and invoking them. Components can also communicate through Context or state management libraries.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function Parent() {\n  const handleClick = () => {\n    console.log('Child clicked');\n  };\n\n  return <Child onClick={handleClick}/>;\n}"
+    },
+    "tags": [
+      "props",
+      "callbacks",
+      "communication"
+    ]
+  },
+  {
+    "id": "react-029",
+    "category": "State Management",
+    "difficulty": "hard",
+    "question": "What is Redux middleware?",
+    "answer": "Redux middleware provides a way to intercept actions before they reach reducers. It is commonly used for asynchronous operations, logging, API calls, and error handling. Popular middleware includes Redux Thunk and Redux Saga.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const middleware = store => next => action => {\n  console.log(action);\n  return next(action);\n};"
+    },
+    "tags": [
+      "redux",
+      "middleware",
+      "async"
+    ]
+  },
+  {
+    "id": "react-030",
+    "category": "State Management",
+    "difficulty": "hard",
+    "question": "What is Redux Toolkit?",
+    "answer": "Redux Toolkit is the official recommended approach for writing Redux applications. It reduces boilerplate by providing utilities like createSlice, configureStore, and createAsyncThunk while including best practices by default.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const counterSlice = createSlice({\n  name: 'counter',\n  initialState: 0,\n  reducers: {\n    increment: state => state + 1\n  }\n});"
+    },
+    "tags": [
+      "redux-toolkit",
+      "redux",
+      "modern-react"
+    ]
+  },
+
+  {
+    "id": "react-031",
+    "category": "Rendering",
+    "difficulty": "medium",
+    "question": "What is reconciliation in React?",
+    "answer": "Reconciliation is the process React uses to compare the previous Virtual DOM tree with the updated Virtual DOM tree after a state or props change. React identifies the minimum required changes and updates only those parts of the real DOM.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "State Change\n     |\n     v\nNew Virtual DOM\n     |\nDiff Algorithm\n     |\nMinimal DOM Updates"
+    },
+    "tags": [
+      "reconciliation",
+      "virtual-dom",
+      "rendering"
+    ]
+  },
+  {
+    "id": "react-032",
+    "category": "Rendering",
+    "difficulty": "hard",
+    "question": "What is React Fiber?",
+    "answer": "React Fiber is the internal rendering engine introduced in React 16. It improves rendering performance by breaking rendering work into smaller units. Fiber allows React to pause, resume, prioritize, and cancel rendering work when needed.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "React Fiber\n- Incremental rendering\n- Task prioritization\n- Better animations\n- Concurrent rendering support"
+    },
+    "tags": [
+      "fiber",
+      "rendering",
+      "react-internals"
+    ]
+  },
+  {
+    "id": "react-033",
+    "category": "Performance",
+    "difficulty": "medium",
+    "question": "What is React.memo?",
+    "answer": "React.memo is a higher-order component that prevents unnecessary re-rendering of functional components. It compares previous and new props and only re-renders the component when props change.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const User = React.memo(function User({name}) {\n  return <h1>{name}</h1>;\n});"
+    },
+    "tags": [
+      "memo",
+      "performance",
+      "optimization"
+    ]
+  },
+  {
+    "id": "react-034",
+    "category": "Performance",
+    "difficulty": "hard",
+    "question": "How can you optimize React application performance?",
+    "answer": "React performance can be improved by using React.memo, useMemo, useCallback, code splitting, lazy loading, virtualization for large lists, avoiding unnecessary state updates, optimizing component structure, and using production builds.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const Component = React.memo(MyComponent);\n\nconst value = useMemo(() => expensiveCalculation(), []);"
+    },
+    "tags": [
+      "performance",
+      "optimization",
+      "react"
+    ]
+  },
+  {
+    "id": "react-035",
+    "category": "Code Splitting",
+    "difficulty": "medium",
+    "question": "What is lazy loading in React?",
+    "answer": "Lazy loading allows components to be loaded only when they are required instead of loading the entire application bundle at startup. React provides React.lazy() and Suspense for implementing code splitting.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const Dashboard = React.lazy(() => import('./Dashboard'));\n\n<Suspense fallback={<Loading />}>\n  <Dashboard />\n</Suspense>"
+    },
+    "tags": [
+      "lazy",
+      "suspense",
+      "code-splitting"
+    ]
+  },
+  {
+    "id": "react-036",
+    "category": "Lifecycle",
+    "difficulty": "medium",
+    "question": "Explain React component lifecycle.",
+    "answer": "React component lifecycle consists of three phases: Mounting, Updating, and Unmounting. Mounting happens when a component is created. Updating occurs when props or state change. Unmounting happens when a component is removed from the DOM.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "useEffect(() => {\n  console.log('Mounted');\n\n  return () => {\n    console.log('Unmounted');\n  };\n}, []);"
+    },
+    "tags": [
+      "lifecycle",
+      "mount",
+      "unmount"
+    ]
+  },
+  {
+    "id": "react-037",
+    "category": "Lifecycle",
+    "difficulty": "hard",
+    "question": "How are lifecycle methods replaced by hooks?",
+    "answer": "Hooks replace class lifecycle methods. componentDidMount, componentDidUpdate, and componentWillUnmount can be handled using useEffect. useState replaces state management previously done with class state.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "useEffect(() => {\n  // componentDidMount\n\n  return () => {\n    // componentWillUnmount\n  };\n}, []);"
+    },
+    "tags": [
+      "hooks",
+      "lifecycle",
+      "useEffect"
+    ]
+  },
+  {
+    "id": "react-038",
+    "category": "React Router",
+    "difficulty": "easy",
+    "question": "What is React Router?",
+    "answer": "React Router is a routing library used to create navigation and multiple views in React applications without refreshing the page. It provides components like BrowserRouter, Routes, Route, and Link.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "import { BrowserRouter, Route } from 'react-router-dom';\n\n<Route path=\"/home\" element={<Home />} />"
+    },
+    "tags": [
+      "router",
+      "navigation",
+      "spa"
+    ]
+  },
+  {
+    "id": "react-039",
+    "category": "React Router",
+    "difficulty": "medium",
+    "question": "What is the difference between Link and navigate in React Router?",
+    "answer": "Link is a component used for declarative navigation in JSX. navigate is a function used for programmatic navigation after events or logic execution, such as after login or form submission.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const navigate = useNavigate();\n\nnavigate('/dashboard');"
+    },
+    "tags": [
+      "router",
+      "navigation"
+    ]
+  },
+  {
+    "id": "react-040",
+    "category": "Error Handling",
+    "difficulty": "medium",
+    "question": "What are Error Boundaries in React?",
+    "answer": "Error Boundaries are React components that catch JavaScript errors in their child component tree and display a fallback UI instead of crashing the entire application. They are implemented using class components with componentDidCatch and getDerivedStateFromError.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "class ErrorBoundary extends React.Component {\n  componentDidCatch(error) {\n    console.log(error);\n  }\n}"
+    },
+    "tags": [
+      "error-boundary",
+      "error-handling"
+    ]
+  }
+,
+  {
+    "id": "react-041",
+    "category": "React 18",
+    "difficulty": "medium",
+    "question": "What are the major features introduced in React 18?",
+    "answer": "React 18 introduced concurrent rendering, automatic batching, transitions, Suspense improvements, and new APIs like createRoot and startTransition. These features improve application responsiveness and rendering performance.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "import { createRoot } from 'react-dom/client';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(<App />);"
+    },
+    "tags": [
+      "react18",
+      "concurrent-rendering",
+      "features"
+    ]
+  },
+  {
+    "id": "react-042",
+    "category": "React 18",
+    "difficulty": "hard",
+    "question": "What is concurrent rendering in React?",
+    "answer": "Concurrent rendering allows React to prepare multiple versions of the UI at the same time and prioritize important updates. It enables React to keep the application responsive by interrupting low-priority rendering work.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "startTransition(() => {\n  setSearchResults(results);\n});"
+    },
+    "tags": [
+      "concurrent",
+      "react18",
+      "performance"
+    ]
+  },
+  {
+    "id": "react-043",
+    "category": "React 18",
+    "difficulty": "medium",
+    "question": "What is automatic batching in React 18?",
+    "answer": "Automatic batching groups multiple state updates into a single render for better performance. In React 18, batching happens automatically even inside promises, timeouts, and native event handlers.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "setCount(count => count + 1);\nsetLoading(true);\n\n// Single re-render in React 18"
+    },
+    "tags": [
+      "batching",
+      "react18",
+      "performance"
+    ]
+  },
+  {
+    "id": "react-044",
+    "category": "Advanced React",
+    "difficulty": "hard",
+    "question": "What is the difference between controlled and uncontrolled components?",
+    "answer": "Controlled components store form data in React state and React controls the input value. Uncontrolled components store their own state internally in the DOM and are accessed using refs. Controlled components provide better validation and predictable behavior.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function Form() {\n  const [name, setName] = useState('');\n\n  return (\n    <input\n      value={name}\n      onChange={e => setName(e.target.value)}\n    />\n  );\n}"
+    },
+    "tags": [
+      "forms",
+      "controlled",
+      "uncontrolled"
+    ]
+  },
+  {
+    "id": "react-045",
+    "category": "Advanced React",
+    "difficulty": "hard",
+    "question": "What is forwardRef in React?",
+    "answer": "forwardRef allows a parent component to pass a ref through a component to access a child component's DOM element. It is useful when creating reusable components like custom inputs or buttons.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const Input = React.forwardRef((props, ref) => (\n  <input ref={ref} />\n));"
+    },
+    "tags": [
+      "forwardRef",
+      "refs",
+      "components"
+    ]
+  },
+  {
+    "id": "react-046",
+    "category": "Advanced React",
+    "difficulty": "hard",
+    "question": "What are Higher Order Components (HOC) in React?",
+    "answer": "A Higher Order Component is a function that takes a component and returns a new enhanced component. HOCs were commonly used before hooks for sharing component logic such as authentication, permissions, and data fetching.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function withAuth(Component) {\n  return function Protected(props) {\n    return isLoggedIn\n      ? <Component {...props}/>\n      : <Login />;\n  };\n}"
+    },
+    "tags": [
+      "hoc",
+      "patterns",
+      "reuse"
+    ]
+  },
+  {
+    "id": "react-047",
+    "category": "Testing",
+    "difficulty": "medium",
+    "question": "How do you test React components?",
+    "answer": "React components are commonly tested using tools like Jest and React Testing Library. Tests focus on user behavior instead of implementation details, such as checking rendered text, user interactions, and component output.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "test('renders button', () => {\n  render(<Button />);\n  expect(screen.getByText('Click')).toBeInTheDocument();\n});"
+    },
+    "tags": [
+      "testing",
+      "jest",
+      "react-testing-library"
+    ]
+  },
+  {
+    "id": "react-048",
+    "category": "Architecture",
+    "difficulty": "medium",
+    "question": "How should a React project be structured?",
+    "answer": "A scalable React project is usually organized by features or domains. Common folders include components, pages, hooks, services, store, utils, assets, and routes. Feature-based architecture improves maintainability as applications grow.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "src/\n ├── components/\n ├── pages/\n ├── hooks/\n ├── services/\n ├── store/\n └── utils/"
+    },
+    "tags": [
+      "architecture",
+      "project-structure"
+    ]
+  },
+  {
+    "id": "react-049",
+    "category": "Performance",
+    "difficulty": "hard",
+    "question": "How does React prevent unnecessary DOM updates?",
+    "answer": "React uses Virtual DOM comparison and reconciliation to determine the smallest set of changes required. It compares previous and new element trees and updates only changed nodes in the browser DOM.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Previous Virtual DOM\n        |\n        v\n    Diffing\n        |\n        v\n Updated DOM"
+    },
+    "tags": [
+      "virtual-dom",
+      "diffing",
+      "optimization"
+    ]
+  },
+  {
+    "id": "react-050",
+    "category": "React Architecture",
+    "difficulty": "hard",
+    "question": "What are React Server Components?",
+    "answer": "React Server Components allow components to render on the server instead of the browser. They reduce JavaScript sent to clients, improve performance, and allow direct access to backend resources. They are mainly used with frameworks that support server rendering.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "// Server Component example\nexport default function Page() {\n  return <h1>Server Rendered</h1>;\n}"
+    },
+    "tags": [
+      "server-components",
+      "ssr",
+      "architecture"
+    ]
   }
 ]

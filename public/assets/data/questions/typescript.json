@@ -1,0 +1,769 @@
+[
+  {
+    "id": "typescript-001",
+    "category": "TypeScript Fundamentals",
+    "difficulty": "easy",
+    "question": "What is TypeScript?",
+    "answer": "TypeScript is a strongly typed superset of JavaScript developed by Microsoft. It adds static typing, interfaces, generics, decorators, and other features that improve code quality, maintainability, and developer productivity. TypeScript code is compiled into JavaScript before execution.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "let username: string = 'John';\nconsole.log(username);"
+    },
+    "tags": [
+      "typescript",
+      "javascript",
+      "types"
+    ]
+  },
+  {
+    "id": "typescript-002",
+    "category": "TypeScript Fundamentals",
+    "difficulty": "easy",
+    "question": "What are the advantages of using TypeScript?",
+    "answer": "TypeScript provides static type checking, better IDE support, improved code navigation, early error detection, safer refactoring, and better maintainability for large applications.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "function add(a: number, b: number): number {\n  return a + b;\n}"
+    },
+    "tags": [
+      "typescript",
+      "advantages"
+    ]
+  },
+  {
+    "id": "typescript-003",
+    "category": "Types",
+    "difficulty": "easy",
+    "question": "What are the basic data types in TypeScript?",
+    "answer": "TypeScript provides primitive types including string, number, boolean, null, undefined, bigint, symbol, and special types like any, unknown, never, and void.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "let name: string = 'Alex';\nlet age: number = 25;\nlet active: boolean = true;"
+    },
+    "tags": [
+      "types",
+      "primitive-types"
+    ]
+  },
+  {
+    "id": "typescript-004",
+    "category": "Variables",
+    "difficulty": "easy",
+    "question": "How do you define variables with types in TypeScript?",
+    "answer": "Variables can be explicitly typed using a colon followed by the type. TypeScript can also infer types automatically from assigned values.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "let count: number = 10;\n\nlet message = 'Hello';\n// inferred as string"
+    },
+    "tags": [
+      "type-inference",
+      "variables"
+    ]
+  },
+  {
+    "id": "typescript-005",
+    "category": "Type Inference",
+    "difficulty": "medium",
+    "question": "What is type inference in TypeScript?",
+    "answer": "Type inference is TypeScript's ability to automatically determine the type of a variable based on its assigned value. Developers do not always need to explicitly define types.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "let username = 'John';\n// TypeScript infers string"
+    },
+    "tags": [
+      "type-inference",
+      "compiler"
+    ]
+  },
+  {
+    "id": "typescript-006",
+    "category": "Any Type",
+    "difficulty": "medium",
+    "question": "What is the any type in TypeScript?",
+    "answer": "The any type disables TypeScript type checking for a variable. It allows any value but removes the safety benefits of TypeScript. It should be avoided when possible.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "let data: any = 10;\ndata = 'hello';\ndata = true;"
+    },
+    "tags": [
+      "any",
+      "types"
+    ]
+  },
+  {
+    "id": "typescript-007",
+    "category": "Unknown Type",
+    "difficulty": "medium",
+    "question": "What is the unknown type in TypeScript?",
+    "answer": "unknown is a safer alternative to any. A variable with unknown type can store any value, but TypeScript requires type checking before performing operations on it.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "let value: unknown = 'hello';\n\nif(typeof value === 'string') {\n  console.log(value.length);\n}"
+    },
+    "tags": [
+      "unknown",
+      "type-safety"
+    ]
+  },
+  {
+    "id": "typescript-008",
+    "category": "Void Type",
+    "difficulty": "easy",
+    "question": "What is void in TypeScript?",
+    "answer": "void represents the absence of a return value from a function. It is commonly used for functions that perform actions but do not return data.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "function logMessage(message: string): void {\n  console.log(message);\n}"
+    },
+    "tags": [
+      "void",
+      "functions"
+    ]
+  },
+  {
+    "id": "typescript-009",
+    "category": "Never Type",
+    "difficulty": "hard",
+    "question": "What is the never type in TypeScript?",
+    "answer": "never represents values that never occur. It is used for functions that never return, such as functions that throw errors or infinite loops.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "function throwError(message: string): never {\n  throw new Error(message);\n}"
+    },
+    "tags": [
+      "never",
+      "advanced-types"
+    ]
+  },
+  {
+    "id": "typescript-010",
+    "category": "Type Assertions",
+    "difficulty": "medium",
+    "question": "What are type assertions in TypeScript?",
+    "answer": "Type assertions tell TypeScript to treat a value as a specific type. They do not perform runtime conversion; they only provide information to the compiler.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "let value: unknown = 'hello';\n\nlet length = (value as string).length;"
+    },
+    "tags": [
+      "type-assertion",
+      "compiler"
+    ]
+  }
+,
+  {
+    "id": "typescript-011",
+    "category": "Interfaces",
+    "difficulty": "easy",
+    "question": "What is an interface in TypeScript?",
+    "answer": "An interface defines the structure or shape of an object. It specifies what properties and methods an object should contain without providing implementation. Interfaces are commonly used for type checking and contracts between different parts of an application.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "interface User {\n  id: number;\n  name: string;\n}\n\nconst user: User = {\n  id: 1,\n  name: 'John'\n};"
+    },
+    "tags": [
+      "interface",
+      "types",
+      "objects"
+    ]
+  },
+  {
+    "id": "typescript-012",
+    "category": "Interfaces",
+    "difficulty": "medium",
+    "question": "What is the difference between interface and type in TypeScript?",
+    "answer": "Both interface and type can describe object structures. Interfaces support declaration merging and are commonly used for object-oriented designs. Type aliases are more flexible because they can represent primitives, unions, intersections, tuples, and complex combinations.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "interface User {\n  name: string;\n}\n\ntype Role = 'admin' | 'user';"
+    },
+    "tags": [
+      "interface",
+      "type-alias"
+    ]
+  },
+  {
+    "id": "typescript-013",
+    "category": "Type Aliases",
+    "difficulty": "medium",
+    "question": "What are type aliases in TypeScript?",
+    "answer": "A type alias creates a custom name for an existing type. It can be used with primitives, objects, unions, intersections, and complex types.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "type UserId = string | number;\n\nlet id: UserId = 101;"
+    },
+    "tags": [
+      "type-alias",
+      "custom-types"
+    ]
+  },
+  {
+    "id": "typescript-014",
+    "category": "Union Types",
+    "difficulty": "medium",
+    "question": "What are union types in TypeScript?",
+    "answer": "Union types allow a variable to hold multiple possible types. They are created using the pipe symbol and provide flexibility while maintaining type safety.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "let id: string | number;\n\nid = 'abc';\nid = 123;"
+    },
+    "tags": [
+      "union-types",
+      "types"
+    ]
+  },
+  {
+    "id": "typescript-015",
+    "category": "Intersection Types",
+    "difficulty": "medium",
+    "question": "What are intersection types in TypeScript?",
+    "answer": "Intersection types combine multiple types into one. The resulting type contains all properties from the combined types.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "interface Person {\n  name: string;\n}\n\ninterface Employee {\n  company: string;\n}\n\ntype Staff = Person & Employee;"
+    },
+    "tags": [
+      "intersection-types",
+      "advanced-types"
+    ]
+  },
+  {
+    "id": "typescript-016",
+    "category": "Enums",
+    "difficulty": "medium",
+    "question": "What are enums in TypeScript?",
+    "answer": "Enums allow developers to define a set of named constants. They improve readability when working with fixed values such as user roles, statuses, or application states.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "enum Status {\n  Pending,\n  Approved,\n  Rejected\n}\n\nlet orderStatus = Status.Pending;"
+    },
+    "tags": [
+      "enum",
+      "constants"
+    ]
+  },
+  {
+    "id": "typescript-017",
+    "category": "Classes",
+    "difficulty": "medium",
+    "question": "How are classes created in TypeScript?",
+    "answer": "TypeScript classes support object-oriented programming features like constructors, properties, methods, inheritance, and access modifiers.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "class User {\n  constructor(public name: string) {}\n\n  greet() {\n    console.log(this.name);\n  }\n}"
+    },
+    "tags": [
+      "classes",
+      "oop"
+    ]
+  },
+  {
+    "id": "typescript-018",
+    "category": "Access Modifiers",
+    "difficulty": "medium",
+    "question": "What are access modifiers in TypeScript?",
+    "answer": "Access modifiers control visibility of class members. public members are accessible everywhere, private members only inside the class, and protected members inside the class and subclasses.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "class Account {\n  public name: string;\n  private password: string;\n  protected id: number;\n}"
+    },
+    "tags": [
+      "public",
+      "private",
+      "protected"
+    ]
+  },
+  {
+    "id": "typescript-019",
+    "category": "Readonly",
+    "difficulty": "medium",
+    "question": "What is readonly in TypeScript?",
+    "answer": "readonly prevents a property from being modified after initialization. It is useful for creating immutable objects and protecting important values.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "class User {\n  readonly id: number;\n\n  constructor(id: number) {\n    this.id = id;\n  }\n}"
+    },
+    "tags": [
+      "readonly",
+      "immutability"
+    ]
+  },
+  {
+    "id": "typescript-020",
+    "category": "Inheritance",
+    "difficulty": "hard",
+    "question": "How does inheritance work in TypeScript?",
+    "answer": "TypeScript supports class inheritance using extends. A child class can inherit properties and methods from a parent class and can override behavior using its own implementations.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "class Animal {\n  move() {\n    console.log('Moving');\n  }\n}\n\nclass Dog extends Animal {\n  bark() {\n    console.log('Bark');\n  }\n}"
+    },
+    "tags": [
+      "inheritance",
+      "oop",
+      "classes"
+    ]
+  }
+,
+  {
+    "id": "typescript-021",
+    "category": "Generics",
+    "difficulty": "hard",
+    "question": "What are generics in TypeScript?",
+    "answer": "Generics allow creating reusable components, functions, and classes that work with multiple types while maintaining type safety. Instead of using a fixed type, generics allow the type to be provided dynamically.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "function identity<T>(value: T): T {\n  return value;\n}\n\nidentity<string>('Hello');\nidentity<number>(100);"
+    },
+    "tags": [
+      "generics",
+      "type-safety"
+    ]
+  },
+  {
+    "id": "typescript-022",
+    "category": "Generics",
+    "difficulty": "hard",
+    "question": "Why are generics preferred over any?",
+    "answer": "Generics preserve the relationship between input and output types while any removes type checking. Generics provide flexibility without sacrificing compile-time safety.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "function getValue<T>(value: T): T {\n  return value;\n}\n\nconst result = getValue('TypeScript');"
+    },
+    "tags": [
+      "generics",
+      "any",
+      "type-safety"
+    ]
+  },
+  {
+    "id": "typescript-023",
+    "category": "Generic Constraints",
+    "difficulty": "hard",
+    "question": "What are generic constraints in TypeScript?",
+    "answer": "Generic constraints restrict the types that can be used with a generic. They are created using the extends keyword and ensure required properties or behaviors exist.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "function getLength<T extends { length: number }>(value: T) {\n  return value.length;\n}"
+    },
+    "tags": [
+      "generics",
+      "constraints"
+    ]
+  },
+  {
+    "id": "typescript-024",
+    "category": "Utility Types",
+    "difficulty": "hard",
+    "question": "What are utility types in TypeScript?",
+    "answer": "Utility types are built-in TypeScript helpers that transform existing types. Common utility types include Partial, Required, Pick, Omit, Readonly, Record, and ReturnType.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "interface User {\n  id: number;\n  name: string;\n}\n\nconst update: Partial<User> = {\n  name: 'Alex'\n};"
+    },
+    "tags": [
+      "utility-types",
+      "advanced-types"
+    ]
+  },
+  {
+    "id": "typescript-025",
+    "category": "Utility Types",
+    "difficulty": "medium",
+    "question": "What is Partial utility type?",
+    "answer": "Partial converts all properties of a type into optional properties. It is commonly used for update operations where only some fields need to be changed.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "interface Product {\n  id: number;\n  name: string;\n}\n\nconst updateProduct: Partial<Product> = {\n  name: 'Laptop'\n};"
+    },
+    "tags": [
+      "partial",
+      "utility-types"
+    ]
+  },
+  {
+    "id": "typescript-026",
+    "category": "Utility Types",
+    "difficulty": "medium",
+    "question": "What is Pick and Omit in TypeScript?",
+    "answer": "Pick creates a new type by selecting specific properties from an existing type. Omit creates a new type by removing specified properties.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "interface User {\n  id: number;\n  name: string;\n  password: string;\n}\n\ntype PublicUser = Omit<User, 'password'>;"
+    },
+    "tags": [
+      "pick",
+      "omit",
+      "utility-types"
+    ]
+  },
+  {
+    "id": "typescript-027",
+    "category": "Utility Types",
+    "difficulty": "hard",
+    "question": "What is Record utility type?",
+    "answer": "Record creates an object type with specific keys and value types. It is useful for dictionaries, lookup tables, and configuration objects.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "type Roles = 'admin' | 'user';\n\nconst permissions: Record<Roles, boolean> = {\n  admin: true,\n  user: false\n};"
+    },
+    "tags": [
+      "record",
+      "utility-types"
+    ]
+  },
+  {
+    "id": "typescript-028",
+    "category": "Decorators",
+    "difficulty": "hard",
+    "question": "What are decorators in TypeScript?",
+    "answer": "Decorators are special functions that can modify classes, methods, properties, or parameters. They are widely used in frameworks like Angular for dependency injection, metadata, and component configuration.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "@Component({\n  selector: 'app-root'\n})\nexport class AppComponent {}"
+    },
+    "tags": [
+      "decorators",
+      "angular"
+    ]
+  },
+  {
+    "id": "typescript-029",
+    "category": "Modules",
+    "difficulty": "medium",
+    "question": "How do modules work in TypeScript?",
+    "answer": "Modules allow code organization by separating functionality into different files. Export makes members available and import consumes them in another module.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "// user.ts\nexport class User {}\n\n// app.ts\nimport { User } from './user';"
+    },
+    "tags": [
+      "modules",
+      "import",
+      "export"
+    ]
+  },
+  {
+    "id": "typescript-030",
+    "category": "Namespaces",
+    "difficulty": "medium",
+    "question": "What are namespaces in TypeScript?",
+    "answer": "Namespaces provide a way to organize related code under a single name. They were used before ES modules became standard but are less common in modern TypeScript applications.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "namespace Utils {\n  export function log() {\n    console.log('log');\n  }\n}"
+    },
+    "tags": [
+      "namespace",
+      "organization"
+    ]
+  }
+,
+  {
+    "id": "typescript-031",
+    "category": "Type Guards",
+    "difficulty": "hard",
+    "question": "What are type guards in TypeScript?",
+    "answer": "Type guards are techniques used to narrow down the type of a variable at runtime. They allow TypeScript to understand the exact type before performing operations.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "function print(value: string | number) {\n  if(typeof value === 'string') {\n    console.log(value.toUpperCase());\n  }\n}"
+    },
+    "tags": [
+      "type-guards",
+      "narrowing"
+    ]
+  },
+  {
+    "id": "typescript-032",
+    "category": "Type Guards",
+    "difficulty": "hard",
+    "question": "What are custom type guards?",
+    "answer": "Custom type guards are user-defined functions that return a type predicate. They help TypeScript determine the type of an object during runtime checks.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "interface User {\n  name: string;\n}\n\nfunction isUser(value: any): value is User {\n  return value && typeof value.name === 'string';\n}"
+    },
+    "tags": [
+      "custom-type-guard",
+      "type-predicate"
+    ]
+  },
+  {
+    "id": "typescript-033",
+    "category": "Mapped Types",
+    "difficulty": "hard",
+    "question": "What are mapped types in TypeScript?",
+    "answer": "Mapped types create new types by transforming properties of existing types. They are commonly used for creating reusable utility types.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "type Optional<T> = {\n  [P in keyof T]?: T[P];\n};"
+    },
+    "tags": [
+      "mapped-types",
+      "advanced-types"
+    ]
+  },
+  {
+    "id": "typescript-034",
+    "category": "Keyof Operator",
+    "difficulty": "medium",
+    "question": "What is keyof in TypeScript?",
+    "answer": "The keyof operator creates a union of property names from an object type. It is commonly used with generics to create type-safe property access.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "interface User {\n  id: number;\n  name: string;\n}\n\ntype Keys = keyof User;\n// 'id' | 'name'"
+    },
+    "tags": [
+      "keyof",
+      "operators"
+    ]
+  },
+  {
+    "id": "typescript-035",
+    "category": "Type Operators",
+    "difficulty": "medium",
+    "question": "What are typeof and keyof operators in TypeScript?",
+    "answer": "typeof gets the type of a JavaScript variable and keyof extracts keys from an object type. They are useful for creating reusable and safe types.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "const user = {\n  name: 'John',\n  age: 20\n};\n\ntype User = typeof user;"
+    },
+    "tags": [
+      "typeof",
+      "keyof"
+    ]
+  },
+  {
+    "id": "typescript-036",
+    "category": "Async TypeScript",
+    "difficulty": "medium",
+    "question": "How do you define asynchronous functions in TypeScript?",
+    "answer": "Async functions work the same as JavaScript but can specify Promise return types. TypeScript ensures the returned value matches the declared Promise type.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "async function getUser(): Promise<User> {\n  const response = await fetch('/user');\n  return response.json();\n}"
+    },
+    "tags": [
+      "async",
+      "promise",
+      "typescript"
+    ]
+  },
+  {
+    "id": "typescript-037",
+    "category": "Generics",
+    "difficulty": "hard",
+    "question": "How are generics used in Angular services?",
+    "answer": "Generics help Angular services create reusable methods that work with different models while maintaining type safety. They are commonly used in HTTP services and reusable data access layers.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "get<T>(url: string): Observable<T> {\n  return this.http.get<T>(url);\n}"
+    },
+    "tags": [
+      "angular",
+      "generics",
+      "services"
+    ]
+  },
+  {
+    "id": "typescript-038",
+    "category": "Angular TypeScript",
+    "difficulty": "medium",
+    "question": "Why does Angular use TypeScript?",
+    "answer": "Angular uses TypeScript because it provides strong typing, decorators, better tooling, dependency injection support, and improved maintainability for large enterprise applications.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "@Component({\n  selector: 'app-user',\n  template: '<h1>User</h1>'\n})\nexport class UserComponent {}"
+    },
+    "tags": [
+      "angular",
+      "typescript"
+    ]
+  },
+  {
+    "id": "typescript-039",
+    "category": "Strict Mode",
+    "difficulty": "hard",
+    "question": "What is strict mode in TypeScript?",
+    "answer": "Strict mode enables stronger type checking rules. It catches potential bugs like implicit any types, null errors, and unsafe assumptions during compilation.",
+    "codeSnippet": {
+      "language": "json",
+      "code": "{\n  \"compilerOptions\": {\n    \"strict\": true\n  }\n}"
+    },
+    "tags": [
+      "strict-mode",
+      "tsconfig"
+    ]
+  },
+  {
+    "id": "typescript-040",
+    "category": "TSConfig",
+    "difficulty": "medium",
+    "question": "What is tsconfig.json?",
+    "answer": "tsconfig.json is the configuration file for TypeScript projects. It defines compiler options, included files, module settings, target JavaScript version, and strictness rules.",
+    "codeSnippet": {
+      "language": "json",
+      "code": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"strict\": true\n  }\n}"
+    },
+    "tags": [
+      "tsconfig",
+      "compiler"
+    ]
+  }
+,
+  {
+    "id": "typescript-041",
+    "category": "Advanced Types",
+    "difficulty": "hard",
+    "question": "What is the difference between interface extension and intersection types?",
+    "answer": "Interface extension uses the extends keyword to inherit from another interface and is mainly used with object-oriented designs. Intersection types combine multiple types using the & operator and create a new type containing all members.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "interface Person {\n  name: string;\n}\n\ninterface Employee extends Person {\n  salary: number;\n}\n\ntype Admin = Person & {\n  permissions: string[];\n};"
+    },
+    "tags": [
+      "interface",
+      "intersection",
+      "advanced-types"
+    ]
+  },
+  {
+    "id": "typescript-042",
+    "category": "Declaration Files",
+    "difficulty": "hard",
+    "question": "What are declaration files (.d.ts) in TypeScript?",
+    "answer": "Declaration files describe the types of existing JavaScript code without containing implementation. They allow TypeScript projects to use type checking with JavaScript libraries.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "declare module 'library-name' {\n  export function calculate(): number;\n}"
+    },
+    "tags": [
+      "declaration-files",
+      "types"
+    ]
+  },
+  {
+    "id": "typescript-043",
+    "category": "Modules",
+    "difficulty": "hard",
+    "question": "What is the difference between CommonJS and ES Modules in TypeScript?",
+    "answer": "CommonJS uses require and module.exports and is traditionally used in Node.js. ES Modules use import and export syntax and are the modern JavaScript module standard supported by browsers and Node.js.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "// ES Module\nexport class User {}\n\nimport { User } from './User';"
+    },
+    "tags": [
+      "modules",
+      "esm",
+      "commonjs"
+    ]
+  },
+  {
+    "id": "typescript-044",
+    "category": "Performance",
+    "difficulty": "hard",
+    "question": "How can you improve TypeScript compilation performance?",
+    "answer": "Compilation performance can be improved by enabling incremental builds, using project references, avoiding unnecessary type complexity, limiting included files, and keeping dependencies optimized.",
+    "codeSnippet": {
+      "language": "json",
+      "code": "{\n  \"compilerOptions\": {\n    \"incremental\": true\n  }\n}"
+    },
+    "tags": [
+      "compiler",
+      "performance"
+    ]
+  },
+  {
+    "id": "typescript-045",
+    "category": "Angular Interview",
+    "difficulty": "hard",
+    "question": "How does TypeScript help Angular dependency injection?",
+    "answer": "TypeScript provides class metadata and type information that Angular uses with decorators to understand dependencies and generate injection code.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "@Injectable({\n  providedIn: 'root'\n})\nexport class UserService {\n}"
+    },
+    "tags": [
+      "angular",
+      "dependency-injection"
+    ]
+  },
+  {
+    "id": "typescript-046",
+    "category": "Angular Interview",
+    "difficulty": "hard",
+    "question": "What are decorators used for in Angular?",
+    "answer": "Angular decorators provide metadata to classes and define their behavior. Examples include Component for components, Injectable for services, Directive for directives, and NgModule for modules.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html'\n})\nexport class AppComponent {}"
+    },
+    "tags": [
+      "angular",
+      "decorators"
+    ]
+  },
+  {
+    "id": "typescript-047",
+    "category": "Angular Interview",
+    "difficulty": "medium",
+    "question": "What is the benefit of using interfaces in Angular applications?",
+    "answer": "Interfaces define consistent data structures for models, API responses, and component communication. They improve readability, prevent type errors, and make large applications easier to maintain.",
+    "codeSnippet": {
+      "language": "typescript",
+      "code": "interface Product {\n  id: number;\n  title: string;\n}\n\nproducts: Product[] = [];"
+    },
+    "tags": [
+      "angular",
+      "interfaces",
+      "models"
+    ]
+  },
+  {
+    "id": "typescript-048",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Why did you choose TypeScript over JavaScript?",
+    "answer": "A good answer should explain that TypeScript improves developer productivity through static typing, better tooling, easier debugging, and safer large-scale application development.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Sample Answer:\n'TypeScript helps me catch errors earlier and build maintainable applications with confidence.'"
+    },
+    "tags": [
+      "hr",
+      "typescript"
+    ]
+  },
+  {
+    "id": "typescript-049",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Describe a difficult TypeScript problem you solved.",
+    "answer": "A strong answer should describe the problem, investigation process, TypeScript features used, solution implemented, and the impact. Mention type design, debugging, refactoring, or performance improvements.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "STAR:\nSituation\nTask\nAction\nResult"
+    },
+    "tags": [
+      "hr",
+      "behavioral"
+    ]
+  },
+  {
+    "id": "typescript-050",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Where do you see TypeScript evolving in the future?",
+    "answer": "TypeScript will continue improving developer experience with stronger type inference, better tooling, improved JavaScript compatibility, and wider adoption in frontend and backend ecosystems.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Future:\n- Better tooling\n- Safer applications\n- Improved developer productivity"
+    },
+    "tags": [
+      "hr",
+      "typescript",
+      "future"
+    ]
+  }
+]

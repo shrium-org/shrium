@@ -1,0 +1,782 @@
+[
+  {
+    "id": "javascript-001",
+    "category": "JavaScript Fundamentals",
+    "difficulty": "easy",
+    "question": "What is JavaScript?",
+    "answer": "JavaScript is a high-level, interpreted programming language used to create dynamic and interactive web applications. It runs mainly in browsers and can also run on servers using environments like Node.js. JavaScript supports object-oriented, functional, and event-driven programming styles.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "console.log('Hello JavaScript');"
+    },
+    "tags": [
+      "javascript",
+      "basics",
+      "language"
+    ]
+  },
+  {
+    "id": "javascript-002",
+    "category": "JavaScript Fundamentals",
+    "difficulty": "easy",
+    "question": "What are the different data types in JavaScript?",
+    "answer": "JavaScript has primitive and non-primitive data types. Primitive types include String, Number, BigInt, Boolean, Undefined, Null, and Symbol. Non-primitive types include Objects, Arrays, and Functions.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "let name = 'John';\nlet age = 25;\nlet active = true;\nlet user = { id: 1 };"
+    },
+    "tags": [
+      "data-types",
+      "javascript"
+    ]
+  },
+  {
+    "id": "javascript-003",
+    "category": "Variables",
+    "difficulty": "easy",
+    "question": "What is the difference between var, let, and const?",
+    "answer": "var is function-scoped and can be redeclared and reassigned. let is block-scoped and can be reassigned but not redeclared in the same scope. const is block-scoped and cannot be reassigned after initialization.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "var a = 10;\nlet b = 20;\nconst c = 30;"
+    },
+    "tags": [
+      "var",
+      "let",
+      "const",
+      "es6"
+    ]
+  },
+  {
+    "id": "javascript-004",
+    "category": "Scope",
+    "difficulty": "medium",
+    "question": "What is scope in JavaScript?",
+    "answer": "Scope determines where variables can be accessed in a program. JavaScript has global scope, function scope, and block scope. Variables declared with let and const follow block scope, while var follows function scope.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function test() {\n  let value = 10;\n  console.log(value);\n}"
+    },
+    "tags": [
+      "scope",
+      "block-scope",
+      "function-scope"
+    ]
+  },
+  {
+    "id": "javascript-005",
+    "category": "Hoisting",
+    "difficulty": "medium",
+    "question": "What is hoisting in JavaScript?",
+    "answer": "Hoisting is JavaScript's behavior of moving variable and function declarations to the top of their scope during the compilation phase. Function declarations are fully hoisted, var variables are initialized with undefined, while let and const are hoisted but remain in the temporal dead zone.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "hello();\n\nfunction hello() {\n  console.log('Hello');\n}"
+    },
+    "tags": [
+      "hoisting",
+      "execution-context"
+    ]
+  },
+  {
+    "id": "javascript-006",
+    "category": "Equality",
+    "difficulty": "easy",
+    "question": "What is the difference between == and === in JavaScript?",
+    "answer": "The == operator performs loose equality comparison and converts values to the same type before comparing. The === operator performs strict equality comparison without type conversion and checks both value and type.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "console.log(5 == '5');  // true\nconsole.log(5 === '5'); // false"
+    },
+    "tags": [
+      "comparison",
+      "strict-equality"
+    ]
+  },
+  {
+    "id": "javascript-007",
+    "category": "Null Handling",
+    "difficulty": "medium",
+    "question": "What is the difference between null and undefined?",
+    "answer": "undefined means a variable has been declared but has not been assigned a value. null is an intentional assignment representing an empty or missing value. Undefined is provided by JavaScript, while null is assigned by developers.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "let a;\nconsole.log(a); // undefined\n\nlet b = null;\nconsole.log(b); // null"
+    },
+    "tags": [
+      "null",
+      "undefined"
+    ]
+  },
+  {
+    "id": "javascript-008",
+    "category": "Functions",
+    "difficulty": "easy",
+    "question": "What are functions in JavaScript?",
+    "answer": "Functions are reusable blocks of code designed to perform specific tasks. JavaScript treats functions as first-class citizens, meaning they can be stored in variables, passed as arguments, and returned from other functions.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function add(a, b) {\n  return a + b;\n}\n\nadd(2, 3);"
+    },
+    "tags": [
+      "functions",
+      "first-class-functions"
+    ]
+  },
+  {
+    "id": "javascript-009",
+    "category": "Arrow Functions",
+    "difficulty": "easy",
+    "question": "What are arrow functions in JavaScript?",
+    "answer": "Arrow functions are a shorter syntax for writing functions introduced in ES6. They do not have their own this context and inherit this from their surrounding scope.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const add = (a, b) => a + b;"
+    },
+    "tags": [
+      "arrow-function",
+      "es6"
+    ]
+  },
+  {
+    "id": "javascript-010",
+    "category": "Objects",
+    "difficulty": "medium",
+    "question": "How are objects created in JavaScript?",
+    "answer": "Objects can be created using object literals, constructors, classes, or Object.create(). Objects store data as key-value pairs and can contain properties and methods.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const user = {\n  name: 'John',\n  age: 25,\n  greet() {\n    console.log('Hello');\n  }\n};"
+    },
+    "tags": [
+      "objects",
+      "javascript"
+    ]
+  }
+,
+  {
+    "id": "javascript-011",
+    "category": "Execution Context",
+    "difficulty": "hard",
+    "question": "What is an execution context in JavaScript?",
+    "answer": "Execution context is the environment where JavaScript code is evaluated and executed. It contains variables, functions, the scope chain, and the value of this. JavaScript creates a global execution context first and creates function execution contexts whenever functions are called.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function greet() {\n  let message = 'Hello';\n  console.log(message);\n}\n\ngreet();"
+    },
+    "tags": [
+      "execution-context",
+      "scope",
+      "javascript-engine"
+    ]
+  },
+  {
+    "id": "javascript-012",
+    "category": "Call Stack",
+    "difficulty": "medium",
+    "question": "What is the call stack in JavaScript?",
+    "answer": "The call stack is a data structure used by JavaScript engines to keep track of function execution. JavaScript uses a Last In First Out approach. When a function is called it is pushed onto the stack and removed after execution completes.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function first() {\n  second();\n}\n\nfunction second() {\n  console.log('Running');\n}\n\nfirst();"
+    },
+    "tags": [
+      "call-stack",
+      "runtime"
+    ]
+  },
+  {
+    "id": "javascript-013",
+    "category": "Closures",
+    "difficulty": "hard",
+    "question": "What is a closure in JavaScript?",
+    "answer": "A closure is created when a function remembers variables from its outer lexical scope even after the outer function has finished executing. Closures are commonly used for data privacy, callbacks, and function factories.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function counter() {\n  let count = 0;\n\n  return function() {\n    count++;\n    return count;\n  };\n}\n\nconst add = counter();\nadd();"
+    },
+    "tags": [
+      "closures",
+      "lexical-scope"
+    ]
+  },
+  {
+    "id": "javascript-014",
+    "category": "Closures",
+    "difficulty": "hard",
+    "question": "What are practical uses of closures?",
+    "answer": "Closures are used for creating private variables, maintaining state, implementing memoization, event handlers, callbacks, and creating reusable function generators.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function createUser() {\n  let password = 'secret';\n\n  return {\n    getPassword: () => password\n  };\n}"
+    },
+    "tags": [
+      "closures",
+      "private-data",
+      "patterns"
+    ]
+  },
+  {
+    "id": "javascript-015",
+    "category": "this Keyword",
+    "difficulty": "hard",
+    "question": "What is the this keyword in JavaScript?",
+    "answer": "The this keyword refers to the object that is currently executing the function. Its value depends on how a function is called. In regular functions it is determined dynamically, while arrow functions inherit this from the surrounding scope.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const user = {\n  name: 'John',\n  greet() {\n    console.log(this.name);\n  }\n};\n\nuser.greet();"
+    },
+    "tags": [
+      "this",
+      "objects",
+      "functions"
+    ]
+  },
+  {
+    "id": "javascript-016",
+    "category": "this Keyword",
+    "difficulty": "medium",
+    "question": "What is the difference between call, apply, and bind?",
+    "answer": "call invokes a function immediately with a specified this value and arguments passed individually. apply invokes immediately but accepts arguments as an array. bind returns a new function with a permanently bound this value.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function greet(city) {\n  console.log(this.name, city);\n}\n\nconst user = { name: 'Alex' };\n\ngreet.call(user, 'London');\ngreet.apply(user, ['Paris']);\nconst fn = greet.bind(user);"
+    },
+    "tags": [
+      "call",
+      "apply",
+      "bind"
+    ]
+  },
+  {
+    "id": "javascript-017",
+    "category": "Callbacks",
+    "difficulty": "medium",
+    "question": "What is a callback function?",
+    "answer": "A callback is a function passed as an argument to another function and executed later. Callbacks are commonly used for asynchronous operations like timers, API calls, and event handling.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function process(callback) {\n  callback();\n}\n\nprocess(() => {\n  console.log('Done');\n});"
+    },
+    "tags": [
+      "callbacks",
+      "async"
+    ]
+  },
+  {
+    "id": "javascript-018",
+    "category": "Promises",
+    "difficulty": "medium",
+    "question": "What is a Promise in JavaScript?",
+    "answer": "A Promise is an object representing the eventual completion or failure of an asynchronous operation. A Promise has three states: pending, fulfilled, and rejected.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const promise = new Promise((resolve, reject) => {\n  resolve('Success');\n});\n\npromise.then(result => console.log(result));"
+    },
+    "tags": [
+      "promises",
+      "async"
+    ]
+  },
+  {
+    "id": "javascript-019",
+    "category": "Promises",
+    "difficulty": "hard",
+    "question": "What are the states of a Promise?",
+    "answer": "A Promise starts in the pending state. It changes to fulfilled when the asynchronous operation succeeds or rejected when it fails. Once settled, a Promise cannot change state again.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "Pending\n  |\n  +--> Fulfilled\n  |\n  +--> Rejected"
+    },
+    "tags": [
+      "promise-states",
+      "async"
+    ]
+  },
+  {
+    "id": "javascript-020",
+    "category": "Async Programming",
+    "difficulty": "hard",
+    "question": "What is the difference between callbacks and promises?",
+    "answer": "Callbacks handle asynchronous operations by passing functions, but deeply nested callbacks can create callback hell. Promises provide cleaner chaining with then(), catch(), and finally(), making asynchronous code easier to manage.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "fetch('/users')\n  .then(res => res.json())\n  .then(data => console.log(data))\n  .catch(error => console.log(error));"
+    },
+    "tags": [
+      "callbacks",
+      "promises",
+      "async"
+    ]
+  }
+,
+  {
+    "id": "javascript-021",
+    "category": "Event Loop",
+    "difficulty": "hard",
+    "question": "What is the JavaScript event loop?",
+    "answer": "The event loop is a mechanism that allows JavaScript to handle asynchronous operations despite being single-threaded. It continuously checks the call stack and moves callbacks from task queues when the stack is empty.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "console.log('Start');\n\nsetTimeout(() => {\n  console.log('Timer');\n}, 0);\n\nconsole.log('End');\n\n// Output:\n// Start\n// End\n// Timer"
+    },
+    "tags": [
+      "event-loop",
+      "async",
+      "runtime"
+    ]
+  },
+  {
+    "id": "javascript-022",
+    "category": "Event Loop",
+    "difficulty": "hard",
+    "question": "What is the difference between microtasks and macrotasks?",
+    "answer": "Microtasks have higher priority than macrotasks. Promise callbacks and queueMicrotask are microtasks, while setTimeout, setInterval, and DOM events are macrotasks. The event loop executes all available microtasks before moving to the next macrotask.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "setTimeout(() => console.log('timeout'), 0);\n\nPromise.resolve()\n  .then(() => console.log('promise'));\n\n// promise\n// timeout"
+    },
+    "tags": [
+      "microtask",
+      "macrotask",
+      "event-loop"
+    ]
+  },
+  {
+    "id": "javascript-023",
+    "category": "Async Await",
+    "difficulty": "medium",
+    "question": "What is async/await in JavaScript?",
+    "answer": "async/await is syntax built on top of Promises that makes asynchronous code look synchronous. An async function always returns a Promise, and await pauses execution until the Promise resolves or rejects.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "async function getUsers() {\n  const response = await fetch('/users');\n  const data = await response.json();\n  return data;\n}"
+    },
+    "tags": [
+      "async",
+      "await",
+      "promises"
+    ]
+  },
+  {
+    "id": "javascript-024",
+    "category": "Async Await",
+    "difficulty": "medium",
+    "question": "How do you handle errors with async/await?",
+    "answer": "Errors in async/await are handled using try/catch blocks. If an awaited Promise rejects, execution moves to the catch block.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "async function loadData() {\n  try {\n    const data = await fetch('/api');\n  } catch(error) {\n    console.log(error);\n  }\n}"
+    },
+    "tags": [
+      "async",
+      "error-handling"
+    ]
+  },
+  {
+    "id": "javascript-025",
+    "category": "Arrays",
+    "difficulty": "easy",
+    "question": "What are common array methods in JavaScript?",
+    "answer": "Common array methods include map for transforming arrays, filter for selecting values, reduce for accumulating results, forEach for iteration, find for searching, and includes for checking existence.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const numbers = [1,2,3];\n\nconst doubled = numbers.map(n => n * 2);\nconst even = numbers.filter(n => n % 2 === 0);"
+    },
+    "tags": [
+      "arrays",
+      "methods",
+      "es6"
+    ]
+  },
+  {
+    "id": "javascript-026",
+    "category": "Arrays",
+    "difficulty": "medium",
+    "question": "What is the difference between map, filter, and reduce?",
+    "answer": "map creates a new array by transforming every element. filter creates a new array containing only elements that satisfy a condition. reduce converts an array into a single accumulated value.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const nums = [1,2,3];\n\nnums.map(x => x * 2);\nnums.filter(x => x > 1);\nnums.reduce((sum,x) => sum + x, 0);"
+    },
+    "tags": [
+      "map",
+      "filter",
+      "reduce"
+    ]
+  },
+  {
+    "id": "javascript-027",
+    "category": "Objects",
+    "difficulty": "medium",
+    "question": "What is object destructuring in JavaScript?",
+    "answer": "Object destructuring allows extracting properties from objects into variables using a shorter syntax introduced in ES6.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const user = {\n  name: 'John',\n  age: 25\n};\n\nconst { name, age } = user;"
+    },
+    "tags": [
+      "destructuring",
+      "es6",
+      "objects"
+    ]
+  },
+  {
+    "id": "javascript-028",
+    "category": "ES6",
+    "difficulty": "easy",
+    "question": "What are template literals in JavaScript?",
+    "answer": "Template literals are strings created using backticks that allow embedded expressions, multiline strings, and easier string formatting.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const name = 'Alex';\n\nconsole.log(`Hello ${name}`);"
+    },
+    "tags": [
+      "template-literals",
+      "es6"
+    ]
+  },
+  {
+    "id": "javascript-029",
+    "category": "ES6",
+    "difficulty": "medium",
+    "question": "What is the spread operator in JavaScript?",
+    "answer": "The spread operator (...) expands iterable values like arrays and objects. It is commonly used for copying, merging, and passing values.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const a = [1,2];\nconst b = [...a,3,4];\n\nconst user = {...oldUser, age:30};"
+    },
+    "tags": [
+      "spread",
+      "es6",
+      "arrays"
+    ]
+  },
+  {
+    "id": "javascript-030",
+    "category": "ES6",
+    "difficulty": "medium",
+    "question": "What is the rest operator in JavaScript?",
+    "answer": "The rest operator collects multiple values into a single array or object. It is commonly used in function parameters and destructuring assignments.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function sum(...numbers) {\n  return numbers.reduce((a,b) => a+b, 0);\n}\n\nsum(1,2,3);"
+    },
+    "tags": [
+      "rest",
+      "es6",
+      "functions"
+    ]
+  }
+,
+  {
+    "id": "javascript-031",
+    "category": "Prototype",
+    "difficulty": "hard",
+    "question": "What is a prototype in JavaScript?",
+    "answer": "A prototype is an object from which other objects inherit properties and methods. Every JavaScript object has an internal prototype reference. When a property or method is not found on an object, JavaScript looks up the prototype chain.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const user = {};\n\nconsole.log(user.__proto__);"
+    },
+    "tags": [
+      "prototype",
+      "inheritance",
+      "objects"
+    ]
+  },
+  {
+    "id": "javascript-032",
+    "category": "Prototype",
+    "difficulty": "hard",
+    "question": "What is prototype chain in JavaScript?",
+    "answer": "The prototype chain is the mechanism JavaScript uses for inheritance. When accessing a property, JavaScript searches the object itself, then its prototype, then the prototype's prototype until it reaches null.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "object\n  |\nprototype\n  |\nObject.prototype\n  |\nnull"
+    },
+    "tags": [
+      "prototype-chain",
+      "inheritance"
+    ]
+  },
+  {
+    "id": "javascript-033",
+    "category": "Classes",
+    "difficulty": "medium",
+    "question": "What are classes in JavaScript?",
+    "answer": "Classes are syntactic sugar over JavaScript's prototype-based inheritance system. They provide a cleaner syntax for creating objects and implementing object-oriented programming concepts.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "class User {\n  constructor(name) {\n    this.name = name;\n  }\n\n  greet() {\n    console.log(this.name);\n  }\n}"
+    },
+    "tags": [
+      "classes",
+      "oop",
+      "es6"
+    ]
+  },
+  {
+    "id": "javascript-034",
+    "category": "OOP",
+    "difficulty": "medium",
+    "question": "What are the main principles of object-oriented programming?",
+    "answer": "The four main OOP principles are encapsulation, inheritance, polymorphism, and abstraction. JavaScript supports these concepts using objects, prototypes, and classes.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Encapsulation\nInheritance\nPolymorphism\nAbstraction"
+    },
+    "tags": [
+      "oop",
+      "javascript"
+    ]
+  },
+  {
+    "id": "javascript-035",
+    "category": "Inheritance",
+    "difficulty": "hard",
+    "question": "How does inheritance work in JavaScript?",
+    "answer": "JavaScript uses prototype-based inheritance. Objects can inherit properties and methods from other objects through the prototype chain. ES6 classes provide a cleaner syntax using extends and super.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "class Admin extends User {\n  constructor(name) {\n    super(name);\n  }\n}"
+    },
+    "tags": [
+      "inheritance",
+      "classes",
+      "prototype"
+    ]
+  },
+  {
+    "id": "javascript-036",
+    "category": "DOM",
+    "difficulty": "easy",
+    "question": "What is the DOM in JavaScript?",
+    "answer": "DOM stands for Document Object Model. It represents an HTML document as a tree of objects that JavaScript can access and modify dynamically.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const title = document.querySelector('h1');\ntitle.textContent = 'Hello';"
+    },
+    "tags": [
+      "dom",
+      "browser",
+      "javascript"
+    ]
+  },
+  {
+    "id": "javascript-037",
+    "category": "DOM",
+    "difficulty": "medium",
+    "question": "How do you select elements in the DOM?",
+    "answer": "JavaScript provides several DOM selection methods including getElementById, getElementsByClassName, querySelector, and querySelectorAll. querySelector and querySelectorAll support CSS selectors.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "document.getElementById('app');\n\ndocument.querySelector('.button');"
+    },
+    "tags": [
+      "dom",
+      "selectors"
+    ]
+  },
+  {
+    "id": "javascript-038",
+    "category": "DOM Events",
+    "difficulty": "medium",
+    "question": "What is event bubbling in JavaScript?",
+    "answer": "Event bubbling is a behavior where an event triggered on a child element propagates upward through its parent elements. Developers can control it using event.stopPropagation().",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "child.addEventListener('click', event => {\n  event.stopPropagation();\n});"
+    },
+    "tags": [
+      "events",
+      "bubbling",
+      "dom"
+    ]
+  },
+  {
+    "id": "javascript-039",
+    "category": "DOM Events",
+    "difficulty": "hard",
+    "question": "What is event delegation?",
+    "answer": "Event delegation is a technique where a single event listener is attached to a parent element instead of multiple child elements. It works because of event bubbling and improves performance for dynamic lists.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "document.querySelector('ul')\n.addEventListener('click', event => {\n  if(event.target.tagName === 'LI') {\n    console.log(event.target.textContent);\n  }\n});"
+    },
+    "tags": [
+      "event-delegation",
+      "performance"
+    ]
+  },
+  {
+    "id": "javascript-040",
+    "category": "Browser APIs",
+    "difficulty": "medium",
+    "question": "What are browser APIs in JavaScript?",
+    "answer": "Browser APIs are built-in interfaces provided by browsers that allow JavaScript to interact with browser features. Examples include DOM API, Fetch API, Storage API, Geolocation API, and Web APIs for timers.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "fetch('/api/users')\n  .then(response => response.json())\n  .then(data => console.log(data));"
+    },
+    "tags": [
+      "browser-api",
+      "web-api",
+      "fetch"
+    ]
+  }
+,
+  {
+    "id": "javascript-041",
+    "category": "Memory Management",
+    "difficulty": "hard",
+    "question": "How does JavaScript memory management work?",
+    "answer": "JavaScript automatically manages memory using garbage collection. The engine allocates memory when objects are created and removes objects that are no longer reachable from the application using garbage collection algorithms.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "let user = {\n  name: 'John'\n};\n\nuser = null;\n// Object can be garbage collected"
+    },
+    "tags": [
+      "memory",
+      "garbage-collection"
+    ]
+  },
+  {
+    "id": "javascript-042",
+    "category": "Memory Management",
+    "difficulty": "hard",
+    "question": "What causes memory leaks in JavaScript?",
+    "answer": "Memory leaks occur when unused memory cannot be released by garbage collection. Common causes include forgotten timers, unremoved event listeners, accidental global variables, and closures holding unnecessary references.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const button = document.querySelector('button');\n\nfunction handleClick() {\n  console.log('clicked');\n}\n\nbutton.addEventListener('click', handleClick);\n\n// Remove when not needed\nbutton.removeEventListener('click', handleClick);"
+    },
+    "tags": [
+      "memory-leaks",
+      "performance"
+    ]
+  },
+  {
+    "id": "javascript-043",
+    "category": "Performance",
+    "difficulty": "hard",
+    "question": "What is debouncing in JavaScript?",
+    "answer": "Debouncing delays function execution until a certain amount of time has passed after the last event. It is commonly used for search inputs, resize events, and validation to reduce unnecessary function calls.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function debounce(fn, delay) {\n  let timer;\n\n  return function(...args) {\n    clearTimeout(timer);\n    timer = setTimeout(() => fn(...args), delay);\n  };\n}"
+    },
+    "tags": [
+      "debounce",
+      "performance",
+      "optimization"
+    ]
+  },
+  {
+    "id": "javascript-044",
+    "category": "Performance",
+    "difficulty": "hard",
+    "question": "What is throttling in JavaScript?",
+    "answer": "Throttling limits how frequently a function can execute within a time period. It is useful for scroll events, mouse movements, and continuous user interactions.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function throttle(fn, limit) {\n  let waiting = false;\n\n  return (...args) => {\n    if (!waiting) {\n      fn(...args);\n      waiting = true;\n      setTimeout(() => waiting = false, limit);\n    }\n  };\n}"
+    },
+    "tags": [
+      "throttle",
+      "performance"
+    ]
+  },
+  {
+    "id": "javascript-045",
+    "category": "Design Patterns",
+    "difficulty": "medium",
+    "question": "What is the Module pattern in JavaScript?",
+    "answer": "The Module pattern uses closures to create private variables and expose only selected methods publicly. It helps organize code and prevent global variable pollution.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const UserModule = (() => {\n  let users = [];\n\n  return {\n    add(user) {\n      users.push(user);\n    }\n  };\n})();"
+    },
+    "tags": [
+      "module-pattern",
+      "closures"
+    ]
+  },
+  {
+    "id": "javascript-046",
+    "category": "Design Patterns",
+    "difficulty": "medium",
+    "question": "What is the Singleton pattern in JavaScript?",
+    "answer": "The Singleton pattern ensures that only one instance of an object exists throughout an application. It is commonly used for configuration managers, logging systems, and shared resources.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "class Database {\n  constructor() {\n    if(Database.instance) {\n      return Database.instance;\n    }\n\n    Database.instance = this;\n  }\n}"
+    },
+    "tags": [
+      "singleton",
+      "design-pattern"
+    ]
+  },
+  {
+    "id": "javascript-047",
+    "category": "Advanced JavaScript",
+    "difficulty": "hard",
+    "question": "What is currying in JavaScript?",
+    "answer": "Currying is a technique where a function with multiple arguments is transformed into a sequence of functions, each accepting a single argument. It improves function reusability and composition.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function multiply(a) {\n  return function(b) {\n    return a * b;\n  };\n}\n\nconst double = multiply(2);\ndouble(5);"
+    },
+    "tags": [
+      "currying",
+      "functional-programming"
+    ]
+  },
+  {
+    "id": "javascript-048",
+    "category": "Advanced JavaScript",
+    "difficulty": "hard",
+    "question": "What is memoization in JavaScript?",
+    "answer": "Memoization is an optimization technique where function results are cached so repeated calculations with the same inputs return stored results instead of executing again.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "function memoize(fn) {\n  const cache = {};\n\n  return function(arg) {\n    if(cache[arg]) return cache[arg];\n    return cache[arg] = fn(arg);\n  };\n}"
+    },
+    "tags": [
+      "memoization",
+      "performance"
+    ]
+  },
+  {
+    "id": "javascript-049",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Why do you want to work as a JavaScript developer?",
+    "answer": "A good answer should explain interest in building interactive applications, solving user problems, learning modern technologies, and contributing to scalable software products.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Sample Answer:\n'I enjoy building user-focused applications and JavaScript allows me to create complete solutions from frontend interfaces to backend services.'"
+    },
+    "tags": [
+      "hr",
+      "career",
+      "javascript"
+    ]
+  },
+  {
+    "id": "javascript-050",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Explain a challenging JavaScript project you worked on.",
+    "answer": "A strong answer should follow the STAR method: explain the situation, the technical challenge, the actions taken, and the measurable result. Mention debugging, performance improvements, architecture decisions, and teamwork.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "STAR Method:\nSituation\nTask\nAction\nResult"
+    },
+    "tags": [
+      "hr",
+      "behavioral",
+      "interview"
+    ]
+  }
+]

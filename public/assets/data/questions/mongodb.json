@@ -1,0 +1,757 @@
+[
+  {
+    "id": "mongodb-001",
+    "category": "MongoDB Fundamentals",
+    "difficulty": "easy",
+    "question": "What is MongoDB?",
+    "answer": "MongoDB is a NoSQL document-oriented database that stores data in flexible BSON documents. It provides high scalability, performance, and flexibility compared to traditional relational databases.",
+    "codeSnippet": {
+      "language": "json",
+      "code": "{\n  \"name\": \"John\",\n  \"age\": 25,\n  \"skills\": [\"Node.js\", \"MongoDB\"]\n}"
+    },
+    "tags": [
+      "mongodb",
+      "nosql",
+      "database"
+    ]
+  },
+  {
+    "id": "mongodb-002",
+    "category": "MongoDB Architecture",
+    "difficulty": "medium",
+    "question": "How is MongoDB different from SQL databases?",
+    "answer": "MongoDB stores data as documents inside collections, while SQL databases store data in tables with rows and columns. MongoDB provides flexible schemas, whereas SQL databases usually follow predefined schemas.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "SQL:\nDatabase → Tables → Rows\n\nMongoDB:\nDatabase → Collections → Documents"
+    },
+    "tags": [
+      "mongodb",
+      "sql",
+      "comparison"
+    ]
+  },
+  {
+    "id": "mongodb-003",
+    "category": "Documents",
+    "difficulty": "easy",
+    "question": "What is a document in MongoDB?",
+    "answer": "A document is the basic unit of data storage in MongoDB. It is stored in BSON format and contains key-value pairs similar to JSON objects.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.insertOne({\n name: 'Alice',\n age: 30\n});"
+    },
+    "tags": [
+      "documents",
+      "bson"
+    ]
+  },
+  {
+    "id": "mongodb-004",
+    "category": "Collections",
+    "difficulty": "easy",
+    "question": "What is a collection in MongoDB?",
+    "answer": "A collection is a group of MongoDB documents. It is similar to a table in relational databases but does not require a fixed schema.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.createCollection('users');"
+    },
+    "tags": [
+      "collections",
+      "mongodb"
+    ]
+  },
+  {
+    "id": "mongodb-005",
+    "category": "BSON",
+    "difficulty": "medium",
+    "question": "What is BSON in MongoDB?",
+    "answer": "BSON stands for Binary JSON. MongoDB stores documents internally as BSON because it supports additional data types like Date, ObjectId, and Binary data.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "JSON\n ↓\nBSON\n ↓\nMongoDB Storage"
+    },
+    "tags": [
+      "bson",
+      "mongodb"
+    ]
+  },
+  {
+    "id": "mongodb-006",
+    "category": "CRUD Operations",
+    "difficulty": "easy",
+    "question": "What are CRUD operations in MongoDB?",
+    "answer": "CRUD represents Create, Read, Update, and Delete operations. These are the primary operations used to manage MongoDB documents.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Create → insert\nRead   → find\nUpdate → update\nDelete → delete"
+    },
+    "tags": [
+      "crud",
+      "mongodb"
+    ]
+  },
+  {
+    "id": "mongodb-007",
+    "category": "Insert Documents",
+    "difficulty": "easy",
+    "question": "How do you insert documents into MongoDB?",
+    "answer": "MongoDB provides insertOne() for inserting a single document and insertMany() for inserting multiple documents.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.insertOne({\n name:'John',\n age:25\n});"
+    },
+    "tags": [
+      "insert",
+      "crud"
+    ]
+  },
+  {
+    "id": "mongodb-008",
+    "category": "Query Documents",
+    "difficulty": "easy",
+    "question": "How do you retrieve documents from MongoDB?",
+    "answer": "MongoDB uses find() to retrieve multiple documents and findOne() to retrieve a single document matching a condition.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.find({\n age:25\n});"
+    },
+    "tags": [
+      "query",
+      "find"
+    ]
+  },
+  {
+    "id": "mongodb-009",
+    "category": "Update Documents",
+    "difficulty": "medium",
+    "question": "How do you update documents in MongoDB?",
+    "answer": "MongoDB provides updateOne(), updateMany(), and replaceOne() methods. Update operators like $set, $inc, and $push modify document fields.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.updateOne(\n {name:'John'},\n {$set:{age:26}}\n);"
+    },
+    "tags": [
+      "update",
+      "operators"
+    ]
+  },
+  {
+    "id": "mongodb-010",
+    "category": "Delete Documents",
+    "difficulty": "easy",
+    "question": "How do you delete documents in MongoDB?",
+    "answer": "MongoDB provides deleteOne() and deleteMany() methods to remove documents from collections.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.deleteOne({\n name:'John'\n});"
+    },
+    "tags": [
+      "delete",
+      "crud"
+    ]
+  }
+,
+  {
+    "id": "mongodb-011",
+    "category": "Query Operators",
+    "difficulty": "medium",
+    "question": "What are query operators in MongoDB?",
+    "answer": "Query operators are special keywords used to perform advanced searches and filtering operations. They allow comparisons, logical operations, array searches, and element checks.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.find({\n age: {$gt: 25}\n});"
+    },
+    "tags": [
+      "query",
+      "operators"
+    ]
+  },
+  {
+    "id": "mongodb-012",
+    "category": "Comparison Operators",
+    "difficulty": "medium",
+    "question": "Explain MongoDB comparison operators.",
+    "answer": "Comparison operators compare field values. Common operators are $eq (equal), $ne (not equal), $gt (greater than), $gte, $lt, and $lte.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.products.find({\n price: {$gte:100}\n});"
+    },
+    "tags": [
+      "comparison",
+      "query"
+    ]
+  },
+  {
+    "id": "mongodb-013",
+    "category": "Logical Operators",
+    "difficulty": "medium",
+    "question": "What are logical operators in MongoDB?",
+    "answer": "Logical operators combine multiple query conditions. Common operators include $and, $or, $not, and $nor.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.find({\n $or:[\n  {age:20},\n  {age:30}\n ]\n});"
+    },
+    "tags": [
+      "logical-operators",
+      "query"
+    ]
+  },
+  {
+    "id": "mongodb-014",
+    "category": "Array Operators",
+    "difficulty": "medium",
+    "question": "How do you query arrays in MongoDB?",
+    "answer": "MongoDB provides array operators like $in, $all, $elemMatch, and $size to search and filter array values.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.find({\n skills: {$in:['Java']}\n});"
+    },
+    "tags": [
+      "arrays",
+      "query"
+    ]
+  },
+  {
+    "id": "mongodb-015",
+    "category": "Projection",
+    "difficulty": "medium",
+    "question": "What is projection in MongoDB?",
+    "answer": "Projection controls which fields are returned from a query. It helps reduce unnecessary data transfer and improves performance.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.find(\n {},\n {name:1, age:1}\n);"
+    },
+    "tags": [
+      "projection",
+      "performance"
+    ]
+  },
+  {
+    "id": "mongodb-016",
+    "category": "Sorting",
+    "difficulty": "easy",
+    "question": "How do you sort MongoDB query results?",
+    "answer": "MongoDB uses the sort() method. A value of 1 sorts ascending and -1 sorts descending.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.find()\n.sort({age:-1});"
+    },
+    "tags": [
+      "sorting",
+      "query"
+    ]
+  },
+  {
+    "id": "mongodb-017",
+    "category": "Pagination",
+    "difficulty": "medium",
+    "question": "How do you implement pagination in MongoDB?",
+    "answer": "Pagination is commonly implemented using skip() and limit(). For large datasets, range-based pagination using indexed fields provides better performance.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.find()\n.skip(20)\n.limit(10);"
+    },
+    "tags": [
+      "pagination",
+      "performance"
+    ]
+  },
+  {
+    "id": "mongodb-018",
+    "category": "Indexes",
+    "difficulty": "hard",
+    "question": "What are indexes in MongoDB?",
+    "answer": "Indexes improve query performance by allowing MongoDB to find documents faster without scanning the entire collection. They store references to documents based on indexed fields.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.createIndex({\n email:1\n});"
+    },
+    "tags": [
+      "indexes",
+      "performance"
+    ]
+  },
+  {
+    "id": "mongodb-019",
+    "category": "Index Types",
+    "difficulty": "hard",
+    "question": "What types of indexes are available in MongoDB?",
+    "answer": "MongoDB supports single field indexes, compound indexes, multikey indexes for arrays, text indexes for search, hashed indexes, and geospatial indexes.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Single Field\nCompound\nText\nHashed\nGeospatial"
+    },
+    "tags": [
+      "indexes",
+      "database"
+    ]
+  },
+  {
+    "id": "mongodb-020",
+    "category": "Schema Design",
+    "difficulty": "hard",
+    "question": "How do you design schemas in MongoDB?",
+    "answer": "MongoDB schema design depends on application access patterns. Developers choose between embedding related data inside documents or referencing other documents using IDs.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "Embedded:\n{\n user:'John',\n orders:[{}]\n}\n\nReferenced:\n{\n userId:123\n}"
+    },
+    "tags": [
+      "schema-design",
+      "database-design"
+    ]
+  }
+,
+  {
+    "id": "mongodb-021",
+    "category": "Aggregation",
+    "difficulty": "hard",
+    "question": "What is the aggregation framework in MongoDB?",
+    "answer": "MongoDB aggregation framework processes documents through a pipeline of stages to transform, filter, group, sort, and calculate data. It is similar to GROUP BY and analytics operations in SQL.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.orders.aggregate([\n {\n  $group:{\n   _id:'$status',\n   total:{$sum:1}\n  }\n }\n]);"
+    },
+    "tags": [
+      "aggregation",
+      "pipeline"
+    ]
+  },
+  {
+    "id": "mongodb-022",
+    "category": "Aggregation Pipeline",
+    "difficulty": "hard",
+    "question": "What are stages in MongoDB aggregation pipeline?",
+    "answer": "Aggregation stages are operations performed sequentially on documents. Common stages include $match, $group, $project, $sort, $limit, $lookup, and $unwind.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.aggregate([\n {$match:{active:true}},\n {$project:{name:1}}\n]);"
+    },
+    "tags": [
+      "aggregation",
+      "pipeline"
+    ]
+  },
+  {
+    "id": "mongodb-023",
+    "category": "Match Stage",
+    "difficulty": "medium",
+    "question": "What is the purpose of $match in MongoDB aggregation?",
+    "answer": "$match filters documents based on specified conditions. It works similar to the WHERE clause in SQL.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.products.aggregate([\n {\n  $match:{price:{$gt:100}}\n }\n]);"
+    },
+    "tags": [
+      "aggregation",
+      "match"
+    ]
+  },
+  {
+    "id": "mongodb-024",
+    "category": "Group Stage",
+    "difficulty": "hard",
+    "question": "What is the purpose of $group in MongoDB aggregation?",
+    "answer": "$group combines documents based on a specified field and performs calculations like count, sum, average, minimum, and maximum.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.sales.aggregate([\n {\n  $group:{\n   _id:'$category',\n   total:{$sum:'$amount'}\n  }\n }\n]);"
+    },
+    "tags": [
+      "group",
+      "aggregation"
+    ]
+  },
+  {
+    "id": "mongodb-025",
+    "category": "Lookup",
+    "difficulty": "hard",
+    "question": "What is $lookup in MongoDB?",
+    "answer": "$lookup performs a left outer join between collections. It allows combining data from multiple collections similar to JOIN operations in SQL.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.orders.aggregate([\n {\n  $lookup:{\n   from:'users',\n   localField:'userId',\n   foreignField:'_id',\n   as:'user'\n  }\n }\n]);"
+    },
+    "tags": [
+      "lookup",
+      "joins"
+    ]
+  },
+  {
+    "id": "mongodb-026",
+    "category": "Transactions",
+    "difficulty": "hard",
+    "question": "Does MongoDB support transactions?",
+    "answer": "Yes, MongoDB supports multi-document ACID transactions. Transactions ensure multiple database operations either complete successfully together or fail completely.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const session = db.startSession();\n\nsession.startTransaction();"
+    },
+    "tags": [
+      "transactions",
+      "acid"
+    ]
+  },
+  {
+    "id": "mongodb-027",
+    "category": "Replication",
+    "difficulty": "hard",
+    "question": "What is replication in MongoDB?",
+    "answer": "Replication maintains multiple copies of data across different servers using replica sets. It provides high availability and automatic failover.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Primary\n  |\n----------------\n|              |\nSecondary   Secondary"
+    },
+    "tags": [
+      "replication",
+      "availability"
+    ]
+  },
+  {
+    "id": "mongodb-028",
+    "category": "Replica Sets",
+    "difficulty": "hard",
+    "question": "What is a replica set in MongoDB?",
+    "answer": "A replica set is a group of MongoDB servers that maintain the same dataset. One server acts as primary for writes while secondary servers replicate data.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Replica Set:\nPrimary\nSecondary\nSecondary"
+    },
+    "tags": [
+      "replica-set",
+      "mongodb"
+    ]
+  },
+  {
+    "id": "mongodb-029",
+    "category": "Sharding",
+    "difficulty": "hard",
+    "question": "What is sharding in MongoDB?",
+    "answer": "Sharding distributes large datasets across multiple servers. It enables horizontal scaling by splitting data into smaller chunks called shards.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Large Collection\n       |\n-----------------\nShard1 Shard2 Shard3"
+    },
+    "tags": [
+      "sharding",
+      "scaling"
+    ]
+  },
+  {
+    "id": "mongodb-030",
+    "category": "Shard Key",
+    "difficulty": "hard",
+    "question": "What is a shard key in MongoDB?",
+    "answer": "A shard key determines how documents are distributed across shards. A good shard key provides even distribution and supports common query patterns.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "sh.shardCollection(\n 'shop.orders',\n {userId:1}\n);"
+    },
+    "tags": [
+      "sharding",
+      "performance"
+    ]
+  },
+  {
+    "id": "mongodb-031",
+    "category": "Mongoose",
+    "difficulty": "easy",
+    "question": "What is Mongoose?",
+    "answer": "Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It provides schemas, models, validation, middleware hooks, and easier database operations.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const mongoose = require('mongoose');\n\nmongoose.connect(process.env.MONGO_URL);"
+    },
+    "tags": [
+      "mongoose",
+      "nodejs"
+    ]
+  },
+  {
+    "id": "mongodb-032",
+    "category": "Mongoose Schema",
+    "difficulty": "medium",
+    "question": "What is a schema in Mongoose?",
+    "answer": "A schema defines the structure of documents, including fields, data types, validation rules, default values, and indexes.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const UserSchema = new mongoose.Schema({\n name:String,\n email:String,\n age:Number\n});"
+    },
+    "tags": [
+      "schema",
+      "mongoose"
+    ]
+  },
+  {
+    "id": "mongodb-033",
+    "category": "Mongoose Model",
+    "difficulty": "medium",
+    "question": "What is a model in Mongoose?",
+    "answer": "A model is created from a schema and provides an interface for creating, reading, updating, and deleting MongoDB documents.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const User = mongoose.model(\n 'User',\n UserSchema\n);"
+    },
+    "tags": [
+      "model",
+      "mongoose"
+    ]
+  },
+  {
+    "id": "mongodb-034",
+    "category": "Validation",
+    "difficulty": "medium",
+    "question": "How does validation work in Mongoose?",
+    "answer": "Mongoose validation ensures documents follow defined rules before saving. Validators include required, min, max, enum, match, and custom validators.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "const UserSchema = new mongoose.Schema({\n email:{\n  type:String,\n  required:true\n }\n});"
+    },
+    "tags": [
+      "validation",
+      "mongoose"
+    ]
+  },
+  {
+    "id": "mongodb-035",
+    "category": "Mongoose Middleware",
+    "difficulty": "hard",
+    "question": "What are middleware hooks in Mongoose?",
+    "answer": "Mongoose middleware hooks execute before or after database operations. They are useful for tasks like password hashing, logging, and data transformation.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "UserSchema.pre('save', function(next){\n console.log('Before save');\n next();\n});"
+    },
+    "tags": [
+      "middleware",
+      "mongoose"
+    ]
+  },
+  {
+    "id": "mongodb-036",
+    "category": "Performance Optimization",
+    "difficulty": "hard",
+    "question": "How can MongoDB query performance be improved?",
+    "answer": "Query performance can be improved using proper indexes, projection, query optimization, schema design, aggregation optimization, and avoiding unnecessary large documents.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.createIndex({email:1});"
+    },
+    "tags": [
+      "performance",
+      "indexes"
+    ]
+  },
+  {
+    "id": "mongodb-037",
+    "category": "Explain Query",
+    "difficulty": "hard",
+    "question": "What is explain() in MongoDB?",
+    "answer": "explain() provides information about query execution including indexes used, execution time, scanned documents, and query optimization details.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.find({email:'a@test.com'})\n.explain('executionStats');"
+    },
+    "tags": [
+      "optimization",
+      "explain"
+    ]
+  },
+  {
+    "id": "mongodb-038",
+    "category": "Security",
+    "difficulty": "hard",
+    "question": "How do you secure MongoDB databases?",
+    "answer": "MongoDB security includes authentication, authorization, encryption, network restrictions, access control, auditing, and keeping MongoDB versions updated.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Security:\n- Authentication\n- Authorization\n- Encryption\n- Firewall"
+    },
+    "tags": [
+      "security",
+      "mongodb"
+    ]
+  },
+  {
+    "id": "mongodb-039",
+    "category": "Backup",
+    "difficulty": "medium",
+    "question": "How do you backup MongoDB data?",
+    "answer": "MongoDB backups can be created using mongodump, managed cloud backups, snapshots, and replication strategies.",
+    "codeSnippet": {
+      "language": "bash",
+      "code": "mongodump --db company"
+    },
+    "tags": [
+      "backup",
+      "database"
+    ]
+  },
+  {
+    "id": "mongodb-040",
+    "category": "Production Practices",
+    "difficulty": "hard",
+    "question": "What are MongoDB production best practices?",
+    "answer": "Production MongoDB systems should use proper indexing, monitoring, backups, replica sets, security configuration, connection pooling, and optimized schema design.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Production:\n✓ Indexes\n✓ Backup\n✓ Monitoring\n✓ Security\n✓ Scaling"
+    },
+    "tags": [
+      "production",
+      "mongodb"
+    ]
+  }
+,
+  {
+    "id": "mongodb-041",
+    "category": "System Design",
+    "difficulty": "hard",
+    "question": "How would you design a scalable MongoDB architecture?",
+    "answer": "A scalable MongoDB architecture uses replica sets for availability, sharding for horizontal scaling, proper indexes for performance, caching layers, monitoring, backups, and optimized schema design.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Application\n     |\nLoad Balancer\n     |\nMongoDB Cluster\n     |\nReplica Set + Shards"
+    },
+    "tags": [
+      "system-design",
+      "scaling"
+    ]
+  },
+  {
+    "id": "mongodb-042",
+    "category": "Data Modeling",
+    "difficulty": "hard",
+    "question": "How do you decide between embedding and referencing documents?",
+    "answer": "Embedding is preferred when related data is frequently accessed together and has a one-to-few relationship. Referencing is better for large relationships, independent data, and many-to-many relationships.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "Embedded:\n{\n user:'John',\n address:{}\n}\n\nReferenced:\n{\n userId:ObjectId\n}"
+    },
+    "tags": [
+      "schema-design",
+      "data-modeling"
+    ]
+  },
+  {
+    "id": "mongodb-043",
+    "category": "CAP Theorem",
+    "difficulty": "hard",
+    "question": "How does MongoDB relate to CAP theorem?",
+    "answer": "MongoDB is designed around consistency and partition tolerance. Replica sets provide high availability while allowing configurable read and write concerns.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "CAP:\nConsistency\nAvailability\nPartition Tolerance"
+    },
+    "tags": [
+      "cap",
+      "distributed-systems"
+    ]
+  },
+  {
+    "id": "mongodb-044",
+    "category": "Read Preference",
+    "difficulty": "hard",
+    "question": "What is read preference in MongoDB?",
+    "answer": "Read preference controls where read operations are executed in a replica set. Reads can be directed to primary or secondary nodes depending on application requirements.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.collection.find()\n.readPref('secondary');"
+    },
+    "tags": [
+      "replica-set",
+      "read-preference"
+    ]
+  },
+  {
+    "id": "mongodb-045",
+    "category": "Write Concern",
+    "difficulty": "hard",
+    "question": "What is write concern in MongoDB?",
+    "answer": "Write concern defines the level of acknowledgment required from MongoDB before considering a write operation successful.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.users.insertOne(\n data,\n {writeConcern:{w:'majority'}}\n);"
+    },
+    "tags": [
+      "write-concern",
+      "database"
+    ]
+  },
+  {
+    "id": "mongodb-046",
+    "category": "Monitoring",
+    "difficulty": "medium",
+    "question": "How do you monitor MongoDB performance?",
+    "answer": "MongoDB performance can be monitored using MongoDB Atlas monitoring, database profiler, logs, metrics tools, and checking slow queries.",
+    "codeSnippet": {
+      "language": "javascript",
+      "code": "db.setProfilingLevel(1);"
+    },
+    "tags": [
+      "monitoring",
+      "performance"
+    ]
+  },
+  {
+    "id": "mongodb-047",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Why did you choose MongoDB for your project?",
+    "answer": "A good answer should mention flexible schema design, fast development, JSON-like documents, scalability, aggregation capabilities, and good Node.js ecosystem support.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Sample Answer:\n'MongoDB matched our application needs because our data structure changed frequently.'"
+    },
+    "tags": [
+      "hr",
+      "mongodb"
+    ]
+  },
+  {
+    "id": "mongodb-048",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "Explain a MongoDB optimization you implemented.",
+    "answer": "Explain the problem, analysis process, solution implemented, and measurable improvement. Examples include adding indexes, redesigning schemas, or optimizing queries.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Problem\n ↓\nAnalysis\n ↓\nOptimization\n ↓\nResult"
+    },
+    "tags": [
+      "hr",
+      "experience"
+    ]
+  },
+  {
+    "id": "mongodb-049",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "How do you handle database failures in MongoDB?",
+    "answer": "MongoDB failures are handled using replica sets, automatic failover, backups, monitoring alerts, retry logic, and disaster recovery strategies.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Failure Handling:\nReplica Set\nBackup\nRecovery\nMonitoring"
+    },
+    "tags": [
+      "hr",
+      "database"
+    ]
+  },
+  {
+    "id": "mongodb-050",
+    "category": "HR Round",
+    "difficulty": "easy",
+    "question": "How do you keep your MongoDB knowledge updated?",
+    "answer": "A good answer includes reading MongoDB documentation, building projects, following database trends, learning optimization techniques, and practicing real-world scenarios.",
+    "codeSnippet": {
+      "language": "text",
+      "code": "Learning:\nDocumentation\nProjects\nCommunity\nPractice"
+    },
+    "tags": [
+      "hr",
+      "career"
+    ]
+  }
+]
