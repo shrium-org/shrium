@@ -68,3 +68,13 @@ export interface ResumeData {
   education: Education;
   certifications: Certification[];
 }
+
+
+
+// -----------------------------------------------------------
+export interface SuccessResponse<T> {
+  data: T;
+  message: string;
+  success: boolean;
+  timestamp: string;
+}

@@ -1,6 +1,7 @@
 // hero.component.ts
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ResumeDataService } from '../../core/services/resume-data.service';
+import { HeroService } from './hero.service';
 
 @Component({
   selector: 'app-hero',
@@ -8,6 +9,17 @@ import { ResumeDataService } from '../../core/services/resume-data.service';
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'
 })
-export class HeroComponent {
-  data = inject(ResumeDataService).data;
+export class HeroComponent implements OnInit {
+
+  
+ 
+  
+  profileServce = inject(HeroService)
+   data = this.profileServce.profileData();
+
+  ngOnInit(): void {
+      this.profileServce.getProfile().subscribe();
+  }
+  
+
 }

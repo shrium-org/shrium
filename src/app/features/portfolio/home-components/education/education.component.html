@@ -1,67 +1,126 @@
-<!-- education.component.html -->
-<section id="education" class="mb-16">
+<section class="py-16 border-b"
+         style="border-color:var(--color-border)">
 
-  <!-- Section header -->
-  <div class="flex items-center gap-4 mb-8">
-    <span class="text-mono">04</span>
-    <h2 class="font-heading text-3xl font-semibold tracking-wide text-foreground whitespace-nowrap">
+
+  <!-- Header -->
+  <div class="mb-10">
+
+    <h2 class="font-heading text-3xl mb-3"
+        style="color:var(--color-foreground)">
       Education
     </h2>
-    <div class="divider"></div>
+
+    <p class="text-sm"
+       style="color:var(--color-foreground-muted)">
+      Academic background and qualifications.
+    </p>
+
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-    <!-- Education card -->
-    <div class="card card-accent-top p-6">
-      <div class="flex items-center gap-3 mb-5">
-        <div class="w-10 h-10 shrink-0 rounded-lg flex items-center justify-center"
-             style="background:var(--color-primary-dim);border:1px solid var(--color-primary-border)">
-          <i class="ti ti-school text-lg" style="color:var(--color-primary)" aria-hidden="true"></i>
-        </div>
-        <div>
-          <div class="text-base font-semibold tracking-tight text-foreground">{{ edu.degree }}</div>
-          <div class="text-sm text-foreground-muted mt-0.5">{{ edu.school }}</div>
-        </div>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        <span class="text-mono px-2.5 py-1 rounded bg-surface-3 text-foreground-muted">
-          {{ edu.period }}
-        </span>
-        <span class="text-mono px-2.5 py-1 rounded border"
-              style="background:var(--color-primary-dim);border-color:var(--color-primary-border);color:var(--color-primary)">
-          CGPA {{ edu.cgpa }}
-        </span>
-      </div>
-    </div>
 
-    <!-- Certifications card -->
-    <div class="card p-6">
-      <div class="label-section flex items-center gap-1.5 mb-4">
-        <i class="ti ti-certificate text-sm" aria-hidden="true"></i>
-        Certifications
-      </div>
+  <!-- Education Cards -->
 
-      @for (cert of certs; track cert.name; let last = $last) {
-        <div class="flex items-center justify-between gap-3 py-3"
-             [class.border-b]="!last"
-             style="border-color:var(--color-border)">
+  <div class="grid grid-cols-1 gap-5">
+
+
+    @for(item of education(); track item.id) {
+
+
+      <div
+        class="rounded-xl p-6"
+        style="
+          background:var(--color-surface-2);
+          border:1px solid var(--color-border)
+        ">
+
+
+        <!-- Degree -->
+        <div class="flex flex-col md:flex-row md:justify-between gap-3 mb-4">
+
+
           <div>
-            <div class="text-sm font-medium text-foreground">{{ cert.name }}</div>
-            <div class="text-xs text-foreground-subtle mt-0.5">{{ cert.by }}</div>
-          </div>
-          @if (cert.url) {
-            <a [href]="cert.url"
-               target="_blank"
-               rel="noopener"
-               class="text-mono text-xs whitespace-nowrap opacity-80 hover:opacity-100 transition-opacity"
+
+            <h3 class="text-lg font-semibold"
+                style="color:var(--color-foreground)">
+              {{ item.degree }}
+            </h3>
+
+
+            <p class="text-sm"
                style="color:var(--color-primary)">
-              View ↗
-            </a>
-          }
+              {{ item.fieldOfStudy }}
+            </p>
+
+          </div>
+
+
+
+          <div class="text-xs"
+               style="color:var(--color-foreground-muted)">
+
+            {{ item.startDate }}
+            -
+            {{ item.endDate }}
+
+          </div>
+
+
         </div>
-      }
-    </div>
+
+
+
+        <!-- Institution -->
+
+        <div class="space-y-2 text-sm"
+             style="color:var(--color-foreground-muted)">
+
+
+          <div class="flex items-center gap-2">
+
+            <i class="ti ti-school"
+               style="color:var(--color-primary)">
+            </i>
+
+            {{ item.institution }}
+
+          </div>
+
+
+
+          <div class="flex items-center gap-2">
+
+            <i class="ti ti-map-pin"
+               style="color:var(--color-primary)">
+            </i>
+
+            {{ item.location }}
+
+          </div>
+
+
+
+          <div class="flex items-center gap-2">
+
+            <i class="ti ti-award"
+               style="color:var(--color-primary)">
+            </i>
+
+            {{ item.grade }}
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    }
+
 
   </div>
+
+
 </section>

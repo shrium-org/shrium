@@ -1,6 +1,7 @@
 // experience.component.ts
 import { Component, inject } from '@angular/core';
 import { ResumeDataService } from '../../core/services/resume-data.service';
+import { ExperienceService } from './experience.service';
 
 const TECH_ACCENTS: Record<string, string> = {
   'Java':        'bg-[#e76f00]/10 border-[#e76f00]/30 text-[#e76f00]',
@@ -16,9 +17,12 @@ const TECH_ACCENTS: Record<string, string> = {
 
 })
 export class ExperienceComponent {
-  data = inject(ResumeDataService).data;
+  private experienceService = inject(ExperienceService);
 
-  getTechClass(tech: string): string {
-    return TECH_ACCENTS[tech] ?? 'bg-surface-3 border-white/[0.07] text-fg-subtle';
+  experiences = this.experienceService.experienceData;
+
+
+  ngOnInit(): void {
+    this.experienceService.getExperience().subscribe();
   }
 }

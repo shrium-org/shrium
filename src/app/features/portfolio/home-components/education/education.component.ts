@@ -2,6 +2,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ResumeDataService } from '../../core/services/resume-data.service';
+import { EducationService } from './education.service';
 
 @Component({
   selector: 'app-education',
@@ -11,7 +12,13 @@ import { ResumeDataService } from '../../core/services/resume-data.service';
   // styleUrl: './education.component.scss',
 })
 export class EducationComponent {
-  private svc = inject(ResumeDataService);
-  edu = this.svc.data.education;
-  certs = this.svc.data.certifications;
+   private educationService = inject(EducationService);
+
+  education = this.educationService.educationData;
+
+
+  ngOnInit(): void {
+    this.educationService.getEducation().subscribe();
+  }
+
 }

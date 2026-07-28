@@ -7,11 +7,12 @@ import { ProjectsComponent } from '../../home-components/projects/projects.compo
 import { SkillsComponent } from '../../home-components/skills/skills.component';
 import { FooterComponent } from '../../home-components/footer/footer.component';
 import { NavbarComponent } from '../../home-components/navbar/navbar.component';
+import { CertificationComponent } from '../../home-components/certification/certification.component';
 
 
 @Component({
   selector: 'app-portfolio',
-  imports: [HeroComponent,EducationComponent,ExperienceComponent,MetricsBannerComponent,ProjectsComponent,SkillsComponent,FooterComponent,NavbarComponent],
+  imports: [HeroComponent, EducationComponent, ExperienceComponent, MetricsBannerComponent, ProjectsComponent, SkillsComponent, FooterComponent, NavbarComponent, CertificationComponent],
   templateUrl: './portfolio.html',
   styleUrl: './portfolio.css',
 })
