@@ -21,5 +21,12 @@ export class HeroComponent implements OnInit {
       this.profileServce.getProfile().subscribe();
   }
   
+  copyToClipboard(value: string) {
+
+  if (!value) return;
+
+  navigator.clipboard.writeText(value);
+
+}
 
 }

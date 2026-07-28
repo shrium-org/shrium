@@ -66,118 +66,169 @@
     </p>
 
 
-    <!-- Contact Links -->
-    <div class="flex flex-wrap gap-3">
+<!-- Contact Links -->
+<div class="flex flex-wrap gap-3">
 
 
-      <!-- Email -->
-      <a [href]="'mailto:' + data()?.email"
-         class="flex items-center gap-2 px-3.5 py-2 rounded-md text-xs transition"
-         style="
-          background:var(--color-surface-2);
-          border:1px solid var(--color-border);
-          color:var(--color-foreground-muted)
-         ">
+  <!-- Email -->
+  <a
+    (click)="copyToClipboard(data()?.email ?? '')"
+    class="contact-chip cursor-pointer flex items-center gap-2 px-3.5 py-2 rounded-md text-xs transition-all duration-300"
+    style="
+      background:var(--color-surface-2);
+      border:1px solid var(--color-border);
+      color:var(--color-foreground-muted)
+    ">
 
-        <i class="ti ti-mail text-sm"
-           style="color:var(--color-primary)">
-        </i>
+    <i class="ti ti-mail text-sm"
+       style="color:var(--color-primary)">
+    </i>
 
-        {{data()?.email}}
+    <span class="chip-default">
+      Email
+    </span>
 
-      </a>
+    <span class="chip-hover">
+      {{ data()?.email }}
+    </span>
 
-
-      <!-- Phone -->
-      <a [href]="'tel:' + data()?.phone"
-         class="flex items-center gap-2 px-3.5 py-2 rounded-md text-xs transition"
-         style="
-          background:var(--color-surface-2);
-          border:1px solid var(--color-border);
-          color:var(--color-foreground-muted)
-         ">
-
-        <i class="ti ti-phone text-sm"
-           style="color:var(--color-primary)">
-        </i>
-
-        {{data()?.phone}}
-
-      </a>
+  </a>
 
 
-      <!-- Github -->
-      @if(data()?.socialLinks?.github) {
 
-        <a [href]="data()?.socialLinks?.github"
-           target="_blank"
-           rel="noopener"
-           class="flex items-center gap-2 px-3.5 py-2 rounded-md text-xs"
-           style="
-            background:var(--color-surface-2);
-            border:1px solid var(--color-border);
-            color:var(--color-foreground-muted)
-           ">
+  <!-- Phone -->
+  <a
+    [href]="'tel:' + data()?.phone"
+    class="contact-chip flex items-center gap-2 px-3.5 py-2 rounded-md text-xs transition-all duration-300"
+    style="
+      background:var(--color-surface-2);
+      border:1px solid var(--color-border);
+      color:var(--color-foreground-muted)
+    ">
 
-          <i class="ti ti-brand-github text-sm"
-             style="color:var(--color-primary)">
-          </i>
+    <i class="ti ti-phone text-sm"
+       style="color:var(--color-primary)">
+    </i>
 
-          {{data()?.socialLinks?.github }}
+    <span class="chip-default">
+      Phone
+    </span>
 
-        </a>
+    <span class="chip-hover">
+      {{ data()?.phone }}
+    </span>
 
-      }
-
-
-      <!-- LinkedIn -->
-      @if(data()?.socialLinks?.linkedin) {
-
-        <a [href]="data()?.socialLinks?.linkedin"
-           target="_blank"
-           rel="noopener"
-           class="flex items-center gap-2 px-3.5 py-2 rounded-md text-xs"
-           style="
-            background:var(--color-surface-2);
-            border:1px solid var(--color-border);
-            color:var(--color-foreground-muted)
-           ">
-
-          <i class="ti ti-brand-linkedin text-sm"
-             style="color:var(--color-primary)">
-          </i>
-
-          {{data()?.socialLinks?.linkedin}}
-
-        </a>
-
-      }
+  </a>
 
 
-      <!-- Portfolio -->
-      @if(data()?.socialLinks?.portfolio) {
 
-        <a [href]="data()?.socialLinks?.portfolio"
-           target="_blank"
-           rel="noopener"
-           class="flex items-center gap-2 px-3.5 py-2 rounded-md text-xs"
-           style="
-            background:var(--color-surface-2);
-            border:1px solid var(--color-border);
-            color:var(--color-foreground-muted)
-           ">
+  <!-- Github -->
+  @if(data()?.socialLinks?.github) {
 
-          <i class="ti ti-world text-sm"
-             style="color:var(--color-primary)">
-          </i>
+    <a
+      [href]="data()?.socialLinks?.github"
+      target="_blank"
+      rel="noopener"
+      class="contact-chip flex items-center gap-2 px-3.5 py-2 rounded-md text-xs transition-all duration-300"
+      style="
+        background:var(--color-surface-2);
+        border:1px solid var(--color-border);
+        color:var(--color-foreground-muted)
+      ">
 
-          {{data()?.socialLinks?.portfolio}}
+      <i class="ti ti-brand-github text-sm"
+         style="color:var(--color-primary)">
+      </i>
 
-        </a>
 
-      }
+      <span class="chip-default">
+        Github
+      </span>
 
-    </div>
+      <span class="chip-hover">
+        GitHub Profile
+      </span>
+
+
+    </a>
+
+  }
+
+
+
+
+  <!-- LinkedIn -->
+  @if(data()?.socialLinks?.linkedin) {
+
+    <a
+      [href]="data()?.socialLinks?.linkedin"
+      target="_blank"
+      rel="noopener"
+      class="contact-chip flex items-center gap-2 px-3.5 py-2 rounded-md text-xs transition-all duration-300"
+      style="
+        background:var(--color-surface-2);
+        border:1px solid var(--color-border);
+        color:var(--color-foreground-muted)
+      ">
+
+
+      <i class="ti ti-brand-linkedin text-sm"
+         style="color:var(--color-primary)">
+      </i>
+
+
+      <span class="chip-default">
+        LinkedIn
+      </span>
+
+      <span class="chip-hover">
+        LinkedIn Profile
+      </span>
+
+
+    </a>
+
+  }
+
+
+
+
+  <!-- Portfolio -->
+  @if(data()?.socialLinks?.portfolio) {
+
+    <a
+      [href]="data()?.socialLinks?.portfolio"
+      target="_blank"
+      rel="noopener"
+      class="contact-chip flex items-center gap-2 px-3.5 py-2 rounded-md text-xs transition-all duration-300"
+      style="
+        background:var(--color-surface-2);
+        border:1px solid var(--color-border);
+        color:var(--color-foreground-muted)
+      ">
+
+
+      <i class="ti ti-world text-sm"
+         style="color:var(--color-primary)">
+      </i>
+
+
+      <span class="chip-default">
+        Portfolio
+      </span>
+
+
+      <span class="chip-hover">
+        Visit Website
+      </span>
+
+
+    </a>
+
+  }
+
+
+</div>
 
   </div>
 

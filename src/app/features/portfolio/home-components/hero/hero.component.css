@@ -1,5 +1,15 @@
+.contact-chip {
+  overflow: hidden;
+}
 
-.contact-chip:hover {
-  border-color: var(--color-primary) !important;
-  color: var(--color-foreground) !important;
+.chip-hover {
+  display: none;
+}
+
+.contact-chip:hover .chip-default {
+  display: none;
+}
+
+.contact-chip:hover .chip-hover {
+  display: inline;
 }
