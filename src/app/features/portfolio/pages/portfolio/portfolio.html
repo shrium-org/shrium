@@ -1,12 +1,41 @@
-    <app-navbar/>
-    <main class="max-w-5xl mx-auto px-6 pt-28 pb-0">
-      <app-hero />
-      <app-metrics-banner />
-      <app-skills />
-      <app-experience />
-      <app-projects />
-      <app-education />
-      <app-certifications/>
-      <app-footer />
-    
-    </main>
+<div class="portfolio-bg">
+
+  <!-- Animated Skills Background -->
+  <div class="skills-bg">
+
+    @for(skill of animatedSkills; track skill.name; let i = $index) {
+
+      <span
+        class="skill-orb"
+        [style.--x]="skill.x"
+        [style.--y]="skill.y"
+        [style.--delay]="skill.delay">
+
+        <i [class]="skill.icon"></i>
+
+        {{ skill.name }}
+
+      </span>
+
+    }
+
+  </div>
+
+
+
+  <app-navbar/>
+
+  <main class="relative z-10 max-w-5xl mx-auto px-6 pt-28 pb-0">
+
+    <app-hero />
+    <app-metrics-banner />
+    <app-skills />
+    <app-experience />
+    <app-projects />
+    <app-education />
+    <app-certifications/>
+    <app-footer />
+
+  </main>
+
+</div>

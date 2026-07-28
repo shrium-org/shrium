@@ -1,0 +1,76 @@
+.portfolio-bg {
+  position: relative;
+  min-height:100vh;
+  overflow:hidden;
+}
+
+
+.skills-bg {
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+
+.skill-orb {
+
+  position:absolute;
+
+  left:var(--x);
+  top:var(--y);
+
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  padding:8px 14px;
+
+  border-radius:999px;
+
+  font-size:12px;
+  font-weight:600;
+
+  opacity:.15;
+
+  backdrop-filter:blur(10px);
+
+  background:var(--color-surface-2);
+
+  border:1px solid var(--color-border);
+
+  color:var(--color-foreground);
+
+  animation:
+    floatSkill 8s ease-in-out infinite;
+
+  animation-delay:var(--delay);
+
+}
+
+
+
+.skill-orb i {
+
+  color:var(--color-primary);
+  font-size:15px;
+
+}
+
+
+
+@keyframes floatSkill {
+
+  0% {
+    transform:translateY(0px);
+  }
+
+  50% {
+    transform:translateY(-25px);
+  }
+
+  100% {
+    transform:translateY(0px);
+  }
+
+}
