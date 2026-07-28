@@ -14,7 +14,7 @@ export class CertificationComponent implements OnInit {
 
   private certificationService = inject(CertificationService);
 
-  certifications = this.certificationService.certificationData();
+  certifications = this.certificationService.certificationData;
 
 
   ngOnInit(): void {
