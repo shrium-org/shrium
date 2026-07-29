@@ -1,7 +1,7 @@
 <!-- ============ NAV ============ -->
 <header
-  class="fixed top-0 inset-x-0 z-50 transition-colors duration-300"
-  [ngClass]="scrolled ? 'bg-ink-900 shadow-lg  shadow-black/40' : ''"
+  class="fixed inset-x-0 top-0 z-50 bg-background border-b border-border transition-all duration-300"
+  [ngClass]="scrolled ? 'shadow-lg shadow-black/10 backdrop-blur-md' : ''"
 >
   <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
     <a href="#top" class="font-mono text-sm tracking-tight text-mist-100">
@@ -13,7 +13,7 @@
         <a [href]="link.href" class="hover:text-signal transition-colors">{{ link.label }}</a>
       </li>
     </ul>
-
+        <app-theme-toggle class="hidden lg:block"/>
     <button
       class="md:hidden font-mono text-xs text-mist-100 border border-ink-600 rounded px-3 py-1.5"
       (click)="navOpen = !navOpen"
@@ -29,7 +29,9 @@
     <li *ngFor="let link of navLinks">
       <a [href]="link.href" (click)="closeNav()" class="hover:text-signal transition-colors">{{ link.label }}</a>
     </li>
+  
   </ul>
+
 </header>
 
 <!-- ============ HERO ============ -->

@@ -9,11 +9,12 @@ import {
   blogs,
   education,
 } from './data/portfolio-data';
+import { ThemeToggle } from "../../shared/components/theme-toggle/theme-toggle";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ThemeToggle],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
