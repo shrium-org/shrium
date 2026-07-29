@@ -11,7 +11,7 @@
       class="font-mono text-sm tracking-tight text-foreground"
     >
       <span class="text-primary">AM</span>
-      <span class="text-foreground-subtle">://</span>
+      <span class="text-tercery">://</span>
       portfolio
       <span class="blink text-primary">_</span>
     </a>
@@ -20,7 +20,10 @@
     <ul
       class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-foreground-muted"
     >
-      <li *ngFor="let link of navLinks">
+      
+
+      @for (link of navLinks; track $index) {
+      <li>
         <a
           [href]="link.href"
           class="transition-colors text-foreground-subtle hover:text-primary"
@@ -28,6 +31,9 @@
           {{ link.label }}
         </a>
       </li>
+      }
+      
+
     </ul>
 
     <!-- Theme Toggle -->
