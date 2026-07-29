@@ -1,123 +1,270 @@
 <!-- ============ NAV ============ -->
 <header
-  class="fixed inset-x-0 top-0 z-50 bg-background border-b border-border transition-all duration-300"
-  [ngClass]="scrolled ? 'shadow-lg shadow-black/10 backdrop-blur-md' : ''"
+  class="fixed inset-x-0 top-0 z-50 bg-background border-b border-border backdrop-blur-md transition-all duration-300"
+  [class.shadow-header]="scrolled"
 >
   <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="#top" class="font-mono text-sm tracking-tight text-mist-100">
-      <span class="text-signal">AM</span><span class="text-mist-400">://</span>portfolio<span class="blink text-signal">_</span>
+
+    <!-- Logo -->
+    <a
+      href="#top"
+      class="font-mono text-sm tracking-tight text-foreground"
+    >
+      <span class="text-primary">AM</span>
+      <span class="text-foreground-subtle">://</span>
+      portfolio
+      <span class="blink text-primary">_</span>
     </a>
 
-    <ul class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-mist-400">
+    <!-- Desktop Navigation -->
+    <ul
+      class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-foreground-muted"
+    >
       <li *ngFor="let link of navLinks">
-        <a [href]="link.href" class="hover:text-signal transition-colors">{{ link.label }}</a>
+        <a
+          [href]="link.href"
+          class="transition-colors hover:text-primary"
+        >
+          {{ link.label }}
+        </a>
       </li>
     </ul>
-        <app-theme-toggle class="hidden lg:block"/>
+
+    <!-- Theme Toggle -->
+    <app-theme-toggle class="hidden lg:block" />
+
+    <!-- Mobile Menu Button -->
     <button
-      class="md:hidden font-mono text-xs text-mist-100 border border-ink-600 rounded px-3 py-1.5"
+      class="md:hidden rounded border border-border bg-surface px-3 py-1.5 font-mono text-xs text-foreground transition-colors hover:bg-surface-2"
       (click)="navOpen = !navOpen"
     >
       {{ navOpen ? 'close' : 'menu' }}
     </button>
+
   </nav>
 
+  <!-- Mobile Navigation -->
   <ul
     *ngIf="navOpen"
-    class="md:hidden bg-ink-900 border-t border-ink-700 px-6 py-4 flex flex-col gap-4 font-mono text-xs uppercase tracking-widest text-mist-400"
+    class="md:hidden border-t border-border bg-background px-6 py-4 flex flex-col gap-4 font-mono text-xs uppercase tracking-widest text-foreground-muted"
   >
     <li *ngFor="let link of navLinks">
-      <a [href]="link.href" (click)="closeNav()" class="hover:text-signal transition-colors">{{ link.label }}</a>
+      <a
+        [href]="link.href"
+        (click)="closeNav()"
+        class="block transition-colors hover:text-primary"
+      >
+        {{ link.label }}
+      </a>
     </li>
-  
   </ul>
 
 </header>
 
 <!-- ============ HERO ============ -->
-<main id="top" class="bg-ink-900">
+<main id="top" class="bg-background">
   <section id="profile" class="relative overflow-hidden min-h-screen flex items-center px-6 pt-28 pb-20">
-    <div class="pointer-events-none absolute inset-0 opacity-40" style="background-image: radial-gradient(circle at 1px 1px, rgba(94,234,212,0.10) 1px, transparent 0); background-size: 26px 26px;"></div>
-    <div class="pointer-events-none absolute -top-40 right-[-10%] w-[38rem] h-[38rem] rounded-full bg-signal/10 blur-3xl"></div>
+
+    <div
+      class="pointer-events-none absolute inset-0 opacity-40"
+      style="background-image: radial-gradient(circle at 1px 1px, rgba(94,234,212,0.10) 1px, transparent 0); background-size: 26px 26px;"
+    ></div>
+
+    <div class="pointer-events-none absolute -top-40 right-[-10%] w-[38rem] h-[38rem] rounded-full bg-primary/10 blur-3xl"></div>
 
     <div class="relative max-w-6xl mx-auto w-full grid md:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
-      <div>
-        <p class="font-mono text-xs text-signal/90 tracking-widest mb-5">EVT-01 // SYSTEM.BOOT</p>
 
-        <div class="font-mono text-[13px] text-mist-400 mb-8 space-y-1 border-l border-ink-600 pl-4">
-          <p *ngFor="let line of bootLines">{{ line }}</p>
+      <div>
+
+        <p class="font-mono text-xs text-primary/90 tracking-widest mb-5">
+          EVT-01 // SYSTEM.BOOT
+        </p>
+
+        <div class="font-mono text-[13px] text-foreground-muted mb-8 space-y-1 border-l border-border pl-4">
+          <p *ngFor="let line of bootLines">
+            {{ line }}
+          </p>
         </div>
 
-        <h1 class="font-display font-semibold leading-[1.05] text-4xl sm:text-5xl lg:text-6xl text-mist-100">
+
+        <h1 class="font-display font-semibold leading-[1.05] text-4xl sm:text-5xl lg:text-6xl text-foreground">
           {{ profile.name }}
         </h1>
-        <p class="mt-4 font-display text-xl sm:text-2xl text-signal text-glow">{{ profile.title }}</p>
 
-        <p class="mt-6 max-w-xl text-mist-400 leading-relaxed">
+
+        <p class="mt-4 font-display text-xl sm:text-2xl text-primary text-glow">
+          {{ profile.title }}
+        </p>
+
+
+        <p class="mt-6 max-w-xl text-foreground-muted leading-relaxed">
           {{ profile.summary }}
         </p>
 
+
         <div class="mt-8 flex flex-wrap gap-2">
-          <span *ngFor="let tag of profile.tagline" class="font-mono text-[11px] uppercase tracking-wide text-mist-200 border border-ink-600 rounded-full px-3 py-1.5 bg-ink-800/60">
+          <span
+            *ngFor="let tag of profile.tagline"
+            class="font-mono text-[11px] uppercase tracking-wide text-foreground border border-border rounded-full px-3 py-1.5 bg-surface"
+          >
             {{ tag }}
           </span>
         </div>
 
+
         <div class="mt-10 flex flex-wrap items-center gap-4">
-          <a [href]="mailtoHref()" class="inline-flex items-center gap-2 bg-signal text-ink-950 font-semibold text-sm px-5 py-3 rounded-md hover:bg-signal-dim transition-colors">
+
+          <a
+            [href]="mailtoHref()"
+            class="inline-flex items-center gap-2 bg-primary text-background font-semibold text-sm px-5 py-3 rounded-md hover:bg-primary/90 transition-colors"
+          >
             Discuss a project
           </a>
-          <a href="#experience" class="inline-flex items-center gap-2 border border-ink-600 text-mist-100 font-semibold text-sm px-5 py-3 rounded-md hover:border-signal hover:text-signal transition-colors">
+
+
+          <a
+            href="#experience"
+            class="inline-flex items-center gap-2 border border-border text-foreground font-semibold text-sm px-5 py-3 rounded-md hover:border-primary hover:text-primary transition-colors"
+          >
             View the log
           </a>
+
         </div>
 
-        <div class="mt-8 flex items-center gap-5 font-mono text-xs text-mist-400">
-          <a href="https://{{ profile.socialLinks.github }}" target="_blank" rel="noopener" class="hover:text-signal transition-colors">{{ profile.socialLinks.github }}</a>
-          <span class="text-ink-600">·</span>
-          <a href="https://{{ profile.socialLinks.linkedin }}" target="_blank" rel="noopener" class="hover:text-signal transition-colors">linkedin</a>
-          <span class="text-ink-600">·</span>
-          <span>{{ profile.location }}</span>
+
+        <div class="mt-8 flex items-center gap-5 font-mono text-xs text-foreground-muted">
+
+          <a
+            href="https://{{ profile.socialLinks.github }}"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-primary transition-colors"
+          >
+            {{ profile.socialLinks.github }}
+          </a>
+
+          <span class="text-foreground-subtle">·</span>
+
+          <a
+            href="https://{{ profile.socialLinks.linkedin }}"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-primary transition-colors"
+          >
+            linkedin
+          </a>
+
+          <span class="text-foreground-subtle">·</span>
+
+          <span>
+            {{ profile.location }}
+          </span>
+
         </div>
+
       </div>
 
-      <!-- signature: event-log console card -->
+
+
+      <!-- event-log console card -->
       <div class="reveal">
-        <div class="rounded-xl border border-ink-600 bg-ink-800/70 card-noise overflow-hidden">
-          <div class="flex items-center gap-2 px-4 py-3 border-b border-ink-700">
+
+        <div class="rounded-xl border border-border bg-surface card-noise overflow-hidden">
+
+          <div class="flex items-center gap-2 px-4 py-3 border-b border-border">
+
             <span class="w-2.5 h-2.5 rounded-full bg-red-400/70"></span>
             <span class="w-2.5 h-2.5 rounded-full bg-amber/70"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-signal/70"></span>
-            <span class="ml-3 font-mono text-[11px] text-mist-400">event_stream.log</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-primary/70"></span>
+
+            <span class="ml-3 font-mono text-[11px] text-foreground-muted">
+              event_stream.log
+            </span>
+
           </div>
-          <div class="p-5 font-mono text-[12px] leading-6 text-mist-400">
-            <p><span class="text-signal">EVT‑{{ education.endDate }}</span> B.Tech CSE — {{ education.grade }}</p>
-            <p><span class="text-signal">EVT‑2023‑06</span> Software Developer Intern</p>
-            <p><span class="text-signal">EVT‑2024‑06</span> Promoted → Software Engineer</p>
-            <p><span class="text-signal">EVT‑now</span> Shipping CQRS + Event Sourcing platforms</p>
-            <p class="mt-3 pt-3 border-t border-ink-700 text-mist-200">
-              &gt; <span class="text-signal">{{ yearsExperience }}+ yrs</span> experience &nbsp;|&nbsp;
-              <span class="text-signal">{{ projects.length }}</span> shipped builds &nbsp;|&nbsp;
-              <span class="text-signal">{{ certifications.length }}</span> certifications
+
+
+          <div class="p-5 font-mono text-[12px] leading-6 text-foreground-muted">
+
+            <p>
+              <span class="text-primary">
+                EVT-{{ education.endDate }}
+              </span>
+              B.Tech CSE — {{ education.grade }}
             </p>
+
+
+            <p>
+              <span class="text-primary">
+                EVT-2023-06
+              </span>
+              Software Developer Intern
+            </p>
+
+
+            <p>
+              <span class="text-primary">
+                EVT-2024-06
+              </span>
+              Promoted → Software Engineer
+            </p>
+
+
+            <p>
+              <span class="text-primary">
+                EVT-now
+              </span>
+              Shipping CQRS + Event Sourcing platforms
+            </p>
+
+
+            <p class="mt-3 pt-3 border-t border-border text-foreground">
+
+              &gt;
+              <span class="text-primary">
+                {{ yearsExperience }}+ yrs
+              </span>
+
+              experience
+              &nbsp;|&nbsp;
+
+              <span class="text-primary">
+                {{ projects.length }}
+              </span>
+
+              shipped builds
+              &nbsp;|&nbsp;
+
+              <span class="text-primary">
+                {{ certifications.length }}
+              </span>
+
+              certifications
+
+            </p>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
   </section>
 </main>
 
 <!-- ============ STACK / SKILLS ============ -->
-<section id="stack" class="bg-ink-900 border-t border-ink-700 px-6 py-24">
+<section id="stack" class="bg-background border-t border-border700 px-6 py-24">
   <div class="max-w-6xl mx-auto">
-    <p class="font-mono text-xs text-signal/90 tracking-widest mb-3 reveal">EVT-02 // STACK.LOAD</p>
-    <h2 class="font-display text-3xl sm:text-4xl text-mist-100 mb-14 reveal">What I build with</h2>
+    <p class="font-mono text-xs text-primary/90 tracking-widest mb-3 reveal">EVT-02 // STACK.LOAD</p>
+    <h2 class="font-display text-3xl sm:text-4xl text-foreground mb-14 reveal">What I build with</h2>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      <div *ngFor="let group of skillGroups" class="reveal rounded-xl border border-ink-600 bg-ink-800/50 p-6 hover:border-signal/50 transition-colors">
-        <h3 class="font-mono text-[11px] uppercase tracking-widest text-signal mb-4">{{ group.category }}</h3>
+      <div *ngFor="let group of skillGroups" class="reveal rounded-xl border border-border600 bg-surface p-6 hover:border-primary/50 transition-colors">
+        <h3 class="font-mono text-[11px] uppercase tracking-widest text-primary mb-4">{{ group.category }}</h3>
         <div class="flex flex-wrap gap-2">
-          <span *ngFor="let skill of group.skills" class="text-xs text-mist-200 bg-ink-700/70 rounded px-2.5 py-1">
+          <span *ngFor="let skill of group.skills" class="text-xs text-foreground bg-surface-2/70 rounded px-2.5 py-1">
             {{ skill }}
           </span>
         </div>
@@ -127,27 +274,27 @@
 </section>
 
 <!-- ============ EXPERIENCE (event log) ============ -->
-<section id="experience" class="bg-ink-900 border-t border-ink-700 px-6 py-24">
+<section id="experience" class="bg-background border-t border-border700 px-6 py-24">
   <div class="max-w-6xl mx-auto">
-    <p class="font-mono text-xs text-signal/90 tracking-widest mb-3 reveal">EVT-03 // CAREER.LOG</p>
-    <h2 class="font-display text-3xl sm:text-4xl text-mist-100 mb-14 reveal">Career event log</h2>
+    <p class="font-mono text-xs text-primary/90 tracking-widest mb-3 reveal">EVT-03 // CAREER.LOG</p>
+    <h2 class="font-display text-3xl sm:text-4xl text-foreground mb-14 reveal">Career event log</h2>
 
     <div class="rail pl-8 space-y-14">
       <article *ngFor="let job of experience; let i = index" class="reveal relative rail-dot">
-        <p class="font-mono text-[11px] text-signal tracking-widest">
+        <p class="font-mono text-[11px] text-primary tracking-widest">
           EVT‑{{ job.startDate }} → {{ job.endDate === 'Present' ? 'now' : job.endDate }}
         </p>
-        <h3 class="font-display text-xl sm:text-2xl text-mist-100 mt-2">{{ job.role }}</h3>
-        <p class="text-mist-400 mt-1">{{ job.company }} — {{ job.location }}</p>
+        <h3 class="font-display text-xl sm:text-2xl text-foreground mt-2">{{ job.role }}</h3>
+        <p class="text-foreground-muted mt-1">{{ job.company }} — {{ job.location }}</p>
 
         <ul class="mt-5 space-y-2 max-w-2xl">
-          <li *ngFor="let r of job.responsibilities" class="text-sm text-mist-200 leading-relaxed flex gap-2">
-            <span class="text-signal mt-1.5 shrink-0">›</span><span>{{ r }}</span>
+          <li *ngFor="let r of job.responsibilities" class="text-sm text-foreground leading-relaxed flex gap-2">
+            <span class="text-primary mt-1.5 shrink-0">›</span><span>{{ r }}</span>
           </li>
         </ul>
 
         <div class="mt-5 flex flex-wrap gap-2">
-          <span *ngFor="let t of job.techStack" class="font-mono text-[11px] text-mist-400 border border-ink-600 rounded px-2 py-1">
+          <span *ngFor="let t of job.techStack" class="font-mono text-[11px] text-foreground-muted border border-border600 rounded px-2 py-1">
             {{ t }}
           </span>
         </div>
@@ -155,41 +302,41 @@
 
       <!-- education as final log entry -->
       <article class="reveal relative rail-dot">
-        <p class="font-mono text-[11px] text-signal tracking-widest">EVT‑{{ education.startDate }} → {{ education.endDate }}</p>
-        <h3 class="font-display text-xl sm:text-2xl text-mist-100 mt-2">{{ education.degree }}</h3>
-        <p class="text-mist-400 mt-1">{{ education.fieldOfStudy }} · {{ education.institution }} — {{ education.location }}</p>
-        <p class="text-sm text-mist-200 mt-3">Grade: <span class="text-signal">{{ education.grade }}</span></p>
+        <p class="font-mono text-[11px] text-primary tracking-widest">EVT‑{{ education.startDate }} → {{ education.endDate }}</p>
+        <h3 class="font-display text-xl sm:text-2xl text-foreground mt-2">{{ education.degree }}</h3>
+        <p class="text-foreground-muted mt-1">{{ education.fieldOfStudy }} · {{ education.institution }} — {{ education.location }}</p>
+        <p class="text-sm text-foreground mt-3">Grade: <span class="text-primary">{{ education.grade }}</span></p>
       </article>
     </div>
   </div>
 </section>
 
 <!-- ============ PROJECTS ============ -->
-<section id="projects" class="bg-ink-900 border-t border-ink-700 px-6 py-24">
+<section id="projects" class="bg-background border-t border-border700 px-6 py-24">
   <div class="max-w-6xl mx-auto">
-    <p class="font-mono text-xs text-signal/90 tracking-widest mb-3 reveal">EVT-04 // BUILDS.DEPLOYED</p>
-    <h2 class="font-display text-3xl sm:text-4xl text-mist-100 mb-14 reveal">Selected builds</h2>
+    <p class="font-mono text-xs text-primary/90 tracking-widest mb-3 reveal">EVT-04 // BUILDS.DEPLOYED</p>
+    <h2 class="font-display text-3xl sm:text-4xl text-foreground mb-14 reveal">Selected builds</h2>
 
     <div class="grid md:grid-cols-2 gap-6">
-      <article *ngFor="let p of projects" class="reveal group rounded-xl border border-ink-600 bg-ink-800/50 p-7 hover:border-signal/50 transition-colors flex flex-col">
+      <article *ngFor="let p of projects" class="reveal group rounded-xl border border-border600 bg-surface p-7 hover:border-primary/50 transition-colors flex flex-col">
         <div class="flex items-center justify-between mb-3">
-          <span class="font-mono text-[11px] uppercase tracking-widest text-mist-400">{{ p.category }}</span>
+          <span class="font-mono text-[11px] uppercase tracking-widest text-foreground-muted">{{ p.category }}</span>
           <div class="flex items-center gap-3">
-            <a *ngIf="p.githubUrl" [href]="p.githubUrl" target="_blank" rel="noopener" class="font-mono text-[11px] text-mist-400 hover:text-signal hover:underline">code ↗</a>
-            <a *ngIf="p.liveUrl" [href]="p.liveUrl" target="_blank" rel="noopener" class="font-mono text-[11px] text-signal hover:underline">live ↗</a>
+            <a *ngIf="p.githubUrl" [href]="p.githubUrl" target="_blank" rel="noopener" class="font-mono text-[11px] text-foreground-muted hover:text-primary hover:underline">code ↗</a>
+            <a *ngIf="p.liveUrl" [href]="p.liveUrl" target="_blank" rel="noopener" class="font-mono text-[11px] text-primary hover:underline">live ↗</a>
           </div>
         </div>
-        <h3 class="font-display text-xl text-mist-100 mb-2">{{ p.name }}</h3>
-        <p class="text-sm text-mist-400 leading-relaxed mb-4">{{ p.description }}</p>
+        <h3 class="font-display text-xl text-foreground mb-2">{{ p.name }}</h3>
+        <p class="text-sm text-foreground-muted leading-relaxed mb-4">{{ p.description }}</p>
 
         <ul class="space-y-1.5 mb-5">
-          <li *ngFor="let r of p.responsibilities.slice(0, 3)" class="text-sm text-mist-200 flex gap-2">
-            <span class="text-signal mt-1.5 shrink-0">›</span><span>{{ r }}</span>
+          <li *ngFor="let r of p.responsibilities.slice(0, 3)" class="text-sm text-foreground flex gap-2">
+            <span class="text-primary mt-1.5 shrink-0">›</span><span>{{ r }}</span>
           </li>
         </ul>
 
-        <div class="mt-auto flex flex-wrap gap-2 pt-4 border-t border-ink-700">
-          <span *ngFor="let t of p.techStack" class="font-mono text-[11px] text-mist-400 border border-ink-600 rounded px-2 py-1">
+        <div class="mt-auto flex flex-wrap gap-2 pt-4 border-t border-border700">
+          <span *ngFor="let t of p.techStack" class="font-mono text-[11px] text-foreground-muted border border-border600 rounded px-2 py-1">
             {{ t }}
           </span>
         </div>
@@ -199,12 +346,12 @@
 </section>
 
 <!-- ============ CERTIFICATIONS ============ -->
-<section id="certifications" class="bg-ink-900 border-t border-ink-700 px-6 py-24">
+<section id="certifications" class="bg-background border-t border-border700 px-6 py-24">
   <div class="max-w-6xl mx-auto">
-    <p class="font-mono text-xs text-signal/90 tracking-widest mb-3 reveal">EVT-05 // CREDENTIALS.VERIFIED</p>
-    <h2 class="font-display text-3xl sm:text-4xl text-mist-100 mb-14 reveal">Certifications</h2>
+    <p class="font-mono text-xs text-primary/90 tracking-widest mb-3 reveal">EVT-05 // CREDENTIALS.VERIFIED</p>
+    <h2 class="font-display text-3xl sm:text-4xl text-foreground mb-14 reveal">Certifications</h2>
 
-    <div class="divide-y divide-ink-700 border-y border-ink-700">
+    <div class="divide-y divide-ink-700 border-y border-border700">
       <a
         *ngFor="let c of certifications"
         [href]="c.credentialUrl"
@@ -213,83 +360,83 @@
         class="reveal group flex flex-col sm:flex-row sm:items-center justify-between gap-2 py-6 hover:bg-ink-800/40 transition-colors px-2 -mx-2 rounded"
       >
         <div>
-          <h3 class="font-display text-lg text-mist-100 group-hover:text-signal transition-colors">{{ c.name }}</h3>
-          <p class="text-sm text-mist-400 mt-1">{{ c.issuer }}</p>
+          <h3 class="font-display text-lg text-foreground group-hover:text-primary transition-colors">{{ c.name }}</h3>
+          <p class="text-sm text-foreground-muted mt-1">{{ c.issuer }}</p>
           <div class="flex flex-wrap gap-2 mt-2">
-            <span *ngFor="let s of c.skills" class="font-mono text-[11px] text-mist-400 border border-ink-600 rounded px-2 py-0.5">{{ s }}</span>
+            <span *ngFor="let s of c.skills" class="font-mono text-[11px] text-foreground-muted border border-border600 rounded px-2 py-0.5">{{ s }}</span>
           </div>
         </div>
-        <span class="font-mono text-xs text-mist-400 whitespace-nowrap">{{ c.issueDate }}</span>
+        <span class="font-mono text-xs text-foreground-muted whitespace-nowrap">{{ c.issueDate }}</span>
       </a>
     </div>
   </div>
 </section>
 
 <!-- ============ BLOG ============ -->
-<section id="blog" class="bg-ink-900 border-t border-ink-700 px-6 py-24">
+<section id="blog" class="bg-background border-t border-border700 px-6 py-24">
   <div class="max-w-6xl mx-auto">
-    <p class="font-mono text-xs text-signal/90 tracking-widest mb-3 reveal">EVT-06 // NOTES.PUBLISHED</p>
-    <h2 class="font-display text-3xl sm:text-4xl text-mist-100 mb-14 reveal">Writing notes</h2>
+    <p class="font-mono text-xs text-primary/90 tracking-widest mb-3 reveal">EVT-06 // NOTES.PUBLISHED</p>
+    <h2 class="font-display text-3xl sm:text-4xl text-foreground mb-14 reveal">Writing notes</h2>
 
     <div class="grid md:grid-cols-3 gap-6">
-      <article *ngFor="let b of blogs" class="reveal rounded-xl border border-ink-600 bg-ink-800/50 p-6 hover:border-signal/50 transition-colors flex flex-col">
-        <span class="font-mono text-[11px] uppercase tracking-widest text-signal mb-3">{{ b.category }}</span>
-        <h3 class="font-display text-lg text-mist-100 mb-2">{{ b.title }}</h3>
-        <p class="text-sm text-mist-400 leading-relaxed mb-4">{{ b.summary }}</p>
-        <div class="mt-auto flex flex-wrap gap-2 pt-4 border-t border-ink-700 mb-3">
-          <span *ngFor="let t of b.tags" class="font-mono text-[11px] text-mist-400 border border-ink-600 rounded px-2 py-1">{{ t }}</span>
+      <article *ngFor="let b of blogs" class="reveal rounded-xl border border-border600 bg-surface p-6 hover:border-primary/50 transition-colors flex flex-col">
+        <span class="font-mono text-[11px] uppercase tracking-widest text-primary mb-3">{{ b.category }}</span>
+        <h3 class="font-display text-lg text-foreground mb-2">{{ b.title }}</h3>
+        <p class="text-sm text-foreground-muted leading-relaxed mb-4">{{ b.summary }}</p>
+        <div class="mt-auto flex flex-wrap gap-2 pt-4 border-t border-border700 mb-3">
+          <span *ngFor="let t of b.tags" class="font-mono text-[11px] text-foreground-muted border border-border600 rounded px-2 py-1">{{ t }}</span>
         </div>
-        <span class="font-mono text-[11px] text-mist-400">{{ b.publishedDate }}</span>
+        <span class="font-mono text-[11px] text-foreground-muted">{{ b.publishedDate }}</span>
       </article>
     </div>
   </div>
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section id="contact" class="bg-ink-900 border-t border-ink-700 px-6 py-24">
+<section id="contact" class="bg-background border-t border-border700 px-6 py-24">
   <div class="max-w-6xl mx-auto grid md:grid-cols-[1fr_1fr] gap-14 items-start">
     <div class="reveal">
-      <p class="font-mono text-xs text-signal/90 tracking-widest mb-3">EVT-07 // CONNECTION.OPEN</p>
-      <h2 class="font-display text-3xl sm:text-4xl text-mist-100 mb-5">Let's build something</h2>
-      <p class="text-mist-400 leading-relaxed max-w-md">
+      <p class="font-mono text-xs text-primary/90 tracking-widest mb-3">EVT-07 // CONNECTION.OPEN</p>
+      <h2 class="font-display text-3xl sm:text-4xl text-foreground mb-5">Let's build something</h2>
+      <p class="text-foreground-muted leading-relaxed max-w-md">
         Open to backend, full-stack, and distributed-systems roles. Reach out directly — I read every message.
       </p>
 
       <div class="mt-8 space-y-3 font-mono text-sm">
-        <a [href]="mailtoHref()" class="flex items-center gap-3 text-mist-200 hover:text-signal transition-colors">
-          <span class="text-signal">→</span>{{ profile.email }}
+        <a [href]="mailtoHref()" class="flex items-center gap-3 text-foreground hover:text-primary transition-colors">
+          <span class="text-primary">→</span>{{ profile.email }}
         </a>
-        <p class="flex items-center gap-3 text-mist-200">
-          <span class="text-signal">→</span>{{ profile.phone }}
+        <p class="flex items-center gap-3 text-foreground">
+          <span class="text-primary">→</span>{{ profile.phone }}
         </p>
-        <p class="flex items-center gap-3 text-mist-200">
-          <span class="text-signal">→</span>{{ profile.location }}
+        <p class="flex items-center gap-3 text-foreground">
+          <span class="text-primary">→</span>{{ profile.location }}
         </p>
-        <a href="https://{{ profile.socialLinks.linkedin }}" target="_blank" rel="noopener" class="flex items-center gap-3 text-mist-200 hover:text-signal transition-colors">
-          <span class="text-signal">→</span>{{ profile.socialLinks.linkedin }}
+        <a href="https://{{ profile.socialLinks.linkedin }}" target="_blank" rel="noopener" class="flex items-center gap-3 text-foreground hover:text-primary transition-colors">
+          <span class="text-primary">→</span>{{ profile.socialLinks.linkedin }}
         </a>
-        <a href="https://{{ profile.socialLinks.github }}" target="_blank" rel="noopener" class="flex items-center gap-3 text-mist-200 hover:text-signal transition-colors">
-          <span class="text-signal">→</span>{{ profile.socialLinks.github }}
+        <a href="https://{{ profile.socialLinks.github }}" target="_blank" rel="noopener" class="flex items-center gap-3 text-foreground hover:text-primary transition-colors">
+          <span class="text-primary">→</span>{{ profile.socialLinks.github }}
         </a>
       </div>
     </div>
 
-    <div class="reveal rounded-xl border border-ink-600 bg-ink-800/70 card-noise p-7">
-      <p class="font-mono text-[11px] text-mist-400 mb-5">// drafts a message in your mail client</p>
+    <div class="reveal rounded-xl border border-border600 bg-ink-800/70 card-noise p-7">
+      <p class="font-mono text-[11px] text-foreground-muted mb-5">// drafts a message in your mail client</p>
       <form [attr.action]="null" class="space-y-4" onsubmit="return false;">
         <div>
-          <label class="block font-mono text-[11px] uppercase tracking-widest text-mist-400 mb-1.5">Name</label>
-          <input type="text" placeholder="Your name" class="w-full bg-ink-900 border border-ink-600 rounded-md px-3 py-2.5 text-sm text-mist-100 placeholder:text-mist-400/60 focus:outline-none focus:border-signal" />
+          <label class="block font-mono text-[11px] uppercase tracking-widest text-foreground-muted mb-1.5">Name</label>
+          <input type="text" placeholder="Your name" class="w-full bg-background border border-border600 rounded-md px-3 py-2.5 text-sm text-foreground placeholder:text-foreground-muted/60 focus:outline-none focus:border-signal" />
         </div>
         <div>
-          <label class="block font-mono text-[11px] uppercase tracking-widest text-mist-400 mb-1.5">Subject</label>
-          <input type="text" placeholder="Project Discussion" class="w-full bg-ink-900 border border-ink-600 rounded-md px-3 py-2.5 text-sm text-mist-100 placeholder:text-mist-400/60 focus:outline-none focus:border-signal" />
+          <label class="block font-mono text-[11px] uppercase tracking-widest text-foreground-muted mb-1.5">Subject</label>
+          <input type="text" placeholder="Project Discussion" class="w-full bg-background border border-border600 rounded-md px-3 py-2.5 text-sm text-foreground placeholder:text-foreground-muted/60 focus:outline-none focus:border-signal" />
         </div>
         <div>
-          <label class="block font-mono text-[11px] uppercase tracking-widest text-mist-400 mb-1.5">Message</label>
-          <textarea rows="4" placeholder="Let's connect" class="w-full bg-ink-900 border border-ink-600 rounded-md px-3 py-2.5 text-sm text-mist-100 placeholder:text-mist-400/60 focus:outline-none focus:border-signal resize-none"></textarea>
+          <label class="block font-mono text-[11px] uppercase tracking-widest text-foreground-muted mb-1.5">Message</label>
+          <textarea rows="4" placeholder="Let's connect" class="w-full bg-background border border-border600 rounded-md px-3 py-2.5 text-sm text-foreground placeholder:text-foreground-muted/60 focus:outline-none focus:border-signal resize-none"></textarea>
         </div>
-        <a [href]="mailtoHref()" class="inline-flex w-full justify-center items-center gap-2 bg-signal text-ink-950 font-semibold text-sm px-5 py-3 rounded-md hover:bg-signal-dim transition-colors">
+        <a [href]="mailtoHref()" class="inline-flex w-full justify-center items-center gap-2 bg-primaryl text-ink-950 font-semibold text-sm px-5 py-3 rounded-md hover:bg-primary-dim transition-colors">
           Send message
         </a>
       </form>
@@ -298,9 +445,9 @@
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer class="bg-ink-900 border-t border-ink-700 px-6 py-10">
-  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs text-mist-400">
+<footer class="bg-background border-t border-border700 px-6 py-10">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs text-foreground-muted">
     <p>© {{ currentYear }} {{ profile.name }}. All events logged.</p>
-    <p class="text-signal">status: available for new opportunities</p>
+    <p class="text-primary">status: available for new opportunities</p>
   </div>
 </footer>
