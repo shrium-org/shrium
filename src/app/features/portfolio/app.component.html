@@ -23,7 +23,7 @@
       <li *ngFor="let link of navLinks">
         <a
           [href]="link.href"
-          class="transition-colors hover:text-primary"
+          class="transition-colors text-foreground-subtle hover:text-primary"
         >
           {{ link.label }}
         </a>
@@ -52,7 +52,7 @@
       <a
         [href]="link.href"
         (click)="closeNav()"
-        class="block transition-colors hover:text-primary"
+        class="block transition-colors text-foreground-subtle hover:text-primary"
       >
         {{ link.label }}
       </a>
@@ -318,7 +318,7 @@
     <h2 class="font-display text-3xl sm:text-4xl text-foreground mb-14 reveal">Selected builds</h2>
 
     <div class="grid md:grid-cols-2 gap-6">
-      <article *ngFor="let p of projects" class="reveal group rounded-xl border border-border600 bg-surface p-7 hover:border-primary/50 transition-colors flex flex-col">
+      <article *ngFor="let p of projects" class="reveal group rounded-xl border border-border600 bg-surface p-7 hover:border-signal/50 transition-colors flex flex-col">
         <div class="flex items-center justify-between mb-3">
           <span class="font-mono text-[11px] uppercase tracking-widest text-foreground-muted">{{ p.category }}</span>
           <div class="flex items-center gap-3">
@@ -379,7 +379,7 @@
     <h2 class="font-display text-3xl sm:text-4xl text-foreground mb-14 reveal">Writing notes</h2>
 
     <div class="grid md:grid-cols-3 gap-6">
-      <article *ngFor="let b of blogs" class="reveal rounded-xl border border-border600 bg-surface p-6 hover:border-primary/50 transition-colors flex flex-col">
+      <article *ngFor="let b of blogs" class="reveal rounded-xl border border-border600 bg-surface p-6 hover:border-signal/50 transition-colors flex flex-col">
         <span class="font-mono text-[11px] uppercase tracking-widest text-primary mb-3">{{ b.category }}</span>
         <h3 class="font-display text-lg text-foreground mb-2">{{ b.title }}</h3>
         <p class="text-sm text-foreground-muted leading-relaxed mb-4">{{ b.summary }}</p>
