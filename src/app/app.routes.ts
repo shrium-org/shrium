@@ -1,18 +1,13 @@
 import { Routes } from '@angular/router';
-import { Home } from './features/landing-home/landing-home/home';
-import { Portfolio } from './features/portfolio/pages/portfolio/portfolio';
+import { AppComponent } from './features/portfolio/app.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: Home,
+    component: AppComponent,
     title: 'Shrium | Home',
   },
-  {
-    path: 'portfolio',
-    component: Portfolio,
-    title: 'Shrium | Owner Portfolio',
-  },
+
   {
     path: 'dev-tools',
     pathMatch: 'full',
