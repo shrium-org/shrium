@@ -5,7 +5,7 @@ export const routes: Routes = [
   {
     path: '',
     component: AppComponent,
-    title: 'Shrium | Home',
+    title: 'Shrium | Owner Portfolio',
   },
 
   {
