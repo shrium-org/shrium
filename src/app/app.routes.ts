@@ -1,17 +1,12 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './features/portfolio/app.component';
+import { Home } from './features/pages/home/home';
 
 export const routes: Routes = [
-  {
-    path: '',
-    component: AppComponent,
-    title: 'Shrium | Owner Portfolio',
-  },
 
   {
-    path: 'dev-tools',
-    pathMatch: 'full',
-    redirectTo: 'dev-tools/branding',
+    path: '',
+    title: "Shrium",
+    component: Home
   },
 
   {
@@ -22,13 +17,13 @@ export const routes: Routes = [
       {
         path: 'branding',
         loadComponent: () =>
-          import('./features/branding/pages/branding/branding')
+          import('./features/pages/branding/branding')
             .then((m) => m.Branding),
       },
           {
         path: 'logo-generator',
         loadComponent: () =>
-          import('./features/branding/pages/logo-generator/logo-generator.component')
+          import('./features/pages/logo-generator/logo-generator.component')
             .then((m) => m.LogoGeneratorComponent),
       },
     ],
@@ -48,7 +43,7 @@ export const routes: Routes = [
         path: 'interview-prep',
         title: 'Shrium | Interview Prep',
         loadChildren: () =>
-          import('./interview-prep/interview-prep.routes').then(
+          import('./features/interview-prep/interview-prep.routes').then(
             (m) => m.INTERVIEW_PREP_ROUTES
           ),
       },
