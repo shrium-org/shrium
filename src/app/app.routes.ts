@@ -5,6 +5,7 @@ export const routes: Routes = [
   
     {
         path:"",
+        title: "HOME | SIVAXI",
         component: Home
     }
  
