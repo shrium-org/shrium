@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/shrium/browser",
+    "public": "yes",
     "ignore": [
       "firebase.json",
       "**/.*",

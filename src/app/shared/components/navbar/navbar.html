@@ -1,32 +1,70 @@
-<nav class="bg-(--sf) border-b border-gray-600 h-15">
-  <div class="max-w-5xl mx-auto px-8 h-full flex items-center justify-between">
+<header
+  class="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur"
+>
+  <nav
+    class="mx-auto flex h-16 w-full max-w-content items-center justify-between px-5 sm:px-8 lg:px-10"
+    aria-label="Main navigation"
+  >
 
-    <!-- Logo -->
-    <div class="flex items-center gap-2.5">
-      <!-- SVG -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-8 h-8">
-        ...
-      </svg>
+    <!-- Brand -->
+    <a
+      href="/"
+      class="text-lg font-semibold tracking-tight text-text"
+      aria-label="Home"
+    >
+      Ajay Malah
+    </a>
 
-      <span class="font-semibold text-lg tracking-[0.1em] text-(--fg)">
-        <span class="text-(--cp)">S</span>
-        <span class="font-light">hrium</span>
-      </span>
+    <!-- Desktop navigation -->
+    <div class="hidden items-center gap-8 md:flex">
+      @for (item of navigationItems; track item.fragment) {
+        <a
+          [href]="'#' + item.fragment"
+          class="text-sm text-text-secondary transition-colors hover:text-text"
+        >
+          {{ item.label }}
+        </a>
+      }
+
+      <app-theme-switcher />
     </div>
 
-    <!-- Nav Links -->
-    <div class="flex items-center gap-7">
-      <a routerLink="/products" class="text-[11px] uppercase tracking-[0.14em] text-(--fg-m) no-underline">Products</a>
-      <a href="#" class="text-[11px] uppercase tracking-[0.14em] text-(--fg-m) no-underline">Solutions</a>
-      <a href="#" class="text-[11px] uppercase tracking-[0.14em] text-(--fg-m) no-underline">Company</a>
-      <a href="#" class="text-[11px] uppercase tracking-[0.14em] text-(--fg-m) no-underline">Docs</a>
-    </div>
+    <!-- Mobile controls -->
+    <div class="flex items-center gap-2 md:hidden">
 
-    <!-- Actions -->
-    <div class="flex items-center gap-2.5">
-      <button class="btn-g px-4 py-2 text-[11px]">Sign in</button>
-      <button class="btn-p px-4 py-2 text-[11px]">Get started</button>
-    </div>
+      <app-theme-switcher />
 
-  </div>
-</nav>
+      <button
+        type="button"
+        class="flex h-10 w-10 items-center justify-center rounded-full text-text"
+        [attr.aria-expanded]="mobileMenuOpen()"
+        aria-label="Toggle navigation menu"
+        (click)="toggleMobileMenu()"
+      >
+        <span class="text-lg">
+          {{ mobileMenuOpen() ? '×' : '☰' }}
+        </span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile navigation -->
+  @if (mobileMenuOpen()) {
+    <div class="border-t border-border md:hidden">
+      <div class="mx-auto flex w-full max-w-content flex-col px-5 py-4 sm:px-8">
+
+        @for (item of navigationItems; track item.fragment) {
+          <a
+            [href]="'#' + item.fragment"
+            class="border-b border-border-subtle py-4 text-sm text-text-secondary hover:text-text"
+            (click)="closeMobileMenu()"
+          >
+            {{ item.label }}
+          </a>
+        }
+
+      </div>
+    </div>
+  }
+</header>

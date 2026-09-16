@@ -1,28 +1,46 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+<head>
+  <meta charset="utf-8">
+  <title>Portfolio</title>
 
-    <!-- Preconnect hints first -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <base href="/">
 
-    <!-- Google Fonts (merged into one request) -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Outfit:wght@200;300;400;500;600&family=Roboto:wght@300;400;500&family=Material+Icons&display=swap"
-      rel="stylesheet"
-    />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
 
-    <!-- Tabler Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
-    />
-  </head>
-  <body>
-    <app-root></app-root>
-  </body>
+  <meta name="color-scheme" content="light dark">
+
+  <!-- Initial theme -->
+  <script>
+    (() => {
+      const storageKey = 'portfolio-theme';
+      const storedTheme = localStorage.getItem(storageKey);
+
+      const theme =
+        storedTheme === 'light' ||
+        storedTheme === 'dark' ||
+        storedTheme === 'system'
+          ? storedTheme
+          : 'system';
+
+      const isDark =
+        theme === 'dark' ||
+        (
+          theme === 'system' &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches
+        );
+
+      document.documentElement.classList.toggle('dark', isDark);
+      document.documentElement.style.colorScheme =
+        isDark ? 'dark' : 'light';
+    })();
+  </script>
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
 </html>

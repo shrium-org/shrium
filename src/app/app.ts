@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './shared/components/navbar/navbar';
+import { HeroComponent } from './features/home/hero/hero';
+import { AboutComponent } from './features/home/about/about';
+import { SkillsComponent } from './features/home/skills/skills';
+import { ExperienceComponent } from './features/home/experience/experience';
+import { ProjectsComponent } from './features/home/projects/projects';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
+  imports: [NavbarComponent, HeroComponent, AboutComponent, SkillsComponent, ExperienceComponent, ProjectsComponent],
+  templateUrl: './app.html'
 })
-export class App {
-  constructor() {
-
-  }
-}
+export class AppComponent {}
