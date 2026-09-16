@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ThemeToggle } from "../../../shared/components/theme-toggle/theme-toggle";
+import { ThemeService } from '../../../shared/components/theme-toggle/theme-service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,9 @@ import { ThemeToggle } from "../../../shared/components/theme-toggle/theme-toggl
   imports: [ThemeToggle]
 })
 export class Home {
+
+
+  themService = inject(ThemeService)
 
   technologies = [
     'JAVA',

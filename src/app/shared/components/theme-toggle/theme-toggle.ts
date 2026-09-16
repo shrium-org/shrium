@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ThemeService } from './theme-service';
 
 @Component({
   selector: 'app-theme-toggle',
@@ -8,22 +9,9 @@ import { Component } from '@angular/core';
 })
 export class ThemeToggle {
 
-  isDark = true;
+  readonly themeService = inject(ThemeService);
 
-  ngOnInit() {
-    const theme = localStorage.getItem('theme') ?? 'dark';
-
-    document.documentElement.setAttribute('data-theme', theme);
-
-    this.isDark = theme === 'dark';
-  }
-
-  toggleTheme() {
-    this.isDark = !this.isDark;
-
-    const theme = this.isDark ? 'dark' : 'light';
-
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+  toggleTheme(): void {
+    this.themeService.toggle();
   }
 }

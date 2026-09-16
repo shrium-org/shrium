@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 88" width="256" height="75">
+<defs><style>@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600&amp;display=swap');</style></defs>
+<g transform="translate(46,44) scale(.88)"><polygon points="0,-40 34.64,20 -34.64,20" stroke="#C8841A" stroke-width="3.5" fill="none" stroke-linejoin="miter"/><polygon points="0,40 -34.64,-20 34.64,-20" stroke="#111111" stroke-width="2.4499999999999997" fill="none" stroke-linejoin="miter" opacity="0.5"/><polygon points="0,-18 15.588,9 -15.588,9" stroke="#C8841A" stroke-width="1.9250000000000003" fill="none" stroke-linejoin="miter" opacity="0.82"/><circle cx="0" cy="-40" r="3.2" fill="#C8841A"/>
+          <circle cx="34.64" cy="20" r="3.2" fill="#C8841A"/>
+          <circle cx="-34.64" cy="20" r="3.2" fill="#C8841A"/><circle cx="0" cy="40" r="2.176" fill="#111111" opacity="0.5"/>
+            <circle cx="-34.64" cy="-20" r="2.176" fill="#111111" opacity="0.5"/>
+            <circle cx="34.64" cy="-20" r="2.176" fill="#111111" opacity="0.5"/><circle cx="0" cy="0" r="4" fill="#C8841A"/></g>
+<line x1="94" y1="20" x2="94" y2="68" stroke="#C8841A" stroke-width="0.5" opacity="0.3"/>
+<text x="106" y="50" font-family="Rajdhani,sans-serif" font-weight="600" font-size="30" fill="#C8841A">S</text>
+<text x="124" y="50" font-family="Rajdhani,sans-serif" font-weight="300" font-size="30" letter-spacing="2" fill="#111111">hrium</text>
+<text x="106" y="66" font-family="Rajdhani,sans-serif" font-weight="200" font-size="7.8" letter-spacing="4.8" fill="#C8841A" opacity="0.55">TECHNOLOGIES</text>
+</svg>

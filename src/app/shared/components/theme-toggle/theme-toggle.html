@@ -2,5 +2,5 @@
   type="button"
   class="theme-toggle"
   (click)="toggleTheme()">
-  {{ isDark ? '☀️' : '🌙' }}
+  {{ themeService.isDark() ? '☀️' : '🌙' }}
 </button>

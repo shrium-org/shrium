@@ -13,7 +13,7 @@
         routerLink="/"
         class="group flex items-center gap-3"
       >
-        <img src="assets/logo/logo-full.svg" class="h-10" />
+        <img [src]="themService.isDark()?'assets/logo/logo-full-light.svg':'assets/logo/logo-full-dark.svg'" class="h-10" />
       </a>
 
 
@@ -1056,8 +1056,7 @@
           tracking-wide
         "
       >
-        <span class="text-primary">◇</span>
-        shrium
+        <img [src]="themService.isDark()?'assets/logo/logo-full-light.svg':'assets/logo/logo-full-dark.svg'" class="h-10" />
       </div>
 
       <span
