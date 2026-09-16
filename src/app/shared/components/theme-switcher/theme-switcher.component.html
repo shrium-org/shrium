@@ -8,10 +8,12 @@
     type="button"
     (click)="setTheme(theme.value)"
     [attr.aria-pressed]="themeService.theme() === theme.value"
-    class="rounded-full px-3 py-1.5 text-sm transition-colors"
-    [class.bg-text]="themeService.theme() === theme.value"
-    [class.text-background]="themeService.theme() === theme.value"
+    class="rounded-full px-3 py-1.5 text-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+    [class.bg-interactive]="themeService.theme() === theme.value"
+    [class.text-interactive-foreground]="themeService.theme() === theme.value"
+    [class.shadow-sm]="themeService.theme() === theme.value"
     [class.text-text-secondary]="themeService.theme() !== theme.value"
+    [class.hover:bg-surface-hover]="themeService.theme() !== theme.value"
     [class.hover:text-text]="themeService.theme() !== theme.value"
   >
     {{ theme.label }}

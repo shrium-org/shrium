@@ -1,0 +1,109 @@
+<section
+  id="projects"
+  class="border-b border-border py-20 sm:py-28 lg:py-32"
+>
+  <div class="mx-auto w-full max-w-content px-5 sm:px-8 lg:px-10">
+    <!-- Header -->
+    <div class="max-w-2xl">
+      <p class="text-xs font-medium uppercase tracking-[0.22em] text-text-muted">
+        Projects
+      </p>
+
+      <h2 class="mt-4 text-3xl font-semibold tracking-[-0.03em] text-text sm:text-4xl">
+        Systems I have built.
+      </h2>
+
+      <p class="mt-5 text-lg leading-8 text-text-secondary">
+        Selected work across backend engineering, distributed systems,
+        infrastructure, and AI.
+      </p>
+    </div>
+
+    <!-- Projects -->
+    <div class="mt-16 grid gap-6 lg:grid-cols-2">
+      @for (project of projects; track project.name; let i = $index) {
+        <article
+          class="group rounded-xl border border-border bg-surface p-7 transition-all hover:border-border-strong hover:shadow-md sm:p-8"
+        >
+          <!-- Project header -->
+          <div class="flex items-center gap-4">
+            <span class="font-mono text-xs text-text-muted" aria-hidden="true">
+              {{ (i + 1).toString().padStart(2, '0') }}
+            </span>
+
+            <p class="text-xs font-medium uppercase tracking-[0.18em] text-text-muted">
+              {{ project.category }}
+            </p>
+          </div>
+
+          <h3
+            class="mt-4 text-2xl font-semibold tracking-[-0.025em] text-text sm:text-3xl"
+          >
+            {{ project.name }}
+          </h3>
+
+          <p class="mt-4 text-base leading-7 text-text-secondary">
+            {{ project.description }}
+          </p>
+
+          <!-- Highlights -->
+          <div class="mt-8 border-t border-border-subtle pt-6">
+            <p class="text-xs font-medium uppercase tracking-[0.18em] text-text-muted">
+              Engineering
+            </p>
+
+            <ul class="mt-4 space-y-3">
+              @for (highlight of project.highlights; track highlight) {
+                <li class="flex gap-3 text-sm leading-6 text-text-secondary">
+                  <span
+                    class="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-text"
+                    aria-hidden="true"
+                  ></span>
+                  <span>{{ highlight }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+
+          <!-- Technologies -->
+          <div class="mt-6 flex flex-wrap gap-2">
+            @for (technology of project.technologies; track technology) {
+              <span
+                class="rounded-full border border-border-subtle bg-surface-muted px-2.5 py-1 text-xs text-text-secondary"
+              >
+                {{ technology }}
+              </span>
+            }
+          </div>
+
+          <!-- Links -->
+          @if (project.githubUrl || project.liveUrl) {
+            <div class="mt-7 flex flex-wrap gap-4 border-t border-border-subtle pt-6">
+              @if (project.githubUrl) {
+                
+                 <a [href]="project.githubUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium text-text transition-colors hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                >
+                  GitHub ↗
+                </a>
+              }
+
+              @if (project.liveUrl) {
+                
+               <a   [href]="project.liveUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 rounded-full bg-interactive px-4 py-2 text-sm font-medium text-interactive-foreground transition-colors hover:bg-interactive-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                >
+                  Live Demo ↗
+                </a>
+              }
+            </div>
+          }
+        </article>
+      }
+    </div>
+  </div>
+</section>

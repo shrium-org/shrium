@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ExperienceService } from '../../../core/services/experience.service';
+import { ExperienceService } from '../../../../core/services/experience.service';
 
 @Component({
   selector: 'app-experience',

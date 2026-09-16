@@ -22,17 +22,22 @@ export class ContactService {
     heading: 'Let’s build something useful.',
     description:
       'I am open to discussing software engineering opportunities, interesting projects, and technical collaborations.',
-    email: 'your-email@example.com',
+    email: 'ajaymalah.2003@gmail.com',
     links: [
       {
         label: 'GitHub',
         value: 'GitHub',
-        url: '#'
+        url: 'https://github.com/ajaymalah'
       },
       {
         label: 'LinkedIn',
         value: 'LinkedIn',
-        url: '#'
+        url: 'https://www.linkedin.com/in/ajay-malah-512153204/'
+      },
+            {
+        label: 'Website',
+        value: 'Website',
+        url: 'https://sivaxi.com'
       }
     ]
   };

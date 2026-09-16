@@ -1,0 +1,63 @@
+<section
+  id="contact"
+  class="border-b border-border py-20 sm:py-28 lg:py-36"
+>
+  <div
+    class="mx-auto grid w-full max-w-content gap-14 px-5 sm:px-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-20 lg:px-10"
+  >
+    <!-- Main -->
+    <div>
+      <p class="text-xs font-medium uppercase tracking-[0.22em] text-text-muted">
+        Contact
+      </p>
+
+      <h2
+        class="mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-text sm:text-5xl lg:text-6xl"
+      >
+        {{ contact.heading }}
+      </h2>
+
+      <p
+        class="mt-7 max-w-2xl text-lg leading-8 text-text-secondary sm:text-xl sm:leading-9"
+      >
+        {{ contact.description }}
+      </p>
+
+      
+        <a [href]="'mailto:' + contact.email"
+        class="mt-9 inline-flex items-center gap-2 rounded-full bg-interactive px-6 py-3 text-base font-medium text-interactive-foreground shadow-sm transition-all hover:bg-interactive-hover hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:bg-interactive-active"
+      >
+        {{ contact.email }}
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <!-- Links -->
+    <div class="lg:justify-self-end lg:w-full lg:max-w-sm">
+      <p class="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-text-muted">
+        Elsewhere
+      </p>
+
+      <div class="rounded-lg border border-border bg-surface">
+        @for (link of contact.links; track link.label) {
+          
+          <a  [href]="link.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center justify-between border-b border-border px-5 py-5 text-text transition-colors last:border-b-0 hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
+          >
+            <span class="text-sm text-text-secondary group-hover:text-text">
+              {{ link.label }}
+            </span>
+
+            <span
+              class="text-sm font-medium transition-transform group-hover:translate-x-1"
+            >
+              {{ link.value }} ↗
+            </span>
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+</section>

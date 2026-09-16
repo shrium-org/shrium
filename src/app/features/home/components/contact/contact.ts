@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ContactService } from '../../../core/services/contact.service';
+import { ContactService } from '../../../../core/services/contact.service';
 
 @Component({
   selector: 'app-contact',

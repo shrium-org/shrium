@@ -1,0 +1,90 @@
+<section
+  id="experience"
+  class="border-b border-border py-20 sm:py-28 lg:py-32"
+>
+  <div class="mx-auto w-full max-w-content px-5 sm:px-8 lg:px-10">
+    <!-- Header -->
+    <div class="max-w-2xl">
+      <p class="text-xs font-medium uppercase tracking-[0.22em] text-text-muted">
+        Experience
+      </p>
+
+      <h2 class="mt-4 text-3xl font-semibold tracking-[-0.03em] text-text sm:text-4xl">
+        Where I have worked.
+      </h2>
+    </div>
+
+    <!-- Timeline -->
+    <div class="mt-16">
+      @for (experience of experiences; track experience.company) {
+        <article
+          class="grid gap-8 border-t border-border py-10 transition-colors sm:py-12 lg:grid-cols-[0.3fr_0.7fr] lg:gap-16"
+        >
+          <!-- Meta -->
+          <div>
+            <p class="text-sm font-medium text-text">
+              {{ experience.period }}
+            </p>
+
+            @if (experience.location) {
+              <p class="mt-2 text-sm text-text-muted">
+                {{ experience.location }}
+              </p>
+            }
+
+            <p class="mt-4 text-sm text-text-secondary">
+              {{ experience.employmentType }}
+            </p>
+          </div>
+
+          <!-- Main content -->
+          <div>
+            <h3 class="text-2xl font-semibold tracking-tight text-text sm:text-3xl">
+              {{ experience.role }}
+            </h3>
+
+            <p class="mt-2 text-base font-medium text-text-secondary">
+              {{ experience.company }}
+            </p>
+
+            <p
+              class="mt-6 max-w-3xl text-base leading-7 text-text-secondary sm:text-lg sm:leading-8"
+            >
+              {{ experience.summary }}
+            </p>
+
+            <!-- Highlights -->
+            <ul class="mt-8 max-w-3xl space-y-4">
+              @for (highlight of experience.highlights; track highlight) {
+                <li class="flex gap-4 text-base leading-7 text-text-secondary">
+                  <span
+                    class="mt-[0.65rem] h-1.5 w-1.5 shrink-0 rounded-full bg-text"
+                    aria-hidden="true"
+                  ></span>
+                  <span>{{ highlight }}</span>
+                </li>
+              }
+            </ul>
+
+            <!-- Technologies -->
+            <div class="mt-9 border-t border-border-subtle pt-6">
+              <p class="text-xs font-medium uppercase tracking-[0.18em] text-text-muted">
+                Technologies
+              </p>
+
+              <div class="mt-4 flex flex-wrap gap-2">
+                @for (technology of experience.technologies; track technology) {
+                  <span
+                    class="rounded-full border border-border-subtle bg-surface-muted px-2.5 py-1 text-xs text-text-secondary"
+                  >
+                    {{ technology }}
+                  </span>
+                }
+              </div>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

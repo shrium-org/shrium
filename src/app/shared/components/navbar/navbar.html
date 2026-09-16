@@ -1,70 +1,74 @@
 <header
-  class="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur"
+  class="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md"
 >
   <nav
     class="mx-auto flex h-16 w-full max-w-content items-center justify-between px-5 sm:px-8 lg:px-10"
     aria-label="Main navigation"
   >
-
     <!-- Brand -->
-    <a
-      href="/"
-      class="text-lg font-semibold tracking-tight text-text"
+    
+    <a  href="/"
+      class="rounded-sm text-base font-semibold tracking-[-0.02em] text-text transition-colors hover:text-text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:text-lg"
       aria-label="Home"
     >
       Ajay Malah
     </a>
 
     <!-- Desktop navigation -->
-    <div class="hidden items-center gap-8 md:flex">
+    <div class="hidden items-center gap-1 md:flex lg:gap-1">
       @for (item of navigationItems; track item.fragment) {
-        <a
-          [href]="'#' + item.fragment"
-          class="text-sm text-text-secondary transition-colors hover:text-text"
+        
+       <a   [href]="'#' + item.fragment"
+          class="relative rounded-full px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-surface-hover hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {{ item.label }}
         </a>
       }
 
-      <app-theme-switcher />
+      <div class="ml-3 border-l border-border pl-5">
+        <app-theme-switcher />
+      </div>
     </div>
 
     <!-- Mobile controls -->
     <div class="flex items-center gap-2 md:hidden">
-
       <app-theme-switcher />
 
       <button
         type="button"
-        class="flex h-10 w-10 items-center justify-center rounded-full text-text"
+        class="flex h-10 w-10 items-center justify-center rounded-full border border-transparent text-text transition-colors hover:border-border hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         [attr.aria-expanded]="mobileMenuOpen()"
+        aria-controls="mobile-navigation"
         aria-label="Toggle navigation menu"
         (click)="toggleMobileMenu()"
       >
-        <span class="text-lg">
+        <span class="text-xl leading-none" aria-hidden="true">
           {{ mobileMenuOpen() ? '×' : '☰' }}
         </span>
       </button>
-
     </div>
   </nav>
 
   <!-- Mobile navigation -->
   @if (mobileMenuOpen()) {
-    <div class="border-t border-border md:hidden">
-      <div class="mx-auto flex w-full max-w-content flex-col px-5 py-4 sm:px-8">
-
+    <div
+      id="mobile-navigation"
+      class="border-t border-border bg-surface shadow-md md:hidden"
+    >
+      <nav
+        class="mx-auto flex w-full max-w-content flex-col px-5 py-3 sm:px-8"
+        aria-label="Mobile navigation"
+      >
         @for (item of navigationItems; track item.fragment) {
-          <a
-            [href]="'#' + item.fragment"
-            class="border-b border-border-subtle py-4 text-sm text-text-secondary hover:text-text"
+          
+          <a  [href]="'#' + item.fragment"
+            class="rounded-md border-b border-border-subtle px-2 py-4 text-sm text-text-secondary transition-colors last:border-b-0 hover:bg-surface-hover hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             (click)="closeMobileMenu()"
           >
             {{ item.label }}
           </a>
         }
-
-      </div>
+      </nav>
     </div>
   }
 </header>

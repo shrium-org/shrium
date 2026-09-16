@@ -1,0 +1,77 @@
+<section
+  class="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden border-b border-border"
+>
+  <div
+    class="mx-auto w-full max-w-content px-5 py-24 sm:px-8 sm:py-32 lg:px-10 lg:py-40"
+  >
+    <div class="max-w-5xl">
+
+      <!-- Availability -->
+      <div class="mb-7 flex items-center gap-3">
+        <span class="relative flex h-2 w-2" aria-hidden="true">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-text opacity-40"></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-text"></span>
+        </span>
+
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-text-muted">
+          {{ profile.availability }}
+        </p>
+      </div>
+
+      <!-- Name -->
+      <h1
+        class="max-w-4xl text-5xl font-semibold leading-[0.95] tracking-[-0.045em] text-text sm:text-6xl md:text-7xl lg:text-8xl"
+      >
+        {{ profile.name }}
+      </h1>
+
+      <!-- Role -->
+      <h2
+        class="mt-6 text-xl font-medium tracking-tight text-text-secondary sm:text-2xl lg:text-3xl"
+      >
+        {{ profile.title }}
+      </h2>
+
+      <!-- Introduction -->
+      <p
+        class="mt-8 max-w-2xl text-lg leading-8 text-text-secondary sm:text-xl sm:leading-9"
+      >
+        {{ profile.introduction }}
+      </p>
+
+      <!-- Actions -->
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        
+        <a  [href]="'#' + profile.primaryAction.fragment"
+          class="inline-flex items-center justify-center rounded-full bg-interactive px-6 py-3 text-sm font-medium text-interactive-foreground shadow-sm transition-all hover:bg-interactive-hover hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:bg-interactive-active"
+        >
+          {{ profile.primaryAction.label }}
+          <span class="ml-2" aria-hidden="true">↓</span>
+        </a>
+
+        
+        <a  [href]="'#' + profile.secondaryAction.fragment"
+          class="inline-flex items-center justify-center rounded-full border border-border px-6 py-3 text-sm font-medium text-text transition-colors hover:border-border-strong hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        >
+          {{ profile.secondaryAction.label }}
+        </a>
+      </div>
+
+      <!-- Location / context -->
+      <div class="mt-14 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-text-muted">
+        <span>{{ profile.location }}</span>
+        <span class="hidden h-1 w-1 rounded-full bg-border sm:block" aria-hidden="true"></span>
+        <span>Backend · Distributed Systems · AI</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative grid -->
+  <div
+    class="pointer-events-none absolute bottom-0 right-0 hidden h-48 w-48 border-l border-t border-border lg:block"
+    aria-hidden="true"
+  >
+    <div class="absolute inset-6 border border-border-subtle"></div>
+    <div class="absolute inset-12 border border-border-subtle"></div>
+  </div>
+</section>
